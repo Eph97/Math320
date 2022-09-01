@@ -1,6 +1,5 @@
 # Math320
 
-## Week 1
+This repository contains a collection of lecture notes for Yale's measure theory and integration class (Math 320).
 
-### [08-31-22](https://github.com/Eph97/Math320/blob/main/class_notes/week1/class1.pdf)
-
+These lecture notes will be collected throughout the semester by Ephraim Sutherland and Joshua Park.We are both currently Research assistants at the Tobin Center with Jason Abaluck.
