@@ -62,7 +62,37 @@ Note we say a bounded $f : \Q \to \R$ is Riemann integrable when  $\sup_p L(p,f)
 
 \begin{solution}
 	$\Q$ is compact, so  $f$ is uniformly cont. Thus, given a $\varepsilon >0 $, choose a $\delta >0$ so  $|x-y| < \delta \implies |f(x) - f(y)| > \varepsilon$. Let $p$ be any partition of  $\Q$ whose rectangles have diameter  $< \delta$ \newline
-	Next Computer  $0 \leq \inf_{p_1} U(p_1, f) - \sup_{p_2} L(p_2, f) \leq U(p_1, f) - L(p_1, f)$
+	Next Computer
+	\begin{align*}
+		0 &\leq \inf_{p_1} U(p_1, f) - \sup_{p_2} L(p_2, f) \leq U(p_1, f) - L(p_1, f) \\
+		  &= \sum_{R \in P}^{} \left( \sup_{R} f - \inf_{R}f \right) \cdot |R| \\ 
+		  &\leq \sum_{R \in P}^{} \varepsilon \cdot |Q|
+	\end{align*}
+	but since $\varepsilon > 0$ is arbitary,  $f$ is riemann integrable.
 \end{solution}
 
+\begin{example}
+	If $f:[0,1] \to \R$ and $f(x) = 
+	\begin{cases}
+		1 & x\notin \Q \\
+		0 & x\in \Q
+	\end{cases} $
+	Then $f$ is not Riemann integrable. \\
+	\begin{solution}
+		for any $P,$ we can see  $U(p,f) = 1$ and  $L(p,f) = 0$
+	\end{solution}
+\end{example}
+
+\subsection{Measures}
+
+We have two notions of volume
+\begin{enumerate}
+	\item The outer jordan measure of a set $x \subseteq \R^d$ is
+		\begin{align*}
+			J^* (x) 
+			= \inf\{ \sum_{k=1}^{n} |Q_k| : n \geq 1, Q_1, \ldots, Q_n \subseteq R^n  \text{ closed rectangles and }
+			x \subseteq \union_{R=1}^{b} Q_k \}
+		\end{align*}
+	\item Outer Lebesgue meas
+\end{enumerate}
 
