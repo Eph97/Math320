@@ -4,30 +4,30 @@ Following the universal rule for first class, we covered the syllabus and logist
 
 \subsection{Course Plan}
 \begin{itemize}
-		\item Review Riemann Int
-		\item Abstract Measure Theory (Majority of class)
-		\item Applications in Probability
-		\item Apps in Dynamics
-		\item Some brief apps in geometry
+	\item Review Riemann Int
+	\item Abstract Measure Theory (Majority of class)
+	\item Applications in Probability
+	\item Apps in Dynamics
+	\item Some brief apps in geometry
 \end{itemize}
 
 \begin{problem} The Riemann Integral 
 \item Works for most functions of interest but notably
-		\begin{enumerate}
-				\item Is not closed under important limits
-				\item It is hard to eneralize to new geometries.
-		\end{enumerate}
+	\begin{enumerate}
+		\item Is not closed under important limits
+		\item It is hard to eneralize to new geometries.
+	\end{enumerate}
 \end{problem}
 
 \begin{definition}[Riemann Integral]
-		We can define the riemann integral as $\int_{{\Q}}^{{}} {f}$ of a bounded $f : \Q \to \R$ 
-		defined in closed rectangles
-		$\Q = [a_1,b_1] \cross [a_2,b_2] \ldots [a_d,b_d] \subseteq \R$. We use Darboux sums
+	We can define the riemann integral as $\int_{{\Q}}^{{}} {f}$ of a bounded $f : \Q \to \R$ 
+	defined in closed rectangles
+	$\Q = [a_1,b_1] \cross [a_2,b_2] \ldots [a_d,b_d] \subseteq \R$. We use Darboux sums
 \end{definition}
 
 \vline
 \begin{definition}[partition]
-		A \underline{partition} of $\Q$	is a finite set of \emph{closed} rectanlges whose |underline{interiors} are disjoint and whose union is $\Q$.
+	A \underline{partition} of $\Q$	is a finite set of \emph{closed} rectanlges whose |underline{interiors} are disjoint and whose union is $\Q$.
 \end{definition}
 
 \vline
@@ -36,14 +36,32 @@ The upper and lower Darboux sums are $U(p,f) =\sum_{R \in P}^{} \sup f \cdot |R|
 $L(p,f) = \inf f \cdot |R|$
 
 \begin{lemma}
-		For any 2 partitions $p_1$ and $p_2$ of  $\Q$,  $L(p_1,f) \leq U(p_2, f)$
+	For any 2 partitions $p_1$ and $p_2$ of  $\Q$,  $L(p_1,f) \leq U(p_2, f)$
 \end{lemma}
 
 \begin{solution}
-		We have
-		\begin{align*}
-				L(p_1, f) = \sum_{}^{}
-		\end{align*} 
+	We have
+	\begin{align*}
+		L(p_1, f) &= \sum_{R}^{}  inf f \cdot |R| = \sum_{R_1 \in P_1}^{} inf f 
+		\sum_{R_2 \in P_2}^{} |R_1 \intersection R_2 | \\
+				  &= \sum_{\substack{R_1 \in P_1 \\ R_2 \in P_2 \\ |R_1 \intersection R_2 | > 0} }^{} \inf_{R_1} f \cdot |R_1 \intersection R_2 | 
+				  \leq \sum_{\substack{R_1 \in P_1 \\ R_2 \in P_2 \\ |R_1 \intersection R_2 | > 0} }^{} \inf_{R_1 \intersection R_2} f \cdot |R_1 \intersection R_2 | \\
+				  &\leq \sum_{\substack{R_1 \in P_1 \\ R_2 \in P_2 \\ |R_1 \intersection R_2 | > 0} }^{} \sup_{R_1 \intersection R_2} f \cdot |R_1 \intersection R_2 |
+				  \leq \sum_{\substack{R_1 \in P_1 \\ R_2 \in P_2 \\ |R_1 \intersection R_2 | > 0} }^{} \sup_{R_2} f \cdot |R_1 \intersection R_2 | \\
+				  &= \sum_{R_2 \in P_2}^{} \sup_{R_2} f \sum_{\substack{R_1 \in P_1 \\ |R_1 \intersection R_2 | > 0}}^{} |R_1 \intersection R_2 |  = \sum_{R_2 \in P_2}^{} \sup_{R_2} f \cdot |R_2| = U(p_2, f)
+	\end{align*} 
+\end{solution}
+
+
+Note we say a bounded $f : \Q \to \R$ is Riemann integrable when  $\sup_p L(p,f) = \inf_p U(p,f)$ in which case we let  $\int_{\Q} f$ denote the common value.
+
+
+\begin{theorem}
+	If $f : \Q \to \R$	 is continuous, then f is Rieman integrable.
+\end{theorem}
+
+\begin{solution}
+	$\Q$ is compact, so  $f$ is uniformly cont. Thus, given a $\varepsilon >0 $, choose a $\delta >0$ so  $$
 \end{solution}
 
 
