@@ -91,8 +91,43 @@ We have two notions of volume
 		\begin{align*}
 			J^* (x) 
 			= \inf\{ \sum_{k=1}^{n} |Q_k| : n \geq 1, Q_1, \ldots, Q_n \subseteq R^n  \text{ closed rectangles and }
-			x \subseteq \union_{R=1}^{b} Q_k \}
+			x \subseteq \union_{k=1}^{b} Q_k \}
 		\end{align*}
-	\item Outer Lebesgue meas
+	\item Outer Lebesgue measure of a set $X \subseteq \R^n$ is 
+		\begin{align*}
+			L^*(x) = \inf\{ \sum_{k=1}^{\infty}|Q_k| : Q_1, Q_2, \ldots \subseteq R^n  \text{ closed rectangles and }
+			x \subseteq \union_{k=1}^{\infty} Q_k \}
+		\end{align*} 
+
+		We have some important properties for these measures, namely
+
+		\begin{enumerate}
+			\item $L^*(x) \leq J^* (x)$
+			\item If  $X$ is compact, then $L^*(x) = J^*(x)$
+		\end{enumerate}
+		\begin{solution}
+			Suppose $x \subseteq \union_{k=1}^{\infty} Q_k$, pick $\varepsilon > 0$ and let  $(1 + \varepsilon)Q_k$ be he $(1 + \varepsilon)$-dialation of $Q_k$. Note $(1+ \varepsilon ) Q_k$ are open cover of  $x$ so $x \subseteq \sum_{k=1}^n (1+\varepsilon) Q_k$ and
+			\begin{align*}
+				\sum_{k=1}^{n} |(1 + \varepsilon) Q_k| = (1+\varepsilon)^d \sum_{k=1}^{n}|Q_k| \leq (1 + \varepsilon)^d \sum_{k=1}^{\infty} | Q_k|
+			\end{align*} 
+		\end{solution}
+
+	\item $L^* (\union^{\infty} x_k ) \leq \sum_{}^{\infty} L^* (X_{k})$
+
+		\begin{solution}
+			sketch by "Dovetail" (Come back to)
+		\end{solution}
 \end{enumerate}
 
+\begin{example}
+	The set $x = \Q \intersection [0,1]$ has  $L^*(x) = 0$ and  $J^*(x) = 1$ write  $x = \{q_1, q_2, \ldots \}$ then let $Q_k = [q_k =  \frac{\varepsilon}{2^k}, q_k + \frac{\varepsilon}{2^k}]$
+	and observe that $x \subseteq \union_{1}^{\infty} Q_k$ and $\sum_{k=1}^{\infty} |Q_k| = 2 \varepsilon$
+\end{example}
+
+\begin{example}
+	Let $X \subseteq [0,1]$ be generalized cantor set. Let $1_{\C}$ be the indicator fct of $\C$.
+
+	Observe $1_ {\C}$ is not Riemann int on $[0,1]$. Indeed, C is the set of discontinuities of $1_{\C}$ and $L^*(\C) = \frac{1}{2}$. Moreover $1_{\C}(x) = \lim_{n\to \infty} 1_{\C_n} (x)$ and 
+	$0 \leq 1_{\C} \leq 1_{C_{n+1}} \leq 1_{\C_{n}} \leq 1$ and 
+	$\lim_{n \to \infty} \int_{[0,1]} 1_{C_{n}} = \frac{1}{2} $
+\end{example}
