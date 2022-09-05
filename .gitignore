@@ -244,3 +244,6 @@ TSWLatexianTemp*
 
 # standalone packages
 *.sta
+
+# latexmk rc file
+.latexmkrc
