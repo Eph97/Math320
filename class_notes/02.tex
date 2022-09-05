@@ -1,7 +1,36 @@
-\section{August 2nd, 20202}
+\section{2022-09-02}
+
+Last time: Defintion of a Riemann Integral $\int_Q f$ of bounded $f : Q \to R$ on closed rectangle $Q 
+\subseteq \R^d$
+
+\begin{theorem}
+  A bounded $f : Q \to R$ is Riemann integrable if and only if the set $Z = \{ x \in Q \mid f
+  \text{ not continuous of } x \}$ has $L^* (z) = 0$.
+\end{theorem}
 
 \begin{definition}[oscillation]
   The oscillation of $f : Q \to R$ at $x \in Q$ is 
-  \[\osc(f,x) = \inf_{\delta > 0} \sup \]
+\[\osc(f,x) = \inf_{\delta > 0} \sup_{\substack{y, z \in Q \\ | y - x | < \delta \\ |z - x| < \delta}} |f(y) - f(x)| \]
 \end{definition}
+
+\begin{lemma}
+  $f$ is continous at $X$ if and only if $\osc (f,x) = 0$. 
+\end{lemma}
+
+\begin{lemma}
+  The set $z_\varepsilon = \{ x \in Q : \osc(f,x) \geq \varepsilon \}$ is closed (compact) for $\varepsilon > 0$.
+\end{lemma}
+
+\begin{proof}
+  Since $\R^d$ is a metric space and closed, it is also sequentially closed.
+  Suppose $x_1, x_2, \ldots \in Z_\varepsilon$ and $x = \lim_{n \to \infty} x_n$.
+  Since $x_n \in Z_\varepsilon$, we can choose $y_n, z_n$ so that 
+  \[|y_n - x_n| < \frac{1}{n}, |z_n - x_n| < \frac{1}{n}, \text{ and } |f(y_n) - f(z_n)| \geq \varepsilon - \frac{1}{n}\]
+  For any $\delta > 0$, choose $n > 0$ such that $\frac{1}{n} > \frac{\delta}{2}$ and $|x_n - x| < \frac{\delta}{2}$. 
+  We now have
+  \[|y_n - x_n| < \delta, |z_n - x_n| < \delta, \text{ and } |f(y_n) - f(z_n)| \geq \varepsilon - \frac{\delta}{2}\]
+  We now conclude that $x \in Z_\varepsilon$. 
+\end{proof}
+
+
 
