@@ -1,6 +1,6 @@
 \section{2022-09-02}
 
-Last time: Defintion of a Riemann Integral $\int_Q f$ of bounded $f : Q \to R$ on closed rectangle $Q 
+Last time: Definition of a Riemann Integral $\int_Q f$ of bounded $f : Q \to R$ on closed rectangle $Q 
 \subseteq \R^d$
 
 \begin{theorem}
@@ -14,7 +14,7 @@ Last time: Defintion of a Riemann Integral $\int_Q f$ of bounded $f : Q \to R$ o
 \end{definition}
 
 \begin{lemma}
-  $f$ is continous at $X$ if and only if $\osc (f,x) = 0$. 
+  $f$ is continuous at $X$ if and only if $\osc (f,x) = 0$. 
 \end{lemma}
 
 \begin{lemma}
@@ -32,5 +32,20 @@ Last time: Defintion of a Riemann Integral $\int_Q f$ of bounded $f : Q \to R$ o
   We now conclude that $x \in Z_\varepsilon$. 
 \end{proof}
 
+Note on notation: The set of discontinuities $Z$ can be the countable union of compact sets, which is represented by, 
+\[ Z = \bigcup_{n \geq 1} Z_{\frac{1}{n}} \]
 
+\begin{theorem}
+  A bounded $f : Q \to R$ is Riemann integrable if and only if $Z = \{ x \in Q : \osc (f,x) > 0 \}$ has $L^*(x) = 0$. 
+\end{theorem}
+
+\begin{proof}
+  Assume $|f| \leq B$. First, suppose $L^*(z) = 0$.
+  Let $Z_\varepsilon = \{ x \in Q : \osc (f,x) \geq \varepsilon\}$. Since $Z_\varepsilon \subseteq Z$.
+  Since $Z_\varepsilon$ is compact, $J^*(Z_\varepsilon) = 0$. 
+  Choose a finite set of rectangles $S$ such that $Z_\varepsilon \subseteq \bigcup_{R_1 \in S_1} \mathring{R_1}$ and $\sum_{R_1 \in S_1} |R_1| < \varepsilon$. 
+  Let $W_\varepsilon = Q \setminus \bigcup_{R_1 \in S_1} \mathring{R}$ and observe that $W_\varepsilon$ is compact and $\osc(f,x) < \varepsilon$ for all $x \in W_\varepsilon$.
+
+
+\end{proof}
 

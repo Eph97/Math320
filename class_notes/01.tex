@@ -42,7 +42,7 @@ $L(p,f) = \inf f \cdot |R|$
 \begin{solution}
 	We have
 	\begin{align*}
-		L(p_1, f) &= \sum_{R}^{}  inf f \cdot |R| = \sum_{R_1 \in P_1}^{} inf f 
+		L(p_1, f) &= \sum_{R}^{}  \inf f \cdot |R| = \sum_{R_1 \in P_1}^{} \inf f 
 		\sum_{R_2 \in P_2}^{} |R_1 \intersection R_2 | \\
 				  &= \sum_{\substack{R_1 \in P_1 \\ R_2 \in P_2 \\ |R_1 \intersection R_2 | > 0} }^{} \inf_{R_1} f \cdot |R_1 \intersection R_2 | 
 				  \leq \sum_{\substack{R_1 \in P_1 \\ R_2 \in P_2 \\ |R_1 \intersection R_2 | > 0} }^{} \inf_{R_1 \intersection R_2} f \cdot |R_1 \intersection R_2 | \\
