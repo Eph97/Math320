@@ -1,63 +1,67 @@
 \section{2022-08-31}
 
+\epigraph{``How do mathematicians measure things?''}{Charlie}
+
 Following the universal rule for first class, we covered the syllabus and logistics. We then dove into review on the Riemann integral to motivate measure theory. Prof. Smart seemed much more comfortable talking about math than logistics.
 
 \subsection{Course Plan}
 \begin{itemize}
-	\item Review Riemann Int
-	\item Abstract Measure Theory (Majority of class)
+	\item Review Riemann Integration
+	\item Abstract Measure Theory and Integration (Majority of class)
 	\item Applications in Probability
-	\item Apps in Dynamics
-	\item Some brief apps in geometry
+	\item Applications in Dynamics
+	\item Some brief applications in Geometry
 \end{itemize}
 
-\begin{problem} The Riemann Integral 
-\item Works for most functions of interest but notably
+\begin{problem} The Riemann Integral
+\item Works for most functions of interest but notably...
 	\begin{enumerate}
-		\item Is not closed under important limits
-		\item It is hard to eneralize to new geometries.
+		\item It is not closed under important limits. 
+		\item It is hard to generalize to new geometries.
 	\end{enumerate}
 \end{problem}
 
 \begin{definition}[Riemann Integral]
-	We can define the riemann integral as $\int_{{\Q}}^{{}} {f}$ of a bounded $f : \Q \to \R$ 
+	We can define the Riemann integral as $\int_{{\Q}}^{{}} {f}$ of a bounded $f : \Q \to \R$
 	defined in closed rectangles
 	$\Q = [a_1,b_1] \cross [a_2,b_2] \ldots [a_d,b_d] \subseteq \R$. We use Darboux sums
 \end{definition}
 
 \vline
 \begin{definition}[partition]
-	A \underline{partition} of $\Q$	is a finite set of \emph{closed} rectanlges whose |underline{interiors} are disjoint and whose union is $\Q$.
+	A \underline{partition} of $\Q$	is a finite set of \emph{closed} rectangles whose |underline{interiors} are disjoint and whose union is $\Q$.
 \end{definition}
 
 \vline
 
-The upper and lower Darboux sums are $U(p,f) =\sum_{R \in P}^{} \sup f \cdot |R|$ and \newline 
-$L(p,f) = \inf f \cdot |R|$
+The upper and lower Darboux sums are $U(p,f) =\sum_{R \in P}^{} \sup_R f \cdot |R|$ and \newline
+$L(p,f) = \inf_R f \cdot |R|$
 
 \begin{lemma}
-	For any 2 partitions $p_1$ and $p_2$ of  $\Q$,  $L(p_1,f) \leq U(p_2, f)$
+	For any 2 partitions $P_1$ and $P_2$ of  $\Q$,  $L(P_1,f) \leq U(P_2, f)$
 \end{lemma}
 
 \begin{solution}
 	We have
 	\begin{align*}
-		L(p_1, f) &= \sum_{R}^{}  \inf f \cdot |R| = \sum_{R_1 \in P_1}^{} \inf f 
+		L(p_1, f) &= \sum_{R}^{}  \inf f \cdot |R| = \sum_{R_1 \in P_1}^{} \inf f
 		\sum_{R_2 \in P_2}^{} |R_1 \intersection R_2 | \\
-				  &= \sum_{\substack{R_1 \in P_1 \\ R_2 \in P_2 \\ |R_1 \intersection R_2 | > 0} }^{} \inf_{R_1} f \cdot |R_1 \intersection R_2 | 
+				  &= \sum_{\substack{R_1 \in P_1 \\ R_2 \in P_2 \\ |R_1 \intersection R_2 | > 0} }^{} \inf_{R_1} f \cdot |R_1 \intersection R_2 |
 				  \leq \sum_{\substack{R_1 \in P_1 \\ R_2 \in P_2 \\ |R_1 \intersection R_2 | > 0} }^{} \inf_{R_1 \intersection R_2} f \cdot |R_1 \intersection R_2 | \\
 				  &\leq \sum_{\substack{R_1 \in P_1 \\ R_2 \in P_2 \\ |R_1 \intersection R_2 | > 0} }^{} \sup_{R_1 \intersection R_2} f \cdot |R_1 \intersection R_2 |
 				  \leq \sum_{\substack{R_1 \in P_1 \\ R_2 \in P_2 \\ |R_1 \intersection R_2 | > 0} }^{} \sup_{R_2} f \cdot |R_1 \intersection R_2 | \\
-				  &= \sum_{R_2 \in P_2}^{} \sup_{R_2} f \sum_{\substack{R_1 \in P_1 \\ |R_1 \intersection R_2 | > 0}}^{} |R_1 \intersection R_2 |  = \sum_{R_2 \in P_2}^{} \sup_{R_2} f \cdot |R_2| = U(p_2, f)
-	\end{align*} 
+				  &= \sum_{R_2 \in P_2}^{} \sup_{R_2} f \sum_{\substack{R_1 \in P_1 \\ |R_1 \intersection R_2 | > 0}}^{} |R_1 \intersection R_2 |  = \sum_{R_2 \in P_2}^{} \sup_{R_2} f \cdot |R_2| = U(P_2, f)
+	\end{align*}
 \end{solution}
 
 
-Note we say a bounded $f : \Q \to \R$ is Riemann integrable when  $\sup_p L(p,f) = \inf_p U(p,f)$ in which case we let  $\int_{\Q} f$ denote the common value.
+Note we say a bounded $f : \Q \to \R$ is Riemann integrable when  
+\[\sup_p L(p,f) = \inf_p U(p,f)\]
+in which case we let  $\int_{\Q} f$ denote the common value.
 
 
 \begin{theorem}
-	If $f : \Q \to \R$	 is continuous, then f is Rieman integrable.
+	If $f : \Q \to \R$	 is continuous, then f is Riemann integrable.
 \end{theorem}
 
 \begin{solution}
@@ -65,18 +69,18 @@ Note we say a bounded $f : \Q \to \R$ is Riemann integrable when  $\sup_p L(p,f)
 	Next Computer
 	\begin{align*}
 		0 &\leq \inf_{p_1} U(p_1, f) - \sup_{p_2} L(p_2, f) \leq U(p_1, f) - L(p_1, f) \\
-		  &= \sum_{R \in P}^{} \left( \sup_{R} f - \inf_{R}f \right) \cdot |R| \\ 
+		  &= \sum_{R \in P}^{} \left( \sup_{R} f - \inf_{R}f \right) \cdot |R| \\
 		  &\leq \sum_{R \in P}^{} \varepsilon \cdot |Q|
 	\end{align*}
-	but since $\varepsilon > 0$ is arbitary,  $f$ is riemann integrable.
+	but since $\varepsilon > 0$ is arbitrary,  $f$ is Riemann integrable.
 \end{solution}
 
 \begin{example}
-	If $f:[0,1] \to \R$ and $f(x) = 
+	If $f:[0,1] \to \R$ and $f(x) =
 	\begin{cases}
 		1 & x\notin \Q \\
 		0 & x\in \Q
-	\end{cases} $
+	\end{cases}$.
 	Then $f$ is not Riemann integrable. \\
 	\begin{solution}
 		for any $P,$ we can see  $U(p,f) = 1$ and  $L(p,f) = 0$
@@ -87,17 +91,18 @@ Note we say a bounded $f : \Q \to \R$ is Riemann integrable when  $\sup_p L(p,f)
 
 We have two notions of volume
 \begin{enumerate}
-	\item The outer jordan measure of a set $x \subseteq \R^d$ is
+	\item The outer Jordan measure of a set $x \subseteq \R^d$ is
 		\begin{align*}
-			J^* (x) 
-			= \inf\{ \sum_{k=1}^{n} |Q_k| : n \geq 1, Q_1, \ldots, Q_n \subseteq R^n  \text{ closed rectangles and }
-			x \subseteq \union_{k=1}^{b} Q_k \}
+			J^* (x)
+      = \inf \left\{ \sum_{k=1}^{n} |Q_k| : n \geq 1, Q_1, \ldots, Q_n \subseteq R^n
+      \text{ closed rectangles and }
+			x \subseteq \union_{k=1}^{b} Q_k \right\}
 		\end{align*}
-	\item Outer Lebesgue measure of a set $X \subseteq \R^n$ is 
+	\item Outer Lebesgue measure of a set $X \subseteq \R^n$ is
 		\begin{align*}
-			L^*(x) = \inf\{ \sum_{k=1}^{\infty}|Q_k| : Q_1, Q_2, \ldots \subseteq R^n  \text{ closed rectangles and }
-			x \subseteq \union_{k=1}^{\infty} Q_k \}
-		\end{align*} 
+			L^*(x) = \inf \left\{ \sum_{k=1}^{\infty}|Q_k| : Q_1, Q_2, \ldots \subseteq R^n  \text{ closed rectangles and }
+			x \subseteq \union_{k=1}^{\infty} Q_k \right\}
+		\end{align*}
 
 		We have some important properties for these measures, namely
 
@@ -106,10 +111,10 @@ We have two notions of volume
 			\item If  $X$ is compact, then $L^*(x) = J^*(x)$
 		\end{enumerate}
 		\begin{solution}
-			Suppose $x \subseteq \union_{k=1}^{\infty} Q_k$, pick $\varepsilon > 0$ and let  $(1 + \varepsilon)Q_k$ be he $(1 + \varepsilon)$-dialation of $Q_k$. Note $(1+ \varepsilon ) Q_k$ are open cover of  $x$ so $x \subseteq \sum_{k=1}^n (1+\varepsilon) Q_k$ and
+			Suppose $x \subseteq \union_{k=1}^{\infty} Q_k$, pick $\varepsilon > 0$ and let  $(1 + \varepsilon)Q_k$ be he $(1 + \varepsilon)$-dilations of $Q_k$. Note $(1+ \varepsilon ) Q_k$ are open cover of  $x$ so $x \subseteq \sum_{k=1}^n (1+\varepsilon) Q_k$ and
 			\begin{align*}
 				\sum_{k=1}^{n} |(1 + \varepsilon) Q_k| = (1+\varepsilon)^d \sum_{k=1}^{n}|Q_k| \leq (1 + \varepsilon)^d \sum_{k=1}^{\infty} | Q_k|
-			\end{align*} 
+			\end{align*}
 		\end{solution}
 
 	\item $L^* (\union^{\infty} x_k ) \leq \sum_{}^{\infty} L^* (X_{k})$
@@ -125,9 +130,9 @@ We have two notions of volume
 \end{example}
 
 \begin{example}
-	Let $X \subseteq [0,1]$ be generalized cantor set. Let $1_{\C}$ be the indicator fct of $\C$.
+	Let $X \subseteq [0,1]$ be generalized cantor set. Let $1_{\C}$ be the indicator function of $\C$.
 
-	Observe $1_ {\C}$ is not Riemann int on $[0,1]$. Indeed, C is the set of discontinuities of $1_{\C}$ and $L^*(\C) = \frac{1}{2}$. Moreover $1_{\C}(x) = \lim_{n\to \infty} 1_{\C_n} (x)$ and 
-	$0 \leq 1_{\C} \leq 1_{C_{n+1}} \leq 1_{\C_{n}} \leq 1$ and 
+	Observe $1_ {\C}$ is not Riemann int on $[0,1]$. Indeed, C is the set of discontinuities of $1_{\C}$ and $L^*(\C) = \frac{1}{2}$. Moreover $1_{\C}(x) = \lim_{n\to \infty} 1_{\C_n} (x)$ and
+	$0 \leq 1_{\C} \leq 1_{C_{n+1}} \leq 1_{\C_{n}} \leq 1$ and
 	$\lim_{n \to \infty} \int_{[0,1]} 1_{C_{n}} = \frac{1}{2} $
 \end{example}

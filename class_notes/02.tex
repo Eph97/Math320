@@ -1,6 +1,7 @@
 \section{2022-09-02}
 
-Last time: Definition of a Riemann Integral $\int_Q f$ of bounded $f : Q \to R$ on closed rectangle $Q 
+\subsection{Riemann Integration and Measures}
+Last time: Definition of a Riemann Integral $\int_Q f$ of bounded $f : Q \to R$ on closed rectangle $Q
 \subseteq \R^d$
 
 \begin{theorem}
@@ -9,12 +10,12 @@ Last time: Definition of a Riemann Integral $\int_Q f$ of bounded $f : Q \to R$ 
 \end{theorem}
 
 \begin{definition}[oscillation]
-  The oscillation of $f : Q \to R$ at $x \in Q$ is 
+  The oscillation of $f : Q \to R$ at $x \in Q$ is
 \[\osc(f,x) = \inf_{\delta > 0} \sup_{\substack{y, z \in Q \\ | y - x | < \delta \\ |z - x| < \delta}} |f(y) - f(x)| \]
 \end{definition}
 
 \begin{lemma}
-  $f$ is continuous at $X$ if and only if $\osc (f,x) = 0$. 
+  $f$ is continuous at $X$ if and only if $\osc (f,x) = 0$.
 \end{lemma}
 
 \begin{lemma}
@@ -24,26 +25,86 @@ Last time: Definition of a Riemann Integral $\int_Q f$ of bounded $f : Q \to R$ 
 \begin{proof}
   Since $\R^d$ is a metric space and closed, it is also sequentially closed.
   Suppose $x_1, x_2, \ldots \in Z_\varepsilon$ and $x = \lim_{n \to \infty} x_n$.
-  Since $x_n \in Z_\varepsilon$, we can choose $y_n, z_n$ so that 
+  Since $x_n \in Z_\varepsilon$, we can choose $y_n, z_n$ so that
   \[|y_n - x_n| < \frac{1}{n}, |z_n - x_n| < \frac{1}{n}, \text{ and } |f(y_n) - f(z_n)| \geq \varepsilon - \frac{1}{n}\]
-  For any $\delta > 0$, choose $n > 0$ such that $\frac{1}{n} > \frac{\delta}{2}$ and $|x_n - x| < \frac{\delta}{2}$. 
+  For any $\delta > 0$, choose $n > 0$ such that $\frac{1}{n} > \frac{\delta}{2}$ and $|x_n - x| < \frac{\delta}{2}$.
   We now have
   \[|y_n - x_n| < \delta, |z_n - x_n| < \delta, \text{ and } |f(y_n) - f(z_n)| \geq \varepsilon - \frac{\delta}{2}\]
-  We now conclude that $x \in Z_\varepsilon$. 
+  We now conclude that $x \in Z_\varepsilon$.
 \end{proof}
 
-Note on notation: The set of discontinuities $Z$ can be the countable union of compact sets, which is represented by, 
+Note on notation: The set of discontinuities $Z$ can be the countable union of compact sets, which is represented by,
 \[ Z = \bigcup_{n \geq 1} Z_{\frac{1}{n}} \]
 
 \begin{theorem}
-  A bounded $f : Q \to R$ is Riemann integrable if and only if $Z = \{ x \in Q : \osc (f,x) > 0 \}$ has $L^*(x) = 0$. 
+  A bounded $f : Q \to R$ is Riemann integrable if and only if $Z = \{ x \in Q : \osc (f,x) > 0 \}$ has $L^*(x) = 0$.
 \end{theorem}
 
 \begin{proof}
   Assume $|f| \leq B$. First, suppose $L^*(z) = 0$.
-  Let $Z_\varepsilon = \{ x \in Q : \osc (f,x) \geq \varepsilon\}$. Since $Z_\varepsilon \subseteq Z$.
-  Since $Z_\varepsilon$ is compact, $J^*(Z_\varepsilon) = 0$. 
-  Choose a finite set of rectangles $S$ such that $Z_\varepsilon \subseteq \bigcup_{R_1 \in S_1} \mathring{R_1}$ and $\sum_{R_1 \in S_1} |R_1| < \varepsilon$. 
+  Let $Z_\varepsilon = \{ x \in Q : \osc (f,x) \geq \varepsilon\}$.
+  Since $Z_\varepsilon \subseteq Z$, $L^*(Z_\varepsilon) = 0$.
+  Since $Z_\varepsilon$ is compact, $J^*(Z_\varepsilon) = 0$.
+  Choose a finite set of rectangles $S$ such that $Z_\varepsilon \subseteq \bigcup_{R_1 \in S_1} \mathring{R_1}$ and $\sum_{R_1 \in S_1} |R_1| < \varepsilon$.
+
   Let $W_\varepsilon = Q \setminus \bigcup_{R_1 \in S_1} \mathring{R}$ and observe that $W_\varepsilon$ is compact and $\osc(f,x) < \varepsilon$ for all $x \in W_\varepsilon$.
+  \footnote{Note: this helps cover the boundary condition, which Spivak incorrectly omits in his book.}
+  For every $x \in W_\varepsilon$, we can choose rectangle $R$ so $x \in \mathring{R}$ and $\sup_R f - \inf_R f < \varepsilon$.
+  Since $W_\varepsilon$ is compact, they are a finite set of rectangles $S_2$ such that
+  \[ W_\varepsilon \subseteq \bigcup_{R_2 \in S_2} \mathring{R}_2 \quad \text{and} \quad \sup_{R_2} f - \inf_{R_2} f < \varepsilon \quad \forall R_2 \in S \]
+
+  Let $P$ be a partition of $Q$ so that for $R \in P$ and $R_k \in S_k$, where $k = 1,2$ have $\mathring{R} \cup \mathring{R}_k \ne \emptyset \implies R \subseteq R_k$
+  (Let $P$ be a set of minimal non-trivial intersections of rectangles from $R_1 \cup R_2 \cup \{ Q \}$ that are inside $Q$.)
+
+  \begin{lemma}
+  If $R_1, \ldots, R_n$ have disjoint interiors and $\bigcup^n_{k=1} R_k \subseteq \bigcup^m_{k=1} \tilde{R}_k$, then $\sum_{n}^{k=1} |R_k| \leq \sum_{m}^{k=1} |\tilde{R}_k|$.
+  \end{lemma}
+
+  If $R \in P$ and $R \in Z_\varepsilon \ne \emptyset$, then $R \subseteq R_1 \in S_1$.
+  We have a partition $P$ such that.
+
+  \begin{align*}
+    U(P,f) - L(P,f) & = \sum_{\substack{R \in P \\ R \cap Z_\varepsilon \ne \emptyset}} \left( \sup_R f - \inf_R f \right) |R| + \sum_{\substack{R \in P \\ R \cap Z_\varepsilon \ne \emptyset}} \left( \sup_R f - \inf_R f \right) |R| \\
+                    & \leq \sum_{\substack{R \in P \\ R \cap Z_\varepsilon \ne \emptyset}} 2B \cdot |R| + \sum_{\substack{R \in P \\ R \cap Z_\varepsilon \ne \emptyset}} \varepsilon |R| \\
+                    & \leq 2B \cdot \varepsilon + \varepsilon |Q|
+  \end{align*}
+  Since the choice of $\varepsilon > 0$ is arbitrary and $B, |Q|$ is fixed, we conclude that $f$ is Riemann integrable.
+
+  Now suppose $f$ is Riemann integrable. Since $z = \bigcup_{n \geq 1} Z_{1/n}$, it is enough to show $L^*(Z_\varepsilon) = 0$ for $\varepsilon > 0$.\footnote{this is why we need Jordan outer measure}
+
+  Given $\delta > 0$, choose a partition $P$ of $Q$ so that $U(P,f) - L(P,f) < \delta$.
+  \begin{align*}
+    U(P,f) - L(P,f) & = \sum_{R \in P} \left( \sup_R f - \inf_R f \right) |R| \\
+                    & \geq \sum_{\substack{R \in P \\ \mathring{R} \cup Z_\varepsilon \ne \emptyset}} \left( \sup_R f - \inf_R f \right) |R| \\
+                    & \geq \sum_{\substack{R \in P \\ \mathring{R} \cup Z_\varepsilon \ne \emptyset}} \varepsilon |R|
+  \end{align*}
+  and after rearranging, we obtain
+  \[ \sum_{\substack{R \in P \\ \mathring{R} \cup Z_\varepsilon \ne \emptyset}} |R| \leq \frac{\delta}{\varepsilon}\]
+  Therefore, we can cover $Z_\varepsilon$ with an arbitrary small volume of rectangles plus some boundaries of rectangles.
 \end{proof}
+
+\begin{exercise}
+  Find a Riemann integrable $f : Q \to R$ with $J^* (z) > 0$. 
+\end{exercise}
+
+\subsection{Riemann v. Lebesgue}
+
+[There is a missing graphic comparing the two]
+
+\begin{theorem}
+  For any metrictspace $M$, there is a complete metric space $M$ and isometry $i : M \to \bar{M}$ such that for continuous $f : M \to \bar{N}$, there is a unique $\bar{f} : \bar{M} \to \bar{N}$ with $f = \bar{f} \cdot i$. 
+\end{theorem}
+
+\begin{proof}[Sketch Proof]
+  $\bar{M}$ is equivalence classes of Cauchy sequences in $M$.
+\end{proof}
+
+\begin{corollary}
+  $\bar{M}$ is unique. 
+\end{corollary}
+
+$M = (C(Q), \| \cdot \|_{C^\circ})$ is a complete metric space and $\int_{\substack{Q \\ \text{Riemann}}} \cdot M \to R$. 
+
+Consider isn
+
 
