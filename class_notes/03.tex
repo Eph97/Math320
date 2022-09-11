@@ -1,0 +1,197 @@
+\section{2022-09-07}
+
+\subsection{Riemann Integration and Measures}
+
+Readings: Chapter 1 of Rudin.
+
+sketched Lebesgue integration cartoon.
+
+We want to be able to "measure" all of the "constructable subsets of $\R^d$
+
+\begin{enumerate}
+	\item constructable? Rectangles and unions and intersections of rectangles.
+	\item so staart with all rectangles.
+	\item If $A_1, A_2, \ldots$ constructable, then
+		$\bigcup_{k=1}^{\infty}A_k$ and $\intersection_{k=1}^{\infty}A_k$ constructable.
+	\item Lebesgue measure assigns volume to all such sets.
+\end{enumerate}
+ 
+\subsection{Metric Spaces}
+
+A function $d : X \cross X \to \mathbb{R}$ on he cartesion product of a set  $X$ us a metric if
+
+\begin{enumerate}
+	\item $d(x,y) \geq 0$
+	\item $d(x,y) = 0 \iff x = y$
+	\item $d(x,y) = d(y,x)$
+	\item $d(x,y) \leq d(x,y) + d(y,z)$
+\end{enumerate}
+
+We call the pair $(X, d)$ a \underline{metric space.}
+
+\begin{definition}
+A function $f : X \to Y$ between metric spaces is continuous if, $\forall x \in X$ and $\varepsilon >0 $ there exists a $\delta >0$ such that for all $y \in X$ we have $d_X (x, y) < \delta \implies d_Y(f(x), f(y)) < \varepsilon$	
+\end{definition}
+
+A subset $V \subseteq X$ of a metric space $X$ is open if for ever $x \in V$ there is a $\delta >0 $ such that $B(x,\delta) = \{y \in X: d(x,y) < \delta\} \subseteq U$ 
+
+\begin{theorem}
+	A map $f:X \to Y$ between metric spaces is continuous iff  $w \subseteq Y$ open implies $f^{-1}(w) \subseteq X$ is also open.
+\end{theorem}
+
+\begin{proof}
+	(exercise)
+\end{proof}
+
+definition fun! \\
+\begin{definition}:
+\begin{enumerate}
+	\item A \emph{collection} is a set of subsets. 
+	\item A \emph{family} of collections is a set of collections.
+\end{enumerate}
+\end{definition}
+
+\begin{definition}
+	A collection $T$ of subsets of a set $X$ is a topology if:
+	\begin{enumerate}
+		\item $\emptyset, X \in T$ 
+		\item $T^{'} \subseteq T$ is finite, then $\bigcap\limits_{V \in T^{'}} V \in T$ 
+		\item If $T^{'} \subseteq T,$ then $\bigcup\limits_{V \in T^{'}} V \in T$
+	\end{enumerate}
+
+	We call the pair $(X, T)$ a topological space.
+\end{definition}
+
+
+A function $f:X \to Y$ between topological spaces is continuous if $V \in T_y \implies f^{-1}(V) \in T_X$
+
+\begin{claim*}
+	A topology is a way of designating some subsets as open.	
+\end{claim*}
+
+\subsection{Sigma Algebras}
+
+\begin{definition}[Algebra]
+	A Collection $A$ of subsets of a set $X$ is an \emph{algebra} if 
+	\begin{enumerate}
+		\item $\emptyset, X \in A$
+		\item If $B_1, B_2 \in A,$ then
+			\begin{enumerate}
+				\item $B_1 \cap B_2 \in A$
+				\item  $B_1 \cup B_2 \in A$
+				\item  $B_1^{c} = X \setminus B_1 \in A$
+			\end{enumerate}
+	\end{enumerate}
+\end{definition}
+
+\begin{definition}[Sigma Algebra]
+	A Collection $S$ of subsets of a set $X$ is a \emph{$\sigma$-algebra} if 
+	\begin{enumerate}
+		\item $\emptyset, X \in S$
+		\item If $B\in S \implies B^{c} \in S$
+		\item If $S^{'} \subseteq S$ is countable then 
+			$\bigcup\limits_{B \in S^{'}} B \in S$ and $\bigcap\limits_{B \in S^{'}} B \in S$
+	\end{enumerate}
+note: $\bigcap\limits_{B \in S^{'}} = (\bigcup\limits_{B \in S^{'}} )^{c}$
+
+We call the pair $(X, S)$ a measurable space.
+\end{definition}
+
+\begin{definition}
+	A function $f : X \to Y$ between measurable spaces is measurable if $B \in S_Y \implies f^{-1}(B) \in S_X$
+\end{definition}
+
+\begin{claim*}
+	Not all sigmal algebras are topologies but all important ones are.
+\end{claim*}
+
+\begin{example}
+	\begin{enumerate}
+		\item The power set $\mathcal{P} (X) = \{y : y \subseteq X\}$ is both a topology and a $\sigma$-algebra
+		\item $\{\emptyset, X\}$ is both a topology and a $\sigma$-algebra
+		\item $\{\emptyset, B, B^{c}m X\}$ is both a topology and a $\sigma$-algebra
+	\end{enumerate}
+\end{example}
+
+\begin{theorem}
+	For a collection $C$ of subsets of $X$ there is a smallest topology $T$ and $\sigma$-algebra $S$ with $T \supseteq C$ and $S \supseteq C$.
+	Denote these by $\tau(C)$ and $\sigma(C)$ respectively.
+\end{theorem}
+
+\begin{proof}
+	Let $\sigma(C) = \bigcap\limits_{S \supseteq C} S$.
+
+	Note that $\mathcal{P}(X) \supseteq C$, the intersection is non-trivial.
+
+	\underline{Check the Axioms}:
+	\begin{enumerate}
+		\item If $S \supseteq C$ is $\sigma$-algebra, then $\emptyset,X \in S$.
+
+			Therefore  $\emptyset, X \in \bigcap \limits_{S \supseteq C \text{ is a $\sigma$-algebra}}S $
+		\item $X \in \sigma(C)$ thus
+			 \begin{align*}
+			&\implies X \in S \text{ for } S \subseteq C \text{ a } \sigma\text{-algebra} \\
+			&\implies X^{c} \in S \text{ for } S \subseteq C \text{ a } \sigma\text{-algebra} \\
+			&\implies X^{c} \in \sigma(C)
+			\end{align*} 
+
+	\item $S^{'} \subseteq \sigma (C)$ countable
+		 \begin{align*}
+		&\implies S^{'} \subseteq S \text{ for } S \supseteq C \text{ a $\sigma$-algebra} \\
+		&\implies \bigcup_{B \in S^{'}} B \in S \text{ for } S \supseteq C \text{ a $\sigma$-algebra} \\
+		&\implies \bigcup_{B \in S^{'}} B \in \sigma(C)
+		\end{align*} 
+	\end{enumerate}
+
+	$\sigma(C)$ is the smallest because it is contained in every $\sigma$-algebra $S \supseteq C$.
+
+	 $\tau(C)$ is defined similarly.
+\end{proof}
+
+\begin{definition}
+	We call a function $f:X \to Y$ from a measurable space to a topological space measurable if $W \in T_Y$ implies $f^{-1}(W) \in S_X$
+\end{definition}
+
+\begin{theorem}
+	This is equivaet to $f$ being a measurable function from $(X, S_X)$ to $(S, \sigma(T_Y))$
+\end{theorem}
+
+\begin{example}
+	If $(X,T)$ is a topological space, then call elements of $\sigma(T)$ the \emph{Borel} subsets of $(X,T)$	
+\end{example}
+
+The Borel subsets of $\mathbb{R}^d$ and the "constructable" sets from before.
+
+\begin{theorem}
+	if $(Y, S_Y)$ is a measurable space and $f: X \to Y$ then there is a smallest $\sigma$-algebra on $X$ that makes $f$ measurable.
+\end{theorem}
+\begin{proof}
+	Check $S_X = \{f^{-1}(B) : B \in S_Y\}$ is a $\sigma$-algebra.
+\end{proof}
+
+\begin{theorem}
+	If $(X, S_X)$ is a measurable space and $f:X \to Y$ then there is a largest $\sigma$-algebra on $Y$ that makes $f$ measurable.
+\end{theorem}
+
+\begin{proof}
+	Check $S_Y = \{B \subseteq Y: f^{-1}(B) \in S_X \}$ is a $\sigma$-algebra.
+\end{proof}
+
+\begin{definition}
+	Basic Borel sets are open or closed.
+	\begin{enumerate}
+		\item $B_0$ sets are open or closed subsets of $(X,T)$
+		\item $B_{K+1}$ sets of countable unions of countable intersections of sets in $B_k$
+	\end{enumerate}
+\end{definition}
+
+\begin{example}
+	$E \in B_4$ then
+
+	 \begin{align*}
+		 &\bigcap_i \bigcup_j \bigcap_k F_{i,j,k} \quad \text{\tiny (F open)} \qquad \text{Or} \\
+		 &\bigcup_i \bigcap_j \bigcup_k G_{i,j,k} \quad \text{\tiny (G closed)}
+	\end{align*}
+	
+\end{example}
+
