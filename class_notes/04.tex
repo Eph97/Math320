@@ -1,21 +1,67 @@
 \section{2022-09-12}
 
+\epigraph{Shirt of the day: ``I have eated all the dinner''}{Charlie}
+
 Last Time: Basic results for measurable spaces $(X, S)$.
 
 \begin{theorem}
-  There is a $\sigma$-algebra $\sigma(c)$ containing any collection $C$ of subsets of a set $X$.
+  There is a smallest $\sigma$-algebra $\sigma(c)$ containing any collection $C$ of subsets of a set $X$.
 \end{theorem}
 
 \begin{lemma}
-	If $(X,S_x), (Y,S_y)$ are measurable spaces, $f: X \to Y$ is $(S_x, S_y)$ measurable, $S_x \supseteq S_y$ and $S_y\supseteq S_y$, then $f$ is $(S_x, S_y)$ measurable.
+	If $(X,S_x), (Y,S_y)$ are measurable spaces, $f: X \to Y$ is $(S_x, S_y)$ measurable, $S_x \supseteq S_y$ and $S_y\supseteq S_y$ s.t. $S_x' \subseteq S_X$ and $S_Y' \subseteq S_Y$, then $f$ is $(S_x', S_y')$ measurable.
 \end{lemma}
 
 \begin{theorem}
   If $(X, S)$ is a measurable space and $f: X \to Y$, then 
 	\[
-		f^*(s) = \left\{A \supseteq Y \mid f^{-1}(A) \in S \right\}.
+		f^*(s) = \left\{A \subseteq Y \mid f^{-1}(A) \in S \right\}.
 	\]
+	is the largest $\sigma$-algebra such that $f$ is $(S, f^*(S))$-measurable
 \end{theorem}
 
+\begin{theorem}
+	If $(Y,S)$ is a measurable space and $f : X \to Y$, then 
+	 \begin{align*}
+		 f^*(S) &= \{f^{-1}(A) : A \in S\}
+	\end{align*}
+	is the smallest $\sigma$-algebra such that $f$ is $(f^*(S), S)$- measurable.
+\end{theorem}
+
+\begin{theorem}
+	If $(X, T_X)$ $(Y,T_Y)$ are topological spaces, and  $f : X \to Y$ is $T_X, T_Y$-continuous, then $f$ is also $(\sigma(T_X), \sigma(T_Y))$-measurable.
+\end{theorem}
+
+\begin{proof}
+	$f$ is $(T_X,T_Y)-continuous$
+	\begin{align*}
+		&\iff \{f^{-1}(A) : A \in T_Y\} \subseteq T_X \\
+		&\iff \{f^{-1}(A) : A \in \sigma(T_Y)\} \subseteq \sigma(T_X) \\
+		&\iff f \text{ is } (\sigma(T_X), \sigma(T_Y)) \text{ -- measurable.}
+	\end{align*}  
+\end{proof}
+
+abuse notation:
+If $(X, S_X)$ is a measurable space and  $(Y, T_Y)$ is a topological space, then call $f : X \to Y$
+$(S_X, T_Y)$-measurabl $\iff f$ is $(S_X, \sigma(T_Y))$- measurable.
+
+\begin{theorem}
+	$f : X \to Y$ is $(S_X, \sigma(T_Y))$- measurable $\iff \forall A \in T_Y$ we have $f^{-1}(A) \in S_X$.
+\end{theorem}
+
+\begin{proof}
+	Since $T_Y \subseteq \sigma(T_Y)$ 
+	then $\implies$ directions trivial 
+
+	for the $\impliedby$ direction, observe that 
+	\begin{align*}
+		\{f^{-1}(A) : A \in T_Y\} \subseteq S_X
+	\end{align*}
+	which implies 
+	\begin{align*}
+		&\sigma(\{f^{-1}(A) : A \in T_Y\}) \subseteq \sigma(S_X) = S_X \\
+		&\iff \sigma(\{f^{-1}(A) : A \in \sigma(T_Y)\}) \subseteq  S_X \\
+	\end{align*}
+\end{proof}
 
 
