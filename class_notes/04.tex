@@ -55,13 +55,211 @@ $(S_X, T_Y)$-measurabl $\iff f$ is $(S_X, \sigma(T_Y))$- measurable.
 
 	for the $\impliedby$ direction, observe that 
 	\begin{align*}
-		\{f^{-1}(A) : A \in T_Y\} \subseteq S_X
-	\end{align*}
-	which implies 
-	\begin{align*}
-		&\sigma(\{f^{-1}(A) : A \in T_Y\}) \subseteq \sigma(S_X) = S_X \\
-		&\iff \sigma(\{f^{-1}(A) : A \in \sigma(T_Y)\}) \subseteq  S_X \\
+		&\{f^{-1}(A) : A \in T_Y\} \subseteq S_X \\
+		&\implies \sigma(\{f^{-1}(A) : A \in T_Y\}) \subseteq \sigma(S_X) = S_X \\
+		&\iff \sigma(\{f^{-1}(A) : A \in \sigma(T_Y)\}) \subseteq  S_X \text{--measurable}
 	\end{align*}
 \end{proof}
 
+If $(X,T)$ is a topological spae, then call $\sigma(T)$ the Borel subsets of  $X.$ 
+
+If $(X, T_X)$ and $(Y,T_Y)$ are topological spaces, then $f:X \to Y$ is measurabe.
+
+If it is  $(\sigma(T_X), \sigma(T))$-measurable.
+
+comeback too
+
+\begin{definition}
+	The extended Reals.
+	$[-\infty,\infty]$ is $\mathbb{R} \bigcup \{-\infty, +\infty\}$.
+
+	Add new open sets $[-\infty, a)$ and $(a, +\infty]$ 
+	and the usual arith rules
+	\begin{align*}
+		a + \infty = \infty, \quad a\cdot \infty = \infty, \quad a > 0
+	\end{align*} etc defined by demanding $+$ and $\cdot$ extend continuously to
+	\begin{align*}
+		&[-\infty, \infty]^2 \setminus \{(-\infty, \infty), (\infty, -\infty)\} \text{ and } \\
+		&[-\infty, \infty]^2 \setminus \{(0, \pm \infty), (\pm \infty, 0)\}
+	\end{align*}
+\end{definition}
+
+\begin{corollary}
+	If $(X,S)$ measurable, then $f : X \to [-\infty, \infty]$ is measurabnle 
+	$iff$ $f^{-1}((a,\infty]) \in S$ for all $a \in [-\infty,\infty]$
+\end{corollary}
+
+\begin{proof}
+	The main point is
+	\begin{align*}
+		&\sigma(\{(a,\infty] : a \in [-\infty, a)\}) \\
+		= &\sigma(\{ A \subseteq [-\infty, \infty] : A \text{ open} \})
+	\end{align*} 
+\end{proof}
+
+\begin{theorem}
+	If $(X,S)$ is measurable space, 
+	$f_1, \ldots, f_d : X \to \mathbb{R}$ are measurable and $g:\mathbb{R}^d \to \mathbb{R}$ continuous, then $g \circ (f_1, \ldots, f_d) : X \to \mathbb{R}$ is measurable.
+\end{theorem}
+
+\begin{proof}
+	It is enough to show that $(f_1, \ldots, f_d) : X \to \mathbb{R}^d$ is measurable. But given $A \subseteq \mathbb{R}^d$ is open, we need to show $f^{-1}(A) \in S$.
+
+	Write $A = \bigcup_{k=1}^{\infty} R_k$ with $R_k$ open rectangles. It is enough to show $f^{-1}(R) \in S$ for any open rectangle $\mathbb{R} \subseteq \mathbb{R}^d$.
+
+	Wirte $R = (a,b) \times \ldots \times (a_d, b_d)$ and compute 
+	$f^{-1}(R) =  f^{-1}((a,b)) \cap \ldots \cap f^{-1}((a_d, b_d)) \in S$
+	by measurability of $f_1, \ldots , f_d$
+\end{proof}
+
+\begin{corollary}
+	If $(X,S)$ is a measurable space and $f,g : X \to [-\infty, \infty]$ is measurable, 
+	then $f+g$, $f\circ g$ $\min\{f,g\}$ $max\{f,g\}$, and $|f|$ are all measurable (when defined).
+\end{corollary}
+
+\begin{theorem}
+	If $(X,S)$ measurable space and $f_1, f_2, \ldots : X \to [-\infty, \infty]$ measurable, then $f = \sup_k f_k$ is measurable.
+\end{theorem}
+
+\begin{proof}
+	The main part is
+	\begin{align*}
+		f^{-1}((a, \infty]) = \bigcup_{k=1}^{\infty} f_k^{-1}((a,\infty]) \in S
+	\end{align*}
+\end{proof}
+
+\begin{corollary}
+	\begin{align*}
+		\inf_k f_k, \, \lim \sup_k f_k, \, \text{and } \, \lim \inf_k f_k
+	\end{align*} are also measurable.
+\end{corollary}
+
+\begin{proof}
+	\begin{align*}
+		&\inf_k f_k = - \sup_{k} (-f_k) \\
+		&\lim_{R} \sup f_k = \inf_{k} (\sup_{j} f_{k+j}) \\
+		&\lim_{k}\inf f_k = - \lim_{k} \sup (-f_k)
+	\end{align*} 
+\end{proof}
+
+\begin{corollary}
+	If $(X,S)$ measurabnle space, $f_k : X \to (-\infty, \infty]$ measurable for  $k \geq 0$ 
+	 \begin{align*}
+	    f (x) = \lim_{k \to  \infty} f_k (x) \, \forall x \in X
+	\end{align*} then $f$ is measurable.
+\end{corollary}
+
+\begin{proof}
+	 \begin{align*}
+	f = \lim_{k} f_k \implies f = \lim_{k} \sup f_k
+	\end{align*} 
+\end{proof}
+
+\underline{Review:} From Real analysis
+
+check
+\begin{enumerate}
+	\item Locally uniform limits of continuous functions are continuous.
+	\item Pointwise limits of continuous funcions need not be continuous.
+\end{enumerate}
+
+\subsection{Positive Measure}
+
+\begin{definition}
+	A positive measure is a function $m : S \to [0, \infty]$ on a $\sigma$-algebra $S$ on a set $X$ such that $m(\emptyset) = 0$
+	and $m( \bigcup_{k=1}^{\infty} A_k) = \sum_{k=1}^{\infty} m(A_k)$ when 
+	$A_1, A_2, \ldots \in S$ disjoint.
+
+	{\tiny note $m(\emptyset) = 0$ allows us to exclude $m$ which gives everything $+\infty$ measure.}
+
+	Call the triple $(X,S,m)$ a positive measure space.
+\end{definition}
+
+\begin{example}
+	\begin{enumerate}
+		\item $X = \{x_1, \ldots, x_n\}$,
+			\begin{align*}
+				S = \mathcal{P}(X) \text{ and } m(A) = \#A \quad \text{\tiny the counting measure}
+			\end{align*} 
+		\item $X$, arbitrary
+			\begin{align*}
+				S = \mathcal{P}(X) \text{ and } m(A) = 
+				\begin{cases}
+					\#A & A\text{-finite} \\
+					+\infty & A\text{-finite} \\
+				\end{cases}
+			\end{align*} 
+
+		\item The Dirac Measure:
+			$X$ arbitrary, $S$ arbitrary, and $X_0 \in X$ and 
+			\begin{align*}
+				m(A) = 
+				\begin{cases}
+					1 & x_0 \in A \\
+					0 & x_0 \notin A
+				\end{cases}
+			\end{align*}
+	\end{enumerate}
+\end{example}
+
+
+\begin{definition}[Basic Properties]
+	\begin{enumerate}
+		\item If $A,B \in S$  and $A \subseteq B$, then $m(A) \leq m(B)$
+		\item If  $A_1, \ldots, A_n \in S$ disjoint, then 
+			$m(A_1 \cup A_2 \cup \ldots \cup A_n) = m(A_1) + \ldots + m(A_n)$
+		\item If  $A_k \in S$ and $A_1 \subseteq A_2 \subseteq ldots$, then
+			\begin{align*}
+				m(\bigcup_{k=1}^{\infty} A_k ) = \lim_{k \to \infty} m(A_k)
+			\end{align*} 
+		\item If $A_k \in S$, and $A_1 \supseteq A_2 \supseteq \ldots$ and $m(A_1) < \infty$,
+			then  
+			 \begin{align*}
+				m(\bigcap_{k=1}^{\infty} A_k) = \lim_{k \to \infty}  m(A_k)
+			\end{align*} 
+	\end{enumerate}
+\end{definition}
+
+\begin{proof}(of properties)
+	\begin{enumerate}
+		\item[2] let $A_k = \emptyset$ for $k >n$. Now $A_1, A_2, \ldots$ disjoint and 
+			\begin{align*}
+				m(A_1 \cup \ldots \cup A_n) &= m(\bigcup_{k=1}^{\infty} A_k ) \\ 
+				= \sum_{k=1}^{\infty} m(A_k) &= m(A_1) + \cdots + m(A_n)
+			\end{align*}
+		\item[1] Write $B = A \cup (B \setminus A)$, and $B \setminus A \in S$ since $S$ is a $\sigma$-algebra
+			\begin{align*}
+				m(B) = m(A) + m(B \setminus A) \geq m(A)
+			\end{align*} 
+		\item[3] Compute (Check)
+			\begin{align*}
+				m(\bigcup_{k=1}^{\infty} A_k) &= m(A_1 \cup \bigcup_{k=1}^{\infty} m(A_{n+1} \setminus A_k) \\
+											  &= m(A_1) + \sum_{k=1}^{\infty} m(A_{k+1} \setminus A_k) \\
+											  &= m(A_1) + \lim_{n \to \infty}  \sum_{k=1}^{n} m(A_{k+1} \setminus A_k) \\ 
+											  &= \lim_{n \to \infty} \left(m(A_1) \sum_{k=1}^{n} m(A_{k+1} \setminus A_k) \right) \\ 
+											  &= \lim_{n \to \infty} m \left(m(A_1 \cup \bigcup_{k=1}^{\infty} (A_{k+1} \setminus A_k) \right) \\ 
+											  &= \lim_{n \to \infty} m (A_{n+1})  \\ 
+			\end{align*} 
+		\item[4] Let $B_k = A_1 \setminus A_k \in S$. Observe: $B_1 \subseteq B_2 \subseteq \ldots$
+
+			\underline{Conclude}:
+			\begin{align*}
+				m(\bigcup_{k=1}^{\infty} B_k) = \lim_{n \to \infty} m(B_n) \quad \text{Rewrite as:} 
+				\quad m(A_1 \setminus \bigcap_{k=1}^{\infty} A_k) = 
+				\lim_{n \to \infty} m(A_1 \setminus A_n)
+			\end{align*} rewrite as 
+			\begin{align*}
+				m(A_1) - m(\bigcap_{k=1}^{\infty} A_k) = m(A_1) - \lim_{n \to \infty} m(A_n)
+			\end{align*} 
+			Since $m(A_1) < \infty$ we can cancel.
+	\end{enumerate}
+\end{proof}
+
+\begin{example}
+	Let $m$ be the counting measure on  $\mathbb{N}$ and consider $A_n = \{n, n+2, n+2, \ldots \}$. 
+	Then $A_1 \supseteq A_2 \supseteq \ldots$ , $m(A_k) = \infty$ and  
+	\begin{align*}
+		m(\bigcap_{k=1}^{\infty} A_k ) = m(\emptyset) = 0
+	\end{align*} 
+\end{example}
 
