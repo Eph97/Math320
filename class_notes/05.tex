@@ -1,18 +1,180 @@
 \section{2022-09-14}
 
-Last time: positive measure spaces $(X, S, m)$. $X$ is a set, $S$ is a $\sigma$-algebra of subsets of $X$ in (countably additive) positive measure in $S$. 
+Last time: positive measure spaces $(X, S, m)$. $X$ is a set, $S$ is a $\sigma$-algebra of subsets of $X$ in (countably additive) positive measure in $S$.
 
-Today: Integration on $(X, S, m)$. 
+Today: Integration on $(X, S, m)$.
 
-Idea: approximate measurable $f : X \to [0, \infty]$ with simple functions. 
+Idea: approximate measurable $f : X \to [0, \infty]$ with simple functions.
 
-\begin{definition}
-	A simple function is a measurable function $g : X \to [0, \infty)$ that takes only finitely many values. 
+\begin{definition}[Simple Function]
+	A simple function is a measurable function $g : X \to [0, \infty)$ that takes only finitely many values.
 \end{definition}
 
-If $g$ is simple, then there are reals $\alpha_1, \ldots, \alpha_n \in [0, \infty)$, and $A_n \in S$ such that 
+If $g$ is simple, then there are reals $\alpha_1, \ldots, \alpha_n \in [0, \infty)$, and $A_n \in S$ such that
 \[
-	g(x) = \sum_{n = 1}^{k} \alpha_k \1 .
+	g(x) = \sum_{n = 1}^{k} \alpha_k \1_{A_k}(x).
 \]
-hello 
+can even demand $A_k$ disjoint and $X = A_1 \cup \ldots A_k$.
 
+[insert sketch here]
+
+\begin{theorem}
+	If $f : X \to [0, \infty)$ measurable, then there are simple $g_n : X \to [0, \infty)$ such that for all $X$, $0 \leq g_n(x) \leq g_{n+1}(x) \leq f(x)$ and $\lim_{n \to \infty} g_n(x) = f(x)$.
+\end{theorem}
+
+\begin{proof}
+  Round down to list possible values.
+
+	[insert sketch]
+
+	\[
+		g_n(x) = \min \left\{2^n, 2^{-n} \lfloor 2^n f(x) \rfloor \right\}.
+	\]
+	This guarantees $0 \leq g_n(x) \leq g_{n+1}(x) \xrightarrow{n \to \infty} g(x)$.
+
+	To see $g_n$ is measurable, observe that
+	\[
+		h_\varepsilon (x) = \min \left\{\varepsilon^{-1}, \varepsilon \lfloor \varepsilon^{-1} x \rfloor\right\}.
+	\]
+	[another sketch]
+
+	is (Borel) measurable as a function from $[0, \infty] \to [0, \infty)$.
+	\[
+		g_n = h_{2^{-n}} \circ f.
+	\]
+\end{proof}
+
+\begin{remark}
+  We can approximate by analogous simple functions any measurable map $f : X \to M$ when metric space $M$ has a countable dense set.
+\end{remark}
+
+\subsection{Lebesgue Integration}
+
+\begin{definition}[Lebesgue Integration]
+If $g : X \to [0, \infty)$ simple and $g = \sum_{k = 1}^{K} \alpha_1 \1_{A_k}$, then
+\[
+	\int_{}^{} g \,dm = \sum_{n = 1}^{k} \alpha_k m(A_k).
+\]
+If $f : X \to [0, \infty]$ measurable, then
+\[
+	\int_{}^{} f \,dm = \sup_{\substack{g : X  \to [0, \infty) \textrm{ simple} \\ g \leq f}} \int_{}^{} g \,dm.
+\]
+\end{definition}
+
+Basic Properties
+\begin{enumerate}
+	\item If $f_1, f_2 : X \to [0, \infty]$ measurable and $f_1 \leq f_2$, then $\int f_1 \, dm \leq \int f_2 \, dm$.
+	\item If $f_1, f_2 : X \to [0, \infty]$ measurable and $\alpha_1, \alpha_2 \in [0, \infty)$, then
+	\[
+		\int \alpha_1 f_1 + \alpha_2 f_2 \, dm = \alpha_1 \int f_1 \, dm + \alpha_2 \int f_2 \, dm.
+	\]
+	\item If $f_1, f_2 : X \to [0, \infty]$ measurable and and $m( \left\{x : f(x) > 0 \right\}) = 0$, then $\int f \,dm = 0$. Even if $f(x) = \infty$ for some $x$!
+\end{enumerate}
+
+\subsection{Monotone Convergence Theorem}
+
+\begin{theorem}[Monotone Convergence Theorem]
+	If $f_1, f_2, f_3, \ldots : X \to [0, \infty]$ measurable and for all $x \in X$, $0 \leq f_n(x) \leq f_{n+1}(x) \xrightarrow[n \to \infty]{} f(x)$, then $\int f_n \, dm \xrightarrow[n \to \infty]{} \int f \, dm$.
+\end{theorem}
+
+\begin{proof}
+	From $f_n \leq f_{n+1}$, obtain
+	\[
+		\int_{}^{} f_n \,dm \leq \int_{}^{} f_{n+1} \,dm \xrightarrow[n \to \infty]{} \alpha \in [0, \infty].
+	\]
+	From $f_n \leq f_{n+1}$, obtain $\int f \, dm \geq \alpha$. Need to prove $\int f \, dm \leq \alpha$.
+
+	By definition of integration, it is enough to show for $g \leq f$ simple.
+	\[
+		\int g \, dm \leq \limsup_{n} \int f_n \, dm.
+	\]
+	Fix small $\delta > 0$. Let $A_k = \left\{x \in X : f_n(x) \geq (1 - \delta) g(x) \right\}$.
+	Since $f_n \leq f_{n+1} \to f \geq g$, have $A_n \subseteq A_{n+1}$ and $\bigcup_{n=1}^{\infty} A_n = x$.
+
+	Indeed for $x \in X$, break into cases:
+	\begin{itemize}
+		\item If $g(x) = 0$, then $x \in A_n$ for all $n \geq 1$.
+		\item If $g(x) \geq 0$, then
+			\[
+				(1 - \delta) g(x) < g(x) \leq \lim_{n \to \infty} f_n (x).
+			\]
+		so $f_n(x) \geq (1 - \delta) g(x)$ for $n \geq 1$ large. Write $g = \sum_{k = 1}^{K} \beta_k \1_{B_k}$.
+
+		Compute
+		\begin{align*}
+			\int f_n \, dm & \geq \int \1_{A_n} f_n \, dm \\
+										 & \geq \int \1_{A_n} (1 - \delta) \, dm \\
+										 & = \sum_{k = 1}^{K} (1 - \delta) \beta_k m(B_k \cap A_k) \\
+										 & \xrightarrow[n \to \infty]{} \sum_{k = 1}^{K} (1 - \delta) \beta_k m(B_k \cap X) \\
+										 & = (1 - \delta) \int g \, dm
+		\end{align*}
+		Since $\delta > 0$ arbitrary, conclude
+		\[
+			\limsup_{n \to \infty} \int f_n \, dm \geq \int g \, dm.
+		\]
+	\end{itemize}
+\end{proof}
+
+\begin{corollary}
+	If $f_1, \ldots, f_n : X \to [0, \infty]$ measurable, then
+	\[
+		 \int \sum_{k = 1}^{\infty} f_k \, dm = \sum_{k = 1}^{\infty} \int f_k \, dm.
+	\]
+\end{corollary}
+
+\begin{proof}
+	$g_n = \sum_{k = 1}^{n} f_k$, then $g_n \leq g_{n+1}$ and $g_n \leq g_{n+1}$ and $g_n \to \sum_{k = 1}^{\infty} f_k$ pointwise.
+\end{proof}
+
+\subsection{Some Quick ``Applications''}
+
+\begin{theorem}[Borel-Cantelli]
+	If $A_1, A_2, \ldots \in S$ and $\sum_{k = 1}^{\infty} m(A_k) < \infty$, then the set
+	\[
+		B = \left\{x \in X : X \textrm{ is an element of infinitely many } A_k \right\}.
+	\]
+	has $m(B) = 0$.
+	That is, almost every $X$ (with respect to $m$) appears in only finitely many $A_k$. 
+\end{theorem}
+
+\begin{proof}
+	Let $f(x) = \sum_{k = 1}^{\infty} \1_{A_k}(x)$, observe $B = \left\{x \in X : f(x) = \infty \right\}$. 
+	Compute
+	\[
+		\int f \, dm = \int \sum_{n = 1}^{\infty} \1_{A_k}(x) \, dm = \sum_{k = 1}^{\infty} \int \1_{A_k}(x) \, dm = \sum_{k = 1}^{\infty} m(A_k) < \infty.
+	\]
+	since $\int f \, dm < \infty, m(B) = 0$. 
+\end{proof}
+
+Example / Application: 
+Assume we know about the Lebesgue measure, i.e. $([0,1], B, m)$ and $m((a,b)) = b - a$. 
+almost every real number does \underline{not} have good rational approximations. 
+
+\begin{theorem}[Baby Hergbtz]
+	Let $m(B) = 0$ where $B = \{ x \in [0,1] \}$ : there are infinitely many pairs of integers $(p,q)$ with $\gcd (p, q) = 1$ and $\left| x - \frac{p}{q} \right| \leq \frac{1}{q^3} \left( \leq \frac{1}{5q^2} \right)$.
+	Any $0 < p < q$ with $\gcd(p,q) = 1$ approximate all $x$ in $(\frac{p}{q} - \frac{1}{q^3}, \frac{p}{q} - \frac{1}{q^3}$ and $m(I_{p,q})$. 
+	\[
+		\sum_{\substack{1 < p < q \\ \gcd (p, q) = 1}} m(I_{p,q}) \leq \sum_{q \geq 1} \sum_{1 < p < q} m(I_{p, q}) \leq \sum_{q \geq 1}^{} \frac{2}{q^2} < \infty.
+	\]
+	By Borel-Cantelli, almost every $x \in [0,1]$ lies in only finitely many $I_{p,q}$. 
+\end{theorem}
+
+\begin{lemma}[Fatou's Lemma]
+	If $f_n : X \to [0, \infty]$ is measurable, then 
+	\[
+		\liminf_{n \to \infty} f_n \, dm \leq \liminf_{n \to \infty} \int f_n \, dm.
+	\]
+\end{lemma}
+
+\begin{proof}
+	Let $g_n = \inf_{k \geq n} f_k$. So $g_n \leq g_{n+1} \xrightarrow[n \to \infty]{} \liminf_{k} f_k$ pointwise. 
+
+	\begin{align*}
+		\int g_n \, dm & \leq f_n \, dm \\
+		\int \liminf_{k \to \infty} f_k \, dm & \leq \liminf_{n \to \infty} \int f_n \, dm
+	\end{align*}
+\end{proof}
+
+Example (of why is it $\leq$ not $=$):
+If $A \in S$, $0 \leq m(A) = m(A^c) < \infty$, $f_{2n} = \1_A$ and $f_{2n+1} = \1_{A^c}$, then
+$\liminf_k f_k = 0$ and $\int f_k \, dm = m(A) = m(A^c) > 0$.
