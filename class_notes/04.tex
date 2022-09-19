@@ -45,7 +45,7 @@ Last Time: Basic results for measurable spaces $(X, S)$.
 
 abuse notation:
 If $(X, S_X)$ is a measurable space and  $(Y, T_Y)$ is a topological space, then call $f : X \to Y$
-$(S_X, T_Y)$-measurabl $\iff f$ is $(S_X, \sigma(T_Y))$- measurable.
+$(S_X, T_Y)$-measurable $\iff f$ is $(S_X, \sigma(T_Y))$- measurable.
 
 \begin{theorem}
 	$f : X \to Y$ is $(S_X, \sigma(T_Y))$- measurable $\iff \forall A \in T_Y$ we have $f^{-1}(A) \in S_X$.
@@ -63,9 +63,9 @@ $(S_X, T_Y)$-measurabl $\iff f$ is $(S_X, \sigma(T_Y))$- measurable.
 	\end{align*}
 \end{proof}
 
-If $(X,T)$ is a topological spae, then call $\sigma(T)$ the Borel subsets of  $X.$ 
+If $(X,T)$ is a topological space, then call $\sigma(T)$ the Borel subsets of  $X.$ 
 
-If $(X, T_X)$ and $(Y,T_Y)$ are topological spaces, then $f:X \to Y$ is measurabe.
+If $(X, T_X)$ and $(Y,T_Y)$ are topological spaces, then $f:X \to Y$ is measurable.
 
 If it is  $(\sigma(T_X), \sigma(T))$-measurable.
 
@@ -76,7 +76,7 @@ comeback too
 	$[-\infty,\infty]$ is $\mathbb{R} \bigcup \{-\infty, +\infty\}$.
 
 	Add new open sets $[-\infty, a)$ and $(a, +\infty]$ 
-	and the usual arith rules
+	and the usual arithmetic rules
 	\begin{align*}
 		a + \infty = \infty, \quad a\cdot \infty = \infty, \quad a > 0
 	\end{align*} etc defined by demanding $+$ and $\cdot$ extend continuously to
@@ -87,7 +87,7 @@ comeback too
 \end{definition}
 
 \begin{corollary}
-	If $(X,S)$ measurable, then $f : X \to [-\infty, \infty]$ is measurabnle 
+	If $(X,S)$ measurable, then $f : X \to [-\infty, \infty]$ is measurable 
 	$iff$ $f^{-1}((a,\infty]) \in S$ for all $a \in [-\infty,\infty]$
 \end{corollary}
 
@@ -109,7 +109,7 @@ comeback too
 
 	Write $A = \bigcup_{k=1}^{\infty} R_k$ with $R_k$ open rectangles. It is enough to show $f^{-1}(R) \in S$ for any open rectangle $\mathbb{R} \subseteq \mathbb{R}^d$.
 
-	Wirte $R = (a,b) \times \ldots \times (a_d, b_d)$ and compute 
+	Write $R = (a,b) \times \ldots \times (a_d, b_d)$ and compute 
 	$f^{-1}(R) =  f^{-1}((a,b)) \cap \ldots \cap f^{-1}((a_d, b_d)) \in S$
 	by measurability of $f_1, \ldots , f_d$
 \end{proof}
@@ -145,7 +145,7 @@ comeback too
 \end{proof}
 
 \begin{corollary}
-	If $(X,S)$ measurabnle space, $f_k : X \to (-\infty, \infty]$ measurable for  $k \geq 0$ 
+	If $(X,S)$ measurable space, $f_k : X \to (-\infty, \infty]$ measurable for  $k \geq 0$ 
 	 \begin{align*}
 	    f (x) = \lim_{k \to  \infty} f_k (x) \, \forall x \in X
 	\end{align*} then $f$ is measurable.
@@ -162,7 +162,7 @@ comeback too
 check
 \begin{enumerate}
 	\item Locally uniform limits of continuous functions are continuous.
-	\item Pointwise limits of continuous funcions need not be continuous.
+	\item Pointwise limits of continuous functions need not be continuous.
 \end{enumerate}
 
 \subsection{Positive Measure}
@@ -188,7 +188,7 @@ check
 				S = \mathcal{P}(X) \text{ and } m(A) = 
 				\begin{cases}
 					\#A & A\text{-finite} \\
-					+\infty & A\text{-finite} \\
+					+\infty & A\text{-infinite} \\
 				\end{cases}
 			\end{align*} 
 
@@ -210,7 +210,7 @@ check
 		\item If $A,B \in S$  and $A \subseteq B$, then $m(A) \leq m(B)$
 		\item If  $A_1, \ldots, A_n \in S$ disjoint, then 
 			$m(A_1 \cup A_2 \cup \ldots \cup A_n) = m(A_1) + \ldots + m(A_n)$
-		\item If  $A_k \in S$ and $A_1 \subseteq A_2 \subseteq ldots$, then
+		\item If  $A_k \in S$ and $A_1 \subseteq A_2 \subseteq \ldots$, then
 			\begin{align*}
 				m(\bigcup_{k=1}^{\infty} A_k ) = \lim_{k \to \infty} m(A_k)
 			\end{align*} 
@@ -235,7 +235,7 @@ check
 			\end{align*} 
 		\item[3] Compute (Check)
 			\begin{align*}
-				m(\bigcup_{k=1}^{\infty} A_k) &= m(A_1 \cup \bigcup_{k=1}^{\infty} m(A_{n+1} \setminus A_k) \\
+				m(\bigcup_{k=1}^{\infty} A_k) &= m(A_1 \cup \bigcup_{k=1}^{\infty} (A_{n+1} \setminus A_k) \\
 											  &= m(A_1) + \sum_{k=1}^{\infty} m(A_{k+1} \setminus A_k) \\
 											  &= m(A_1) + \lim_{n \to \infty}  \sum_{k=1}^{n} m(A_{k+1} \setminus A_k) \\ 
 											  &= \lim_{n \to \infty} \left(m(A_1) \sum_{k=1}^{n} m(A_{k+1} \setminus A_k) \right) \\ 
