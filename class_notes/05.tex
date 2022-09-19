@@ -162,7 +162,7 @@ almost every real number does \underline{not} have good rational approximations.
 \begin{lemma}[Fatou's Lemma]
 	If $f_n : X \to [0, \infty]$ is measurable, then 
 	\[
-		\liminf_{n \to \infty} f_n \, dm \leq \liminf_{n \to \infty} \int f_n \, dm.
+		\int \liminf_{n \to \infty} f_n \, dm \leq \liminf_{n \to \infty} \int f_n \, dm.
 	\]
 \end{lemma}
 
@@ -170,7 +170,7 @@ almost every real number does \underline{not} have good rational approximations.
 	Let $g_n = \inf_{k \geq n} f_k$. So $g_n \leq g_{n+1} \xrightarrow[n \to \infty]{} \liminf_{k} f_k$ pointwise. 
 
 	\begin{align*}
-		\int g_n \, dm & \leq f_n \, dm \\
+		\int g_n \, dm & \leq \int f_n \, dm \qquad \textrm{(By Monotone Convergence)} \\
 		\int \liminf_{k \to \infty} f_k \, dm & \leq \liminf_{n \to \infty} \int f_n \, dm
 	\end{align*}
 \end{proof}
