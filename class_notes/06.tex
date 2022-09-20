@@ -1,0 +1,140 @@
+\section{2022-09-19}
+
+\epigraph{``Fill In Quote''}{Charlie}
+
+\underline{Last Time}:
+
+$(X,S, m)$ positive measure space $f : X \to [0,\infty]$ measurable, then 
+ \begin{align*}
+\int f dm = \sup_{g \leq f} \int g dm
+\end{align*} 
+
+
+\begin{theorem}[Montone Convergence]
+	If $f_n(x) \leq f_{n+1}(x) \to f(x)$ for ever $x$, then 
+	\begin{align*}
+		\int f_n \xrightarrow[n \to \infty]{} \int f dm
+	\end{align*} 
+\end{theorem}
+
+\begin{corollary}[New Measure from Old]
+	If we have $f: X \to [0,\infty]$ and $\tilde{m} : S \to [0,\infty]$ given by $\tilde{m} = \int \1_A fdm$, then $\tilde{m}$ is a measure.
+
+	\underline{Moreover}
+	\begin{align*}
+		\int g d\tilde{m} = \int g f dm
+	\end{align*} for all $g :X \to [0,\infty]$ measurable.
+
+	\underline{notation}:
+	$d \tilde{m} = f dm$ (equality in distributional sense)
+\end{corollary}
+
+\begin{proof}
+	Check countably additivity:
+	Suppose $A_1, A_2, \ldots \in S$ disjoint, let  $A = \bigcup_{k=1}^{\infty} A_k$, compute 
+	\begin{align*}
+		\tilde{m}(A) &= \int \1_{A} f dm
+					 = \int \sum_{k=1}^{\infty} \1_{A_k} f dm \\
+					 &= \sum_{k=1}^{\infty} \int \1_{A_k} f dm \quad \text{By Monotone Convergence} \\
+					 &=  \sum_{k=1}^{\infty} \tilde{m}( A_k )
+	\end{align*}
+\end{proof}
+
+\begin{definition}
+	If $f: X \to [ - \infty, \infty]$ measurable, then  $\int f dm = f_{+} dm - \int f_{-} dm$ where
+	$f_{\pm} = \max\{0, \pm f\}$
+\begin{remark}
+	$\int f dm$ defined only when $\int |f| dm < \infty$. Moreover,  $|\int f dm | \leq \int |f| dm$
+\end{remark}
+\end{definition}
+
+Let $L^{1}(X,S, m)$ denote measurable $f: X \to [-\infty, \infty]$ with $\int | f| dm < \infty$.
+
+We want $\|f\|_{L^{1}(X,S, m)} = \int |f| dm$ to be a norm.
+
+Problem: If $m(\{x : f(x) \neq 0 \}) = 0$, then $\int |f| dm = 0$
+
+\begin{remark}
+	Notation: Identify a property $\mathbb{P}(x)$ ofa point $x \in X$ with the set $\{x \in X : \mathbb{P}(x)\}$
+\end{remark}
+
+For example, the set of $X$ where two functions  $f,g : X \to [-\infty, \infty]$ agree.
+
+A property $\mathbb{P}$ holds $m$- almost everywhere if $m(\mathbb{P}^{c}) = 0$ 
+
+\begin{example}
+	If $f : X \to (-\infty, \infty)$ is measurable and $f$ vanishes almost everywere, then $\int f dm = 0$
+\end{example}
+
+
+For $f,g \in L^{1}(X,S, m)$, write $f \sim g \iff f=g$ (almost everywhere)
+
+Observe: $\sim$ is an equivalence relation and $L^{1}(X,S, m) / \sim$ is a normed vector space.
+
+
+\begin{definition}[Dominated Convergence]
+	If
+	\begin{align*}
+		f_n : X &\to [-\infty, \infty] \text{ measurable }, \\
+		g : X &\to [0, \infty] \text{ measurable }, \\
+		\int g dm &< \infty
+	\end{align*}
+	suppose $f(x) = \lim_{n \to \infty} f_n(x)\, \forall x \in X$, and $|f_n (x) | \leq g(x)$ so
+	$x \in X$ and $n \geq 0,$
+
+	then  $\lim_{n\to \infty} \int | f dm 0 f_n | dm = 0$ and \\
+	$\lim_{n\to \infty} \int f_n dm = \int f dm$
+
+\end{definition}
+
+\begin{example}
+	If $f_n : [0,1] \to [0, \infty]$ is defined by
+	\begin{align*}
+		f_n (x) 
+		\begin{cases}
+			2^n & 2^{-n-1} < x < 2^{-n} \\
+			0 & otherwise
+		\end{cases}
+	\end{align*} 
+	then $lim_{n \to \infty} f_n (x) = 0, \, \forall x \in [0,1]$ and  $\int f_{n} dx = \frac{1}{2} ,\, \forall n \geq 0$
+	insert image
+\end{example}
+
+We will see later that the $f_{n}$ are converging (in some sense) to $\frac{1}{2}$Dirac measure at $0$. The dominating $g$ prevents this behaviour.
+
+\begin{proof}
+	\begin{align*}
+		\int 2g dm &= \int \left( \lim_{n \to \infty} 2g - | f - f_{n}| \right) dm \\
+				   &\leq \liminf_{n \to \infty} \int 2g - |f - f_{n}|dm \quad \text{ (By Fatous Lemma)} \\
+				   &= \int 2g dm - \limsup_{n \to \infty} \int | f - f_{n}| dm
+	\end{align*} 
+	Since, $\int 2gdm < \infty$, conclude
+\end{proof}
+
+\begin{corollary}
+	If $f_{n} : X \to [-\infty, \infty]$ measurable and 
+\end{corollary}
+
+\begin{proof}
+	Use dominated convergence. Let $g = \sum_{n=1}^{\infty} | f_n | : Xx \to [0,\infty]$. By hypothesisn and monotone convergence, $\int gdm < \infty$
+\end{proof}
+
+
+\begin{corollary}
+	$L^{1}(X,S, m) / \sim$ is a \underline{complete} normed vector space.
+\end{corollary}
+
+\begin{proof}
+	Suppose $\{f_n\} \subseteq L^{1}(X,S, m) / \sim$ is cauchy.
+
+	Refining the sequence, we may assume $\int$
+\end{proof}
+
+
+
+
+
+
+\subsection{Chapter 2}
+
+
