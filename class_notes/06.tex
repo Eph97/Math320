@@ -108,15 +108,31 @@ We will see later that the $f_{n}$ are converging (in some sense) to $\frac{1}{2
 				   &\leq \liminf_{n \to \infty} \int 2g - |f - f_{n}|dm \quad \text{ (By Fatous Lemma)} \\
 				   &= \int 2g dm - \limsup_{n \to \infty} \int | f - f_{n}| dm
 	\end{align*} 
-	Since, $\int 2gdm < \infty$, conclude
+	Since, $\int 2gdm < \infty$, conclude 
+	\begin{align*}
+		&\limsup{n \to \infty} \int |f - f_n | dm = 0 \\ \text{finally \quad}
+		& \left| \int f_n dm - \int f dm \right| \leq \int | f - f_n | dm
+	\end{align*} 
 \end{proof}
 
 \begin{corollary}
-	If $f_{n} : X \to [-\infty, \infty]$ measurable and 
+	If $f_{n} : X \to [-\infty, \infty]$ measurable and $\sum_{n=1}^{\infty} | f_n | dm < \infty$,
+	then $f(x) = \sum_{n=1}^{\infty}f_n (x)$ exists for almost every $x \in X$ and $\int f dm = \sum_{n=1}^{\infty} \int f_{n}dm$
 \end{corollary}
 
 \begin{proof}
-	Use dominated convergence. Let $g = \sum_{n=1}^{\infty} | f_n | : Xx \to [0,\infty]$. By hypothesisn and monotone convergence, $\int gdm < \infty$
+	Use dominated convergence. Let $g = \sum_{n=1}^{\infty} | f_n | : X \to [0,\infty]$.
+	By hypothesis and monotone convergence, $\int gdm < \infty$
+
+	Since $\int g dm < \infty$ and $g < \infty$ almost everywhere, if $x \in X$ and $g(x) < \infty$,
+	then $\sum_{n=1}^{\infty} f_{n} (x)$ is absolutely convergent. That is $g(x) < \infty \implies f(x) = \sum_{n=1}^{\infty} f_{n}(x)$ converges.
+
+	The partial sums $F_n (x) = \sum_{k=1}^{\infty} f_{n}(x)$ have $F_n \to f$ almost everywhere and $|F_{n}| \leq |g|$ a.e.
+
+	By dominated convergence,
+	\begin{align*}
+	\sum_{k=1}^{\infty}f_{k} dm = \lim_{n \to \infty} \int F_n dm = \int f dm
+	\end{align*} 
 \end{proof}
 
 
@@ -127,12 +143,16 @@ We will see later that the $f_{n}$ are converging (in some sense) to $\frac{1}{2
 \begin{proof}
 	Suppose $\{f_n\} \subseteq L^{1}(X,S, m) / \sim$ is cauchy.
 
-	Refining the sequence, we may assume $\int$
+	Refining the sequence, we may assume 
+	\begin{align*}
+	&\int_{\infty}|f_{n+1} - f_{n} | dm < 2^{-1} \\ \text{s.t. \quad}
+		\sum_{n=1}^{\infty} &\int | f_{n+1} - f_{n} | dm < \infty
+	\end{align*} 
+	Apply corollary to conclude $f(x) = \lim_{n \to \infty} f_{n}(x)$ converges for almost every $x$ and 
+	\begin{align*}
+		\int |f - f_{n} | dm \to 0 \text{ as } n \to \infty
+	\end{align*} 
 \end{proof}
-
-
-
-
 
 
 \subsection{Chapter 2}
