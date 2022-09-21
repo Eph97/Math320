@@ -11,7 +11,7 @@ Last time: Definition of a Riemann Integral $\int_Q f$ of bounded $f : Q \to R$ 
 
 \begin{definition}[oscillation]
   The oscillation of $f : Q \to R$ at $x \in Q$ is
-\[\osc(f,x) = \inf_{\delta > 0} \sup_{\substack{y, z \in Q \\ | y - x | < \delta \\ |z - x| < \delta}} |f(y) - f(x)| \]
+\[\osc(f,x) = \inf_{\delta > 0} \sup_{\substack{y, z \in Q \\ | y - x | < \delta \\ |z - x| < \delta}} |f(y) - f(z)| \]
 \end{definition}
 
 \begin{lemma}
@@ -92,7 +92,7 @@ Note on notation: The set of discontinuities $Z$ can be the countable union of c
 [There is a missing graphic comparing the two]
 
 \begin{theorem}
-  For any metrictspace $M$, there is a complete metric space $M$ and isometry $i : M \to \bar{M}$ such that for continuous $f : M \to \bar{N}$, there is a unique $\bar{f} : \bar{M} \to \bar{N}$ with $f = \bar{f} \cdot i$. 
+  For any metric space $M$, there is a complete metric space $M$ and isometry $i : M \to \bar{M}$ such that for continuous $f : M \to \bar{N}$, there is a unique $\bar{f} : \bar{M} \to \bar{N}$ with $f = \bar{f} \cdot i$. 
 \end{theorem}
 
 \begin{proof}[Sketch Proof]
