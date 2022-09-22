@@ -65,7 +65,33 @@ We argue the restriction of $m$ to Borel $\sigma$-algebra is a measure.
 \end{lemma}
 
 \begin{proof}
-	Since $(X,T)$ locally compact,
+	Since $(X,T)$ locally compact, every $x \in K$ has $x \in U_{x} \subseteq \bar{U}_x \subseteq X$
+	Since $K$ compact, $K \subseteq U_{x_1} \cup \ldots \cup U_{x_n} \subseteq \bar{U}_x \cup \ldots \cup \bar{U}_{x_{n}}$
 \end{proof}
 
+\begin{lemma}
+	If $K_1 \subseteq U_1$, then there are  $K_1 \subseteq U_{2} \subseteq K_1 \subseteq U$
+\end{lemma}
 
+\begin{proof}
+	By the previous lemma, there is $K_1 \subseteq V_{open} \subseteq \bar{V}_{compact}$.
+
+	Replace $U_{1}$ by $U_{1} \cap V$ to obtain $\bar{V}_{1}$ compact. By 2nd previous lemma, we can separate $K$ and $\bar{U}_1 \setminus U_{1}$
+
+	Choose open $V_1$ and $V_2$ with $K_{1} \subseteq V_{1}$,  $\bar{U}_1 \setminus U_1 \subseteq V_{2}$
+and $V_{1} \cap V_{2} = \emptyset$ can assume $V_{1} \subseteq U_{1}$
+
+Finish
+\end{proof}
+
+\begin{lemma}[Uhryson's lemma]
+	If $K_{compact} \subseteq U_{open}$, then there is  $f \in C_{c} (X)$ with $\1_k \leq f \leq \1_U$
+\end{lemma}
+
+\begin{remark} dyadic rationals
+		A dyadic rational is a number $q = \frac{k}{2^{n}}$ with $k,n \in \mathbb{N}$
+\end{remark}
+
+\begin{proof}
+	Choose for dyadic rationals $q \in [0,1]$
+\end{proof}
