@@ -247,3 +247,6 @@ TSWLatexianTemp*
 
 # latexmk rc file
 .latexmkrc
+
+# MacOS
+.DS_Store

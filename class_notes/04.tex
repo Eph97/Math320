@@ -43,7 +43,7 @@ Last Time: Basic results for measurable spaces $(X, S)$.
 	\end{align*}  
 \end{proof}
 
-abuse notation:
+Abuse of notation:
 If $(X, S_X)$ is a measurable space and  $(Y, T_Y)$ is a topological space, then call $f : X \to Y$
 $(S_X, T_Y)$-measurable $\iff f$ is $(S_X, \sigma(T_Y))$- measurable.
 
@@ -53,9 +53,9 @@ $(S_X, T_Y)$-measurable $\iff f$ is $(S_X, \sigma(T_Y))$- measurable.
 
 \begin{proof}
 	Since $T_Y \subseteq \sigma(T_Y)$ 
-	then $\implies$ directions trivial 
+	then $\implies$ directions trivial.
 
-	for the $\impliedby$ direction, observe that 
+	For the $\impliedby$ direction, observe that 
 	\begin{align*}
 		&\{f^{-1}(A) : A \in T_Y\} \subseteq S_X \\
 		&\implies \sigma(\{f^{-1}(A) : A \in T_Y\}) \subseteq \sigma(S_X) = S_X \\
@@ -73,7 +73,7 @@ comeback too
 
 \begin{definition}
 	The extended Reals.
-	$[-\infty,\infty]$ is $\mathbb{R} \bigcup \{-\infty, +\infty\}$.
+	$[-\infty,\infty]$ is $\mathbb{R} \cup \{-\infty, +\infty\}$.
 
 	Add new open sets $[-\infty, a)$ and $(a, +\infty]$ 
 	and the usual arithmetic rules
@@ -116,7 +116,7 @@ comeback too
 
 \begin{corollary}
 	If $(X,S)$ is a measurable space and $f,g : X \to [-\infty, \infty]$ is measurable, 
-	then $f+g$, $f\circ g$ $\min\{f,g\}$ $max\{f,g\}$, and $|f|$ are all measurable (when defined).
+	then $f+g$, $f\circ g$, $\min\{f,g\}$, $\max\{f,g\}$, and $|f|$ are all measurable (when defined).
 \end{corollary}
 
 \begin{theorem}
@@ -167,7 +167,7 @@ check
 
 \subsection{Positive Measure}
 
-\begin{definition}
+\begin{definition}[Positive Measure]
 	A positive measure is a function $m : S \to [0, \infty]$ on a $\sigma$-algebra $S$ on a set $X$ such that $m(\emptyset) = 0$
 	and $m( \bigcup_{k=1}^{\infty} A_k) = \sum_{k=1}^{\infty} m(A_k)$ when 
 	$A_1, A_2, \ldots \in S$ disjoint.

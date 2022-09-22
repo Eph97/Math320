@@ -6,14 +6,14 @@ Readings: Chapter 1 of Rudin.
 
 \subsection{Lebesgue Integration and Motivation}
 
-sketched Lebesgue integration cartoon.
+[sketched Lebesgue integration cartoon.]
 
 It can be defined as 
 \begin{align*}
 	\int f \approx \sum_{k=1}^{n-1} S_k L^* (\{x : S_k \leq f(x) \leq S_{k+1}\})
 \end{align*} 
 
-\underline{missing sketch} 
+[\underline{missing sketch}]
 
 We want to be able to "measure" all of the "constructable subsets of $\R^d$
 
@@ -21,7 +21,7 @@ We should be able to handle $1_C$ of $\frac{1}{2^{k+1} -1 }$ cantor set ($C \in 
 
 \begin{enumerate}
 	\item constructable? Rectangles and unions and intersections of rectangles.
-	\item so staart with all rectangles.
+	\item so start with all rectangles.
 	\item If $A_1, A_2, \ldots$ constructable, then
 		$\bigcup_{k=1}^{\infty}A_k$ and $\intersection_{k=1}^{\infty}A_k$ constructable.
 	\item Lebesgue measure assigns volume to all such sets.
@@ -29,7 +29,7 @@ We should be able to handle $1_C$ of $\frac{1}{2^{k+1} -1 }$ cantor set ($C \in 
  
 \subsection{Metric Spaces}
 
-A function $d : X \cross X \to \mathbb{R}$ on he cartesion product of a set  $X$ us a metric if
+A function $d : X \cross X \to \mathbb{R}$ on the Cartesian product of a set  $X$ us a metric if
 
 \begin{enumerate}
 	\item $d(x,y) \geq 0$
@@ -40,14 +40,14 @@ A function $d : X \cross X \to \mathbb{R}$ on he cartesion product of a set  $X$
 
 We call the pair $(X, d)$ a \underline{metric space.}
 
-\begin{definition}
+\begin{definition}[Continuous Functions]
 A function $f : X \to Y$ between metric spaces is continuous if, $\forall x \in X$ and $\varepsilon >0 $ there exists a $\delta >0$ such that for all $y \in X$ we have $d_X (x, y) < \delta \implies d_Y(f(x), f(y)) < \varepsilon$	
 \end{definition}
 
 A subset $V \subseteq X$ of a metric space $X$ is open if for ever $x \in V$ there is a $\delta >0 $ such that $B(x,\delta) = \{y \in X: d(x,y) < \delta\} \subseteq U$ 
 
 \begin{theorem}
-	A map $f:X \to Y$ between metric spaces is continuous iff  $w \subseteq Y$ open implies $f^{-1}(w) \subseteq X$ is also open.
+	A map $f:X \to Y$ between metric spaces is continuous if and only if $w \subseteq Y$ open implies $f^{-1}(w) \subseteq X$ is also open.
 \end{theorem}
 
 \begin{proof}
@@ -62,8 +62,8 @@ definition fun! \\
 \end{enumerate}
 \end{definition}
 
-\begin{definition}
-	A collection $T$ of subsets of a set $X$ is a topology if:
+\begin{definition}[Topology]
+	A collection $T$ of subsets of a set $X$ is a \textit{topology} if:
 	\begin{enumerate}
 		\item $\emptyset, X \in T$ 
 		\item $T^{'} \subseteq T$ is finite, then $\bigcap\limits_{V \in T^{'}} V \in T$ 
@@ -113,7 +113,7 @@ We call the pair $(X, S)$ a measurable space.
 \end{definition}
 
 \begin{claim*}
-	Not all sigmal algebras are topologies but all important ones are.
+	Not all $\sigma$ algebras are topologies but all important ones are.
 \end{claim*}
 
 \begin{example}
@@ -159,8 +159,8 @@ We call the pair $(X, S)$ a measurable space.
 	 $\tau(C)$ is defined similarly.
 \end{proof}
 
-\begin{definition}
-	We call a function $f:X \to Y$ from a measurable space to a topological space measurable if $W \in T_Y$ implies $f^{-1}(W) \in S_X$
+\begin{definition}[Measurable Function]
+	We call a function $f:X \to Y$ from a measurable space to a topological space \textit{measurable} if $W \in T_Y$ implies $f^{-1}(W) \in S_X$
 \end{definition}
 
 \begin{theorem}
