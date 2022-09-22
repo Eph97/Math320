@@ -1,0 +1,71 @@
+\section{2022-09-21}
+
+\epigraph{``Fill In Quote''}{Charlie}
+
+\begin{theorem}
+	$(X,T)$ \underline{nice} topological space if: Hausdorff, locally compact, and every open set is the union of countably many compact sets.
+\end{theorem}
+
+\begin{example}
+	$(K,d)$ a compact metric space, $C_c (x)$ space of $f \in C(x)$ such that $\{x\in X: f(x) \neq 0 \}$ is compact.
+
+	That is, $C_c (x)$ is the space of compactly supported continuous function:
+		$\Lambda : C_c(X) \to \mathbb{R}$ is posiive linear if:
+	\begin{align*}
+		&\Lambda(\alpha f + \beta g) = \alpha \Lambda(f) + \beta \Lambda(g) \quad \text{linearity} \\
+		&\Lambda(f) \geq 0 \quad \text{ when } f \geq 0
+	\end{align*} 
+\end{example}
+
+
+\begin{theorem}
+	There is a unique measure $m$ on (X,B) s.t.
+	\begin{align*}
+		\Lambda(f) = \int f dm \quad \forall f \in C_c (X)
+	\end{align*} 
+\end{theorem}
+
+\begin{definition}[defining m]
+	for $A \subseteq X$ borel and $m$ a borel measure, $m(A) = \int \1_{A} dm$
+\end{definition}
+
+We want to approximate $\1_A$ with elements of $C_c (X)$
+
+For $U \subseteq X $ open, let $m(U) = \sup\{\Lambda (f) : f \in C_c (X), \, 0 \leq f \leq \1_{U} \}$
+
+insert image.
+
+For $A \subseteq X$ arbitrary, let $m(A) = \inf\{m(U) : A \subseteq U_{open} \subseteq X\}$
+
+We argue the restriction of $m$ to Borel $\sigma$-algebra is a measure.
+
+\subsection{Building Test functions}
+
+\begin{lemma}
+	If $K_{1}, K_{2}$ compact and $K_{1} \cap K_2 = \emptyset$, then there are open $U_{1} , U_{2}$ with $K_{1} \subseteq U_{1}$, $K_{1} \subseteq U_{2}$, and $U_1 \cap U_2 = \emptyset$
+\end{lemma}
+
+\begin{proof}
+	Since $X$ hausdorff and $K_1 \cap K_2 = \emptyset$, for  $x \in K_1$ and $y \in K_2$, there are open $U_{x,y}$, and $V_{x,y}$ with $x \in U_{x,y}$ and $y \in V_{x,y}$ and $U_{x,y} \cap V_{x,y} = \emptyset$, for any $x \in K_1$,
+	\begin{align*}
+		K_2 \subseteq \bigcup_{y \in K_2} V_{x,y}
+	\end{align*} 
+
+	So there are $y_1, ,\ldots , y_n$ with $K_2 \subseteq \bigcup_{k=1}^n V_{x, y_{k}} = V_{x}$
+
+	Now have $x \in U_{x}$, $K_2 \subseteq V_x$, and $U_{x} \cap V_{x} = \emptyset$. Since $K_{1} \subseteq bigcup_{x \in K_1} V_x$, have 
+	\begin{align*}
+		K_1 \subseteq U_{x} \cup \ldots \cup U_{x_{n}} = U
+	\end{align*} 
+	Let $V = V_{x_{1}} \cap \ldots \cap V_{x_{n}}$. Have $K_{1} \subseteq U$, $K_{2} \subseteq V$ and $U \cap V = \emptyset$
+\end{proof}
+
+\begin{lemma}
+	If $K$ compact, then there is $K \subseteq U_{open} \subseteq \bar{U}_{compact} \subseteq X$.
+\end{lemma}
+
+\begin{proof}
+	Since $(X,T)$ locally compact,
+\end{proof}
+
+
