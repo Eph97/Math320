@@ -155,6 +155,52 @@ We will see later that the $f_{n}$ are converging (in some sense) to $\frac{1}{2
 \end{proof}
 
 
-\subsection{Chapter 2}
+\subsection{Chapter 2 - Borel Measure}
 
+insert Diagram
+
+
+generalize to:
+
+insert diagram
+
+\begin{definition}[Positive Linear Functional]
+	Suppose $K$ is a compact metric space. A positive linear functional on $C(K)$ is a map $\Lambda : C(K) \to \mathbb{R}$ s.t. 
+	$\Lambda(\alpha f + \beta g) = \alpha \Lambda(f) + \beta\Lambda(g)$ for any 
+	$g \geq 0 \implies \lambda (g) \geq 0$
+\end{definition}
+
+\begin{example}
+	\begin{enumerate}
+		\item $K = [0,1]$, $\Lambda (f) = \int_{Riemann} f$
+		\item $x \in X$, \, $\Lambda(f) = f(x)$
+	\end{enumerate}
+\end{example}
+
+A finite positive Borel measure on $K$ is a positive measure on the Borel $\sigma$-algebra of $K$ with $m(X) < \infty$
+
+ 
+\begin{theorem}
+	There is a natural bijection between positive linear functionals on compact metric space $K$ and the finite positive Borlemeasures on $K$ and it is characterized by $\Lambda \leftrightarrow m$  
+	$\iff$
+	 \begin{align*}
+	\Lambda(f) = \int f dm \quad \forall f \in C(K)
+	\end{align*} 
+\end{theorem}
+
+\begin{remark}
+	It is easier to prove a mor general version that uses only \underline{topological}-properties of the underlying space.
+\end{remark}
+
+\begin{definition}
+	Call a topological space $X$ nice if the following hold:
+	\begin{enumerate}
+		\item $X$ is Hausdorff: if $x,y \in X$ distinct, then there are open $u,v \subseteq X$ with  $x \in U$, $y \in V$ and $U \cap V  = \emptyset$ 
+		\item $X$ is locally compact:
+			if $x \in X$, then there are $K, V \subseteq X$ with $x \in V \subseteq K $,
+			$V$ open, $K$ compact.
+
+		\item $X$ is "really" $\sigma$-compact: if $V \subseteq X$ open, then there are compact $K_n \subseteq X$ with $V = \bigcup_{n=1}^{\infty} K_n$
+	\end{enumerate}
+\end{definition}
 
