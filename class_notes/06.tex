@@ -1,20 +1,20 @@
-\section{2022-09-19}
+\section{September 19, 2022}
 
 \epigraph{``Fill In Quote''}{Charlie}
 
 \underline{Last Time}:
 
-$(X,S, m)$ positive measure space $f : X \to [0,\infty]$ measurable, then 
+$(X,S, m)$ positive measure space $f : X \to [0,\infty]$ measurable, then
  \begin{align*}
 \int f dm = \sup_{g \leq f} \int g dm
-\end{align*} 
+\end{align*}
 
 
 \begin{theorem}[Montone Convergence]
-	If $f_n(x) \leq f_{n+1}(x) \to f(x)$ for ever $x$, then 
+	If $f_n(x) \leq f_{n+1}(x) \to f(x)$ for ever $x$, then
 	\begin{align*}
 		\int f_n \xrightarrow[n \to \infty]{} \int f dm
-	\end{align*} 
+	\end{align*}
 \end{theorem}
 
 \begin{corollary}[New Measure from Old]
@@ -25,13 +25,15 @@ $(X,S, m)$ positive measure space $f : X \to [0,\infty]$ measurable, then
 		\int g d\tilde{m} = \int g f dm
 	\end{align*} for all $g :X \to [0,\infty]$ measurable.
 
-	\underline{notation}:
-	$d \tilde{m} = f dm$ (equality in distributional sense)
 \end{corollary}
+
+\begin{notation}
+	$d \tilde{m} = f dm$ (equality in distributional sense)
+\end{notation}
 
 \begin{proof}
 	Check countably additivity:
-	Suppose $A_1, A_2, \ldots \in S$ disjoint, let  $A = \bigcup_{k=1}^{\infty} A_k$, compute 
+	Suppose $A_1, A_2, \ldots \in S$ disjoint, let  $A = \bigcup_{k=1}^{\infty} A_k$, compute
 	\begin{align*}
 		\tilde{m}(A) &= \int \1_{A} f dm
 					 = \int \sum_{k=1}^{\infty} \1_{A_k} f dm \\
@@ -60,7 +62,7 @@ Problem: If $m(\{x : f(x) \neq 0 \}) = 0$, then $\int |f| dm = 0$
 
 For example, the set of $X$ where two functions  $f,g : X \to [-\infty, \infty]$ agree.
 
-A property $\mathbb{P}$ holds $m$- almost everywhere if $m(\mathbb{P}^{c}) = 0$ 
+A property $\mathbb{P}$ holds $m$- almost everywhere if $m(\mathbb{P}^{c}) = 0$
 
 \begin{example}
 	If $f : X \to (-\infty, \infty)$ is measurable and $f$ vanishes almost everywere, then $\int f dm = 0$
@@ -71,6 +73,11 @@ For $f,g \in L^{1}(X,S, m)$, write $f \sim g \iff f=g$ (almost everywhere)
 
 Observe: $\sim$ is an equivalence relation and $L^{1}(X,S, m) / \sim$ is a normed vector space.
 
+\begin{observation}
+  $\sim$ is an equivalence relation and $L^{1}(X,S, m) / \sim$ is a normed vector space.
+\end{observation}
+
+\subsection{Dominated Convergence}
 
 \begin{definition}[Dominated Convergence]
 	If
@@ -90,12 +97,12 @@ Observe: $\sim$ is an equivalence relation and $L^{1}(X,S, m) / \sim$ is a norme
 \begin{example}
 	If $f_n : [0,1] \to [0, \infty]$ is defined by
 	\begin{align*}
-		f_n (x) 
+		f_n (x)
 		\begin{cases}
 			2^n & 2^{-n-1} < x < 2^{-n} \\
 			0 & otherwise
 		\end{cases}
-	\end{align*} 
+	\end{align*}
 	then $lim_{n \to \infty} f_n (x) = 0, \, \forall x \in [0,1]$ and  $\int f_{n} dx = \frac{1}{2} ,\, \forall n \geq 0$
 	insert image
 \end{example}
@@ -107,12 +114,12 @@ We will see later that the $f_{n}$ are converging (in some sense) to $\frac{1}{2
 		\int 2g dm &= \int \left( \lim_{n \to \infty} 2g - | f - f_{n}| \right) dm \\
 				   &\leq \liminf_{n \to \infty} \int 2g - |f - f_{n}|dm \quad \text{ (By Fatous Lemma)} \\
 				   &= \int 2g dm - \limsup_{n \to \infty} \int | f - f_{n}| dm
-	\end{align*} 
-	Since, $\int 2gdm < \infty$, conclude 
+	\end{align*}
+	Since, $\int 2gdm < \infty$, conclude
 	\begin{align*}
 		&\limsup{n \to \infty} \int |f - f_n | dm = 0 \\ \text{finally \quad}
 		& \left| \int f_n dm - \int f dm \right| \leq \int | f - f_n | dm
-	\end{align*} 
+	\end{align*}
 \end{proof}
 
 \begin{corollary}
@@ -132,9 +139,8 @@ We will see later that the $f_{n}$ are converging (in some sense) to $\frac{1}{2
 	By dominated convergence,
 	\begin{align*}
 	\sum_{k=1}^{\infty}f_{k} dm = \lim_{n \to \infty} \int F_n dm = \int f dm
-	\end{align*} 
+	\end{align*}
 \end{proof}
-
 
 \begin{corollary}
 	$L^{1}(X,S, m) / \sim$ is a \underline{complete} normed vector space.
@@ -143,15 +149,15 @@ We will see later that the $f_{n}$ are converging (in some sense) to $\frac{1}{2
 \begin{proof}
 	Suppose $\{f_n\} \subseteq L^{1}(X,S, m) / \sim$ is cauchy.
 
-	Refining the sequence, we may assume 
+	Refining the sequence, we may assume
 	\begin{align*}
 	&\int_{\infty}|f_{n+1} - f_{n} | dm < 2^{-1} \\ \text{s.t. \quad}
 		\sum_{n=1}^{\infty} &\int | f_{n+1} - f_{n} | dm < \infty
-	\end{align*} 
-	Apply corollary to conclude $f(x) = \lim_{n \to \infty} f_{n}(x)$ converges for almost every $x$ and 
+	\end{align*}
+	Apply corollary to conclude $f(x) = \lim_{n \to \infty} f_{n}(x)$ converges for almost every $x$ and
 	\begin{align*}
 		\int |f - f_{n} | dm \to 0 \text{ as } n \to \infty
-	\end{align*} 
+	\end{align*}
 \end{proof}
 
 
@@ -165,8 +171,8 @@ generalize to:
 insert diagram
 
 \begin{definition}[Positive Linear Functional]
-	Suppose $K$ is a compact metric space. A positive linear functional on $C(K)$ is a map $\Lambda : C(K) \to \mathbb{R}$ s.t. 
-	$\Lambda(\alpha f + \beta g) = \alpha \Lambda(f) + \beta\Lambda(g)$ for any 
+	Suppose $K$ is a compact metric space. A positive linear functional on $C(K)$ is a map $\Lambda : C(K) \to \mathbb{R}$ s.t.
+	$\Lambda(\alpha f + \beta g) = \alpha \Lambda(f) + \beta\Lambda(g)$ for any
 	$g \geq 0 \implies \lambda (g) \geq 0$
 \end{definition}
 
@@ -179,23 +185,23 @@ insert diagram
 
 A finite positive Borel measure on $K$ is a positive measure on the Borel $\sigma$-algebra of $K$ with $m(X) < \infty$
 
- 
+
 \begin{theorem}
-	There is a natural bijection between positive linear functionals on compact metric space $K$ and the finite positive Borlemeasures on $K$ and it is characterized by $\Lambda \leftrightarrow m$  
+	There is a natural bijection between positive linear functionals on compact metric space $K$ and the finite positive Borlemeasures on $K$ and it is characterized by $\Lambda \leftrightarrow m$
 	$\iff$
 	 \begin{align*}
 	\Lambda(f) = \int f dm \quad \forall f \in C(K)
-	\end{align*} 
+	\end{align*}
 \end{theorem}
 
 \begin{remark}
 	It is easier to prove a mor general version that uses only \underline{topological}-properties of the underlying space.
 \end{remark}
 
-\begin{definition}
+\begin{definition}["Nice" topological space]
 	Call a topological space $X$ nice if the following hold:
 	\begin{enumerate}
-		\item $X$ is Hausdorff: if $x,y \in X$ distinct, then there are open $u,v \subseteq X$ with  $x \in U$, $y \in V$ and $U \cap V  = \emptyset$ 
+		\item $X$ is Hausdorff: if $x,y \in X$ distinct, then there are open $u,v \subseteq X$ with  $x \in U$, $y \in V$ and $U \cap V  = \emptyset$
 		\item $X$ is locally compact:
 			if $x \in X$, then there are $K, V \subseteq X$ with $x \in V \subseteq K $,
 			$V$ open, $K$ compact.

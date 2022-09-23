@@ -1,4 +1,4 @@
-\section{2022-09-14}
+\section{September 14th, 2022}
 
 Last time: positive measure spaces $(X, S, m)$. $X$ is a set, $S$ is a $\sigma$-algebra of subsets of $X$ in (countably additive) positive measure in $S$.
 
@@ -134,40 +134,42 @@ Basic Properties
 		B = \left\{x \in X : x \textrm{ is an element of infinitely many } A_k \right\}.
 	\]
 	has $m(B) = 0$.
-	That is, almost every $x \in X$ (with respect to $m$) appears in only finitely many $A_k$. 
+	That is, almost every $x \in X$ (with respect to $m$) appears in only finitely many $A_k$.
 \end{theorem}
 
 \begin{proof}
-	Let $f(x) = \sum_{k = 1}^{\infty} \1_{A_k}(x)$, observe $B = \left\{x \in X : f(x) = \infty \right\}$. 
+	Let $f(x) = \sum_{k = 1}^{\infty} \1_{A_k}(x)$, observe $B = \left\{x \in X : f(x) = \infty \right\}$.
 	Compute
 	\[
 		\int f \, dm = \int \sum_{n = 1}^{\infty} \1_{A_k}(x) \, dm = \sum_{k = 1}^{\infty} \int \1_{A_k}(x) \, dm = \sum_{k = 1}^{\infty} m(A_k) < \infty.
 	\]
-	since $\int f \, dm < \infty, m(B) = 0$. 
+	since $\int f \, dm < \infty, m(B) = 0$.
 \end{proof}
 
-Example / Application: 
-Assume we know about the Lebesgue measure, i.e. $([0,1], B, m)$ and $m((a,b)) = b - a$. 
-almost every real number does \underline{not} have good rational approximations. 
+Example / Application:
+\begin{example}[\& Application]
+Assume we know about the Lebesgue measure, i.e. $([0,1], B, m)$ and $m((a,b)) = b - a$.
+almost every real number does \underline{not} have good rational approximations.
+\end{example}
 
 \begin{theorem}[Baby Hergbtz]
 	Let $m(B) = 0$ where $B = \{ x \in [0,1] \}$ : there are infinitely many pairs of integers $(p,q)$ with $\gcd (p, q) = 1$ and $\left| x - \frac{p}{q} \right| \leq \frac{1}{q^3} \left( \leq \frac{1}{5q^2} \right)$.
-	Any $0 < p < q$ with $\gcd(p,q) = 1$ approximate all $x$ in $(\frac{p}{q} - \frac{1}{q^3}, \frac{p}{q} - \frac{1}{q^3}$ and $m(I_{p,q})$. 
+	Any $0 < p < q$ with $\gcd(p,q) = 1$ approximate all $x$ in $(\frac{p}{q} - \frac{1}{q^3}, \frac{p}{q} - \frac{1}{q^3}$ and $m(I_{p,q})$.
 	\[
 		\sum_{\substack{1 < p < q \\ \gcd (p, q) = 1}} m(I_{p,q}) \leq \sum_{q \geq 1} \sum_{1 < p < q} m(I_{p, q}) \leq \sum_{q \geq 1}^{} \frac{2}{q^2} < \infty.
 	\]
-	By Borel-Cantelli, almost every $x \in [0,1]$ lies in only finitely many $I_{p,q}$. 
+	By Borel-Cantelli, almost every $x \in [0,1]$ lies in only finitely many $I_{p,q}$.
 \end{theorem}
 
 \begin{lemma}[Fatou's Lemma]
-	If $f_n : X \to [0, \infty]$ is measurable, then 
+	If $f_n : X \to [0, \infty]$ is measurable, then
 	\[
 		\int \liminf_{n \to \infty} f_n \, dm \leq \liminf_{n \to \infty} \int f_n \, dm.
 	\]
 \end{lemma}
 
 \begin{proof}
-	Let $g_n = \inf_{k \geq n} f_k$. So $g_n \leq g_{n+1} \xrightarrow[n \to \infty]{} \liminf_{k} f_k$ pointwise. 
+	Let $g_n = \inf_{k \geq n} f_k$. So $g_n \leq g_{n+1} \xrightarrow[n \to \infty]{} \liminf_{k} f_k$ pointwise.
 
 	\begin{align*}
 		\int g_n \, dm & \leq \int f_n \, dm \qquad \textrm{(By Monotone Convergence)} \\

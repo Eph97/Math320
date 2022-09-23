@@ -1,4 +1,4 @@
-\section{2022-08-31}
+\section{August 31st, 2022}
 
 \epigraph{``How do mathematicians measure things?''}{Charlie}
 
@@ -24,7 +24,7 @@ Following the universal rule for first class, we covered the syllabus and logist
 \begin{definition}[Riemann Integral]
 	We can define the Riemann integral as $\int_{{\Q}}^{{}} {f}$ of a bounded $f : \Q \to \R$
 	defined in closed rectangles
-	$\Q = [a_1,b_1] \cross [a_2,b_2] \ldots [a_d,b_d] \subseteq \R$. We use Darboux sums
+	$\Q = [a_1,b_1] \times [a_2,b_2] \times \ldots \times [a_d,b_d] \subseteq \R$. We use Darboux sums
 \end{definition}
 
 \vline
@@ -89,9 +89,9 @@ in which case we let  $\int_{\Q} f$ denote the common value.
 		1 & x\notin \Q \\
 		0 & x\in \Q
 	\end{cases}$.
-	Then $f$ is not Riemann integrable. \\
+	Then $f$ is not Riemann integrable.
 	\begin{solution}
-		for any $P,$ we can see  $U(p,f) = 1$ and  $L(p,f) = 0$
+		For any $P$, we can see  $U(p,f) = 1$ and  $L(p,f) = 0$
 	\end{solution}
 \end{example}
 
@@ -100,12 +100,12 @@ in which case we let  $\int_{\Q} f$ denote the common value.
 We have two notions of volume
 \begin{enumerate}
 	\item The outer Jordan measure of a set $x \subseteq \R^d$ is
-		\begin{align*}
-			J^* (x)
-      = \inf \left\{ \sum_{k=1}^{n} |Q_k| : n \geq 1, Q_1, \ldots, Q_n \subseteq R^n
-      \text{ closed rectangles and }
-			x \subseteq \union_{k=1}^{b} Q_k \right\}
-		\end{align*}
+			\[
+				J^* (x)
+				= \inf \left\{ \sum_{k=1}^{n} |Q_k| : n \geq 1, Q_1, \ldots, Q_n \subseteq R^n
+					\text{ closed rectangles and }
+				x \subseteq \union_{k=1}^{b} Q_k \right\}
+			\]
 	\item Outer Lebesgue measure of a set $X \subseteq \R^n$ is
 		\begin{align*}
 			L^*(x) = \inf \left\{ \sum_{k=1}^{\infty}|Q_k| : Q_1, Q_2, \ldots \subseteq R^n  \text{ closed rectangles and }
