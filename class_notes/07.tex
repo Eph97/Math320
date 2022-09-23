@@ -93,5 +93,54 @@ Finish
 \end{remark}
 
 \begin{proof}
-	Choose for dyadic rationals $q \in [0,1]$
+	Choose for dyadic rationals $q \in [0,1]$,
+	\begin{align*}
+		K \subseteq  {\underset {open} {U_{q}}} \subseteq {\underset {compact} {\bar{U}_{q}}} \subseteq U \quad \text{ s.t } 
+		q \leq q' \implies \bar{U}_{q'} \subseteq U_{q}	\\
+	\end{align*} 
+
+	Now construct by induction on denominator: choose
+	\begin{align*}
+		U_{\frac{2^{k+1}}{2^{n+1}}} \quad {\text s.t. }\quad 
+		\bar{U}_{\frac{k+1}{2^{n}}} \subseteq V_{\frac{2^{k} + 1}{2^{n+1}}} \subseteq \bar{U}_{\frac{2^{k+1}}{2^{n+1}}} \subseteq U_{\frac{k}{2^{n}}}
+	\end{align*} 
+
+	But the previous lemma does exactly this. For $x \in U_{0}$, let $f(x) = \sup\{q : q \in U_{q}\}$
+	Otherwise, let $f(x) = 0$
 \end{proof}
+
+\begin{exercise}
+	Prove $f$ continuous and $\1_{\bar{U}_1} \leq f \leq \1_{U_{0}}$ so $f \in C_c(X)$
+\end{exercise}
+
+
+\begin{lemma}
+	If $K \subseteq \underset{open}{U_{1}} \cup \ldots \cup \underset{open}{U_n}$, then there are 
+	$f_1, \ldots, f_n \in C_c(X)$ s.t. $f_k \subseteq \1_{U_{k}}$ for $k = 1, \ldots ..., n$ and
+	$\1_k \leq f_1 + \ldots+ f_n \leq 1$
+\end{lemma}
+
+[insert image]
+
+\begin{proof}
+	Step1: for any $x \in K$, there is $K$ and $x \in \underset{open}{V_x} \subseteq \underset{compact}{\bar{V}_x} \subseteq U_x$
+	Since $K$ compact, $K \subseteq V_{x_{1}} \cup \ldots \cup V_{x_N}$
+
+	Group $V_{x_j}$ according to $x_j \in U_{k}$. Obtain compact sets
+	\begin{align*}
+		K_k = \bigcup_{\bar{V}_{x_j} \subseteq U_k} \bar{V}_{x_j} \subseteq U_k
+	\end{align*}
+	with $K \subseteq K_1 \cup \ldots \cup K_n$
+
+
+Choose $g_k \in C_{c} (X)$ s.t. $\1_{K_k} \leq g_K \leq \1_{U_{K}}$. We have $g_1 + \ldots + g_n \geq \1_{K}$. We need to limit to $1$.
+Let $f_1 = g_1$, $f_{k+1} = (1-g_1) \cdots (1 - g_{k}) g_{k+1} \leq \1_{U_{k+1}}$
+
+\underline{Compute}:
+\begin{align*}
+\1_K \leq f_1 + \ldots + f_n = 1 - (1 - g_1) \cdots (1 - g_n) \leq 1
+\end{align*} 
+\end{proof}
+
+
+
