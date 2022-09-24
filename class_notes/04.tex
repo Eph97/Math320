@@ -237,11 +237,11 @@ check
 			\end{align*}
 		\item[3] Compute (Check)
 			\begin{align*}
-				m(\bigcup_{k=1}^{\infty} A_k) &= m(A_1 \cup \bigcup_{k=1}^{\infty} (A_{n+1} \setminus A_k) \\
+				m(\bigcup_{k=1}^{\infty} A_k) &= m(A_1 \cup \bigcup_{k=1}^{\infty} (A_{k+1} \setminus A_k) \\
 											  &= m(A_1) + \sum_{k=1}^{\infty} m(A_{k+1} \setminus A_k) \\
 											  &= m(A_1) + \lim_{n \to \infty}  \sum_{k=1}^{n} m(A_{k+1} \setminus A_k) \\
-											  &= \lim_{n \to \infty} \left(m(A_1) \sum_{k=1}^{n} m(A_{k+1} \setminus A_k) \right) \\
-											  &= \lim_{n \to \infty} m \left(m(A_1 \cup \bigcup_{k=1}^{\infty} (A_{k+1} \setminus A_k) \right) \\
+											  &= \lim_{n \to \infty} \left(m(A_1) + \sum_{k=1}^{n} m(A_{k+1} \setminus A_k) \right) \\
+											  &= \lim_{n \to \infty} m \left(A_1 \cup \bigcup_{k=1}^{\infty} (A_{k+1} \setminus A_k) \right) \\
 											  &= \lim_{n \to \infty} m (A_{n+1})  \\
 			\end{align*}
 		\item[4] Let $B_k = A_1 \setminus A_k \in S$. Observe: $B_1 \subseteq B_2 \subseteq \ldots$
