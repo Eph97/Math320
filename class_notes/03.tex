@@ -21,7 +21,7 @@ We should be able to handle $1_C$ of $\frac{1}{2^{k+1} -1 }$ cantor set ($C \in 
 
 \begin{enumerate}
 	\item constructable? Rectangles and unions and intersections of rectangles.
-	\item so start with all rectangles.
+	\item Start with all \sout{rectangles} open and closed sets.
 	\item If $A_1, A_2, \ldots$ constructable, then
 		$\bigcup_{k=1}^{\infty}A_k$ and $\intersection_{k=1}^{\infty}A_k$ constructable.
 	\item Lebesgue measure assigns volume to all such sets.
@@ -29,7 +29,8 @@ We should be able to handle $1_C$ of $\frac{1}{2^{k+1} -1 }$ cantor set ($C \in 
  
 \subsection{Metric Spaces}
 
-A function $d : X \times X \to \mathbb{R}$ on the Cartesian product of a set $X$ us a metric if
+\begin{definition}[Metric \& Metric Spaces]
+	A function $d : X \times X \to \mathbb{R}$ on the Cartesian product of a set $X$ us a \underline{metric} if
 
 \begin{enumerate}
 	\item $d(x,y) \geq 0$
@@ -39,6 +40,8 @@ A function $d : X \times X \to \mathbb{R}$ on the Cartesian product of a set $X$
 \end{enumerate}
 
 We call the pair $(X, d)$ a \underline{metric space.}
+\end{definition}
+
 
 \begin{definition}[Continuous Functions]
 A function $f : X \to Y$ between metric spaces is continuous if, $\forall x \in X$ and $\varepsilon >0 $ there exists a $\delta >0$ such that for all $y \in X$ we have $d_X (x, y) < \delta \implies d_Y(f(x), f(y)) < \varepsilon$	
