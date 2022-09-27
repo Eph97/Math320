@@ -2,59 +2,58 @@
 
 \epigraph{Shirt of the Day -- ``Bears will eat you''}{Charlie}
 
-\underline{Last Time}:
-
-$(X,S, m)$ positive measure space $f : X \to [0,\infty]$ measurable, then
- \begin{align*}
-\int f dm = \sup_{g \leq f} \int g dm
+\noindent\underline{Last Time}:
+$(X, S, m)$ positive measure space $f : X \to [0,\infty]$ measurable, then
+\begin{align*}
+	\int f \, dm = \sup_{g \leq f} \int g \, dm
 \end{align*}
 
 
 \begin{theorem}[Montone Convergence]
 	If $f_n(x) \leq f_{n+1}(x) \to f(x)$ for ever $x$, then
 	\begin{align*}
-		\int f_n \xrightarrow[n \to \infty]{} \int f dm
+		\int f_n \xrightarrow[n \to \infty]{} \int f \, dm
 	\end{align*}
 \end{theorem}
 
 \begin{corollary}[New Measure from Old]
-	If we have $f: X \to [0,\infty]$ and $\tilde{m} : S \to [0,\infty]$ given by $\tilde{m} = \int \1_A fdm$, then $\tilde{m}$ is a measure.
+	If we have $f: X \to [0,\infty]$ and $\tilde{m} : S \to [0,\infty]$ given by $\tilde{m} = \int \1_A f \, dm$, then $\tilde{m}$ is a measure.
 
 	\underline{Moreover}
 	\begin{align*}
-		\int g d\tilde{m} = \int g f dm
+		\int g \, d\tilde{m} = \int g f \, dm
 	\end{align*} for all $g :X \to [0,\infty]$ measurable.
 
 \end{corollary}
 
 \begin{notation}
-	$d \tilde{m} = f dm$ (equality in distributional sense)
+	$d \tilde{m} = f \, dm$ (equality in distributional sense)
 \end{notation}
 
 \begin{proof}
 	Check countably additivity:
 	Suppose $A_1, A_2, \ldots \in S$ disjoint, let  $A = \bigcup_{k=1}^{\infty} A_k$, compute
 	\begin{align*}
-		\tilde{m}(A) &= \int \1_{A} f dm
-					 = \int \sum_{k=1}^{\infty} \1_{A_k} f dm \\
-					 &= \sum_{k=1}^{\infty} \int \1_{A_k} f dm \quad \text{By Monotone Convergence} \\
+		\tilde{m}(A) &= \int \1_{A} f \, dm
+					 = \int \sum_{k=1}^{\infty} \1_{A_k} f \, dm \\
+					 &= \sum_{k=1}^{\infty} \int \1_{A_k} f \, dm \quad \text{By Monotone Convergence} \\
 					 &=  \sum_{k=1}^{\infty} \tilde{m}( A_k )
 	\end{align*}
 \end{proof}
 
 \begin{definition}
-	If $f: X \to [ - \infty, \infty]$ measurable, then  $\int f dm = f_{+} dm - \int f_{-} dm$ where
+	If $f: X \to [ - \infty, \infty]$ measurable, then  $\int f \, dm = f_{+} \, dm - \int f_{-} \, dm$ where
 	$f_{\pm} = \max\{0, \pm f\}$
 \begin{remark}
-	$\int f dm$ defined only when $\int |f| dm < \infty$. Moreover,  $|\int f dm | \leq \int |f| dm$
+	$\int f \, dm$ defined only when $\int |f| \, dm < \infty$. Moreover,  $|\int f \, dm | \leq \int |f| \, dm$
 \end{remark}
 \end{definition}
 
-Let $L^{1}(X,S, m)$ denote measurable $f: X \to [-\infty, \infty]$ with $\int | f| dm < \infty$.
+Let $L^{1}(X,S, m)$ denote measurable $f: X \to [-\infty, \infty]$ with $\int | f| \, dm < \infty$.
 
-We want $\|f\|_{L^{1}(X,S, m)} = \int |f| dm$ to be a norm.
+We want $\|f\|_{L^{1}(X,S, m)} = \int |f| \, dm$ to be a norm.
 
-Problem: If $m(\{x : f(x) \neq 0 \}) = 0$, then $\int |f| dm = 0$
+Problem: If $m(\{x : f(x) \neq 0 \}) = 0$, then $\int |f| \, dm = 0$
 
 \begin{remark}
 	Notation: Identify a property $\mathbb{P}(x)$ ofa point $x \in X$ with the set $\{x \in X : \mathbb{P}(x)\}$
@@ -65,7 +64,7 @@ For example, the set of $X$ where two functions  $f,g : X \to [-\infty, \infty]$
 A property $\mathbb{P}$ holds $m$- almost everywhere if $m(\mathbb{P}^{c}) = 0$
 
 \begin{example}
-	If $f : X \to (-\infty, \infty)$ is measurable and $f$ vanishes almost everywere, then $\int f dm = 0$
+	If $f : X \to (-\infty, \infty)$ is measurable and $f$ vanishes almost everywere, then $\int f \, dm = 0$
 \end{example}
 
 
@@ -84,13 +83,13 @@ Observe: $\sim$ is an equivalence relation and $L^{1}(X,S, m) / \sim$ is a norme
 	\begin{align*}
 		f_n : X &\to [-\infty, \infty] \text{ measurable }, \\
 		g : X &\to [0, \infty] \text{ measurable }, \\
-		\int g dm &< \infty
+		\int g \, dm &< \infty
 	\end{align*}
 	suppose $f(x) = \lim_{n \to \infty} f_n(x)\, \forall x \in X$, and $|f_n (x) | \leq g(x)$ so
 	$x \in X$ and $n \geq 0,$
 
-	then  $\lim_{n\to \infty} \int | f - f_n | dm = 0$ and \\
-	$\lim_{n\to \infty} \int f_n dm = \int f dm$
+	then  $\lim_{n\to \infty} \int | f - f_n | \, dm = 0$ and \\
+	$\lim_{n\to \infty} \int f_n \, dm = \int f \, dm$
 
 \end{definition}
 
@@ -111,34 +110,34 @@ We will see later that the $f_{n}$ are converging (in some sense) to $\frac{1}{2
 
 \begin{proof}
 	\begin{align*}
-		\int 2g dm &= \int \left( \lim_{n \to \infty} 2g - | f - f_{n}| \right) dm \\
-				   &\leq \liminf_{n \to \infty} \int 2g - |f - f_{n}|dm \quad \text{ (By Fatou's Lemma)} \\
-				   &= \int 2g dm - \limsup_{n \to \infty} \int | f - f_{n}| dm
+		\int 2g \, dm &= \int \left( \lim_{n \to \infty} 2g - | f - f_{n}| \right) \, dm \\
+				   &\leq \liminf_{n \to \infty} \int 2g - |f - f_{n}|\, dm \quad \text{ (By Fatou's Lemma)} \\
+				   &= \int 2g \, dm - \limsup_{n \to \infty} \int | f - f_{n}| \, dm
 	\end{align*}
-	Since, $\int 2gdm < \infty$, conclude
+	Since, $\int 2g \, dm < \infty$, conclude
 	\begin{align*}
-		&\limsup{n \to \infty} \int |f - f_n | dm = 0 \\ \text{finally \quad}
-		& \left| \int f_n dm - \int f dm \right| \leq \int | f - f_n | dm
+		&\limsup{n \to \infty} \int |f - f_n | \, dm = 0 \\ \text{finally \quad}
+		& \left| \int f_n \, dm - \int f \, dm \right| \leq \int | f - f_n | \, dm
 	\end{align*}
 \end{proof}
 
 \begin{corollary}
-	If $f_{n} : X \to [-\infty, \infty]$ measurable and $\sum_{n=1}^{\infty} | f_n | dm < \infty$,
-	then $f(x) = \sum_{n=1}^{\infty}f_n (x)$ exists for almost every $x \in X$ and $\int f dm = \sum_{n=1}^{\infty} \int f_{n}dm$
+	If $f_{n} : X \to [-\infty, \infty]$ measurable and $\sum_{n=1}^{\infty} | f_n | \, dm < \infty$,
+	then $f(x) = \sum_{n=1}^{\infty}f_n (x)$ exists for almost every $x \in X$ and $\int f \, dm = \sum_{n=1}^{\infty} \int f_{n} \, dm$
 \end{corollary}
 
 \begin{proof}
 	Use dominated convergence. Let $g = \sum_{n=1}^{\infty} | f_n | : X \to [0,\infty]$.
-	By hypothesis and monotone convergence, $\int gdm < \infty$
+	By hypothesis and monotone convergence, $\int g \, dm < \infty$
 
-	Since $\int g dm < \infty$ and $g < \infty$ almost everywhere, if $x \in X$ and $g(x) < \infty$,
+	Since $\int g \, dm < \infty$ and $g < \infty$ almost everywhere, if $x \in X$ and $g(x) < \infty$,
 	then $\sum_{n=1}^{\infty} f_{n} (x)$ is absolutely convergent. That is $g(x) < \infty \implies f(x) = \sum_{n=1}^{\infty} f_{n}(x)$ converges.
 
 	The partial sums $F_n (x) = \sum_{k=1}^{\infty} f_{n}(x)$ have $F_n \to f$ almost everywhere and $|F_{n}| \leq |g|$ a.e.
 
 	By dominated convergence,
 	\begin{align*}
-	\sum_{k=1}^{\infty}f_{k} dm = \lim_{n \to \infty} \int F_n dm = \int f dm
+	\sum_{k=1}^{\infty}f_{k} \, dm = \lim_{n \to \infty} \int F_n \, dm = \int f \, dm
 	\end{align*}
 \end{proof}
 
@@ -156,7 +155,7 @@ We will see later that the $f_{n}$ are converging (in some sense) to $\frac{1}{2
 	\end{align*}
 	Apply corollary to conclude $f(x) = \lim_{n \to \infty} f_{n}(x)$ converges for almost every $x$ and
 	\begin{align*}
-		\int |f - f_{n} | dm \to 0 \text{ as } n \to \infty
+		\int |f - f_{n} | \, dm \to 0 \text{ as } n \to \infty
 	\end{align*}
 \end{proof}
 
@@ -190,7 +189,7 @@ A finite positive Borel measure on $K$ is a positive measure on the Borel $\sigm
 	There is a natural bijection between positive linear functionals on compact metric space $K$ and the finite positive Borlemeasures on $K$ and it is characterized by $\Lambda \leftrightarrow m$
 	$\iff$
 	 \begin{align*}
-	\Lambda(f) = \int f dm \quad \forall f \in C(K)
+	\Lambda(f) = \int f \, dm \quad \forall f \in C(K)
 	\end{align*}
 \end{theorem}
 
@@ -205,7 +204,6 @@ A finite positive Borel measure on $K$ is a positive measure on the Borel $\sigm
 		\item $X$ is locally compact:
 			if $x \in X$, then there are $K, V \subseteq X$ with $x \in V \subseteq K $,
 			$V$ open, $K$ compact.
-
 		\item $X$ is "really" $\sigma$-compact: if $V \subseteq X$ open, then there are compact $K_n \subseteq X$ with $V = \bigcup_{n=1}^{\infty} K_n$
 	\end{enumerate}
 \end{definition}

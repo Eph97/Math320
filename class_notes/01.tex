@@ -22,14 +22,14 @@ Following the universal rule for first class, we covered the syllabus and logist
 \end{problem}
 
 \begin{definition}[Riemann Integral]
-	We can define the Riemann integral as $\int_{{\Q}}^{{}} {f}$ of a bounded $f : \Q \to \R$
+	We can define the Riemann integral as $\int_{{Q}}^{{}} {f}$ of a bounded $f : Q \to R$
 	defined in closed rectangles
-	$\Q = [a_1,b_1] \times [a_2,b_2] \times \ldots \times [a_d,b_d] \subseteq \R$. We use Darboux sums
+	$Q = [a_1,b_1] \times [a_2,b_2] \times \ldots \times [a_d,b_d] \subseteq R$. We use Darboux sums
 \end{definition}
 
 \vline
 \begin{definition}[Partition]
-	A \underline{partition} of $\Q$	is a finite set of \emph{closed} rectangles whose \underline{interiors} are disjoint and whose union is $\Q$.
+	A \underline{partition} of $Q$ is a finite set of \emph{closed} rectangles whose \underline{interiors} are disjoint and whose union is $Q$.
 \end{definition}
 
 \vline
@@ -46,13 +46,13 @@ Following the universal rule for first class, we covered the syllabus and logist
 \end{definition}
 
 \begin{lemma}
-	For any 2 partitions $P_1$ and $P_2$ of  $\Q$,  $L(P_1,f) \leq U(P_2, f)$
+	For any 2 partitions $P_1$ and $P_2$ of $Q$, $L(P_1,f) \leq U(P_2, f)$.
 \end{lemma}
 
 \begin{solution}
 	We have
 	\begin{align*}
-		L(P_1, f) &= \sum_{R \in P_1}^{}  \inf_{R} f \cdot |R| = \sum_{R_1 \in P_1}^{} \inf f
+		L(P_1, f) &= \sum_{R \in P_1}^{}  \inf_{R} f \cdot |R| = \sum_{R_1 \in P_1}^{} \inf_{R} f
 		\sum_{R_2 \in P_2}^{} |R_1 \intersection R_2 | \\
 				  &= \sum_{\substack{R_1 \in P_1 \\ R_2 \in P_2 \\ |R_1 \intersection R_2 | > 0} }^{} \inf_{R_1} f \cdot |R_1 \intersection R_2 |
 				  \leq \sum_{\substack{R_1 \in P_1 \\ R_2 \in P_2 \\ |R_1 \intersection R_2 | > 0} }^{} \inf_{R_1 \intersection R_2} f \cdot |R_1 \intersection R_2 | \\
@@ -63,17 +63,17 @@ Following the universal rule for first class, we covered the syllabus and logist
 \end{solution}
 
 
-Note we say a bounded $f : \Q \to \R$ is Riemann integrable when
+Note we say a bounded $f : Q \to R$ is Riemann integrable when
 \[\sup_p L(p,f) = \inf_p U(p,f)\]
-in which case we let  $\int_{\Q} f$ denote the common value.
+in which case we let  $\int_{Q} f$ denote the common value.
 
 
 \begin{theorem}
-	If $f : \Q \to \R$ is continuous, then f is Riemann integrable.
+	If $f : Q \to R$ is continuous, then f is Riemann integrable.
 \end{theorem}
 
 \begin{solution}
-	$\Q$ is compact, so  $f$ is uniformly cont. Thus, given a $\varepsilon >0 $, choose a $\delta >0$ so  $|x-y| < \delta \implies |f(x) - f(y)| > \varepsilon$. Let $p$ be any partition of  $\Q$ whose rectangles have diameter  $< \delta$ \newline
+	$Q$ is compact, so  $f$ is uniformly cont. Thus, given a $\varepsilon >0 $, choose a $\delta >0$ so  $|x-y| < \delta \implies |f(x) - f(y)| > \varepsilon$. Let $p$ be any partition of $Q$ whose rectangles have diameter  $< \delta$ \newline
 	Next compute
 	\begin{align*}
 		0 &\leq \inf_{p_1} U(p_1, f) - \sup_{p_2} L(p_2, f) \leq U(p_1, f) - L(p_1, f) \\
@@ -86,8 +86,8 @@ in which case we let  $\int_{\Q} f$ denote the common value.
 \begin{example}
 	If $f:[0,1] \to \R$ and $f(x) =
 	\begin{cases}
-		1 & x\notin \Q \\
-		0 & x\in \Q
+		1 & x \notin Q \\
+		0 & x \in Q
 	\end{cases}$.
 	Then $f$ is not Riemann integrable.
 	\begin{solution}
@@ -125,7 +125,7 @@ We have two notions of volume
 			\end{align*}
 		\end{solution}
 
-	\item $L^* (\bigcup^{\infty} x_k ) \leq \sum_{}^{\infty} L^* (X_{k})$
+	\item $L^* \left(\bigcup^{\infty}_{k = 1} x_k \right) \leq \sum_{k = 1}^{\infty} L^* (X_{k})$
 
 		\begin{solution}
 			sketch by "Dovetail" (Come back to)
@@ -133,7 +133,7 @@ We have two notions of volume
 \end{enumerate}
 
 \begin{example}
-	The set $x = \Q \intersection [0,1]$ has  $L^*(x) = 0$ and  $J^*(x) = 1$ write  $x = \{q_1, q_2, \ldots \}$ then let $Q_k = [q_k =  \frac{\varepsilon}{2^k}, q_k + \frac{\varepsilon}{2^k}]$
+	The set $x = Q \intersection [0,1]$ has  $L^*(x) = 0$ and  $J^*(x) = 1$ write  $x = \{q_1, q_2, \ldots \}$ then let $Q_k = [q_k =  \frac{\varepsilon}{2^k}, q_k + \frac{\varepsilon}{2^k}]$
 	and observe that $x \subseteq \bigcup_{k = 1}^{\infty} Q_k$ and $\sum_{k=1}^{\infty} |Q_k| = 2 \varepsilon$
 \end{example}
 

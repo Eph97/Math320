@@ -14,29 +14,27 @@
 	\begin{align*}
 		&\Lambda(\alpha f + \beta g) = \alpha \Lambda(f) + \beta \Lambda(g) \quad \text{linearity} \\
 		&\Lambda(f) \geq 0 \quad \text{ when } f \geq 0
-	\end{align*} 
+	\end{align*}
 \end{example}
-
 
 \begin{theorem}
 	There is a unique measure $m$ on (X,B) s.t.
 	\begin{align*}
-		\Lambda(f) = \int f dm \quad \forall f \in C_c (X)
-	\end{align*} 
+		\Lambda(f) = \int f \, dm \quad \forall f \in C_c (X)
+	\end{align*}
 \end{theorem}
 
-\begin{definition}[defining m]
-	for $A \subseteq X$ borel and $m$ a borel measure, $m(A) = \int \1_{A} dm$
-\end{definition}
+\subsection{Defining m}
+For $A \subseteq X$ Borel and $m$ a Borel measure, 
+	\[
+		m(A) = \int \1_{A} \, dm.
+	\]
+We want to approximate $\1_A$ with elements of $C_c (X)$.
+For $U \subseteq X $ open, let $m(U) = \sup\{\Lambda (f) : f \in C_c (X), \, 0 \leq f \leq \1_{U} \}$.
 
-We want to approximate $\1_A$ with elements of $C_c (X)$
+[insert image.]
 
-For $U \subseteq X $ open, let $m(U) = \sup\{\Lambda (f) : f \in C_c (X), \, 0 \leq f \leq \1_{U} \}$
-
-insert image.
-
-For $A \subseteq X$ arbitrary, let $m(A) = \inf\{m(U) : A \subseteq U_{open} \subseteq X\}$
-
+For $A \subseteq X$ arbitrary, let $m(A) = \inf\{m(U) : A \subseteq U_{open} \subseteq X\}$.
 We argue the restriction of $m$ to Borel $\sigma$-algebra is a measure.
 
 \subsection{Building Test functions}
@@ -46,17 +44,18 @@ We argue the restriction of $m$ to Borel $\sigma$-algebra is a measure.
 \end{lemma}
 
 \begin{proof}
-	Since $X$ hausdorff and $K_1 \cap K_2 = \emptyset$, for  $x \in K_1$ and $y \in K_2$, there are open $U_{x,y}$, and $V_{x,y}$ with $x \in U_{x,y}$ and $y \in V_{x,y}$ and $U_{x,y} \cap V_{x,y} = \emptyset$, for any $x \in K_1$,
+	Since $X$ Hausdorff and $K_1 \cap K_2 = \emptyset$, for $x \in K_1$ and $y \in K_2$,
+	there are open $U_{x,y}$ and $V_{x,y}$ with $x \in U_{x,y}$ and $y \in V_{x,y}$,
+	and $U_{x,y} \cap V_{x,y} = \emptyset$, for any $x \in K_1$,
 	\begin{align*}
 		K_2 \subseteq \bigcup_{y \in K_2} V_{x,y}
-	\end{align*} 
+	\end{align*}
 
-	So there are $y_1, ,\ldots , y_n$ with $K_2 \subseteq \bigcup_{k=1}^n V_{x, y_{k}} = V_{x}$
-
-	Now have $x \in U_{x}$, $K_2 \subseteq V_x$, and $U_{x} \cap V_{x} = \emptyset$. Since $K_{1} \subseteq bigcup_{x \in K_1} V_x$, have 
+	So there are $y_1, ,\ldots , y_n$ with $K_2 \subseteq \bigcup_{k=1}^n V_{x, y_{k}} = V_{x}$.
+	Now we have $x \in U_{x}$, $K_2 \subseteq V_x$, and $U_{x} \cap V_{x} = \emptyset$. Since $K_{1} \subseteq \bigcup_{x \in K_1} V_x$, have
 	\begin{align*}
 		K_1 \subseteq U_{x} \cup \ldots \cup U_{x_{n}} = U
-	\end{align*} 
+	\end{align*}
 	Let $V = V_{x_{1}} \cap \ldots \cap V_{x_{n}}$. Have $K_{1} \subseteq U$, $K_{2} \subseteq V$ and $U \cap V = \emptyset$
 \end{proof}
 
@@ -75,16 +74,12 @@ We argue the restriction of $m$ to Borel $\sigma$-algebra is a measure.
 
 \begin{proof}
 	By the previous lemma, there is $K_1 \subseteq V_{open} \subseteq \bar{V}_{compact}$.
-
-	Replace $U_{1}$ by $U_{1} \cap V$ to obtain $\bar{V}_{1}$ compact. By 2nd previous lemma, we can separate $K$ and $\bar{U}_1 \setminus U_{1}$
-
+	Replace $U_{1}$ by $U_{1} \cap V$ to obtain $\bar{V}_{1}$ compact. By 2nd previous lemma, we can separate $K$ and $\bar{U}_1 \setminus U_{1}$.
 	Choose open $V_1$ and $V_2$ with $K_{1} \subseteq V_{1}$,  $\bar{U}_1 \setminus U_1 \subseteq V_{2}$
-and $V_{1} \cap V_{2} = \emptyset$ can assume $V_{1} \subseteq U_{1}$
-
-Finish
+	and $V_{1} \cap V_{2} = \emptyset$ can assume $V_{1} \subseteq U_{1}$
 \end{proof}
 
-\begin{lemma}[Uhryson's lemma]
+\begin{lemma}[Uhryson's Lemma]
 	If $K_{compact} \subseteq U_{open}$, then there is  $f \in C_{c} (X)$ with $\1_k \leq f \leq \1_U$
 \end{lemma}
 
@@ -95,18 +90,16 @@ Finish
 \begin{proof}
 	Choose for dyadic rationals $q \in [0,1]$,
 	\begin{align*}
-		K \subseteq  {\underset {open} {U_{q}}} \subseteq {\underset {compact} {\bar{U}_{q}}} \subseteq U \quad \text{ s.t } 
-		q \leq q' \implies \bar{U}_{q'} \subseteq U_{q}	\\
-	\end{align*} 
-
-	Now construct by induction on denominator: choose
+		K \subseteq  {\underset {open} {U_{q}}} \subseteq {\underset {compact} {\bar{U}_{q}}} \subseteq U \quad \text{ s.t }
+		q \leq q' \implies \bar{U}_{q'} \subseteq U_{q}
+	\end{align*}
+	Now construct by induction on denominator: Choose
 	\begin{align*}
-		U_{\frac{2^{k+1}}{2^{n+1}}} \quad {\text s.t. }\quad 
+		U_{\frac{2^{k+1}}{2^{n+1}}} \quad {\text s.t. }\quad
 		\bar{U}_{\frac{k+1}{2^{n}}} \subseteq V_{\frac{2^{k} + 1}{2^{n+1}}} \subseteq \bar{U}_{\frac{2^{k+1}}{2^{n+1}}} \subseteq U_{\frac{k}{2^{n}}}
-	\end{align*} 
-
+	\end{align*}
 	But the previous lemma does exactly this. For $x \in U_{0}$, let $f(x) = \sup\{q : q \in U_{q}\}$
-	Otherwise, let $f(x) = 0$
+	Otherwise, let $f(x) = 0$.
 \end{proof}
 
 \begin{exercise}
@@ -115,7 +108,7 @@ Finish
 
 
 \begin{lemma}
-	If $K \subseteq \underset{open}{U_{1}} \cup \ldots \cup \underset{open}{U_n}$, then there are 
+	If $K \subseteq \underset{open}{U_{1}} \cup \ldots \cup \underset{open}{U_n}$, then there are
 	$f_1, \ldots, f_n \in C_c(X)$ s.t. $f_k \subseteq \1_{U_{k}}$ for $k = 1, \ldots ..., n$ and
 	$\1_k \leq f_1 + \ldots+ f_n \leq 1$
 \end{lemma}
@@ -123,10 +116,11 @@ Finish
 [insert image]
 
 \begin{proof}
-	Step1: for any $x \in K$, there is $K$ and $x \in \underset{open}{V_x} \subseteq \underset{compact}{\bar{V}_x} \subseteq U_x$
-	Since $K$ compact, $K \subseteq V_{x_{1}} \cup \ldots \cup V_{x_N}$
+	Step 1: for any $x \in K$, there is $K$ and $x \in \underset{open}{V_x} \subseteq \underset{compact}{\bar{V}_x} \subseteq U_x$.
 
-	Group $V_{x_j}$ according to $x_j \in U_{k}$. Obtain compact sets
+	\noindent Since $K$ compact, $K \subseteq V_{x_{1}} \cup \ldots \cup V_{x_N}$.
+
+	\noindent Group $V_{x_j}$ according to $x_j \in U_{k}$. Obtain compact sets
 	\begin{align*}
 		K_k = \bigcup_{\bar{V}_{x_j} \subseteq U_k} \bar{V}_{x_j} \subseteq U_k
 	\end{align*}
@@ -139,7 +133,7 @@ Let $f_1 = g_1$, $f_{k+1} = (1-g_1) \cdots (1 - g_{k}) g_{k+1} \leq \1_{U_{k+1}}
 \underline{Compute}:
 \begin{align*}
 \1_K \leq f_1 + \ldots + f_n = 1 - (1 - g_1) \cdots (1 - g_n) \leq 1
-\end{align*} 
+\end{align*}
 \end{proof}
 
 
