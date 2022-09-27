@@ -16,7 +16,7 @@ Following the universal rule for first class, we covered the syllabus and logist
 \begin{problem} The Riemann Integral
 \item Works for most functions of interest but notably...
 	\begin{enumerate}
-		\item It is not closed under important limits. 
+		\item It is not closed under important limits.
 		\item It is hard to generalize to new geometries.
 	\end{enumerate}
 \end{problem}
@@ -35,14 +35,14 @@ Following the universal rule for first class, we covered the syllabus and logist
 \vline
 
 \begin{definition}[Darboux Sums]
-	The upper and lower Darboux sums are 
+	The upper and lower Darboux sums are
 	\[
 		U(p,f) = \sum_{R \in P} \sup_R f \cdot |R|
-	\] 
+	\]
 	and
 	\[
 		L(p,f) = \sum_{R \in P} \inf_R f \cdot |R|.
-	\]	
+	\]
 \end{definition}
 
 \begin{lemma}
@@ -63,7 +63,7 @@ Following the universal rule for first class, we covered the syllabus and logist
 \end{solution}
 
 
-Note we say a bounded $f : \Q \to \R$ is Riemann integrable when  
+Note we say a bounded $f : \Q \to \R$ is Riemann integrable when
 \[\sup_p L(p,f) = \inf_p U(p,f)\]
 in which case we let  $\int_{\Q} f$ denote the common value.
 
@@ -104,12 +104,12 @@ We have two notions of volume
 				J^* (x)
 				= \inf \left\{ \sum_{k=1}^{n} |Q_k| : n \geq 1, Q_1, \ldots, Q_n \subseteq R^n
 					\text{ closed rectangles and }
-				x \subseteq \union_{k=1}^{b} Q_k \right\}
+				x \subseteq \bigcup_{k=1}^{b} Q_k \right\}
 			\]
 	\item Outer Lebesgue measure of a set $X \subseteq \R^n$ is
 		\begin{align*}
-			L^*(x) = \inf \left\{ \sum_{k=1}^{\infty}|Q_k| : Q_1, Q_2, \ldots \subseteq R^n  \text{ closed rectangles and }
-			x \subseteq \union_{k=1}^{\infty} Q_k \right\}
+			L^*(x) = \inf \left\{ \sum_{k=1}^{\infty}|Q_k| : Q_1, Q_2, \ldots \subseteq R^n
+				\text{ closed rectangles and } x \subseteq \bigcup_{k=1}^{\infty} Q_k \right\}
 		\end{align*}
 
 		We have some important properties for these measures, namely
@@ -119,13 +119,13 @@ We have two notions of volume
 			\item If  $X$ is compact, then $L^*(x) = J^*(x)$
 		\end{enumerate}
 		\begin{solution}
-			Suppose $x \subseteq \union_{k=1}^{\infty} Q_k$, pick $\varepsilon > 0$ and let  $(1 + \varepsilon)Q_k$ be the $(1 + \varepsilon)$-dilations of $Q_k$. Note $(1+ \varepsilon ) Q_k$ are open cover of  $x$ so $x \subseteq \sum_{k=1}^n (1+\varepsilon) Q_k$ and
+			Suppose $x \subseteq \bigcup_{k=1}^{\infty} Q_k$, pick $\varepsilon > 0$ and let  $(1 + \varepsilon)Q_k$ be the $(1 + \varepsilon)$-dilations of $Q_k$. Note $(1+ \varepsilon ) Q_k$ are open cover of  $x$ so $x \subseteq \sum_{k=1}^n (1+\varepsilon) Q_k$ and
 			\begin{align*}
 				\sum_{k=1}^{n} |(1 + \varepsilon) Q_k| = (1+\varepsilon)^d \sum_{k=1}^{n}|Q_k| \leq (1 + \varepsilon)^d \sum_{k=1}^{\infty} | Q_k|
 			\end{align*}
 		\end{solution}
 
-	\item $L^* (\union^{\infty} x_k ) \leq \sum_{}^{\infty} L^* (X_{k})$
+	\item $L^* (\bigcup^{\infty} x_k ) \leq \sum_{}^{\infty} L^* (X_{k})$
 
 		\begin{solution}
 			sketch by "Dovetail" (Come back to)
@@ -134,7 +134,7 @@ We have two notions of volume
 
 \begin{example}
 	The set $x = \Q \intersection [0,1]$ has  $L^*(x) = 0$ and  $J^*(x) = 1$ write  $x = \{q_1, q_2, \ldots \}$ then let $Q_k = [q_k =  \frac{\varepsilon}{2^k}, q_k + \frac{\varepsilon}{2^k}]$
-	and observe that $x \subseteq \union_{1}^{\infty} Q_k$ and $\sum_{k=1}^{\infty} |Q_k| = 2 \varepsilon$
+	and observe that $x \subseteq \bigcup_{k = 1}^{\infty} Q_k$ and $\sum_{k=1}^{\infty} |Q_k| = 2 \varepsilon$
 \end{example}
 
 \begin{example}
