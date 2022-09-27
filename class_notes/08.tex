@@ -1,0 +1,62 @@
+\section{September 26th, 2022}
+
+\epigraph{``What's one thing good about these cables [all over the place] is that you are constantly reminded
+	of Thermodynamics. Entropy. (said after he trips on some cables on the classroom floor)''}{Charlie}
+
+\subsection{Outer Measures}
+A general tool (devised by Caratheodory) to constrain measures. Outer measures is a relaxation of measure.
+It is easier to construct outer measures. The main point of this section is a theorem about
+constructing measures from outer measures.
+
+\begin{definition}[Outer Measure]
+	An outer measure on a measurable space $(X,S)$ is a function $m: S \to [0, \infty]$ such that
+	\begin{enumerate}
+		\item $m(\emptyset) = 0$
+		\item $A \subseteq B$ implies $m(A) \leq m(B)$.
+		\item $m \left(\bigcup_{k=1}^{\infty} A_k\right) \leq \sum_{k = 1}^{\infty} m(A_k)$.
+	\end{enumerate}
+	these three conditions can be summed up by: non-triviality, monotonicity, and countable subadditivity.
+\end{definition}
+
+\begin{example}
+  Lebesgue outer measure.
+	\[
+		L^* : \R^d \to [0, \infty].
+	\]
+	given by
+	\[
+		L^*(A) = \inf \left\{\sum_k \left|Q_k\right| : A \subseteq \bigcup_{k = 1}^{\infty} Q_k \right\}.
+	\]
+\end{example}
+
+\begin{question}
+Is $J^*$ an outer measure?
+\end{question}
+No -- fails countability subadditivity condition. $J^*$ is only finitely subadditive.
+
+\begin{definition}[m-Caratheodory]
+	If $(X,S,m)$ is an outer measure space, then call $A \in S$ m-Caratheodory if
+	\[
+		m(B) = m(B \cap A) + m(B \cap A^c) \quad \text{ for } B \in S.
+	\]
+\end{definition}
+
+Let $S_m \{ A \in S : A \textrm{m-Caratheodory}\}$. Caratheodory basically means ``good for splitting''.
+
+\begin{theorem}
+	$S_m$ is a $\sigma$-algebra and $(X, S_m, m|_{S_m})$ is a positive measure space.
+\end{theorem}
+
+\begin{proof}
+	Step 1: $\emptyset \in S_m$. 
+	\begin{align*}
+		m(B \cap \emptyset) + m(B \cap \emptyset^c) & = m(\emptyset) + m(B) \\
+																								& = 0 + m(B)
+	\end{align*}
+
+	Step 2: $A \in S_m \implies A^c \in S_m$.
+	\begin{align*}
+	  
+	\end{align*}
+\end{proof}
+
