@@ -48,7 +48,7 @@ Let $S_m = \{ A \in S : A \textrm{ m-Caratheodory}\}$. Caratheodory basically me
 \end{theorem}
 
 \begin{proof}
-	Step 1: $\emptyset \in S_m$. 
+	Step 1: $\emptyset \in S_m$.
 	\begin{align*}
 		m(B \cap \emptyset) + m(B \cap \emptyset^c) & = m(\emptyset) + m(B) \\
 																								& = 0 + m(B)
@@ -60,24 +60,24 @@ Let $S_m = \{ A \in S : A \textrm{ m-Caratheodory}\}$. Caratheodory basically me
 				 & = m(B \cap (A^c)^c) + m(B \cap A^c)
 	\end{align*}
 
-	Step 3: $A_1, A_2 \in S_m \implies A_1 \cup A_2 \in S_m$. 
+	Step 3: $A_1, A_2 \in S_m \implies A_1 \cup A_2 \in S_m$.
 	\begin{align}
 		m(B) & = m(B \cap A_1) + m(B \cap A_1^c) \\
 				 & = m(B \cap A_1 \cap A_2) + m(B \cap A_1 \cap A_2^c) \nonumber \\
 				 & \phantom{=} + m(B \cap A_1^c \cap A_2) + m(B \cap A_1^c \cap A_2^c) \label{step3.2} \\
 				 & \geq m(B \cap (A_1 \cup A_2)) + m(B \cap A_1^c \cap A_2^c) \\
-				 & = m(B \cap (A_1 \cup A_2)) + m(B \cap (A_1 \cup A_2)^c) \label{step3.4} \\ 
+				 & = m(B \cap (A_1 \cup A_2)) + m(B \cap (A_1 \cup A_2)^c) \label{step3.4} \\
 				 & \geq m(B)
 	\end{align}
-	
-	Step 3$'$: $A_1, A_2 \in S_m$ disjoint and $m(B) \leq \infty$ implies, 
+
+	Step 3$'$: $A_1, A_2 \in S_m$ disjoint and $m(B) \leq \infty$ implies,
 	\[
 		m(B \cap (A_1 \cup A_2)) = m(B \cap A_1) + m(B \cap (A_1 \cup A_2)^c).
 	\]
-	Using disjointness, lines \ref{step3.2} and \ref{step3.4} give 
+	Using disjointness, lines \ref{step3.2} and \ref{step3.4} give
 	\begin{multline*}
 		m(B \cap A_1) + m(B \cap A_2) + m(B \cap (A_1 \cup A_1)^{c})  \\
-		= m(B \cap (A_1 \cup A_2) + m(B \cap (A_1 \cup A_2)^{c}). 
+		= m(B \cap (A_1 \cup A_2) + m(B \cap (A_1 \cup A_2)^{c}).
 	\end{multline*}
 
 	Step 4: $A_k \in S_m$ disjoint $\implies \bigcup_{n = 1}^{\infty} A_k \in S_m$
@@ -87,7 +87,7 @@ Let $S_m = \{ A \in S : A \textrm{ m-Caratheodory}\}$. Caratheodory basically me
 	\]
 	We need to prove the other direction i.e. $\geq$
 
-	We may assume $m(B) \leq \infty$. 
+	We may assume $m(B) \leq \infty$.
 	\begin{align*}
 	  m \left(B \cap \bigcup_{k = 1}^{\infty} A_k \right) & \geq m \left(B \cap \bigcup_{k = 1}^{n} A_k \right) \\
 		& = \sum_{k = 1}^{n} m(B \cap A_k) \tag{Step 3$'$} \\
@@ -101,3 +101,64 @@ Let $S_m = \{ A \in S : A \textrm{ m-Caratheodory}\}$. Caratheodory basically me
 		& = m(B)
 	\end{align*}
 \end{proof}
+
+\subsection{Riecz's Theorem (cont.)}
+
+Suppose that $(X,T)$ is a  nice topological space.
+If $K_{compact} \subseteq U_{open}$, then there is $f \in C_c(x)$ with $\1_k \leq f \leq \1_u$.
+Suppose $\Lambda : C_c(x) \to \R$ is positive linear.
+\begin{align*}
+  & m(\underset{open}{U}) = \sup \left\{\Lambda(f) : f \in C_c(x), 0 \leq f \leq \1_k \right\} \\
+  & m(\underset{arbitrary}{A}) = \inf \left\{ m(U): U \textrm{ open}, U \geq A\right\} \\
+\end{align*}
+
+\begin{lemma}
+  $m$ is an outer measure on $(X, \mathcal{P}(X))$.
+\end{lemma}
+
+\begin{proof}
+	$\emptyset$ open, so $m(\emptyset) = 0$.
+	\[
+		A \subseteq B \implies m(A) \leq m(B).
+	\]
+	automatically from the definition.
+	We need to check
+	\[
+		m \left(\bigcup_{k = 1}^{\infty} A_k \right) \leq \sum_{k = 1}^{\infty} m(A_k).
+	\]
+	Choose $U_k \supseteq A_k$ open with $m(U_k) \leq m(A_k) + \frac{\varepsilon}{2^k}$.
+	\[
+		m \left(\bigcup_{k = 1}^{\infty} A_k \right) \leq m \left( \bigcup_{k = 1}^{\infty} U_k \right).
+	\]
+	so it is enough to show $\leq \sum_{k = 1}^{\infty} m(U_k) \leq \varepsilon + \sum_{k = 1}^{\infty} m(A_k)$.
+
+	Suppose $0 \leq f \leq \1_{\bigcup_{n = 1}^{\infty} U_k}$. Then $f \in C_{c}(x)$.
+	Since $f$ has support, there is an $n \geq 1$ so $0 \leq f \leq \1_{\bigcup_{n = 1}^{\infty} U_k}$.
+	Using partitions of unity, $f = f_1 + \ldots + f_n$ with $0 \leq f_k \leq \1_{U_k}$. So
+	\begin{align*}
+		\Lambda(f) & = \Lambda(f_1) + \ldots + \Lambda(f_n) \\
+							 & = m(U_1) + \ldots m(U_n)
+	\end{align*}
+	So,
+	\[
+		m \left(\bigcup_{k = 1}^{\infty} A_k \right) \leq \sum_{k = 1}^{\infty} m(A_k).
+	\]
+\end{proof}
+
+Our next goal is to show that $S_m \supseteq \textrm{Borel}$.
+
+\begin{lemma}
+  If $U$ open, $m(U) < \infty$, and $\varepsilon > 0$, then there is compact $K \subseteq U$ with $m(U \setminus K) < \varepsilon$.
+\end{lemma}
+
+\begin{proof}
+	Since $m(U) < \infty$, we can choose $f \in C_c(X)$ with $0 \leq f \leq \1_U$ 
+	and $\Lambda(f) \geq m(U) - \varepsilon$.
+
+	\noindent Let $k = \left\{x \in X : f(x) \neq 0 \right\}$. Note $K \subseteq U$ and $K$ compact. 
+	If $g \in C_c(x)$ and $0 \leq g \leq \1_{U \setminus K}$, then $0 \leq f + g \leq \1_k$. 
+	\[
+		m(U) \geq.
+	\]
+\end{proof}
+
