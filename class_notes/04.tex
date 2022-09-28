@@ -173,9 +173,9 @@ check
 	A positive measure is a function $m : S \to [0, \infty]$ on a $\sigma$-algebra $S$ on a set $X$ such that $m(\emptyset) = 0$
 	and $m( \bigcup_{k=1}^{\infty} A_k) = \sum_{k=1}^{\infty} m(A_k)$ when
 	$A_1, A_2, \ldots \in S$ disjoint.
+	\note{Note: $m(\emptyset) = 0$ allows us to exclude $m$ which gives everything $+\infty$ measure.}
 
-	{\tiny note $m(\emptyset) = 0$ allows us to exclude $m$ which gives everything $+\infty$ measure.}
-
+	% {\tiny note $m(\emptyset) = 0$ allows us to exclude $m$ which gives everything $+\infty$ measure.}
 	Call the triple $(X,S,m)$ a positive measure space.
 \end{definition}
 
@@ -224,18 +224,18 @@ check
 	\end{enumerate}
 \end{definition}
 
-\begin{proof}(of properties)
+\begin{proof}(of properties by number)
 	\begin{enumerate}
-		\item[2] let $A_k = \emptyset$ for $k >n$. Now $A_1, A_2, \ldots$ disjoint and
+		\item[2.] let $A_k = \emptyset$ for $k >n$. Now $A_1, A_2, \ldots$ disjoint and
 			\begin{align*}
 				m(A_1 \cup \ldots \cup A_n) &= m(\bigcup_{k=1}^{\infty} A_k ) \\
 				= \sum_{k=1}^{\infty} m(A_k) &= m(A_1) + \cdots + m(A_n)
 			\end{align*}
-		\item[1] Write $B = A \cup (B \setminus A)$, and $B \setminus A \in S$ since $S$ is a $\sigma$-algebra
+		\item[1.] Write $B = A \cup (B \setminus A)$, and $B \setminus A \in S$ since $S$ is a $\sigma$-algebra
 			\begin{align*}
 				m(B) = m(A) + m(B \setminus A) \geq m(A)
 			\end{align*}
-		\item[3] Compute (Check)
+		\item[3.] Compute (Check)
 			\begin{align*}
 				m(\bigcup_{k=1}^{\infty} A_k) &= m(A_1 \cup \bigcup_{k=1}^{\infty} (A_{k+1} \setminus A_k) \\
 											  &= m(A_1) + \sum_{k=1}^{\infty} m(A_{k+1} \setminus A_k) \\
@@ -244,7 +244,7 @@ check
 											  &= \lim_{n \to \infty} m \left(A_1 \cup \bigcup_{k=1}^{\infty} (A_{k+1} \setminus A_k) \right) \\
 											  &= \lim_{n \to \infty} m (A_{n+1})  \\
 			\end{align*}
-		\item[4] Let $B_k = A_1 \setminus A_k \in S$. Observe: $B_1 \subseteq B_2 \subseteq \ldots$
+		\item[4.] Let $B_k = A_1 \setminus A_k \in S$. Observe: $B_1 \subseteq B_2 \subseteq \ldots$
 
 			\underline{Conclude}:
 			\begin{align*}

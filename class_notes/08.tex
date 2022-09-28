@@ -41,7 +41,7 @@ No -- fails countability subadditivity condition. $J^*$ is only finitely subaddi
 	\]
 \end{definition}
 
-Let $S_m \{ A \in S : A \textrm{m-Caratheodory}\}$. Caratheodory basically means ``good for splitting''.
+Let $S_m = \{ A \in S : A \textrm{ m-Caratheodory}\}$. Caratheodory basically means ``good for splitting''.
 
 \begin{theorem}
 	$S_m$ is a $\sigma$-algebra and $(X, S_m, m|_{S_m})$ is a positive measure space.
@@ -56,7 +56,48 @@ Let $S_m \{ A \in S : A \textrm{m-Caratheodory}\}$. Caratheodory basically means
 
 	Step 2: $A \in S_m \implies A^c \in S_m$.
 	\begin{align*}
-	  1 = 1
+		m(B) & = m(B \cap A) + m(B \cap A^c) \\
+				 & = m(B \cap (A^c)^c) + m(B \cap A^c)
+	\end{align*}
+
+	Step 3: $A_1, A_2 \in S_m \implies A_1 \cup A_2 \in S_m$. 
+	\begin{align}
+		m(B) & = m(B \cap A_1) + m(B \cap A_1^c) \\
+				 & = m(B \cap A_1 \cap A_2) + m(B \cap A_1 \cap A_2^c) \nonumber \\
+				 & \phantom{=} + m(B \cap A_1^c \cap A_2) + m(B \cap A_1^c \cap A_2^c) \label{step3.2} \\
+				 & \geq m(B \cap (A_1 \cup A_2)) + m(B \cap A_1^c \cap A_2^c) \\
+				 & = m(B \cap (A_1 \cup A_2)) + m(B \cap (A_1 \cup A_2)^c) \label{step3.4} \\ 
+				 & \geq m(B)
+	\end{align}
+	
+	Step 3$'$: $A_1, A_2 \in S_m$ disjoint and $m(B) \leq \infty$ implies, 
+	\[
+		m(B \cap (A_1 \cup A_2)) = m(B \cap A_1) + m(B \cap (A_1 \cup A_2)^c).
+	\]
+	Using disjointness, lines \ref{step3.2} and \ref{step3.4} give 
+	\begin{multline*}
+		m(B \cap A_1) + m(B \cap A_2) + m(B \cap (A_1 \cup A_1)^{c})  \\
+		= m(B \cap (A_1 \cup A_2) + m(B \cap (A_1 \cup A_2)^{c}). 
+	\end{multline*}
+
+	Step 4: $A_k \in S_m$ disjoint $\implies \bigcup_{n = 1}^{\infty} A_k \in S_m$
+	and $m(\bigcup_{k=1}^{\infty} A_k = \sum_{k=1}^{\infty} m(A_k)$.
+	\[
+		m(B) \leq m\left(B \cap \bigcup_{k=1}^{\infty} A_k \right) + m\left(B \cap \left(\bigcup_{k=1}^{\infty} A_k\right)^{c}\right).
+	\]
+	We need to prove the other direction i.e. $\geq$
+
+	We may assume $m(B) \leq \infty$. 
+	\begin{align*}
+	  m \left(B \cap \bigcup_{k = 1}^{\infty} A_k \right) & \geq m \left(B \cap \bigcup_{k = 1}^{n} A_k \right) \\
+		& = \sum_{k = 1}^{n} m(B \cap A_k) \tag{Step 3$'$} \\
+		& \xrightarrow[n \to \infty]{} \sum_{k = 1}^{\infty} m(B \cap A_k) \\
+		& \geq m \left( B \cap \bigcup_{k = 1}^{\infty} A_k \right)
+	\end{align*}
+	\begin{align*}
+	  m & \left(B \cap \bigcup_{k = 1}^{\infty} A_k \right) + m \left(B \cap \left( \bigcup_{k = 1}^{\infty} A_k\right)^{c}\right) \\
+		& = \lim_{n \to \infty} \left\{ m \left( B \cap \bigcup_{k = 1}^{n} A_k \right) + m \left(B \cap \left(\bigcup_{k = 1}^{\infty} A_k\right)^{c}\right)\right\} \\
+		& \leq \liminf_{n \to \infty} \left\{ m \left(B \cap \bigcup_{k = 1}^{n} A_k\right) + m \left(B \cap \left(\bigcup_{k = 1}^{n} A_k\right)^{c}\right)\right\} \\
+		& = m(B)
 	\end{align*}
 \end{proof}
-
