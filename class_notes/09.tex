@@ -54,8 +54,21 @@ It is enough to show $S_{*}$ contains open sets and is closed under complement a
 Since $\mathcal{B}$ is the smallest $\sigma$-algebra containing open sets, this implies $S \contains \mathcal{B}$
 
 \begin{enumerate}
-	\item[Step 1:] Suppose $U$ open, $m(U) = \inf\{m(V) : V \contains U \}$
+	\item[Step 1:] Suppose $U$ open, from monotonicity we have $m(U) = \inf\{m(V) : V \contains U \}$
+		write: $U = \bigcup_j K_j$ with  $K_j \subseteq K_{j+1}$ compact.
+		\begin{align*}
+			m(U) = m(\bigcup_j K_j = \lim_{j \to \infty} m(K_j)
+		\end{align*} .
+
+		Conclude
+		\begin{align*}
+			m(U) = \sup\{m(K) : \underset{compact}{K} \subseteq U \}
+		\end{align*}
+
+	\item[Step 2:] Suppose $A \in S$, choose $\underset{open}{U} \contains A \underset{compact}{K}$
+		so $U^{c} \subseteq A^{c} \subseteq K^{c}$ and $m(U \setminus K) = m(U \setminus A) +m (A \setminus K) < \varepsilon$
 \end{enumerate}
+
 \end{proof}
 
 
