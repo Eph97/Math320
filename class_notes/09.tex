@@ -1,0 +1,63 @@
+\section{ 2022-09-28 }
+
+
+Reviewing: $(X,T)$ nice $\Lambda : C_c (X) \to \mathbb{R}$ positive linear
+
+\begin{align*}
+	m(U) &= \sup\{\Lambda(f) : 0 \leq f \leq \1_c\} \\
+	m(A) &= \inf\{m(U) : U \contains  A\}
+\end{align*} 
+
+\begin{lemma}
+	$\mu$, outer measure in  $(X,\mathcal{P}(X))$ and Borel $\subseteq$ Caratheodory.
+\end{lemma}
+
+\begin{lemma}
+	restric $m$ to Borel $\sigma$-algebra $\mathbb{B}$ so $(X, \mathcal{B}, m)$ is a positive measure space
+\end{lemma}
+
+\begin{lemma}
+	For $f \in C_c (X)$, $\Lambda(f) = \int f dm$
+\end{lemma}
+
+\begin{proof}
+	Use definition of $m$ and partition of unity
+
+	Using the linearity of $\Lambda$ and  $\int dm$, we may assume $0 \leq f \leq 1.$
+
+	Construct 
+	 \begin{align*}
+	    \Lambda (f) = ( \max f^+ ) \Lambda \left(\frac{f^+}{\max f^+}\right) - (\max f^- ) \Lambda \left(\frac{f^-}{max f^-} \right)
+	\end{align*} 
+	and same for $\int dm$
+\end{proof}
+
+
+
+
+\begin{theorem}[Riesz-representation theorem]
+	If $(X,T)$ is nice and  $\Lambda : C_c (X) \to \mathbb{R}$ positive linear, then there is a \underline{unique}. positive measure $\mu$ on $(X,\mathcal{B})$ such that  $\Lambda(f) = \int f dm$
+\end{theorem}
+
+\begin{lemma}
+	If $(X,T)$ nice,  $(X, \mathcal{B}, m)$ posiive measure space, and $m(X) < \infty$, then m is \underline{regular}, that is
+	\begin{align}
+		m(A) &= \inf\{m(U) : \underset{open}{U} \contains A\} \\
+			 &= \sup\{m(K) : \underset{compact}{K} \subseteq A\}
+	\end{align} 
+\end{lemma}
+
+\begin{proof}
+	let $S_{*} = \{A \in S: (1) \text{ holds for $A$} \}$
+It is enough to show $S_{*}$ contains open sets and is closed under complement and countable union.
+
+Since $\mathcal{B}$ is the smallest $\sigma$-algebra containing open sets, this implies $S \contains \mathcal{B}$
+
+\begin{enumerate}
+	\item[Step 1:] Suppose $U$ open, $m(U) = \inf\{m(V) : V \contains U \}$
+\end{enumerate}
+\end{proof}
+
+
+\subsection*{Midterm 1 Review}
+
