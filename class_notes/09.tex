@@ -67,10 +67,58 @@ Since $\mathcal{B}$ is the smallest $\sigma$-algebra containing open sets, this 
 
 	\item[Step 2:] Suppose $A \in S$, choose $\underset{open}{U} \contains A \underset{compact}{K}$
 		so $U^{c} \subseteq A^{c} \subseteq K^{c}$ and $m(U \setminus K) = m(U \setminus A) +m (A \setminus K) < \varepsilon$
+
+		Then
+		\begin{align*}
+			m(\underset{open}{K^{c}} \setminus \underset{}{U^{c}}) < \varepsilon
+		\end{align*}
+		Choose $\underset{compact}{G} \subseteq K^{c}$ so $m(^{c} \setminus G) < \varepsilon$. Then 
+	\begin{align*}
+		g \bigcap U^{c} \subseteq A^{c} &\subseteq K^{c} \quad \text{and} \\
+	m(K^{c} \setminus (G \cap U^{c})) &\leq m(k^{c} \setminus V^{c}) + m(K^{c} \setminus G) \\
+									 &< 2\varepsilon
+	\end{align*} 	
+\item[Step 3:]
+	Finite unions (automatic):
+	If \begin{align*}
+		K_1 &\subseteq A_1 \subseteq U_1 \\
+		K_2 &\subseteq A_2 \subseteq U_2, \quad \text{then} \\
+		K_1 \cup K_2 &\subseteq A_1 \cup A_2 \subseteq U_1 \cup U_2
+	\end{align*} 
+\item[step 4:]
+	Suppose $A_j \in S$, wts $\bigcup_j A_j \in S$. By steps 2 and 3, we may assume  $A_j$ disjoint.
+
+	Next choose $K_j \subseteq A_j \subseteq U_j$ with  $m(U_j \setminus K_j) \leq \frac{\varepsilon}{2j}$ 
+
+	Have $\cup_j K_j \subseteq \cup_j A_j \subseteq \cup_j U_j$ and  $m(\cup U_j \setminus \cup_j K_j ) \leq 2 \varepsilon$ 
+
+	Then 
+	\begin{align*}
+		m( \cup)j U_j \setminus \cup_j K_j) &= \lim_{n \to \infty} m ( \cup_j U_j \setminus \cup K_j) \quad \text{choose finite $n$ so} \\
+		K_1 \cup \ldots \cup K_n &\subseteq \cup_j A_j \subseteq \cup_j U_J \quad \text{and} \\
+		m(\cup_j U_j &\setminus K_1 \cup \ldots \cup K_n )) \leq 3\varepsilon
+	\end{align*} 
 \end{enumerate}
 
 \end{proof}
 
+\begin{lemma}
+	If $(X, T)$ nice, and $(X,\mathcal{B}, m)$ is a positive measure space, then
+	\begin{align*}
+		M(A) &= \inf\{m(U) : U \contains A\} \\
+			 &= \sup \{m(K) : K \subseteq A \} \quad \text{whenever} \, A \in \mathcal{B},
+			 \, A \subseteq U, \, m(U) < \infty
+	\end{align*}
+\end{lemma}
+
+\begin{proof}
+	Restrict to subspace $(U,T)$ and apply previous lemma.
+\end{proof}
+
+It remains to show the uniqueness of the Riesz measure: suppose $m_1$ and $m_2$ are positive measures on $(X,\mathcal{B})$ and $\int f dm_1 = \int f dm_2$ for some  $f \in C_c(X)$.
+
+
+We want to show that it must be  $m_1 = m_2$
 
 \subsection*{Midterm 1 Review}
 Know basic definitions, Basix examples and Basic theorems for:
