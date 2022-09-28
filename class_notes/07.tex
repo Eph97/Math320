@@ -18,14 +18,14 @@
 \end{example}
 
 \begin{theorem}
-	There is a unique measure $m$ on (X,B) s.t.
+	There is a unique measure $m$ on (X,B)\footnote{$B$ is a Borel $\sigma$-algebra} s.t.
 	\begin{align*}
 		\Lambda(f) = \int f \, dm \quad \forall f \in C_c (X)
 	\end{align*}
 \end{theorem}
 
 \subsection{Defining m}
-For $A \subseteq X$ Borel and $m$ a Borel measure, 
+For $A \subseteq X$ Borel and $m$ a Borel measure,
 	\[
 		m(A) = \int \1_{A} \, dm.
 	\]
@@ -45,8 +45,8 @@ We argue the restriction of $m$ to Borel $\sigma$-algebra is a measure.
 
 \begin{proof}
 	Since $X$ Hausdorff and $K_1 \cap K_2 = \emptyset$, for $x \in K_1$ and $y \in K_2$,
-	there are open $U_{x,y}$ and $V_{x,y}$ with $x \in U_{x,y}$ and $y \in V_{x,y}$,
-	and $U_{x,y} \cap V_{x,y} = \emptyset$, for any $x \in K_1$,
+	there are open $U_{x,y}$ and $V_{x,y}$ with $x \in U_{x,y}$, $y \in V_{x,y}$,
+	and $U_{x,y} \cap V_{x,y} = \emptyset$. For any $x \in K_1$,
 	\begin{align*}
 		K_2 \subseteq \bigcup_{y \in K_2} V_{x,y}
 	\end{align*}
@@ -64,8 +64,8 @@ We argue the restriction of $m$ to Borel $\sigma$-algebra is a measure.
 \end{lemma}
 
 \begin{proof}
-	Since $(X,T)$ locally compact, every $x \in K$ has $x \in U_{x} \subseteq \bar{U}_x \subseteq X$
-	Since $K$ compact, $K \subseteq U_{x_1} \cup \ldots \cup U_{x_n} \subseteq \bar{U}_x \cup \ldots \cup \bar{U}_{x_{n}}$
+	Since $(X,T)$ locally compact, every $x \in K$ has $x \in U_{x} \subseteq \bar{U}_x \subseteq X$.
+	Since $K$ compact, $K \subseteq U_{x_1} \cup \ldots \cup U_{x_n} \subseteq \bar{U}_x \cup \ldots \cup \bar{U}_{x_{n}}$.
 \end{proof}
 
 \begin{lemma}
