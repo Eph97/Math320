@@ -30,6 +30,40 @@ Reviewing: $(X,T)$ nice $\Lambda : C_c (X) \to \mathbb{R}$ positive linear
 	    \Lambda (f) = ( \max f^+ ) \Lambda \left(\frac{f^+}{\max f^+}\right) - (\max f^- ) \Lambda \left(\frac{f^-}{max f^-} \right)
 	\end{align*} 
 	and same for $\int dm$
+
+
+	Let $U = \{x \in X : f(x) > 0\}$. Note  $\bar{U}$ is compact and $m(U) < \infty$.
+
+	Let  $\varepsilon = \frac{1}{N}$ for some large  $N \geq 1$.
+
+	Let
+	\begin{align*}
+		E_k = f^{-1}\left( [ (k-1) \varepsilon, K \varepsilon]\right)
+	\end{align*}
+	replace $E_1$ with its closer $\bar{E}_1$ so that $U_k$ cover $\bar{U}_1$
+	 \begin{align*}
+	\sum_{K} (K -1) \varepsilon \1_{E_k} \leq f \leq \sum_{K} k \varepsilon \1_{E_k}
+	\end{align*} 
+
+	Since $E_k \in B$, we can choose $U_k \contains E_k$ open with $\delta >0 $ aribitary.
+	We then have
+	\begin{align*}
+		m(U_k) &\leq m(E_k) + \delta \quad \text{and} \\
+		U_k &\leq f^{-1} ( [ 0, (k+1)\varepsilon))
+	\end{align*} 
+
+	Choose partition of unity: $g_k \in C_c(X)$ such that  $0 \leq g_k \leq \1_{U_k}$ and \\
+	$\1_{\bar{U}} \leq \sum_{K} g_k \leq 1$ 
+	Then:
+	\begin{align*}
+	\Lambda(f) &= \Lambda( \sum_{k} g_k f) \\
+			   &=  \sum_{k} \Lambda( g_k f) \\
+			   &\leq  \sum_{k} (k+1) \varepsilon \Lambda( g_k ) \\
+			   &\leq  \sum_{k} (k-1) \varepsilon ( \mu( E_k ) + \delta ) \\
+			   &\leq \sum_{k} (k-1) \varepsilon \mu( E_k ) + \sum_{k} (2 \varepsilon [ \mu (E_k) + \delta] + (k+1) + \delta) \\
+			   &\leq \int \sum_{k} (k-1) \varepsilon \1_{E_k} dm + 2 \varepsilon  \mu( U_k ) + C N \delta  \\
+			   &\leq \int f dm + 2 \varepsilon  \mu(\bar{U}) + C N \delta  \\
+	\end{align*} There is a symmetric computation of other inequality.
 \end{proof}
 
 
@@ -121,6 +155,32 @@ It remains to show the uniqueness of the Riesz measure: suppose $m_1$ and $m_2$ 
 
 We want to show that it must be  $m_1 = m_2$
 
+\begin{proof}
+	Suppose $m_1 \neq m_2$
+	 \begin{enumerate}
+		 \item[step 1:] there is an open $U$ and $A \subseteq U$ with $m_1 (U) < \infty$, $m_2 (U) < \infty$, and $m_1 (A) \neq m_2(A)$
+
+		 \item[step 2:] WLOG, $m_1(A) < m_2 (A).$ Since $m_1$ and $m_2$ are regular on $U$, choose 
+			 \begin{align*}
+				 &\underset{compact}{K} \subseteq A \subseteq \underset{open}{U} \quad \text{so} \\
+				 &m_1 (A) \leq m_1 (U) < m_2 (K) \leq m_2 (A)
+			 \end{align*} 
+			 and Choose $f \in C_c (X)$ so $\1_K \leq f \1_U$.
+			 We then obtain
+			 \begin{align*}
+				 m_2 (K) &\leq \int f dm_2 \\
+					 &= \int f dm_1 \leq m_1 (U)
+			 \end{align*} 
+			 Contradicting (star)
+	\end{enumerate}
+\end{proof}
+
+
+Next: $Q \subseteq \mathbb{R}^d$ closed rectangles.
+\begin{align*}
+\Lambda : C(Q) \to \mathbb{R} \quad \text{is} \\
+\Lambda(f) = \int_{Q} f \quad \text{(Riemann)}
+\end{align*} Then $\Lambda(f) = \int f dL$ where $L$ is the restriction of $L^*$ to Borel sets.
 \subsection*{Midterm 1 Review}
 For the midterm on October 3rd, 2022, we should know basic definitions, basic examples and basic theorems. The following topics will be covered:
 \begin{enumerate}
