@@ -19,7 +19,7 @@ can even demand $A_k$ disjoint and $X = A_1 \cup \ldots A_k$.
 [insert sketch here]
 
 \begin{theorem}
-	If $f : X \to [0, \infty)$ measurable, then there are simple $g_n : X \to [0, \infty)$ such that for all $X$, $0 \leq g_n(x) \leq g_{n+1}(x) \leq f(x)$ and $\lim_{n \to \infty} g_n(x) = f(x)$.
+	If $f : X \to [0, \infty)$ measurable, then there are simple $g_n : X \to [0, \infty)$ such that for all $x \in X$, $0 \leq g_n(x) \leq g_{n+1}(x) \leq f(x)$ and $\lim_{n \to \infty} g_n(x) = f(x)$.
 \end{theorem}
 
 \begin{proof}
@@ -51,9 +51,9 @@ can even demand $A_k$ disjoint and $X = A_1 \cup \ldots A_k$.
 \subsection{Lebesgue Integration}
 
 \begin{definition}[Lebesgue Integration]
-	If $g : X \to [0, \infty)$ simple function and $g = \sum_{k = 1}^{K} \alpha_1 \1_{A_k}$, then
+	If $g : X \to [0, \infty)$ simple function and $g = \sum_{k = 1}^{K} \alpha_k \1_{A_k}$, then
 \[
-	\int_{}^{} g \,dm = \sum_{n = 1}^{k} \alpha_k m(A_k).
+	\int_{}^{} g \,dm = \sum_{k = 1}^{n} \alpha_k m(A_k).
 \]
 If $f : X \to [0, \infty]$ measurable, then
 \[
@@ -68,13 +68,20 @@ Basic Properties
 	\[
 		\int \alpha_1 f_1 + \alpha_2 f_2 \, dm = \alpha_1 \int f_1 \, dm + \alpha_2 \int f_2 \, dm.
 	\]
-	\item If $f_1, f_2 : X \to [0, \infty]$ measurable and $m( \left\{x : f(x) > 0 \right\}) = 0$, then $\int f \,dm = 0$. Even if $f(x) = \infty$ for some $x$!
+	\item If $f : X \to [0, \infty]$ measurable and $m( \left\{x : f(x) > 0 \right\}) = 0$, then $\int f \,dm = 0$. Even if $f(x) = \infty$ for some $x$!
 \end{enumerate}
 
 \subsection{Monotone Convergence Theorem}
 
 \begin{theorem}[Monotone Convergence Theorem]
-	If $f_1, f_2, f_3, \ldots : X \to [0, \infty]$ measurable and for all $x \in X$, $0 \leq f_n(x) \leq f_{n+1}(x) \xrightarrow[n \to \infty]{} f(x)$, then $\int f_n \, dm \xrightarrow[n \to \infty]{} \int f \, dm$.
+	If $f_1, f_2, f_3, \ldots : X \to [0, \infty]$ measurable and for all $x \in X$, $0 \leq f_n(x) \leq f_{n+1}(x) \xrightarrow[n \to \infty]{} f(x)$, then 
+	\begin{align*}
+		\int f_n \, dm \xrightarrow[n \to \infty]{} \int f \, dm
+	\end{align*}
+	. In other words
+	\begin{align*}
+		\lim_{n \to \infty} \int f_n \, dm = \int f \, dm
+	\end{align*} 
 \end{theorem}
 
 \begin{proof}

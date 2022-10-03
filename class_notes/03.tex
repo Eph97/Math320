@@ -30,13 +30,13 @@ We should be able to handle $1_C$ of $\frac{1}{2^{k+1} -1 }$ cantor set ($C \in 
 \subsection{Metric Spaces}
 
 \begin{definition}[Metric \& Metric Spaces]
-	A function $d : X \times X \to \mathbb{R}$ on the Cartesian product of a set $X$ us a \underline{metric} if
+	A function $d : X \times X \to \mathbb{R}$ on the Cartesian product of a set $X$ is a \underline{metric} if
 
 \begin{enumerate}
 	\item $d(x,y) \geq 0$
 	\item $d(x,y) = 0 \iff x = y$
 	\item $d(x,y) = d(y,x)$
-	\item $d(x,y) \leq d(x,y) + d(y,z)$
+	\item $d(x,y) \leq d(x,z) + d(z,y)$
 \end{enumerate}
 
 We call the pair $(X, d)$ a \underline{metric space.}
@@ -47,7 +47,7 @@ We call the pair $(X, d)$ a \underline{metric space.}
 A function $f : X \to Y$ between metric spaces is continuous if, $\forall x \in X$ and $\varepsilon >0 $ there exists a $\delta >0$ such that for all $y \in X$ we have $d_X (x, y) < \delta \implies d_Y(f(x), f(y)) < \varepsilon$	
 \end{definition}
 
-A subset $V \subseteq X$ of a metric space $X$ is open if for ever $x \in V$ there is a $\delta >0 $ such that $B(x,\delta) = \{y \in X: d(x,y) < \delta\} \subseteq U$ 
+A subset $V \subseteq X$ of a metric space $X$ is open if for every $x \in V$ there is a $\delta >0 $ such that $B(x,\delta) = \{y \in X: d(x,y) < \delta\} \subseteq U$ 
 
 \begin{theorem}
 	A map $f:X \to Y$ between metric spaces is continuous if and only if $w \subseteq Y$ open implies $f^{-1}(w) \subseteq X$ is also open.
@@ -76,7 +76,10 @@ A subset $V \subseteq X$ of a metric space $X$ is open if for ever $x \in V$ the
 \end{definition}
 
 
-A function $f:X \to Y$ between topological spaces is continuous if $V \in T_y \implies f^{-1}(V) \in T_X$
+\begin{definition}
+	A function $f:X \to Y$ between topological spaces is continuous if $V \in T_y \implies f^{-1}(V) \in T_X$
+\end{definition}
+
 
 \begin{claim*}
 	A topology is a way of designating some subsets as open.	
@@ -166,7 +169,7 @@ We call the pair $(X, S)$ a measurable space.
 \end{definition}
 
 \begin{theorem}
-	This is equivalent to $f$ being a measurable function from $(X, S_X)$ to $(S, \sigma(T_Y))$
+	This is equivalent to $f$ being a measurable function from $(X, S_X)$ to $(Y, \sigma(T_Y))$
 \end{theorem}
 
 \begin{example}

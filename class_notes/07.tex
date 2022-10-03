@@ -18,7 +18,7 @@
 \end{example}
 
 \begin{theorem}
-	There is a unique measure $m$ on (X,B)\footnote{$B$ is a Borel $\sigma$-algebra} s.t.
+	There is a unique measure $m$ on $(X,\mathcal{B})$\footnote{$\mathcal{B}$ is a Borel $\sigma$-algebra} s.t.
 	\begin{align*}
 		\Lambda(f) = \int f \, dm \quad \forall f \in C_c (X)
 	\end{align*}
@@ -60,7 +60,7 @@ We argue the restriction of $m$ to Borel $\sigma$-algebra is a measure.
 \end{proof}
 
 \begin{lemma}
-	If $K$ compact, then there is $K \subseteq U_{open} \subseteq \bar{U}_{compact} \subseteq X$.
+	If $K$ compact, then there is $K \subseteq \underset{open}{U} \subseteq \underset{compact}{\bar{U}} \subseteq X$.
 \end{lemma}
 
 \begin{proof}
@@ -69,7 +69,7 @@ We argue the restriction of $m$ to Borel $\sigma$-algebra is a measure.
 \end{proof}
 
 \begin{lemma}
-	If $K_1 \subseteq U_1$, then there are  $K_1 \subseteq U_{2} \subseteq K_1 \subseteq U$
+	If $\underset{compact}{K_1} \subseteq \underset{open}{U_1}$, then there are  $K_1 \subseteq \underset{open}{U_{2}} \subseteq \underset{compact}{K_2} \subseteq U_1$
 \end{lemma}
 
 \begin{proof}
@@ -80,7 +80,7 @@ We argue the restriction of $m$ to Borel $\sigma$-algebra is a measure.
 \end{proof}
 
 \begin{lemma}[Uhryson's Lemma]
-	If $K_{compact} \subseteq U_{open}$, then there is  $f \in C_{c} (X)$ with $\1_k \leq f \leq \1_U$
+	If $\underset{compact}{K} \subseteq \underset{open}{U}$, then there is  $f \in C_{c} (X)$ with $\1_k \leq f \leq \1_U$
 \end{lemma}
 
 \begin{remark} dyadic rationals

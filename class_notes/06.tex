@@ -42,7 +42,7 @@ $(X, S, m)$ positive measure space $f : X \to [0,\infty]$ measurable, then
 \end{proof}
 
 \begin{definition}
-	If $f: X \to [ - \infty, \infty]$ measurable, then  $\int f \, dm = f_{+} \, dm - \int f_{-} \, dm$ where
+	If $f: X \to [ - \infty, \infty]$ measurable, then  $\int f \, dm = \int f_{+} \, dm - \int f_{-} \, dm$ where
 	$f_{\pm} = \max\{0, \pm f\}$
 \begin{remark}
 	$\int f \, dm$ defined only when $\int |f| \, dm < \infty$. Moreover,  $|\int f \, dm | \leq \int |f| \, dm$
@@ -85,11 +85,19 @@ Observe: $\sim$ is an equivalence relation and $L^{1}(X,S, m) / \sim$ is a norme
 		g : X &\to [0, \infty] \text{ measurable }, \\
 		\int g \, dm &< \infty
 	\end{align*}
-	suppose $f(x) = \lim_{n \to \infty} f_n(x)\, \forall x \in X$, and $|f_n (x) | \leq g(x)$ so
-	$x \in X$ and $n \geq 0,$
-
-	then  $\lim_{n\to \infty} \int | f - f_n | \, dm = 0$ and \\
-	$\lim_{n\to \infty} \int f_n \, dm = \int f \, dm$
+	suppose
+	\begin{align*}
+		f(x) = \lim_{n \to \infty} f_n(x)\, \forall x \in X
+	\end{align*}
+	and $|f_n (x) | \leq g(x)$ for $x \in X$ and $n \geq 0,$ \\
+	then
+	\begin{align}
+		\lim_{n\to \infty} \int | f - f_n | \, dm = 0
+	\end{align}
+	and \\
+	\begin{align*}
+		\lim_{n\to \infty} \int f_n \, dm = \int f \, dm
+	\end{align*}
 
 \end{definition}
 
@@ -186,7 +194,7 @@ A finite positive Borel measure on $K$ is a positive measure on the Borel $\sigm
 
 
 \begin{theorem}
-	There is a natural bijection between positive linear functionals on compact metric space $K$ and the finite positive Borlemeasures on $K$ and it is characterized by $\Lambda \leftrightarrow m$
+	There is a natural bijection between positive linear functionals on compact metric space $K$ and the finite positive Borel measures on $K$ and it is characterized by $\Lambda \leftrightarrow m$
 	$\iff$
 	 \begin{align*}
 	\Lambda(f) = \int f \, dm \quad \forall f \in C(K)
@@ -200,7 +208,7 @@ A finite positive Borel measure on $K$ is a positive measure on the Borel $\sigm
 \begin{definition}["Nice" topological space]
 	Call a topological space $X$ nice if the following hold:
 	\begin{enumerate}
-		\item $X$ is Hausdorff: if $x,y \in X$ distinct, then there are open $u,v \subseteq X$ with  $x \in U$, $y \in V$ and $U \cap V  = \emptyset$
+		\item $X$ is Hausdorff: if $x,y \in X$ distinct, then there are open $U,V \subseteq X$ with  $x \in U$, $y \in V$ and $U \cap V  = \emptyset$
 		\item $X$ is locally compact:
 			if $x \in X$, then there are $K, V \subseteq X$ with $x \in V \subseteq K $,
 			$V$ open, $K$ compact.
