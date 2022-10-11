@@ -1,3 +1,29 @@
 \section{ 2022-10-05 }
 
-% \subsection
+review
+
+\begin{theorem}
+	Riesz $ \Lambda : C_c (X) \to \mathbb{R}$ positive linear on nice space $X$ then $\Lambda(f) = \int f dm$ for a unique borel measure on $X$.
+\end{theorem}
+
+We have tools for constructing measure. Namely, the Caratheodory theorem for outer measure: Every outer measure is a positive measure on its Caratheodory sets.
+
+Now we have two candidates for Lebesgue measure.
+
+\begin{enumerate}
+	\item $\Lambda (f) = \underset{Riemann}{\int f}$
+		Which should be given by: $\Lambda(f) = \int f dL$
+	\item The outer Lebesgue measure  $l^* (A) = \inf\{\sum_K |Q_k| : A \subseteq \bigcup_{K} Q_k \}$ Should be $L$ on its Caratheodory sets.
+\end{enumerate}
+
+These are essentially the same.
+
+\begin{lemma}
+	$L^*$ is an outer measure on $\mathcal{P}(R^d)$
+\end{lemma}
+
+\begin{proof}
+	$L^* (\emptyset)= 0$ because any collection of closed rectangles covers  $\emptyset$
+\end{proof}
+
+
