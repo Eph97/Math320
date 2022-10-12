@@ -1,0 +1,64 @@
+\section{10-12-2022}
+
+% \epigraph{``I ''}{Charlie}
+
+Outer Hausdorff measure.
+
+the $\alpha$-dimensional outer Hausdorff measure of a set $A \subseteq \mathbb{R}^d$ is $H^{\alpha} (A) = \sup H_{r}^{\alpha} (A)$ 
+
+where
+\begin{align*}
+	H_{r}^{\alpha} (A) = \inf\{ \sum_{k \geq 0} diam (B_k)^{\alpha} : A \subseteq \bigcup_{k \geq 0}, \quad \sup_{k \geq 0} diam (B_{k} ) \leq r \}
+\end{align*}
+
+\begin{example}
+	$H_{1}^{\alpha} \leq 1$ for each $A \subseteq B_{\frac{1}{2}}$ 
+
+	$H_{1}^{1}$ does not measure length.
+
+	$\sup_{r > 0} \{H_{r}^{1}\}$ does measure length
+\end{example}
+
+\begin{lemma}
+	$H^{\alpha}$ is an outer measure.
+\end{lemma}
+
+\begin{proof} several steps.
+	\begin{enumerate}
+		\item[step 1:] $H_{r}^{\alpha}$ is an outer measure by same argument for $L$.
+
+			\begin{align*}
+			H_{r}^{\alpha} (\emptyset)= 0 \quad \text{and} \quad \implies H_{r}^{\alpha} (A) \leq H_{r}^{\alpha} (B)
+			\end{align*} 
+			immediate from definition.
+
+			Subadditivity:
+			\begin{align*}
+			H_{r}^{\alpha} ( \cup_{k \geq 0} A_{k}) \leq \sum_{K \geq 0} H_{r}^{\alpha} (A_k)
+			\end{align*} Follows from countable union of countable is countable.
+
+		\item[step 2:] Immediate that $H^{\alpha} (\emptyset) = 0$ and 
+	\end{enumerate}
+\end{proof}
+
+
+
+\begin{theorem}
+	The restriction of $H^{\alpha}$ to borel sets is a measure.
+\end{theorem}
+
+
+\begin{definition}
+	$\alpha$-dimensional Hausdorff measure is restriction of $H^{\alpha}$ to Borel sets.
+\end{definition}
+
+
+\begin{example}
+	$H^{0}$ is counting measure.
+\end{example}
+
+
+\begin{example}
+	$H^{\alpha} (A) = 0$ when $\alpha > 0$
+\end{example}
+
