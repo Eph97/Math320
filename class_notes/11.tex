@@ -59,6 +59,48 @@ where
 
 
 \begin{example}
-	$H^{\alpha} (A) = 0$ when $\alpha > 0$
+	$H^{\alpha} (A) = 0$ when $\alpha > 0$ 
+	(insert image) we can conver  $[0,1]^{d}$ by $2^{nd}$ subcubes of size $2^{-n}$.
+
+	this shows:
+	\begin{align*}
+		H^{\alpha} ([0,1]^d) \leq \lim_{n \to \infty} 2^{nd}( \sqrt{d} 2^{-n})^{\alpha} = 0
+	\end{align*}
+\end{example}
+
+\begin{example}
+	$H^{d} = \beta L$ for some $\beta > 0$
+\end{example}
+
+\begin{theorem}
+	If $m$ borel measure on $\mathbb{R}^{d}$
+\end{theorem}
+
+\begin{proof}
+	Homework.
+\end{proof}
+
+\begin{definition}
+	The Hausdorff dimension of a set $A \subseteq \mathbb{R}^d$ is
+	\begin{align*}
+		\dim_{H} (A) = \inf\{\alpha \geq 0 : H^{\alpha} (A) = 0 \}
+	\end{align*}
+\end{definition}
+
+\begin{lemma}
+	For any $d$, $A \subseteq \mathbb{R}^d$ there is an $\alpha \in [0,d]$ s.t. 
+	\begin{align*}
+					H^{\beta} (A) &= 0 \quad \text{for} \quad  \beta > \alpha \\
+		\text{and} \quad H^{\beta} (A) &= \infty \quad \text{for} \quad \beta < \alpha
+	\end{align*} 
+\end{lemma}
+
+
+\begin{example}
+	the $\frac{1}{3}$ cantor set $\mathcal{C}$ as Hausdorff dim: $\alpha = \frac{\log 2}{\log 3}$
+\end{example}
+
+\begin{example}
+	The Kock curve has dimension: $\alpha = \frac{\log 4}{\log 3} \in [1,2)$
 \end{example}
 
