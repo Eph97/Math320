@@ -46,7 +46,7 @@ where
 															  &\leq \varepsilon + H_{r}^{\alpha} ( \bigcup_{k \geq 0} A_k) \\ 
 															  &\leq \varepsilon +  \sum_{k \geq 0} \sup_{r > 0} H_{r}^{\alpha} ( A_k) \\ 
 															  &= \varepsilon +  \sum_{k \geq 0} H^{\alpha} ( A_k) \\ 
-			\end{align*} since $\varepsilon$ arbirary, 
+			\end{align*} since $\varepsilon$ arbitrary, 
 			\begin{align*}
 			H^{\alpha} ( \bigcup_{k \geq 0} A_k) \leq \sum_{k \geq 0} H^{\alpha} ( A_k)
 			\end{align*}
@@ -69,27 +69,73 @@ where
 \end{definition}
 
 \begin{example}
-	$H^{\alpha}$ is a metric outer measure. indeed
+	$H^{\alpha}$ is a metric outer measure. Indeed
 	\begin{align*}
 	H_{r}^{\alpha}(A \cup B) = H_{r}^{\alpha}(A) + H_{r}^{\alpha}(B)  \quad \text{where} \quad d(A,B) > 0
 	\end{align*} 
-	Because we can effectviely split any cover of $A \cup B$ into a cover of $A$ and a cover of $B$.
+	Because we can effectively split any cover of $A \cup B$ into a cover of $A$ and a cover of $B$.
 \end{example}
 
 \begin{lemma}
-	Borel sets are caratheodory for metric outer measure.
+	Borel sets are Caratheodory for metric outer measure.
 \end{lemma}
 
-come back to
 \begin{proof}:
 	\begin{enumerate}
-		\item[step 1]
+		\item[step 1] Show if $A = \cup_{k \geq 1} A_k$, $A_{k+1} \contains A_k$,
+			and $d(A_k, A \setminus A_{k+1}) >0$, then $m(A) = \lim_{k \to \infty} m(A_k)$ 
+			\begin{enumerate}
+				\item[case 1:] 
+					\begin{align*}
+					&\sum_{k \geq 1} m(A_{k+1} \setminus A_k) = \infty \quad \text{for $j=1$ or $2$, then}\\
+					&\sum_{k \geq 1} m(A_{j+2k+1} \setminus A_{j + 2k})  = \infty \\
+					&\lim_{n \to \infty} \sum_{k = 1}^{n} m(A_{j+2k+1} \setminus A_{j + 2k}) \\
+					&\lim_{n \to \infty} m(\bigcup{k = 1}^{n} (A_{j+2k+1} \setminus A_{j + 2k})) \\
+					&\leq \lim_{n \to \infty} m(A_{j+2k+1} ) \\
+					\end{align*} 
+					So both $m(A)$ and $\lim_{n \to \infty} m(A_n)$ are $\infty$.
+
+				\item[case 2:]
+					\begin{align*}
+						\sum_{n=1}^{\infty} m(A_{k+1} \setminus A_{k}) < \infty \\
+					\text{then} \quad \lim_{k \to \infty}  m(A_{k+1} \setminus A_{k}) = 0\\
+					\lim_{k \to \infty}  m(A \setminus A_{k+1}) = 0\\
+					\end{align*} now
+					\begin{align*}
+						m(A) &\leq m(A_{k}) + m(A_{k+1} \setminus A_{k}) + m(A \setminus A_{k+1}) \\
+							 &\leq \limsup_{k \to \infty} m(A_{k}) \\
+							 &= \lim_{k \to \infty} m(A_{k}) \\
+							 &\leq m(A)
+					\end{align*} 
+			\end{enumerate}
+		\item[step 2] For $A$ closed, we check 
+			\begin{align*}
+			m(B) = m(B \cap A) + m(B \cap A^{c}) \quad \forall \, B \subseteq \mathbb{R}^d
+			\end{align*} 
+			Write $A^{c} = \bigcup_{k \geq 1} D_k$ where $D_{k} = \{x \in \mathbb{R}^d : d(x,A) > 2^{-k} \}$.
+
+			Since $d(A^{c} \setminus D_{k+1} , D_k) > 0$, step 1 implies 
+			 \begin{align*}
+				m(B \cap A^{c}) = \lim_{n \to \infty} m(B \cap D_k)
+			\end{align*} 
+
+			And since $d(\mathbb{R}^d \setminus D_{k+1}, D_k ) > 0$, step 1 implies
+			\begin{align*}
+				m(B ) = \lim_{n \to \infty} m(B \cap (A \cup D_{k}))
+			\end{align*} 
+
+			And finally since $d(A, D_{k}) > 0$,
+			\begin{align*}
+				m(B \cap (A \cup D_{k})) = m(B \cap A) + m(B \cap D_{k}).
+			\end{align*} 
 	\end{enumerate}
+
+	Taking $k \to \infty$ gives $m(B) = m(B \cap A) + m(B \cap A^{c})$
 \end{proof}
 
 
 \begin{theorem}
-	The restriction of $H^{\alpha}$ to borel sets is a measure.
+	The restriction of $H^{\alpha}$ to Borel sets is a measure.
 \end{theorem}
 
 
@@ -105,9 +151,9 @@ come back to
 
 \begin{example}
 	$H^{\alpha} (A) = 0$ when $\alpha > 0$ 
-	(insert image) we can conver  $[0,1]^{d}$ by $2^{nd}$ subcubes of size $2^{-n}$.
+	(insert image) we can cover  $[0,1]^{d}$ by $2^{nd}$ sub-cubes of size $2^{-n}$.
 
-	this shows:
+	This shows:
 	\begin{align*}
 		H^{\alpha} ([0,1]^d) \leq \lim_{n \to \infty} 2^{nd}( \sqrt{d} 2^{-n})^{\alpha} = 0
 	\end{align*}
@@ -118,7 +164,7 @@ come back to
 \end{example}
 
 \begin{theorem}
-	If $m$ borel measure on $\mathbb{R}^{d}$, $m(x + A) = m(A)$ for $A \in \mathbb{R}^d$ and $A \subseteq \mathbb{R}^d$ Borel and $m([0,1]^{d}) =1$, then $m = L$
+	If $m$ Borel measure on $\mathbb{R}^{d}$, $m(x + A) = m(A)$ for $A \in \mathbb{R}^d$ and $A \subseteq \mathbb{R}^d$ Borel and $m([0,1]^{d}) =1$, then $m = L$
 \end{theorem}
 
 \begin{proof}
@@ -144,7 +190,7 @@ come back to
 \begin{example}
 	the $\frac{1}{3}$ cantor set $\mathcal{C}$ as Hausdorff dim: $\alpha = \frac{\log 2}{\log 3}$ 
 	\begin{proof}
-		At spet $K$ have cover of $\mathcal{C}$ consisting of $2^{k}$ intervals of length $3^{-k}$ this gives us 
+		At step $K$ have cover of $\mathcal{C}$ consisting of $2^{k}$ intervals of length $3^{-k}$ this gives us 
 		\begin{align*}
 		\lim_{k \to \infty} (2^{k}\cdot 3^{-\alpha}) \in (0, \infty) \\
 		\iff \alpha = \frac{\log 2}{\log 3}
