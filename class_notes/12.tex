@@ -1,0 +1,72 @@
+\section{10-17-2022}
+
+
+Recall:
+
+come back to
+
+The $\alpha$-dimensional Hausdorff measure is the restriction of $H^{\alpha}$ to Borel sets.
+
+\subsection{Hausdorff Dimension}
+
+\begin{lemma}
+	If $0 \leq \alpha \leq \beta$ then $H^{\beta}_r (A) \leq r^{\beta - \alpha} H^{\alpha}_{r} (A)$
+\end{lemma}
+
+\begin{proof}
+	If $A \subseteq \bigcup_{k \geq 0} B_{k}$ and $\sup_{k \geq 0} diam (B_{k}) \leq r$, 
+	then 
+	\begin{align*}
+		\sum_{k \geq 0} diam (B_{k})^{\beta} \leq r^{\beta - \alpha} \sum_{k \geq 0} diam (A_{k})^{\alpha}
+	\end{align*} 
+	using $ \beta - \alpha > 0$
+\end{proof}
+
+\begin{theorem}
+	For any $A \subseteq \mathbb{R}^{d},$ 
+	\begin{align*}
+		diam_{H}(A) = \inf \{\alpha \geq 0 : H^{\alpha}(A) = 0\}
+	\end{align*} 
+	satisfies $diam_{H}(A) \in [0, d]$. moreover, if $\beta \in [0, \infty),$ then $H^{\beta}(A) = \infty$
+\end{theorem}
+
+\begin{proof}
+	From last time, $H^{\beta}(A) = 0$ for any $\beta > d$. It follows that $\dim_{H}(A) \in [0, d]$.
+	That $H^{\beta}(A) = \infty$ for $\beta \in [0, \infty)$ follows from the next lemma.
+\end{proof}
+
+\begin{lemma}
+	If $0 \leq \alpha < \beta$m abd $H^{\alpha}(A) < \infty$, then $H^{(A) = 0}$
+\end{lemma}
+
+\begin{proof}
+	If $H^{\alpha}(A) < \infty$, then
+	\begin{align*}
+		H^{\beta} (A) &= \sup_{r > 0} H^{\beta} (A) \sup H_{r}^{\beta} (A) \\
+					  &= \lim_{r \to 0} H_{r}^{\beta} (A) \\
+					  &\leq \limsup_{r \to 0} r^{\beta - \alpha} H_{r}^{\alpha} (A) \\
+					  &\leq ( \limsup_{r \to 0} r^{\beta - \alpha} ) ( \limsup_{r \to 0} H_{r}^{\alpha} (A) ) \\
+					  &\leq 0 \cdot H^{\alpha} (A) = 0
+	\end{align*}
+\end{proof}
+
+For any $A \subseteq \mathbb{R}^d$ the graph of $\alpha \mapsto H^{\alpha} (A)$ looks like either 
+
+insert graphs.
+
+\begin{exercise}
+	Find examples of fractals where each of the above graphs occurs.
+\end{exercise}
+
+\subsection{Fractals}
+
+For self-similar fractals, find an equation that the fractal solves. Use the properties of the equation to study fractals.
+
+\begin{example}
+	For serpinski triangle $S \subseteq \mathbb{R}^2$:
+	 \begin{align*}
+	\varphi_{j} (x, y) = (\frac{x}{2} + \cos(\frac{2 \pi}{3 j}), \frac{y}{2} + \cos(\frac{2 \pi}{3 j}) )
+	\end{align*} for $j = 1,2,3, \ldots$, observe
+	$S = \bigcup_{j = 1,2,3} \varphi_j (S) $
+\end{example}
+
