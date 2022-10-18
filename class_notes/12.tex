@@ -64,8 +64,8 @@ For self-similar fractals, find an equation that the fractal solves. Use the pro
 
 \begin{example}
 	For serpinski triangle $S \subseteq \mathbb{R}^2$:
-	 \begin{align*}
-	\varphi_{j} (x, y) = (\frac{x}{2} + \cos(\frac{2 \pi}{3 j}), \frac{y}{2} + \cos(\frac{2 \pi}{3 j}) )
+	\begin{align*}
+		\varphi_{j} (x, y) = (\frac{x}{2} + \cos(\frac{2 \pi}{3 j}), \frac{y}{2} + \cos(\frac{2 \pi}{3 j}) )
 	\end{align*} for $j = 1,2,3, \ldots$, observe
 	$S = \bigcup_{j = 1,2,3} \varphi_j (S) $
 \end{example}
@@ -73,9 +73,9 @@ For self-similar fractals, find an equation that the fractal solves. Use the pro
 \begin{theorem}
 	If $\varphi_{1}, \ldots, \varphi_{m} : \mathbb{R}^d \to \mathbb{R}^d$ are strict contracts meaning if there are $0 \leq r_{j} < 1$ s.t.
 	\begin{align*}
-	| Q_j (x) - Q_j (y) | \leq r_{j} |x - y |
+		| Q_j (x) - Q_j (y) | \leq r_{j} |x - y |
 	\end{align*} then there is a unique compact
-	 $K = \bigcup_{j=1}^{m} \varphi_{j} (k)$
+	$K = \bigcup_{j=1}^{m} \varphi_{j} (k)$
 \end{theorem}
 
 \begin{proof}
@@ -94,27 +94,27 @@ For self-similar fractals, find an equation that the fractal solves. Use the pro
 \end{proof}
 
 \begin{theorem}
-	If $\phi_1, \ldots, \phi_m: \mathbb{R}^d \to \mathbb{R}^d$ where $r_j \in (0,1)$ and 
-	 \begin{align*}
-	|\phi_j (x) - \phi_j (y) | \leq r_{j} |x - y|
-	\end{align*},
-	then $\phi_j$ is an isometry-dilation.
+		If $\phi_1, \ldots, \phi_m: \mathbb{R}^d \to \mathbb{R}^d$ where $r_j \in (0,1)$ and 
+		\begin{align*}
+			|\phi_j (x) - \phi_j (y) | \leq r_{j} |x - y|
+		\end{align*},
+		then $\phi_j$ is an isometry-dilation.
 
-	Consider $U \subseteq \mathbb{R}^d$ open, $\phi_1 (U), \ldots , \phi_m(U)$ disjoint,
-	$U \contains \bigcup_{j = 1}^{m} \phi_j (U)$, then the unique compact $K$ solving $K = \bigcup_{j = 1}^{m}\phi_j (K)$ has 
-	$0 < H^{\alpha}(K) < \infty$ where $\alpha$ determined by 
-	$\sum_{j=1}^{m} r_{j}^{\alpha} = 1$
+		Consider $U \subseteq \mathbb{R}^d$ open, $\phi_1 (U), \ldots , \phi_m(U)$ disjoint,
+		$U \contains \bigcup_{j = 1}^{m} \phi_j (U)$, then the unique compact $K$ solving $K = \bigcup_{j = 1}^{m}\phi_j (K)$ has 
+		$0 < H^{\alpha}(K) < \infty$ where $\alpha$ determined by 
+		$\sum_{j=1}^{m} r_{j}^{\alpha} = 1$
 \end{theorem}
 
 \begin{example}
-	Let $U = (0,1)$
-	\begin{align*}
-		\phi_1 (x) &= \frac{x}{3} \quad \phi_{2} (x) = \frac{x}{3} + \frac{2}{3} \\
-		\quad \phi_1 (U) & = (0,\frac{1}{3} ), \quad \phi_2 (U) = (\frac{2}{3}, 1) \\
-	\end{align*} 
-then $2 \cdot (\frac{1}{3})^{\alpha} = 1 \iff \alpha = \frac{\log 2}{\log 3}$ 
+		Let $U = (0,1)$
+		\begin{align*}
+			\phi_1 (x) &= \frac{x}{3} \quad \phi_{2} (x) = \frac{x}{3} + \frac{2}{3} \\
+			\quad \phi_1 (U) & = (0,\frac{1}{3} ), \quad \phi_2 (U) = (\frac{2}{3}, 1) \\
+		\end{align*} 
+		then $2 \cdot (\frac{1}{3})^{\alpha} = 1 \iff \alpha = \frac{\log 2}{\log 3}$ 
 
-The open set condition guarentees $H^{\alpha}( \phi_j (K) \cap \phi_l (K)) = 0$ \,
-for $j \neq l$.
+		The open set condition guarentees $H^{\alpha}( \phi_j (K) \cap \phi_l (K)) = 0$ \,
+		for $j \neq l$.
 \end{example}
 
