@@ -90,7 +90,36 @@ For self-similar fractals, find an equation that the fractal solves. Use the pro
 	\item[claim 1]: $\phi$ strict contraction
 	\item[claim 2]: $(m,d)$ is complete.
 
+		First, observe that $d(K_1 \cup K_2, k_3 \cup K_4) \leq \max\{d(K_1, K_3), d(K_2, K_4)\}$
+
 	\item[Proof of claim 1]:
+		\begin{align*}
+			d(\phi(K_1), \phi (K_2)) &= d( \bigcup_{j=1}^{m} \phi_j(K_1),\bigcup_{j=1}^{m} \phi_j (K_2) \\
+									 &\leq \max_{j} d( \phi_{j}(K_1), \phi_{j}(K_2)) \\
+									 &\leq (\max_{j} r_{j}) d(K_{1}, K_2)
+		\end{align*} 
+
+
+	\item[Proof of claim 2]: Suppose $K_1, K_2, \ldots \in M$ cauchy, refine the sequence so that $d(K_{j+1}, K_j ) \leq 2^{-j}$
+
+		Let $K = \bigcap_{n \geq 0} \overline{\bigcup_{m \geq n} K_m}$ where $K$ is non-empty.
+
+		Let $x_1 \in K_1$ arbitrary, recursiveily choose $x_{j+1} \in K_{j+1}$ so $|X_{j+1} - X_j | \leq 2^{-j}$
+		$\{X_j\}$ is cauchy in $\mathbb{R}^d$ so $x = \lim_{j \to \infty} x_j$.
+
+		Since $\{x_j\} \geq$ come back to
+
+		$x \in \overline{\bigcup_{m \geq n} K_{m}}$ and therefore $x \in K$.
+		
+		We know K is closed because it is the intersection of closed sets.
+		
+		We also know K is bounded because $K_1$ is compact so $K_{1} \subseteq \mathcal{B}_{R}$ And thus
+
+		\begin{align*}
+			d(K_1, K_2) &\leq 2^{-1} \implies K_{2} \subseteq \mathcal{B}_{R + 2^{-1}} \\
+			d(K_2, K_3) &\leq 2^{-2} \implies K_{3} \subseteq \mathcal{B}_{R + 2^{-1} + 2^{-2}} \\
+		\end{align*} 
+		$K_{m} \subseteq \mathcal{B}_{R + 1}$ for $m \geq 1$
 \end{proof}
 
 \begin{theorem}
