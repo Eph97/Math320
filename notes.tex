@@ -1,23 +1,25 @@
 \documentclass{lnotes}
 \usepackage{amsfonts}
+
 % Bibliography
-\usepackage[
-	style = alphabetic ,
-]{biblatex}
+\usepackage[style = alphabetic]{biblatex}
 \addbibresource{references.bib}
 
 % Packages
 \usepackage{epigraph}
-% \usepackage{wasysym}
 \usepackage[osf]{libertineRoman}
 \usepackage{biolinum} % nice sans serif font
 \usepackage{ulem} % for strikethrough text
 % \usepackage{tikz-cd}
 % \usepackage{dsfont}
 % \newcommand{\1}{\mathds{1}}
-\newcommand{\contains}{\supseteq}
+% \usepackage{wasysym}
 
 % Commands
+\newcommand{\contains}{\supseteq}
+
+% Operators
+\DeclareMathOperator*{\diam}{diam}
 \DeclareMathOperator*{\osc}{osc}
 
 % Document Information
@@ -76,7 +78,6 @@ Math 305 or equivalent.
 
 \subsection*{Assessments and Grading}
 There will be ten homework assignments, two in-class midterms, and an in-person final, comprising 30\%, 40\%, and 30\%, respectively, of the total grade.
-
 
 \include{class_notes/01}
 \include{class_notes/02}
