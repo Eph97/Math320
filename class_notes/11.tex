@@ -1,18 +1,19 @@
-\section{10-12-2022}
+\section{October 12, 2022}
 
-% \epigraph{``I ''}{Charlie}
+\epigraph{*accidentally kicks over classroom phone* ``I don't understand why there is a phone is here at all.''}{Charlie}
 
-Outer Hausdorff measure.
-
-the $\alpha$-dimensional outer Hausdorff measure of a set $A \subseteq \mathbb{R}^d$ is $H^{\alpha} (A) = \sup H_{r}^{\alpha} (A)$ 
-
+\subsection{Outer Hausdorff Measure}
+The $\alpha$-dimensional outer Hausdorff measure of a set $A \subseteq \mathbb{R}^d$ is
+\[
+	H^{\alpha} (A) = \sup_{r > 0} H_{r}^{\alpha} (A)
+\]
 where
-\begin{align*}
-	H_{r}^{\alpha} (A) = \inf\{ \sum_{k \geq 0} diam (B_k)^{\alpha} : A \subseteq \bigcup_{k \geq 0}, \quad \sup_{k \geq 0} diam (B_{k} ) \leq r \}
-\end{align*}
+\[
+	H_{r}^{\alpha} (A) = \inf\left\{ \sum_{k \geq 0} \diam (B_k)^{\alpha} : A \subseteq \bigcup_{k \geq 0}, \quad \sup_{k \geq 0} \diam (B_{k} ) \leq r \right\}
+\]
 
 \begin{example}
-	$H_{1}^{\alpha} \leq 1$ for each $A \subseteq B_{\frac{1}{2}}$ 
+	$H_{1}^{\alpha} \leq 1$ for each $A \subseteq B_{\frac{1}{2}}$
 
 	$H_{1}^{1}$ does not measure length.
 
@@ -25,77 +26,78 @@ where
 
 \begin{proof} several steps.
 	\begin{enumerate}
-		\item[step 1:] $H_{r}^{\alpha}$ is an outer measure by same argument for $L$.
-
-			\begin{align*}
-			H_{r}^{\alpha} (\emptyset)= 0 \quad \text{and} \quad \implies H_{r}^{\alpha} (A) \leq H_{r}^{\alpha} (B)
-			\end{align*} 
-			immediate from definition.
-
-			Subadditivity:
+		\item[Step 1:] $H_{r}^{\alpha}$ is an outer measure by same argument for $L$.
+			\[
+				H_{r}^{\alpha} (\emptyset)= 0 \quad \text{and} \quad A \subseteq B \implies H_{r}^{\alpha} (A) \leq H_{r}^{\alpha} (B)
+			\]
+			is immediate from definition.
+			The subadditivity:
 			\begin{align*}
 			H_{r}^{\alpha} ( \cup_{k \geq 0} A_{k}) \leq \sum_{K \geq 0} H_{r}^{\alpha} (A_k)
-			\end{align*} Follows from countable union of countable is countable.
+			\end{align*} follows from countable union of countable sets is countable.
 
-		\item[step 2:] Immediate that $H^{\alpha} (\emptyset) = 0$ and 
+		\item[Step 2:] It is immediate that $H^{\alpha} (\emptyset) = 0$ and
 			\begin{align*}
 			A \subseteq B \implies H^{\alpha} (A) \leq H^{\alpha}(B)
 			\end{align*} Assume
 			\begin{align*}
 				\infty > H^{\alpha}( \bigcup_{k \geq 0} A_k ) &= \sup_{r > 0} H_{r}^{\alpha} ( \bigcup_{k \geq 0} A_k) \\
-															  &\leq \varepsilon + H_{r}^{\alpha} ( \bigcup_{k \geq 0} A_k) \\ 
-															  &\leq \varepsilon +  \sum_{k \geq 0} \sup_{r > 0} H_{r}^{\alpha} ( A_k) \\ 
-															  &= \varepsilon +  \sum_{k \geq 0} H^{\alpha} ( A_k) \\ 
-			\end{align*} since $\varepsilon$ arbitrary, 
-			\begin{align*}
-			H^{\alpha} ( \bigcup_{k \geq 0} A_k) \leq \sum_{k \geq 0} H^{\alpha} ( A_k)
+															  &\leq \varepsilon + H_{r}^{\alpha} ( \bigcup_{k \geq 0} A_k) \\
+															  &\leq \varepsilon + \sum_{k \geq 0} \sup_{r > 0} H_{r}^{\alpha} ( A_k) \\
+															  &= \varepsilon + \sum_{k \geq 0} H^{\alpha} ( A_k)
 			\end{align*}
-			In infinite case, use similar argument to show
-		\begin{align*}
-					H^{\alpha} ( \bigcup_{k \geq 0} A_k) = \infty \implies \sum_{k \geq 0} H^{\alpha} ( A_k) = \infty
-		\end{align*} 
+			since $\varepsilon$ arbitrary,
+			\begin{align*}
+				H^{\alpha} ( \bigcup_{k \geq 0} A_k) \leq \sum_{k \geq 0} H^{\alpha} ( A_k)
+			\end{align*}
+			In the infinite case, use a similar argument to show
+			\begin{align*}
+				H^{\alpha} ( \bigcup_{k \geq 0} A_k) = \infty \implies \sum_{k \geq 0} H^{\alpha} ( A_k) = \infty
+			\end{align*}
 	\end{enumerate}
 \end{proof}
 
+\subsection{Metric Outer Measures}
+
 \begin{definition}[Metric outer measure]
-	A metric outer measure on a metric space is an outer measure $m \mathcal{P}(X) \to [0,\infty]$ s.t. 
-	\begin{align*}
-	m(A \cup B) = m(A) + m(B) \quad \text{whenever} \quad d(A,B) > 0
-	\end{align*} 
-	where  
-	\begin{align*}
-		d(A,B) = \inf_{\underset{a \in A}{b \in B}} d(a,b)
-	\end{align*} 
+	A metric outer measure on a metric space is an outer measure $m : \mathcal{P}(X) \to [0,\infty]$ such that
+	\[
+		m(A \cup B) = m(A) + m(B) \quad \text{whenever} \quad d(A,B) > 0
+	\]
+	where
+	\[
+		d(A,B) = \inf_{\substack{a \in A \\ b \in B}} d(a,b).
+	\]
 \end{definition}
 
 \begin{example}
 	$H^{\alpha}$ is a metric outer measure. Indeed
-	\begin{align*}
-	H_{r}^{\alpha}(A \cup B) = H_{r}^{\alpha}(A) + H_{r}^{\alpha}(B)  \quad \text{where} \quad d(A,B) > 0
-	\end{align*} 
-	Because we can effectively split any cover of $A \cup B$ into a cover of $A$ and a cover of $B$.
+	\[
+		H_{r}^{\alpha}(A \cup B) = H_{r}^{\alpha}(A) + H_{r}^{\alpha}(B) \quad \text{where} \quad d(A,B) > 0
+	\]
+	because we can effectively split any cover of $A \cup B$ into a cover of $A$ and a cover of $B$.
 \end{example}
 
 \begin{lemma}
-	Borel sets are Caratheodory for metric outer measure.
+	Borel sets are Caratheodory for metric outer measures.
 \end{lemma}
 
-\begin{proof}:
+\begin{proof} \hfill
 	\begin{enumerate}
-		\item[step 1] Show if $A = \cup_{k \geq 1} A_k$, $A_{k+1} \contains A_k$,
-			and $d(A_k, A \setminus A_{k+1}) >0$, then $m(A) = \lim_{k \to \infty} m(A_k)$ 
+		\item[Step 1] Show if $A = \bigcup_{k \geq 1} A_k$, $A_{k+1} \contains A_k$,
+			and $d(A_k, A \setminus A_{k+1}) >0$, then $m(A) = \lim_{k \to \infty} m(A_k)$.
 			\begin{enumerate}
-				\item[case 1:] 
+				\item[Case 1:]
 					\begin{align*}
 					&\sum_{k \geq 1} m(A_{k+1} \setminus A_k) = \infty \quad \text{for $j=1$ or $2$, then}\\
 					&\sum_{k \geq 1} m(A_{j+2k+1} \setminus A_{j + 2k})  = \infty \\
-					&\lim_{n \to \infty} \sum_{k = 1}^{n} m(A_{j+2k+1} \setminus A_{j + 2k}) \\
-					&\lim_{n \to \infty} m(\bigcup{k = 1}^{n} (A_{j+2k+1} \setminus A_{j + 2k})) \\
-					&\leq \lim_{n \to \infty} m(A_{j+2k+1} ) \\
-					\end{align*} 
+					& = \lim_{n \to \infty} \sum_{k = 1}^{n} m(A_{j+2k+1} \setminus A_{j + 2k}) \\
+					& = \lim_{n \to \infty} m(\bigcup{k = 1}^{n} (A_{j+2k+1} \setminus A_{j + 2k})) \\
+					& \leq \lim_{n \to \infty} m(A_{j+2k+1})
+					\end{align*}
 					So both $m(A)$ and $\lim_{n \to \infty} m(A_n)$ are $\infty$.
 
-				\item[case 2:]
+				\item[Case 2:]
 					\begin{align*}
 						\sum_{n=1}^{\infty} m(A_{k+1} \setminus A_{k}) < \infty \\
 					\text{then} \quad \lim_{k \to \infty}  m(A_{k+1} \setminus A_{k}) = 0\\
@@ -106,28 +108,28 @@ where
 							 &\leq \limsup_{k \to \infty} m(A_{k}) \\
 							 &= \lim_{k \to \infty} m(A_{k}) \\
 							 &\leq m(A)
-					\end{align*} 
+					\end{align*}
 			\end{enumerate}
-		\item[step 2] For $A$ closed, we check 
+		\item[Step 2] For $A$ closed, we check
 			\begin{align*}
 			m(B) = m(B \cap A) + m(B \cap A^{c}) \quad \forall \, B \subseteq \mathbb{R}^d
-			\end{align*} 
+			\end{align*}
 			Write $A^{c} = \bigcup_{k \geq 1} D_k$ where $D_{k} = \{x \in \mathbb{R}^d : d(x,A) > 2^{-k} \}$.
 
-			Since $d(A^{c} \setminus D_{k+1} , D_k) > 0$, step 1 implies 
+			Since $d(A^{c} \setminus D_{k+1} , D_k) > 0$, step 1 implies
 			 \begin{align*}
 				m(B \cap A^{c}) = \lim_{n \to \infty} m(B \cap D_k)
-			\end{align*} 
+			\end{align*}
 
 			And since $d(\mathbb{R}^d \setminus D_{k+1}, D_k ) > 0$, step 1 implies
 			\begin{align*}
 				m(B ) = \lim_{n \to \infty} m(B \cap (A \cup D_{k}))
-			\end{align*} 
+			\end{align*}
 
 			And finally since $d(A, D_{k}) > 0$,
 			\begin{align*}
 				m(B \cap (A \cup D_{k})) = m(B \cap A) + m(B \cap D_{k}).
-			\end{align*} 
+			\end{align*}
 	\end{enumerate}
 
 	Taking $k \to \infty$ gives $m(B) = m(B \cap A) + m(B \cap A^{c})$
@@ -150,7 +152,7 @@ where
 
 
 \begin{example}
-	$H^{\alpha} (A) = 0$ when $\alpha > 0$ 
+	$H^{\alpha} (A) = 0$ when $\alpha > 0$
 	(insert image) we can cover  $[0,1]^{d}$ by $2^{nd}$ sub-cubes of size $2^{-n}$.
 
 	This shows:
@@ -179,35 +181,35 @@ where
 \end{definition}
 
 \begin{lemma}
-	For any $d$, $A \subseteq \mathbb{R}^d$ there is an $\alpha \in [0,d]$ s.t. 
+	For any $d$, $A \subseteq \mathbb{R}^d$ there is an $\alpha \in [0,d]$ s.t.
 	\begin{align*}
 					H^{\beta} (A) &= 0 \quad \text{for} \quad  \beta > \alpha \\
 		\text{and} \quad H^{\beta} (A) &= \infty \quad \text{for} \quad \beta < \alpha
-	\end{align*} 
+	\end{align*}
 \end{lemma}
 
 
 \begin{example}
-	the $\frac{1}{3}$ cantor set $\mathcal{C}$ as Hausdorff dim: $\alpha = \frac{\log 2}{\log 3}$ 
+	the $\frac{1}{3}$ cantor set $\mathcal{C}$ as Hausdorff dim: $\alpha = \frac{\log 2}{\log 3}$
 	\begin{proof}
-		At step $K$ have cover of $\mathcal{C}$ consisting of $2^{k}$ intervals of length $3^{-k}$ this gives us 
+		At step $K$ have cover of $\mathcal{C}$ consisting of $2^{k}$ intervals of length $3^{-k}$ this gives us
 		\begin{align*}
 		\lim_{k \to \infty} (2^{k}\cdot 3^{-\alpha}) \in (0, \infty) \\
 		\iff \alpha = \frac{\log 2}{\log 3}
-		\end{align*} 
+		\end{align*}
 	\end{proof}
-	
+
 \end{example}
 
 \begin{example}
-	The Kock curve has dimension: $\alpha = \frac{\log 4}{\log 3} \in (1,2)$ 
+	The Kock curve has dimension: $\alpha = \frac{\log 4}{\log 3} \in (1,2)$
 	\begin{proof}
 		Can cover with $4^{k}$ intervals of length $3^{-k}$
 	\end{proof}
-	
+
 \end{example}
 
 \begin{example}
-	The Serpinski triangle has dimension: $\alpha = \frac{\log 3}{\log 2} \in (1,2)$ 
+	The Serpinski triangle has dimension: $\alpha = \frac{\log 3}{\log 2} \in (1,2)$
 \end{example}
 
