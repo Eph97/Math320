@@ -1,0 +1,57 @@
+\section{2022-10-26}
+
+\epigraph{``Today everything is named Hausdorff''}
+
+\subsection{Hausdorff measure on Fractals}
+
+\begin{remark}[hypothesis]
+	if $r_1, \ldots, r_k \in [0,1)$ and $\phi_{1}, \ldots, \phi_{k} : \mathbb{R}^d \to \mathbb{R}^d$, then
+	\begin{align*}
+	|\phi_{j} (x) - \phi_{j} (y) | \leq r_j |x - y|
+	\end{align*} 
+\end{remark}
+
+\begin{theorem}
+	There is a unique compact $K \subseteq \mathbb{R}^d $ so $ K = \bigcup_{j=1}^{J} \phi_{j}(k)$
+\end{theorem}
+
+\begin{proof}
+	Consider Hausdorff metric
+
+	\begin{align*}
+		d_H (K,G) = \max\{\max_{x\in K} \min_{y \in G} |x - y|, \max_{y\in G} \min_{x \in K} |y - k|\}
+	\end{align*} 
+
+	Define $\phi(K) =  \bigcup_{j=1}^{J} \phi_{j}(k)$
+
+	\begin{enumerate}
+		\item[claim 1] $d_H(\phi(K), \phi(G)) \leq  (\max_{j} r_j	) d_{H}(K,G)$
+
+			\begin{align*}
+				d_H (\phi(K) &\phi(G)) &\leq \max_{j} d_{H} (\phi_{j}(K), \phi_{j} (G)) \\
+							 &\leq \max_{j} r_{j} d_{H}(K,G) \\
+							 &\leq (\max_{j} r_{j}) d_{H}(K,G)
+			\end{align*} 
+
+		\item[Claim 2] the space of compact $K \subseteq \mathbb{R}^d$ with $d_H$ is complete metric space.
+
+			Suppose $G_{K}$ compact and, $d_{H} (G_{K}, G_{K+1}) \leq 2^{-k}$
+
+		$G = \bigcap_{n \geq 0} \overline{\bigcup_{k \geq n} G_{K}}$
+
+	\end{enumerate}
+\end{proof}
+
+
+
+\subsection{Moran's Theorem}
+
+\begin{theorem}[Moran's 1946]
+
+	For $0 < H^{\alpha} (K) < \infty$ where $\alpha \in [0,d]$, then the dimension is the unique $\alpha$ s.t.
+	\begin{align*}
+	r_{1}^{\alpha} + \ldots + r_{j}^{\alpha} = 1
+	\end{align*} 
+	
+\end{theorem}
+
