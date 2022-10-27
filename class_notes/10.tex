@@ -5,7 +5,7 @@
 \subsection*{Review}
 
 \begin{theorem}[Riesz]
-  $\Lambda : C_c (X) \to \mathbb{R}$ positive linear on nice space $X$ then $\Lambda(f) = \int f dm$ for a unique Borel measure on $X$.
+	$\Lambda : C_c (X) \to \mathbb{R}$ positive linear on nice space $X$ then $\Lambda(f) = \int f dm$ for a unique Borel measure on $X$.
 \end{theorem}
 
 We have tools for constructing measure. Namely, the Caratheodory theorem for outer measure: Every outer measure is a positive measure on its Caratheodory sets.
@@ -29,9 +29,9 @@ These two are essentially the same.
 
 \begin{proof}
 	$L^* (\emptyset)= 0$ because any collection of closed rectangles covers $\emptyset$. Also,
-  \[
+	\[
 		A \subseteq B \implies L^*(A) \leq L^*(B).
-  \]
+	\]
   So,
 	 \begin{align*}
 	L^*(A) & = \inf \left\{\sum_{k} |Q_k| : A \subseteq \bigcup_{k} Q_K \right\} \\
@@ -112,15 +112,16 @@ so,
 	This is true by HW1.
 \end{proof}
 
-\subsection{Two constructions of L}
+\subsection{Two constructions of $L$}
 \epigraph{``I used to be a logician in a former life. If you ask me about logic, I'll take up the rest of class talking about it.''}{Charlie}
 
 Two constructions of $L$ (via Riesz or outer measure) differ in that $L^*$ may have Caratheodory sets that are not Borel.
 
 \begin{theorem}
 	Let $S \subseteq \mathcal{P}(\mathbb{R}^d)$ denote the $L^*$-Caratheodory sets. For $E \subseteq
-	\mathbb{R}^d$, $E \in S$ if and only if there are Borel $B_1$ and $B_2$ such that $B_1 \subseteq E \subseteq B_2$ and
-	$L^*(B_2 \setminus B_1) = 0$. Moreover, in this case  $L^*(E) = L^*(B_1) = L^*(B_2)$
+	\mathbb{R}^d$, $E \in S$ if and only if there are Borel $B_1$ and $B_2$ such that 
+	$B_1 \subseteq E \subseteq B_2$ and $L^*(B_2 \setminus B_1) = 0$. 
+	Moreover, in this case  $L^*(E) = L^*(B_1) = L^*(B_2)$
 \end{theorem}
 \begin{proof}
 	Exercise or see Rudin.
@@ -134,30 +135,28 @@ For now, ignore Lebesgue measurable sets that are not Borel.
 		\item Axiom of choice.
 	\end{enumerate}
 
-	Say $x \sim y \iff y - y \in  \mathbb{Q}$
-
-	Let $A \subseteq \mathbb{R}$ be maximal subject to $x - y \notin \mathbb{Q}$ for distinct $x,y \in A$
-
-	By maximality,  $\mathbb{R} = \bigcup_{q \in \mathbb{Q}} q + A$.
-
-	and $(q + A) \cap (\tilde{q} + A) = \emptyset$.\,  For $q \neq \tilde{q}$
+	For $x, y \in \R | \Z$, say $x \sim y \iff x - y \in  \mathbb{Q} | \Z$.
+	Let $A \subseteq \mathbb{R}$ be maximal, subject to $x - y \notin \mathbb{Q} | \Z$ for distinct $x,y \in A$.
+	By maximality, $\mathbb{R} = \bigcup_{q \in \mathbb{Q} | Z} (q + A)$
+	and $(q + A) \cap (\tilde{q} + A) = \emptyset$ for $q \neq \tilde{q}$.
+	By translational invariance, $L^*(q + A) + L^*(A)$. By subadditivity, 
+	\[
+		1 = L^*(\R | \Z) \leq \sum_{a \in \Q | \Z} L^*(q + A) = \sum_{q \in \Q | \Z} L^*(A).
+	\]
+	If $\geq$, then $1 = \infty \cdot L^*(A)$.\footnote{In some cases, it is necessary to worry about completion of Lebesgue measures, but will bypass this for now and only worry about Borel measures.} 
 \end{example}
 pic (come back to)
 
 \begin{definition}[Hausdorff Measure]
-	Choose a smooth closed curve $\delta$ in $\mathbb{R}^2$
-
-	Define $\Lambda : C_c(\mathbb{R}^2) \to \mathbb{R}$ by $\Lambda (f) = \int_{\delta} f ds$
-
-	Where
-	\begin{align*}
-		\delta :[0,1] \to \mathbb{R}^2 \qquad \Lambda (f) = \int_{0}^{1} f(\delta(t)) |\delta'(f) |dt
-	\end{align*}
-	Use Riesz to write $\Lambda (f) = \int f dm$  where $m$ is a Borel measure on $\mathbb{R}^2$
-	$m$ is 1-dimensional Lebesgue measure "pushed onto $\delta$
+	Choose a smooth closed curve $\gamma$ in $\mathbb{R}^2$. Define $\Lambda : C_c(\mathbb{R}^2) \to \mathbb{R}$ by $\Lambda (f) = \int_{\gamma} f \, ds$, where $\gamma :[0,1] \to \mathbb{R}^2$.
+	\[
+		\Lambda (f) = \int_{0}^{1} f(\gamma(t)) |\gamma'(f)| \, dt.
+	\]
+	Use Riesz to write $\Lambda (f) = \int f \, dm$ where $m$ is a Borel measure on $\mathbb{R}^2$.
+	$m$ is 1-dimensional Lebesgue measure ``pushed onto'' $\gamma$.
 \end{definition}
 
-\begin{example}[Kach Snowflake]
+\begin{example}[Koch Snowflake]
 	\begin{enumerate}
 		\item start with O---O
 		\item replace every line with bump (add images)
@@ -167,19 +166,21 @@ pic (come back to)
 \end{example}
 Is there a natural length measure?
 
-\begin{definition}
-	A set $X \subseteq \mathbb{R}^d$ has diameter $diam(X) = \sup|x - y |$ where $x, y \in X$
+\begin{definition}[Diameter]
+	A set $X \subseteq \mathbb{R}^d$ has diameter 
+	\[
+		\diam(X) = \sup_{x, y < k} |x - y|
+	\]
+	where $x, y \in X$
 \end{definition}
 
-\begin{definition}
+\begin{definition}[Outer Hausdorff Measure]
 	For $\alpha \geq 0$, the outer $\alpha$-dim Hausdorff measure of $A \subseteq \mathbb{R}^d$ is
-	\begin{align*}
-		H_{\alpha}^* = \lim_{r \to 0} \inf\{ \sum_{k} \left(diam(X_{k}) \right)^{\alpha} : A \subseteq \cup_{k} X_k, \,
-		\sup_{k} diam(X_k) \leq r \}
-	\end{align*}
-
-	$H_{\alpha}^*$ is comparable to $L^*$
-
-	$H_{1}^*$ measure length.
+	\[
+		H_{\alpha}^* = \lim_{r \to \infty} \inf\left\{ \sum_{k} \left(\diam(X_{k}) \right)^{\alpha} : A \subseteq \bigcup_{k} X_k, \,
+		\sup_{k} \diam(X_k) \leq r \right\}.
+	\]
+	$H_{\alpha}^*$ is comparable to $L^*$. \\
+	$H_{1}^*$ measures length.
 \end{definition}
 
