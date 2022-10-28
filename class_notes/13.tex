@@ -172,8 +172,34 @@ and $\diam(v) \leq \delta$
 \begin{remark}
 	Note $\diam(V_{l}) \geq (\min_{j} r_{j} ) \delta$ by maximality.
 
-	and 
+	and $B_{c}(x) \subseteq U \subseteq B_{c} (x)$ for some constants $0 < c < 1 < C < \infty$ (check)
 \end{remark}
+
+Because the maps $\phi_{j}$ are isometry-dialations
+\begin{align*}
+	B_{c \diam(v)} (X_{v}) \leq V \leq B_{C \diam (v)} (X_{v}) \quad \text{for all } v \in \mathcal{U}.
+\end{align*} [insert pic]
+
+\begin{align*}
+	B_{\delta} + C \delta^{(x)} \contains \bigcup_{l =1}^{L} v_{l} \contains L^{m}\text{-any disjoint } B_{c} (\min_{j} r_{j}) \delta \text{ balls}
+\end{align*} 
+So $(1+c)^{d} \delta^{d} \geq L (c \min_{j} r_{j})^{d} \delta^{d}$ or $L \leq C_{U, r_{1}, \ldots, r_{J}, d}$
+
+For $n$ large enough that $V_{1}, \ldots, V_{L} \in \mathcal{U}_{n} \cup \ldots \cup \mathcal{U}_r$ we have
+\begin{align*}
+	\mathcal{U}_{n} (B_{\delta}(x)) &\leq \mathcal{U}_{n} \left( \bigcup_{l=1}^{L} V_{l} \right)
+									\leq \sum_{l=1}^{L} u_{n} (v_{l}) \leq \sum_{l=1}^{L} \diam (V_{l}) \\
+									&\leq L \delta^{\alpha} \leq C_{V, r_{1}, \ldots, r_{J} , d	} \delta^{\alpha}
+\end{align*} 
+
+$\mu (K) = 1$, and $\mu (B_{\delta} (X)) \leq C \delta^{\alpha}$ 
+Now suppose $K \subseteq \bigcup_{m \geq 1} B_{m}$. Since $K$ compact, we may assume $K = \bigcup_{m \geq 1} B_{m}$
+
+thus
+\begin{align*}
+	\sum_{m=1}^{M} \diam(B_{m})^{\alpha} \geq \sum_{m=1}^{M} c \mu(B_{m}) \geq c \mu (\bigcup_{m=1}^{M} B_{m}) \geq c \mu (K) = c > 0
+\end{align*} 
+That is $H^{\alpha} (K) > 0$
 
 \end{proof}
 
