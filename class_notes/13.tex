@@ -116,9 +116,64 @@ If unione disjoint, then
 $\mathcal{U}$ is true of open sets ordered by inclusion, $\mathcal{U}_{n}$ ets at level $n$ are dosjiont (by induction).
 
 \begin{enumerate}
-	\item 
+	\item
+		\begin{align*}
+			\sum_{v \in \mathcal{U}_n} \diam(V)^{\alpha} = 1
+		\end{align*} By induction 
+		\begin{align*}
+			\sum_{v \in \mathcal{U}_0} \diam(V)^{\alpha} &= \diam(V)^{\alpha} = 1^{\alpha} = 1 \\
+			\sum_{v \in \mathcal{U}_{n+1}} \diam(V)^{\alpha} &=
+			\sum_{j=1}^{J} \sum_{v \in \mathcal{U}_n} \diam(\phi(V))^{\alpha} = 
+			\sum_{j=1}^{J} r_{j}^{\alpha} \sum_{v \in \mathcal{U}_n} \diam(V)^{\alpha} = \sum_{j=1}^{J} r_{j}^{\alpha} = 1
+		\end{align*}
+
 	\item $\max_{V \in \mathcal{U}_{n+1}} \diam (V) = (\max_{j} r_{j})^{n}$ goes to $0$ as $n \to 0$
+
+	\item $K \subseteq \bigcup_{V \in \mathcal{U}_{n}} \bar{V}$ because $d_{H} ( \phi^{n}(\{x\}, K) \to 0$ and $\phi^{m}(\{x\}) \subseteq \bigcup_{V \in \mathcal{U}_{n}} V	$ for $m \geq n$
+
+	\item $H^{\alpha} (K) \leq 1$ by (1), (2), and (3)
 \end{enumerate}
+
+For $A \subseteq \R^{d}$ define
+\begin{align*}
+	\mu_{n}(A) &= \sum_{\substack{V \in \mathcal{U}_n \\ \bar V \cap A \neq \emptyset}} \diam (V)^{\alpha}, \\
+	\mu (A) &= \lim_{n \to \infty} \mu_{n}(A)
+\end{align*}
+
+\begin{remark}
+	$\mu_n (A)$, is decreasing in $n$ because for $V \in \mathcal{U}_n$,
+	\begin{align*}
+		\sum_{\substack{w \in \mathcal{U}_{n+1} \\ w \subseteq V}} \diam (w)^{\alpha} = \diam (V)^{\alpha}
+	\end{align*} 
+\end{remark}
+
+Check $\mu$ is a measure.
+
+\begin{align*}
+	\mu(\R^{\alpha}) &= 1 \text{   check??} \\
+	A \subseteq B &\implies \mu(A) \leq \mu (B) \\
+	\mu_{n} (A \cup B ) &\leq \mu_{n} (A) + \mu_{n} (B) \\
+	\mu (A \cup B ) &\leq \mu (A) + \mu (B) \quad \text{by passing to limits} \\
+\end{align*} 
+finally,
+$u(K) = 1$ : if $V \in \mathcal{U}_{n}$, then
+\begin{align*}
+	\bar{V} &= \phi_{j1}( \phi_{j2} ( \ldots \phi_{jn} (\bar{U}) \ldots )) \\
+			&\contains \phi_{j1}( \phi_{j2} ( \ldots \phi_{jn} (K) \ldots )) \\
+\end{align*} So $\mu_n (K) = 1$
+
+
+Now $\mu (B_{\delta} (x) \leq C_{d,r_{1},\ldots, r_{d}, v} \delta^{\alpha}$ 
+
+Let $V_{1}, \ldots, V_{2} \in \mathcal{U}$ be maximal elements of tree so $\bar{V} \cap B_{j} (x) \neq \emptyset$ \\
+and $\diam(v) \leq \delta$ 
+
+
+\begin{remark}
+	Note $\diam(V_{l}) \geq (\min_{j} r_{j} ) \delta$ by maximality.
+
+	and 
+\end{remark}
 
 \end{proof}
 
