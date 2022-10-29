@@ -87,6 +87,59 @@ Observe
 \end{theorem}
 
 \begin{proof}
-	Let $c = \int f dm$. Choose
+	Let $c = \int f dm$. Choose $\alpha \in \R$ so
+	\begin{align*}
+		\phi (x) \geq \phi (c) + \alpha (x - c) \quad x \in (a,b)
+	\end{align*} 
+	compute
+	\begin{align*}
+		\int \phi (f) dm &\geq \int \phi (c) + \alpha (f -c) dm \\
+						 &= \phi (c) \int 1 dm + \alpha \int f dm - \alpha c \int 1 dm \\
+						 &= \phi (c) + \alpha c - \alpha \\
+						 &= \phi (c) = \phi \left( \int f dm \right)
+	\end{align*}
 \end{proof}
+
+\begin{example}[Arithmatic - geometric mean inequality]
+	$e^{x}$ convex
+	($\frac{d^{2}}{dx^{2}} e^{x} = e^{x} \geq 0$ or $e^{x} = \sum \frac{x^{k}}{k!} =$ sum of convexterms.
+\end{example}
+
+\begin{align*}
+	e^{\int f dm} \leq \int e^{f} dm \\
+	e^{\log f dm} \leq \int f dm \quad f > 0 \\ 
+\end{align*} let $m$ be the $\frac{1}{N} \times$ counting measure on $\{1, \ldots, N \}$ 
+
+\begin{align*}
+	e^{\frac{1}{N} \log f_{1} + \cdots + \log f_{N}} \leq \frac{1}{N} (f_{1} + \cdots + f_{N} ) \\
+	(f_{1}, \ldots, f_{N})^{\frac{1}{N}} \leq \frac{f_{1} + \cdots + f_{N}}{N} \quad \text{for} \quad f_{1}, \ldots, f_{N} > 0
+\end{align*} 
+
+\begin{theorem}[Holder Inequality]
+	Suppose $1 < p,q < \infty$ and $\frac{1}{p} + \frac{1}{q} = 1$.
+	By convexity,
+	\begin{align*}
+		e^{\frac{s}{p} + \frac{t}{q}} \leq \frac{e^{s}}{p} + \frac{e^{t}}{q}
+	\end{align*} 
+\end{theorem}
+
+\begin{remark}
+	If $0 < a,b < \infty$, then letting $s = pbqa$ and $t = qbga$ [check]?
+	gives
+	\begin{align*}
+		ab \leq \frac{a^{p}}{p} + b^{q}
+	\end{align*} also true for $0 \leq a,b \leq \infty$
+\end{remark}
+
+\begin{theorem}[Holder]
+	If $f,g: X \to [0,\infty]$ measurable, then 
+	 \begin{align*}
+		\int fg dm \leq \left( \int f^{p} dm\right)^{\frac{1}{p}} \left( \int g^{q} dm\right)^{\frac{1}{q}}
+	\end{align*} 
+\end{theorem}
+
+\begin{proof}
+	Assume $f,g \notin \mathscr{N}(m)$
+\end{proof}
+
 
