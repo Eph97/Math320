@@ -1,12 +1,10 @@
-\section{ 2022-09-28 }
-
+\section{ September 29, 2022 }
 
 Reviewing: $(X,T)$ nice $\Lambda : C_c (X) \to \mathbb{R}$ positive linear
-
 \begin{align*}
 	m(U) &= \sup\{\Lambda(f) : 0 \leq f \leq \1_c\} \\
 	m(A) &= \inf\{m(U) : U \contains  A\}
-\end{align*} 
+\end{align*}
 
 \begin{lemma}
 	$\mu$, outer measure in  $(X,\mathcal{P}(X))$ and Borel $\subseteq$ Caratheodory.
@@ -25,10 +23,10 @@ Reviewing: $(X,T)$ nice $\Lambda : C_c (X) \to \mathbb{R}$ positive linear
 
 	Using the linearity of $\Lambda$ and  $\int dm$, we may assume $0 \leq f \leq 1.$
 
-	Construct 
+	Construct
 	 \begin{align*}
 	    \Lambda (f) = ( \max f^+ ) \Lambda \left(\frac{f^+}{\max f^+}\right) - (\max f^- ) \Lambda \left(\frac{f^-}{\max f^-} \right)
-	\end{align*} 
+	\end{align*}
 	and same for $\int dm$
 
 
@@ -43,17 +41,17 @@ Reviewing: $(X,T)$ nice $\Lambda : C_c (X) \to \mathbb{R}$ positive linear
 	replace $E_1$ with its closer $\bar{E}_1$ so that $U_k$ cover $\bar{U}_1$
 	 \begin{align*}
 	\sum_{K} (K -1) \varepsilon \1_{E_k} \leq f \leq \sum_{K} k \varepsilon \1_{E_k}
-	\end{align*} 
+	\end{align*}
 
 	Since $E_k \in B$, we can choose $U_k \contains E_k$ open with $\delta >0 $ arbitrary.
 	We then have
 	\begin{align*}
 		m(U_k) &\leq m(E_k) + \delta \quad \text{and} \\
 		U_k &\leq f^{-1} ( [ 0, (k+1)\varepsilon))
-	\end{align*} 
+	\end{align*}
 
 	Choose partition of unity: $g_k \in C_c(X)$ such that  $0 \leq g_k \leq \1_{U_k}$ and \\
-	$\1_{\bar{U}} \leq \sum_{K} g_k \leq 1$ 
+	$\1_{\bar{U}} \leq \sum_{K} g_k \leq 1$
 	Then:
 	\begin{align*}
 	\Lambda(f) &= \Lambda( \sum_{k} g_k f) \\
@@ -78,7 +76,7 @@ Reviewing: $(X,T)$ nice $\Lambda : C_c (X) \to \mathbb{R}$ positive linear
 	\begin{align}
 		m(A) &= \inf\{m(U) : \underset{open}{U} \contains A\} \\
 			 &= \sup\{m(K) : \underset{compact}{K} \subseteq A\}
-	\end{align} 
+	\end{align}
 \end{lemma}
 
 \begin{proof}
@@ -106,32 +104,32 @@ Since $\mathcal{B}$ is the smallest $\sigma$-algebra containing open sets, this 
 		\begin{align*}
 			m(\underset{open}{K^{c}} \setminus \underset{}{U^{c}}) < \varepsilon
 		\end{align*}
-		Choose $\underset{compact}{G} \subseteq K^{c}$ so $m(^{c} \setminus G) < \varepsilon$. Then 
+		Choose $\underset{compact}{G} \subseteq K^{c}$ so $m(^{c} \setminus G) < \varepsilon$. Then
 	\begin{align*}
 		g \bigcap U^{c} \subseteq A^{c} &\subseteq K^{c} \quad \text{and} \\
 	m(K^{c} \setminus (G \cap U^{c})) &\leq m(k^{c} \setminus V^{c}) + m(K^{c} \setminus G) \\
 									 &< 2\varepsilon
-	\end{align*} 	
+	\end{align*}
 \item[Step 3:]
 	Finite unions (automatic):
 	If \begin{align*}
 		K_1 &\subseteq A_1 \subseteq U_1 \\
 		K_2 &\subseteq A_2 \subseteq U_2, \quad \text{then} \\
 		K_1 \cup K_2 &\subseteq A_1 \cup A_2 \subseteq U_1 \cup U_2
-	\end{align*} 
+	\end{align*}
 \item[step 4:]
 	Suppose $A_j \in S$, wts $\bigcup_j A_j \in S$. By steps 2 and 3, we may assume  $A_j$ disjoint.
 
-	Next choose $K_j \subseteq A_j \subseteq U_j$ with  $m(U_j \setminus K_j) \leq \frac{\varepsilon}{2j}$ 
+	Next choose $K_j \subseteq A_j \subseteq U_j$ with  $m(U_j \setminus K_j) \leq \frac{\varepsilon}{2j}$
 
-	Have $\bigcup_j K_j \subseteq \bigcup_j A_j \subseteq \bigcup_j U_j$ and  $m(\bigcup U_j \setminus \bigcup_j K_j ) \leq 2 \varepsilon$ 
+	Have $\bigcup_j K_j \subseteq \bigcup_j A_j \subseteq \bigcup_j U_j$ and  $m(\bigcup U_j \setminus \bigcup_j K_j ) \leq 2 \varepsilon$
 
-	Then 
+	Then
 	\begin{align*}
 		m( \bigcup_{j} U_j \setminus \bigcup_j K_j) &= \lim_{n \to \infty} m ( \bigcup_j U_j \setminus \bigcup K_j) \quad \text{choose finite $n$ so} \\
 		K_1 \cup \ldots \cup K_n &\subseteq \bigcup_j A_j \subseteq \bigcup_j U_J \quad \text{and} \\
 		m(\bigcup_j U_j &\setminus K_1 \cup \ldots \cup K_n )) \leq 3\varepsilon
-	\end{align*} 
+	\end{align*}
 \end{enumerate}
 
 \end{proof}
@@ -160,17 +158,17 @@ We want to show that it must be  $m_1 = m_2$
 	 \begin{enumerate}
 		 \item[step 1:] there is an open $U$ and $A \subseteq U$ with $m_1 (U) < \infty$, $m_2 (U) < \infty$, and $m_1 (A) \neq m_2(A)$
 
-		 \item[step 2:] WLOG, $m_1(A) < m_2 (A).$ Since $m_1$ and $m_2$ are regular on $U$, choose 
+		 \item[step 2:] WLOG, $m_1(A) < m_2 (A).$ Since $m_1$ and $m_2$ are regular on $U$, choose
 			 \begin{align*}
 				 &\underset{compact}{K} \subseteq A \subseteq \underset{open}{U} \quad \text{so} \\
 				 &m_1 (A) \leq m_1 (U) < m_2 (K) \leq m_2 (A)
-			 \end{align*} 
+			 \end{align*}
 			 and Choose $f \in C_c (X)$ so $\1_K \leq f \1_U$.
 			 We then obtain
 			 \begin{align*}
 				 m_2 (K) &\leq \int f dm_2 \\
 					 &= \int f dm_1 \leq m_1 (U)
-			 \end{align*} 
+			 \end{align*}
 			 Contradicting (star)
 	\end{enumerate}
 \end{proof}

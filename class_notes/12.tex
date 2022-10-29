@@ -1,10 +1,16 @@
-\section{10-17-2022}
+\section{October 17, 2022}
 
+\epigraph{``I'm really excited, I realize I can burn 2 pages of my notes. [...] I was being an idiot this morning.''}{Charlie}
 
-Recall:
-
-come back to
-
+\subsection*{Review}
+The $\alpha$-dimensional outer Hausdorff measure of a set $A \subseteq \mathbb{R}^d$ is
+\[
+	H^{\alpha} (A) = \sup_{r > 0} H_{r}^{\alpha} (A)
+\]
+where
+\[
+	H_{r}^{\alpha} (A) = \inf\left\{ \sum_{k \geq 0} \diam (B_k)^{\alpha} : A \subseteq \bigcup_{k \geq 0} B_k, \; \sup_{k \geq 0} \diam (B_{k} ) \leq r \right\}
+\]
 The $\alpha$-dimensional Hausdorff measure is the restriction of $H^{\alpha}$ to Borel sets.
 
 \subsection{Hausdorff Dimension}
@@ -14,10 +20,10 @@ The $\alpha$-dimensional Hausdorff measure is the restriction of $H^{\alpha}$ to
 \end{lemma}
 
 \begin{proof}
-	If $A \subseteq \bigcup_{k \geq 0} B_{k}$ and $\sup_{k \geq 0} diam (B_{k}) \leq r$, 
+	If $A \subseteq \bigcup_{k \geq 0} B_{k}$ and $\sup_{k \geq 0} \diam (B_{k}) \leq r$, 
 	then 
 	\begin{align*}
-		\sum_{k \geq 0} diam (B_{k})^{\beta} \leq r^{\beta - \alpha} \sum_{k \geq 0} diam (A_{k})^{\alpha}
+		\sum_{k \geq 0} \diam (B_{k})^{\beta} \leq r^{\beta - \alpha} \sum_{k \geq 0} \diam (A_{k})^{\alpha}
 	\end{align*} 
 	using $ \beta - \alpha > 0$
 \end{proof}
@@ -25,9 +31,9 @@ The $\alpha$-dimensional Hausdorff measure is the restriction of $H^{\alpha}$ to
 \begin{theorem}
 	For any $A \subseteq \mathbb{R}^{d},$ 
 	\begin{align*}
-		diam_{H}(A) = \inf \{\alpha \geq 0 : H^{\alpha}(A) = 0\}
+		\diam_{H}(A) = \inf \{\alpha \geq 0 : H^{\alpha}(A) = 0\}
 	\end{align*} 
-	satisfies $diam_{H}(A) \in [0, d]$. moreover, if $\beta \in [0, \infty),$ then $H^{\beta}(A) = \infty$
+	satisfies $\diam_{H}(A) \in [0, d]$. Moreover, if $\beta \in [0, \infty),$ then $H^{\beta}(A) = \infty$
 \end{theorem}
 
 \begin{proof}
@@ -45,7 +51,7 @@ If $0 \leq \alpha < \beta$, and $H^{\alpha}(A) < \infty$, then $H^{\beta} (A) = 
 		H^{\beta} (A) &= \sup_{r > 0} H^{\beta} (A) \\
 					  &= \lim_{r \to 0} H_{r}^{\beta} (A) \\
 					  &\leq \limsup_{r \to 0} r^{\beta - \alpha} H_{r}^{\alpha} (A) \\
-					  &\leq ( \limsup_{r \to 0} r^{\beta - \alpha} ) ( \limsup_{r \to 0} H_{r}^{\alpha} (A) ) \\
+					  &\leq \left( \limsup_{r \to 0} r^{\beta - \alpha} \right) \left( \limsup_{r \to 0} H_{r}^{\alpha} (A) \right) \\
 					  &\leq 0 \cdot H^{\alpha} (A) = 0
 	\end{align*}
 \end{proof}
@@ -63,15 +69,15 @@ insert graphs.
 For self-similar fractals, find an equation that the fractal solves. Use the properties of the equation to study fractals.
 
 \begin{example}
-	For serpinski triangle $S \subseteq \mathbb{R}^2$:
+	For Sierpinski triangle $S \subseteq \mathbb{R}^2$:
 	\begin{align*}
-		\varphi_{j} (x, y) = (\frac{x}{2} + \cos(\frac{2 \pi}{3 j}), \frac{y}{2} + \cos(\frac{2 \pi}{3 j}) )
-	\end{align*} for $j = 1,2,3, \ldots$, observe
+		\varphi_{j} (x, y) = \left(\frac{x}{2} + \cos\left(\frac{2 \pi}{3 j}\right), \frac{y}{2} + \cos\left(\frac{2 \pi}{3 j}\right) \right)
+	\end{align*} for $j = 1,2,3, \ldots$ Observe,
 	$S = \bigcup_{j = 1,2,3} \varphi_j (S) $
 \end{example}
 
 \begin{theorem}
-	If $\varphi_{1}, \ldots, \varphi_{m} : \mathbb{R}^d \to \mathbb{R}^d$ are strict contracts meaning if there are $0 \leq r_{j} < 1$ s.t.
+	If $\varphi_{1}, \ldots, \varphi_{m} : \mathbb{R}^d \to \mathbb{R}^d$ are strict contractions\footnote{where $\varphi_i : \R \to \R$ are iterated function systems}, meaning if there are $0 \leq r_{j} < 1$ such that
 	\begin{align*}
 		| Q_j (x) - Q_j (y) | \leq r_{j} |x - y |
 	\end{align*} then there is a unique compact
@@ -79,33 +85,39 @@ For self-similar fractals, find an equation that the fractal solves. Use the pro
 \end{theorem}
 
 \begin{proof}
-	Use Banach contraction mapping. Let $(M,d)$ be the space of compact subsets of $\mathbb{R}^d$ equipped with Hausdorf measure.
+	Use Banach contraction mapping. Let $(M,d)$ be the space of compact subsets of $\mathbb{R}^d$ equipped with Hausdorff measure.
 	That is $M = \{K \subseteq \mathbb{R}^d\}$ where K is compact and non-empty
 	and
 	\begin{align*}
 		d(K_1, K_2) = \max\{ \max_{x_1 \in K_1} \min_{x_2 \in K_2} |x_1 - x_2|, \max_{x_2 \in K_2} \min_{x_1 \in K_1} |x_1 - x_2| \}
 	\end{align*}
 
-	Define $\phi : M \to M$ by  $\phi (K) = \bigcup_{j=1}^{m} \phi_j (k)$
-	\item[claim 1]: $\phi$ strict contraction
-	\item[claim 2]: $(m,d)$ is complete.
+	Define $\Phi : M \to M$ by  $\Phi (K) = \bigcup_{j=1}^{m} \Phi_j (k)$
+	\begin{claim}
+		\begin{enumerate}
+			\item $\Phi$ strict contraction
+			\item $(M,d)$ is complete.
+		\end{enumerate}
+	\end{claim}
 
-		First, observe that $d(K_1 \cup K_2, k_3 \cup K_4) \leq \max\{d(K_1, K_3), d(K_2, K_4)\}$
+	First, observe that $d(K_1 \cup K_2, k_3 \cup K_4) \leq \max\{d(K_1, K_3), d(K_2, K_4)\}$
 
-	\item[Proof of claim 1]:
+	\begin{subproof}[Proof of Claim 1]
 		\begin{align*}
-			d(\phi(K_1), \phi (K_2)) &= d( \bigcup_{j=1}^{m} \phi_j(K_1),\bigcup_{j=1}^{m} \phi_j (K_2) \\
-									 &\leq \max_{j} d( \phi_{j}(K_1), \phi_{j}(K_2)) \\
+			d(\Phi(K_1), \Phi (K_2)) &= d( \bigcup_{j=1}^{m} \Phi_j(K_1),\bigcup_{j=1}^{m} \Phi_j (K_2) \\
+									 &\leq \max_{j} d( \Phi_{j}(K_1), \Phi_{j}(K_2)) \\
 									 &\leq (\max_{j} r_{j}) d(K_{1}, K_2)
 		\end{align*} 
-
-
-	\item[Proof of claim 2]: Suppose $K_1, K_2, \ldots \in M$ cauchy, refine the sequence so that $d(K_{j+1}, K_j ) \leq 2^{-j}$
+	\end{subproof}
+	
+	\begin{subproof}[Proof of Claim 2] \note{fix formatting for this section}
+	  
+	Suppose $K_1, K_2, \ldots \in M$ Cauchy. Refine the sequence so that $d(K_{j+1}, K_j ) \leq 2^{-j}$.
 
 		Let $K = \bigcap_{n \geq 0} \overline{\bigcup_{m \geq n} K_m}$ where $K$ is non-empty.
 
-		Let $x_1 \in K_1$ arbitrary, recursiveily choose $x_{j+1} \in K_{j+1}$ so $|X_{j+1} - X_j | \leq 2^{-j}$
-		$\{X_j\}$ is cauchy in $\mathbb{R}^d$ so $x = \lim_{j \to \infty} x_j$.
+		Let $x_1 \in K_1$ arbitrary, recursively choose $x_{j+1} \in K_{j+1}$ so $|X_{j+1} - X_j | \leq 2^{-j}$
+		$\{X_j\}$ is Cauchy in $\mathbb{R}^d$ so $x = \lim_{j \to \infty} x_j$.
 
 		Since $\{x_j\} \geq$ come back to
 
@@ -120,6 +132,8 @@ For self-similar fractals, find an equation that the fractal solves. Use the pro
 			d(K_2, K_3) &\leq 2^{-2} \implies K_{3} \subseteq \mathcal{B}_{R + 2^{-1} + 2^{-2}} \\
 		\end{align*} 
 		$K_{m} \subseteq \mathcal{B}_{R + 1}$ for $m \geq 1$
+	\end{subproof}
+
 \end{proof}
 
 \begin{theorem}
@@ -143,7 +157,7 @@ For self-similar fractals, find an equation that the fractal solves. Use the pro
 		\end{align*} 
 		then $2 \cdot (\frac{1}{3})^{\alpha} = 1 \iff \alpha = \frac{\log 2}{\log 3}$ 
 
-		The open set condition guarentees $H^{\alpha}( \phi_j (K) \cap \phi_l (K)) = 0$ \,
+		The open set condition guarantees $H^{\alpha}( \phi_j (K) \cap \phi_l (K)) = 0$ \,
 		for $j \neq l$.
 \end{example}
 
