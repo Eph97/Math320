@@ -198,6 +198,29 @@ Observe
  
  \begin{proof}
  	Need to show completeness.
+Assume $f_{k} \in L^{p} (m)$ and 
+$\| f_{k + 1} - f_{k} \|_{L^{p} (m)} \leq 2^{-k}$
 
+Assume $1 \leq p < \infty$. Let  $g_{n} = \sum_{k=1}^{n} | f_{k}- f_{k+1} |$, $g = \lim_{n \to \infty} g_{n}$
+
+By Minkowski:
+\begin{align*}
+	\left( \int g_{n}^{p} dm \right)^{1/p} \leq \sum_{k=1}^{n} \|f_{k} - f_{k+1} \|_{L^{p}(m)} \leq 1
+\end{align*} By monotone convergence theorem. $\int g^p dm \leq 1$ 
  \end{proof}
+ 
+
+
+ 
+ \begin{theorem}[Lusin]
+	 If $f: X \to [-\infty, \infty]$  measurable and $m(\{x \in X : f(x) \neq 0 \} ) < \infty$ and  $\varepsilon > 0$
+
+	 Then there exists a $g \in C_{c} (X) $ such that $m( \{ x \in X : f(x) \neq g(x) \} ) < \varepsilon$.
+	 Moreover, if $|f| \leq 1$, then $ \|g\| \leq 1$
+ \end{theorem}
+ 
+ \begin{remark}
+ 	This says that measurable functions are almost continuous.
+ \end{remark}
+ 
  
