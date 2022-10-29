@@ -140,6 +140,64 @@ Observe
 
 \begin{proof}
 	Assume $f,g \notin \mathscr{N}(m)$
+	Scale so $\int f^{p} dm = \int g^{q} dm = 1$ then
+	\begin{align*}
+		\int fg dm &\leq \int \frac{f^{p}}{p} + \frac{g^{q}}{q} dm = \frac{1}{p} + \frac{1}{q} = 1 \\
+				   &= \left( \int f^{p} dm \right)^{\frac{1}{p}} \left( \int g^{q} dm\right)^{\frac{1}{q}}
+	\end{align*} 
 \end{proof}
 
+\begin{corollary}[Weak Minkowski]
+\begin{align*}
+	\left( \int (f + g)^{p} dm \right)^{1/p} \leq \left( \int f^{p} dm \right)^{1/q} + \left( \int g^{p} dm \right)^{1/p}
+\end{align*} 	
+\end{corollary}
 
+\begin{proof}
+	$\frac{1}{p} + \frac{p-1}{p} = 1$, $q = \frac{p}{p-1}$.
+
+	\begin{align*}
+		(f + g)^{p} &= (f+g) ( f+g)^{p-1} \\
+		\int f ( f + g)^{p-1} dm &\leq \left( \int f^{p} dm \right)^{1/p} \left( \int (f+g)^{p} dm \right)^{\frac{p-1}{p}} \\
+		\int g ( f + g)^{p-1} dm &\leq \left( \int g^{p} dm \right)^{1/p} \left( \int (f+g)^{p} dm \right)^{\frac{p-1}{p}} \\
+	\int ( f + g)^{p} dm &\leq \left[ \left( \int f^{p} dm \right)^{1/p} + \left( \int g^{p} dm \right)^{1/p} \right] \left( \int (f+g)^{p} dm \right)^{\frac{p-1}{p}} \\
+	\end{align*} 
+\end{proof}
+
+\subsection{$L^{p}$-Spaces}
+
+\noindent For $1 \leq p < \infty$:
+
+\noindent $\mathcal{L}^{p} (m)$ is space of measurable $f : X \to [-\infty, \infty]$ such that
+ \begin{align*}
+	\|f\|_{\mathcal{L}^{p} (m)} = \left( \int |f|^{p} dm \right)^{1/p} < \infty
+\end{align*} 
+
+
+
+\noindent $\mathcal{L}^{\infty} (m)$ is space of measurable $f : X \to [-\infty, \infty]$ such that
+ \begin{align*}
+ \|f\|_{\mathcal{L}^{\infty} (m)} = \inf\{\alpha \geq 0 : m ( \{ x \in X : |f(x)| > \alpha \}) =0 \}
+\end{align*} 
+
+Observe
+
+\begin{align*}
+	\|\alpha f\|_{\mathcal{L}^{p}(m)} &= \alpha \|f \|_{\mathcal{L}^{p} (m)} \quad \text{and by minkowski} \\
+	\| f + g\|_{\mathcal{L}^{p}(m)} &=  \|f \|_{\mathcal{L}^{p} (m)} + \|g \|_{\mathcal{L}^{p} (m)}  \forall \alpha \geq 0 \quad \text{and} \quad f,g \in \mathcal{L}^{p} (m) \\
+\end{align*} 
+ let 
+ \begin{align*}
+ 	L^{p} (m) = \mathcal{L}^{p} (m) / \mathscr{N} (m)
+ \end{align*} 
+
+
+ \begin{theorem}
+ 	$L^{p}(m)$ is complete normed vector space.
+ \end{theorem}
+ 
+ \begin{proof}
+ 	Need to show completeness.
+
+ \end{proof}
+ 
