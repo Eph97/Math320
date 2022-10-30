@@ -217,7 +217,7 @@ compute
 \begin{align*}
 	\int | f - f_{k} |^{p} dm &= \int \liminf_{j \to \infty} |f_{j} - j_{k} |^{p} dm \\
 							  &\leq \liminf_{j \to \infty}\int  |f_{j} - j_{k} |^{p} dm \\
-							  &\leq (2^{1-k})^{p} \xarrow{}[k \to \infty] 0
+							  &\leq (2^{1-k})^{p} \xrightarrow[k \to \infty]{} 0
 \end{align*} 
 When $p = \infty$, let
 \begin{align*}
@@ -257,5 +257,33 @@ $X$ locally compact Hausdorff. $S$ a Borel $\sigma$-algebra.
 		A_{1} &= \{ x \in X : f(x) \geq \frac{1}{2} \} \\
 		A_{k} &= \{ x \in X : f(x) - \sum_{j=1}^{k} 2^{-k} \1_{A_{j}} \geq 2^{-k} \}
 	\end{align*}
+	Choose $\underset{open}{U_{k}} \contains A_{k} \contains \underset{compact}{G_{k}}$
+	s.t. $m(U_{k} \setminus G_{k}) < \varepsilon 2^{-k}$ (by regularity)
+
+	Now let $h_{k} \in C (x)$ with
+	\begin{align*}
+		\1_{G_{k}} \leq h_{k} \leq \1_{U_{k}}
+	\end{align*} 
+	let $g = \sum_{k=1}^{\infty} 2^{-k}h_{k}$
+	Since $g$ is the uniform liit of a continuous function, $g$ is continuous.
+	\begin{align*}
+		\{ x \in X : f(x) \neq g(x) \} \subseteq \bigcup_{k \geq 0} ( U_{k} - G_{k} )
+	\end{align*} and
+	$\sum m( U_{k} \setminus G_{k} ) \leq \varepsilon$
 \end{proof}
  
+\begin{corollary}
+	$C_c (X)$ is dense in $L^{p} (X)$ for $1 \leq p < \infty$
+\end{corollary}
+
+\begin{remark}
+	This fails for $p = \infty$ in general.
+	Any $L^{\infty}$ limit of functions in $C_c (X)$ lies in $C (X)$.
+\end{remark}
+
+Let $C_{0} (X)$ be $L^{\infty}$ closure of $C_c (X)$. These are continuous functions that "Vanish at $\infty$."
+
+For example:
+\begin{align*}
+	C_{0} (\R^d ) &= \{ f\in C (\R^{d}) : \lim_{|x| \to \infty } f(x) = 0 \}
+\end{align*} note by defaut $\R^{d}$ is equipped with the lebesgue measure.
