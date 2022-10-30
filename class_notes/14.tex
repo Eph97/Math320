@@ -207,9 +207,35 @@ By Minkowski:
 \begin{align*}
 	\left( \int g_{n}^{p} dm \right)^{1/p} \leq \sum_{k=1}^{n} \|f_{k} - f_{k+1} \|_{L^{p}(m)} \leq 1
 \end{align*} By monotone convergence theorem. $\int g^p dm \leq 1$ 
+
+In particular,
+\begin{align*}
+	f(x) = f_{1} (x) + \sum_{k=1}^{\infty} (f_{k+1}(x) - f_{k}(x))
+\end{align*} is absolutely convergent away from measure zero set of $X$.
+
+compute
+\begin{align*}
+	\int | f - f_{k} |^{p} dm &= \int \liminf_{j \to \infty} |f_{j} - j_{k} |^{p} dm \\
+							  &\leq \liminf_{j \to \infty}\int  |f_{j} - j_{k} |^{p} dm \\
+							  &\leq (2^{1-k})^{p} \xarrow{}[k \to \infty] 0
+\end{align*} 
+When $p = \infty$, let
+\begin{align*}
+	B = \bigcup_{k \geq 1} \{x \in X : |f_{k} (x) - f_{k +1} (x) | > 2^{-k}\}
+\end{align*} by definition of $L^{\infty}$, $m(B) = 0$ for  $x \in XX \setminus B$, we have
+\begin{align*}
+	|f_{k +1} (x) - f_{k} (x)| &\leq 2^{-k} \\
+	f(x) &=\lim_{k \to \infty} f_{k}(x) \quad \text{exists} \\
+	|f (x) - f_{k} (x) | &\leq 2^{1-k}
+\end{align*} So we conclude that
+\begin{align*}
+	\| f - f_{k} \|_{L^{\infty} (m)} \leq 2^{1 - k}
+\end{align*} 
  \end{proof}
  
+\subsubsection{$L^{p}$ on nice spaces}
 
+$X$ locally compact Hausdorff. $S$ a Borel $\sigma$-algebra.
 
  
  \begin{theorem}[Lusin]
@@ -223,4 +249,13 @@ By Minkowski:
  	This says that measurable functions are almost continuous.
  \end{remark}
  
+\begin{proof}
+	Reduce to case $X$ compact and $0 \leq f \leq 1$ (exercise).
+
+	Write $f = \sum_{k=1}^{\infty} 2^{-k} \1_{A_{k}}$ where 
+	\begin{align*}
+		A_{1} &= \{ x \in X : f(x) \geq \frac{1}{2} \} \\
+		A_{k} &= \{ x \in X : f(x) - \sum_{j=1}^{k} 2^{-k} \1_{A_{j}} \geq 2^{-k} \}
+	\end{align*}
+\end{proof}
  
