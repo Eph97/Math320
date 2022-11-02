@@ -1,0 +1,48 @@
+\section{2022-11-02}
+
+Last time
+
+\begin{theorem}[Vitali]
+	Ig $B$ is a collection of open balls covering $X$, then there is a disjoint subcollection $B' \subseteq B$ with 
+\end{theorem}
+
+
+\subsection{Absolute Continuity + Radon-Nikodym}
+
+fix $\sigma$-algebra $S$ on a set $X$.
+
+
+\begin{definition}[Absolutely Continuous]
+	Suppose $m_1$ and $m_{2}$ are measures on $S$, then $m_1$ is absolutely continuous with respect to $m_{2}$ if and only if 
+	\begin{align*}
+		m_{2} (A) = 0 \implies m_1 (A) = 0
+	\end{align*} in which case we write $m_1 << m_2$
+\end{definition}
+
+\begin{definition}
+	A measure $m$ on $S$ concentrates on a set $A \in S$ $\iff $ $m(A^{c}) = 0$
+\end{definition}
+
+\begin{remark}
+	If $f \in L^{1} (m)$ , then $d\tilde{m} = f dm \iff \tilde{m} (A) = \int \1_{A}f dm$
+\end{remark}
+
+
+\begin{example}
+	$U, V \subseteq  \R^{d}$ open bounded and non-empty.
+	\begin{align*}
+		d m_{U} = \1_{U} dL, \quad d m_{V} = \1_{V} dL
+	\end{align*} if $U \subseteq V$, then $m_{U} << m_{V}$.
+	if $U \cap V = \emptyset$, then $M_{U} \perp m_{V}$
+\end{example}
+
+\begin{theorem}
+	If $m$ and $\tilde m$ are measure on  $S$ and  $m(X) < \infty,$ and $\tilde m (X) < \infty$, then there are unique measure $m_{a}$ and $m_{s}$ on $S$ so $m = m_{a} + m_{s}$, $m_{a} << \tilde m$ and $m_{s} \perp \tilde m$
+\end{theorem}
+
+\begin{proof}
+	\begin{enumerate}
+		\item[step 1] Uniqueness: let
+	\end{enumerate}
+\end{proof}
+
