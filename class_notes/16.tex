@@ -42,7 +42,93 @@ fix $\sigma$-algebra $S$ on a set $X$.
 
 \begin{proof}
 	\begin{enumerate}
-		\item[step 1] Uniqueness: let
-	\end{enumerate}
+		\item[step 1] Uniqueness: let $m = m_{a}' + m_{s}'$.
+			Since $m_{s} \perp \tilde m$ and $m_{s}' \perp \tilde m$, can choose
+			$A , A'$ so that 
+			\begin{align*}
+				&m_s (A) = 0 \quad \tilde m (A^{c}) = 0, \\
+				&m_s' (A') = 0, \tilde m ( (A')^c) = 0
+			\end{align*} 
+			Now, let $B = A \cap A'$, then  $m_s (B) = 0$, $m_s (B) = 0$, and $\tilde m(B^c) = 0$
+
+			Now for arbitrary $E \in S$, we have
+			\begin{align*}
+				m_s (E) &= m_s ( E \cap B^c) \\
+						&= m_s (E \cap B^c) + m)a (E \cap B^c) \\
+						&= m (E \cap B^c) \\
+						&= m_a' (E \cap B^c) + m_a' (E \cap B^c) \\
+						&= m_s' (E \cap B^c) = m_s'(E)
+			\end{align*} 
+			Now, since $m (X) < \infty$, $m_a = m_a'$
+		\item[step 2] Existence:
+
+			The idea is to build a set on which $m_s$ concentrates by maximizing $m$ measure amon sets and $\tilde m$ is a null sets
+
+			Choose $A_{n} \in S$ s.t. $ \tilde m (A_{n})$
+			\begin{align*}
+				m(A_{n}) \geq -\frac{1}{n} + \sup_{\tilde{m} (A) = 0} m(A)
+			\end{align*} Possible because $m(X) < \infty$
+
+
+			Now let  $B = \bigcup_{n} A_{n}$. Since $\tilde m (B) = 0$, we have
+			\begin{align}
+				m(B) = \sup_{\tilde m (A) = 0} m (A)
+			\end{align} 
+
+			Set $m_s (E) = m (E \cap B)$ and $m_a (f) = m (E \cap B^c)$.
+			Since  $m_s (B^c) = m( \emptyset) = 0$, we have $\tilde m \perp m_s$.
+
+
+			Suppose for Contradiction, $m_a < \nless \tilde m$.
+
+			Choose $E$, so $\tilde m (E) = 0$ and $m_a (E) > 0$.
+
+			Then $m(E \cup B^c) > 0$ and $\tilde m (E \cap B^c) = 0$, then 
+			$m(E \cup B) > m (B)$
+			so  $\tilde m (E \cup B) = 0$ contradicting (1).
+	\end{enumerate} 
 \end{proof}
+
+\subsection{Radon-Nikodym}
+
+\begin{theorem}
+	If $m, \tilde{m}$ are measure on $S$, $m(X) < \infty$, and $m << \tilde{m}$, then there is $f \ in L^{1} ( \quad{m})$ such that
+	$dm = f d\tilde{m}$
+\end{theorem}
+
+\begin{remark}
+	\begin{enumerate}
+		\item This is another form of Riesz-Representation theorem.
+		\item Use to upgrade decomposition
+			\begin{align*}
+				dm &= dm_{a} + dm_s \\
+				   &= dm_a + dm_s \\
+				   &= f d\tilde{m} + d m_{s}
+			\end{align*} where $f \in L^{1} (\tilde m)$
+		\item Converse is trivial if $dm = f d \tilde{m}$ and
+			$f \in L^1 (\tilde{m} )$, then $m << \tilde{m}$
+	\end{enumerate}
+\end{remark}
+
+There are two proofs:
+\begin{enumerate}
+	\item A measure theoretic proof
+	\item An (elementary) Functional Analysis Proof (Rudin)
+\end{enumerate}
+
+Well start with the first proof (1):
+
+\begin{theorem}[Hahn Decomposition] If $m_1$ and $m_2$ are measures
+\end{theorem}
+
+
+\begin{remark}
+	\begin{enumerate}
+		\item If we think of $m = m_1 - m_2$ as a signed measure, then $P$ is "positive" set and $P^c$ is a "negative" set.
+		\item If $X = \{1, \ldots, N\}$, and $S = \mathcal{P} (X)$, then
+			\begin{align*}
+				P = \{x : m_{1} (\{x\}) \geq m_2 (\{ x \})\}
+			\end{align*} 
+	\end{enumerate}
+\end{remark}
 
