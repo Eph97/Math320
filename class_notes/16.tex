@@ -4,7 +4,35 @@ Last time
 
 \begin{theorem}[Vitali]
 	Ig $B$ is a collection of open balls covering $X$, then there is a disjoint subcollection $B' \subseteq B$ with 
+	\begin{align*}
+		X \subseteq \bigcup_{B \in \mathcal{B}} 5 B
+	\end{align*} 
 \end{theorem}
+
+\begin{theorem}[Maximal Inequality]
+	let $m$ be a borel measure on $\R^{d}$ and 
+	\begin{align*}
+		(M m )(x) &= \sup_{r > 0} \frac{m (B(x, r))}{L (B(x,r))}, \quad \text{then} \\
+		L\left( \{ M m > \lambda \} \right) &\leq 3^{d} m (\R^d) \lambda^{-1}
+	\end{align*} 
+\end{theorem}
+
+\begin{definition}
+	$X \in \R^{d}$ is a lebesgue point for $f \in L^{1} ( \R^{d} )$ if and only if
+	\begin{align*}
+		lim_{r \to 0} \frac{\int_{B(x, r)} | f - f(x) | dL}{L (B(x, r))} = 0
+	\end{align*} 
+\end{definition}
+
+\begin{definition}[Lebesgue Differentiation]
+	If $f \in L^{1}( \R^{d})$ and
+	\begin{align*}
+		&E = \{ x \in \R^{d} : x \text{ is a lebesgue point of } f \},
+	\end{align*} then
+	$L(E) = 0$
+	
+\end{definition}
+
 
 
 \subsection{Absolute Continuity + Radon-Nikodym}
@@ -118,7 +146,11 @@ There are two proofs:
 
 Well start with the first proof (1):
 
-\begin{theorem}[Hahn Decomposition] If $m_1$ and $m_2$ are measures
+\begin{theorem}[Hahn Decomposition] If $m_1$ and $m_2$ are measures on $S$ and $m_1 (x)$, $m_2 (x) < \infty$, then there is $P \in S$ s.t.
+	\begin{enumerate}
+		\item $A \in S$ and $A \subseteq P \implies m_1 (A) - m_2 (A) \geq 0$ \\
+		\item $A \in S$ and $A \subseteq P^c \implies m_1 (A) - m_2 (A) \leq 0$ \\
+	\end{enumerate}
 \end{theorem}
 
 
@@ -131,4 +163,53 @@ Well start with the first proof (1):
 			\end{align*} 
 	\end{enumerate}
 \end{remark}
+
+\begin{proof}
+	Call $A \in S$ \underline{positive} if $m_1 (B) - m_2 (B) \geq 0$ for all $B \subseteq A$.
+
+	 \begin{claim}
+		 If $m_1 (A) - m_{2} (A) > 0$, then there is positive $B \subseteq A$ with
+		 \begin{align*}
+			 m_{1} (B) - m_{2} (B) \geq m_1 (A) - m_2 (A)
+		 \end{align*}.
+	\end{claim}
+	Construct $B$ by removing negative mass. Recursively define $A = A_{0} \contains A_1 \contains \ldots$
+	Choose $A_{n+1 } \subseteq A_{n}$ such that
+	\begin{align*}
+		m_{i} (A_{n +1} - m_{2} (A_{n+1}) = 
+	\end{align*} [check]
+	
+	Let $B = \bigcup_{n} A_{n}$
+	\begin{align*}
+		m_{1} (B) - m_{2} (B) &= \lim_{n \to \infty} m_{1} (A_{n}) - m_{2} (A_{n}) \\
+							  &\geq m_{1} (A) - m_{2} (A)
+	\end{align*} 
+	To see that $B$ is positive, suppose for contradiction $E \subseteq B$ and $m_{1} (E) - m_{2} (E) < 0$. 
+	For large $n$, have $m_1 (E) - m_{2} (E) < -\frac{1}{n}$.
+
+	We can imporive our choice of $A_{n +1}$ by replacing it with $A_{n +1 } \setminus E$ giving increase greater than $\frac{1}{n}$ which contradicts our construction. 
+	(The claim is now proved)
+
+	Let $B_{n}$ be a sequence of positive sets with 
+	\begin{align*}
+		m_{1} (B_{n}) - m_{2} (B_{n}) \geq \frac{-1}{n} + \sup_{B \text{ pos}} (m_{1} (B) - m_{2} (B))
+	\end{align*} 
+	Let $P = \bigcup_{n} B_{n}$. to see that $P$ is positive:
+	
+	Let $E \subseteq  P$, then
+	\begin{align*}
+		E = ( E \cap B_{1} ) \cup ( E \cap B_{2} \cup B_{1}^c) \cup ( E \cap B_{3} \cap B_{2}^{c} \cap B_{1}^c ) \cup \ldots
+	\end{align*} 
+	And all disjoint pieces have $m_{1} - m_{2} \geq 0$.
+
+	If $E \subseteq P^c$ and $m_{1} (E) - m_{2} (E) > 0$, then by claim, there is positive $B \subseteq E$
+	with $m_{1} (B) - m_{2} (B) \geq \varepsilon > 0$.
+
+	Now $B_{n} \cup B$ would be positive with
+	\begin{align*}
+		m_{1} (B_{n} \cup B) - m_{2} (B_{n} \cup B) &= m_{1} (B_{n}) - m_{2} (B_{n} ) + m_{1} (B) - m_{2} (B) \\
+													&\geq m_{1} (B_{n}) - m_{2} (B_{n} ) + \varepsilon
+	\end{align*}
+	contradicting (star) for large $n$.
+\end{proof}
 
