@@ -1,0 +1,231 @@
+\section{October 31st, 2022}
+
+\epigraph{\textit{angrily pushed a table to make more space}}{Charlie}
+
+\subsection{Chapter 7 -- Differentiation}
+
+From calculus:
+\[
+  F(t) = \int_{t}^{0} f(s) \,ds \iff F'(t) = f(t)
+\]
+For continuous $f$. We want an analogy where $m = f \,ds$ is a measure.
+
+\subsection*{Warm-Up}
+
+\begin{theorem}
+  For $m$ Borel measure on $\R$, the following are equivalent
+  \begin{enumerate}
+    \item $f(x) = m((-\infty, x))$ is differentiable at $x_0$ and $f'(x_0) = \alpha$.
+    \item For every $\varepsilon > 0$, there is $\delta > 0$ such that
+      \[
+      a < x_0 < b, \; b - a < \delta \implies \left| \frac{m([a,b))}{L([a,b))} - \alpha \right| < \varepsilon.
+      \]
+  \end{enumerate}
+\end{theorem}
+
+\begin{proof}
+  \[
+    \frac{m([a,b))}{L([a,b))} = \frac{f(b) - f(a)}{b-a}.
+  \]
+\end{proof}
+
+\subsection{Covering Lemmas}
+
+\begin{lemma}[Finite Vitali]
+  If $\mathcal{B}$ is a finite collection of balls in $\R^d$ and $X \subseteq \bigcup_{B \in \mathcal{B}} B$, then there is $\mathcal{B} \subseteq B$ so
+  \begin{enumerate}
+    \item balls in $\mathcal{B}'$ disjoint \label{lma:1}
+    \item $X \subseteq \bigcup_{B \in \mathcal{B}} 3B$ where $3B(x,r) = B(x, 3r)$. \label{lma:2}
+  \end{enumerate}
+\end{lemma}
+
+\begin{proof}
+  Write $\mathcal{B} = \{B_1, B_2, \ldots, B_n \}$ where $\operatorname{rad}(B_k) \leq \operatorname{rad}(B_{k+1})$. Build $\mathcal{B}'$ by a greedy algorithm.
+  \begin{itemize}
+    \item Start with $\mathcal{B}' = \{ B_1 \}$.
+    \item For $k = 2, \ldots, N$:
+      \begin{itemize}
+        \item if $B_k$ disjoint from balls of current $\mathcal{B}'$
+          \begin{itemize}
+            \item Set $\mathcal{B}'$ to $\mathcal{B}' \cup \{ B_k \}$
+          \end{itemize}
+        \item Condition \ref{lma:1} immediately satisfied
+      \end{itemize}
+    \item To check \ref{lma:2}, choose $k$ so $x \in B_k$
+    \item If $B_k \in \mathcal{B}'$, then $x \in \bigcup_{B \in \mathcal{B}'} 3B$
+    \item $B_k \notin B'$, then $B_k \cap B_j \ne \emptyset$ for $j < k$ and $B_j \in \mathcal{B}$.
+      \begin{itemize}
+        \item Observe since $\operatorname{rad}(B_j) \geq \operatorname{rad}(B_k)$ and $B_j \cap B_k \ne \emptyset$, $B_k \subseteq 3B_j$.
+          \[
+            w \in B(x, r) \implies |x - y| \leq s + r \leq 3s.
+          \]
+        \item in particular, $x \in 3B_j \subseteq \bigcup_{B \in \mathcal{B}'} 3B$.
+      \end{itemize}
+  \end{itemize}
+\end{proof}
+
+\begin{lemma}[Infinite Vitali]
+  If $\mathcal{B}$ is a collection of balls in $\R^d$ or radius at most 1 and $x \in \bigcup_{B \in \mathcal{B}}$, then there is $\mathcal{B}' \subseteq B$ such that
+  \begin{enumerate}
+    \item balls in $\mathcal{B}'$ disjoint
+    \item $X \subseteq \bigcup_{B \in \mathcal{B}'} 5B$
+  \end{enumerate}
+\end{lemma}
+
+\begin{proof}
+  (formatting can be improved for this section)
+  Use upper bound to start a greedy algorithm. Let $B_k = \{ B \in \mathcal{B} : 2^{-k-1} < \operatorname{rad}(B) \leq 2^{-k}$ for $k = 0, 1, \ldots$
+    Recursively choose $\mathcal{B}_k' \subseteq \mathcal{B}_k$ to be maximal subject to constraint that balls in $\mathcal{B}_0' \cup \ldots \cup \mathcal{B}_k'$ disjoint.
+    Let $B' = \mathcal{B}_0', \mathcal{B}_1', \ldots$
+
+
+    Again, 1 automatic.
+    For 2, suppose $x \in B \in \mathcal{B}_k$
+
+    If $B \in \mathcal{B}'$, then $x \in \bigcup_{B \in \mathcal{B}'} 3B$.
+    If $B \notin \mathcal{B}'$, then there is $\tilde{B} \in \mathcal{B}_0', \ldots, \mathcal{B}_k'$ such that $B \cap \tilde{B} \ne \emptyset$.
+    Since $\operatorname{rad}(\tilde{B}) \geq \frac{1}{2} \operatorname{rad}(B)$, obtain $x \in B \subseteq 5\tilde{B} \subseteq \bigcup_{B \in \mathcal{B}'} 5B$.
+\end{proof}
+
+Both version of Vitali rely on geometric lemma
+
+\begin{lemma}
+  If $B(x,r) \cap B(y,s) \ne \emptyset$ and $z \in B(x,r)$, then $|z - y| < s + 2r$.
+\end{lemma}
+
+\begin{proof}
+  Choose $w \in B(x,r) \cap B(y,s)$ and compute ...
+  \begin{align*}
+    |z - y| & \leq |z - x| + |x - w| + |w - y| \\
+            & < r + r + s
+  \end{align*}
+\end{proof}
+
+\begin{remark}
+  \begin{itemize}
+    \item 3 is optimal for finite Vitali
+    \item 5 is \underline{not} optimal for infinite Vitali. Any constant $>3$ works. \\
+      Replace $2$ with $1 + \varepsilon$ in the proof gives constant $3 + 2\varepsilon$ (portion where radius is $(2^k, 2^{k+1}]$)
+    \item Need upper bound for infinite Vitali at least for unbounded $X$. An example:
+      \[
+        \mathcal{B} = \{B(0,r) : r > 0 \} \quad \text{where } X = R^d
+      \]
+    \item For $X$ bounded, do not need upper bound in infinite Vitali for(?) $X \subseteq B(0,R)$. May assume $X \cap B \ne \emptyset$ for $B \in \mathcal{B}$.
+      If $B \in \mathcal{B}$ with $\operatorname{rad}(B) \geq R$, then $X \subseteq 3B$.
+    \item Both Vitali lemmas are true in any metric space.
+  \end{itemize}
+\end{remark}
+
+\subsection{Maximal Inequality}
+
+\begin{definition}[Maximal Function]
+  Suppose $m$ is Borel measure on $\R^d$. The maximal function of $m$ is
+  \[
+    (Mm)(x) = \sup_{r > 0} \frac{m(B(x,r))}{L(B(x,r))}.
+  \]
+\end{definition}
+
+\begin{lemma}
+  $Mm$ is linear semicontinuous, that is, $(Mm)^{-1} ((a, \infty])$ is open for all $a \in \R$ and is therefore Borel measurable.
+\end{lemma}
+
+\begin{proof}
+  Suppose $(Mm)(x) > a$,
+  Choose $r > 0$ and $\varepsilon > 0$ so
+  \[
+    \frac{m(B(x,r))}{L(B(x,r))} > a + \varepsilon.
+  \]
+  For $y \in B(x, \delta)$, compute
+  \begin{align*}
+    \frac{m(B(x,r+\delta))}{L(B(x,r+\delta))} & \geq \frac{m(B(x,r+\delta))}{L(B(x,r+\delta))} \\
+                                              & \geq \frac{m(B(x,r))}{L(B(x,r+\delta))} \\
+                                              & \geq \frac{m(B(x,r))}{L(B(x,r))} \frac{r^d}{(r + \delta)^d} \\
+                                              & > (a + \varepsilon) \frac{r^d}{(r + \delta)^d} \\
+                                              & > \left(a + \frac{\varepsilon}{2}\right) \quad \textrm{for $\delta > 0$ small}
+  \end{align*}
+  So $B(x, \delta) \subseteq (Mm)^{-1}((a, \infty])$
+\end{proof}
+
+
+\begin{theorem}
+  If $m$ Borel measure on $\R^d$ and $\lambda > 0$, then
+  \[
+    L(\{Mm > \lambda\}) \leq \frac{3^d}{\lambda} m(\R^d).
+  \]
+\end{theorem}
+
+\begin{proof}
+  Assume $m(\R^d) < \infty$. By definition of $Mm$,
+  \[
+    \{ Mm > \lambda \} \subseteq \bigcup_{B \in \mathcal{B}} B
+  \]
+  where $\mathcal{B} = \{B : m(B) > \lambda L(B) \}$.
+  Choose $K \subseteq\{Mm \geq \lambda\}$ compact. Since $L(A) = \sup_{K \subseteq A} L(K)$, where $K$ is compact, it is enough to bound $L(K)$.
+  Choose $\mathcal{B}' \subseteq \mathcal{B}$ finite so $K \subseteq \bigcup_{B \in \mathcal{B}} B$.
+  By Vitali, choose $\mathcal{B}'' \subseteq \mathcal{B}$ so balls of $\mathcal{B}'$ disjoint and $K \subseteq \bigcup_{B \in \mathcal{B}} 3B$.
+  Compute
+  \begin{align*}
+    L(K) & \leq \sum_{B \in \mathcal{B}} L(3B) = 3^d \sum_{B \in \mathcal{B}} L(B) \\
+         & < 3^d \sum_{B \in \mathcal{B}} \frac{m(B)}{\lambda} = \frac{3^d}{\lambda} m \left(\bigcup_{B \in \mathcal{B}''} B\right) \\
+         & \leq \frac{3^d}{\lambda} m \left( \R^d \right)
+  \end{align*}
+\end{proof}
+
+\subsection{Lebesgue Differentiation}
+
+\begin{corollary}
+  If $f \in L^1 (\R^d)$ and $(Mf)(x) = \sup_{r > 0} \frac{\int_{B(x,r)} f \, dL}{L(B(x,r))}$, then
+  \[
+    L(\{Mf > \lambda \}) \leq \frac{3^d}{\lambda} \| f \| L^1(\R^d).
+  \]
+\end{corollary}
+
+\begin{proof}
+  Apply maximal inequality to measure
+  \[
+    m(A) = \int \1_A |f| \, dL.
+  \]
+\end{proof}
+
+\begin{theorem}[Lebesgue Differentiation]
+  If $f \in L^1(\R^d)$, then
+  \[
+    \lim_{r \to 0} \frac{\int_{B(x,r)}|f - f(x)| \, dL}{L(B(x,r))} = 0
+  \]
+  for $L$-almost every $x$.
+\end{theorem}
+
+\begin{proof} \phantom{=} \hfill
+  \begin{steps}
+    \item If $f$ is continuous, then
+      \[
+        \frac{\int_{B(x,r)}|f - f(x)| \, dL}{L(B(x,r))} \leq \sup_{y \in B(x,r)} |f(y) - f(x)| \to 0 \quad \textrm{as } r \to 0
+      \]
+    \item In general, fix $\varepsilon > 0$ and choose $g \in C_c (\R^d)$ section
+      \[
+        \| f - g \| L^1(\R^d) < \varepsilon
+      \]
+      by the theorem from the previous lecture.
+  \end{steps}
+  Compute:
+  \begin{align*}
+    F & = \limsup_{r \to 0} \frac{\int_{B(x,r)}|f - f(x)| \, dL}{L(B(x,r))} \\
+      & = \limsup_{r \to 0} \frac{\int_{B(x,r)}|h - h(x)| \, dL}{L(B(x,r))} \quad \textrm{where } h = f - g \\
+      & = |h(x)| + \limsup_{r \to 0} \frac{\int_{B(x,r)}|h| \, dL}{L(B(x,r))} \\
+      & = |h(x)| + Mh(x)
+  \end{align*}
+  \begin{align*}
+    L(\{F > \lambda \}) & \leq L(\{ |h| + Mh > \lambda \}) \\
+                        & \leq L(\{ |h| > \frac{\lambda}{2} \}) + L(\{ Mh > \frac{\lambda}{2} \}) \\
+                        & \frac{2 \cdot 3^d \cdot \varepsilon}{\lambda}.
+  \end{align*}
+  Send $\varepsilon \to 0$ to obtain
+  \[
+    L(\{F < \lambda\}) = 0.
+  \]
+  Now send $\lambda \to 0$.
+\end{proof}
+
+
+
+

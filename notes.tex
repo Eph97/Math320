@@ -11,10 +11,15 @@
 \usepackage[osf]{libertineRoman}
 \usepackage{biolinum} % nice sans serif font
 \usepackage{ulem} % for strikethrough text
+\usepackage{outlines}
 % \usepackage{tikz-cd}
 % \usepackage{dsfont}
 % \newcommand{\1}{\mathds{1}}
 % \usepackage{wasysym}
+
+% Enumitem environment
+\newlist{steps}{enumerate}{1}
+\setlist[steps, 1]{leftmargin=1.5cm, label = Step \arabic*:}
 
 % Commands
 \newcommand{\contains}{\supseteq}
@@ -27,9 +32,7 @@
 % Document Information
 \title{Measure Theory and~Integration}
 \course{\textsc{MATH} 320}
-\place{Yale University}
-\term{Fall}
-\year{2022}
+\place{Yale University} \term{Fall} \year{2022}
 
 \blurb{
 	These are lecture notes for \textsc{math} 320, ``Measure Theory and Integration'' taught by Charlie Smart at Yale University during the fall of 2022.
@@ -95,5 +98,6 @@ There will be ten homework assignments, two in-class midterms, and an in-person 
 \include{class_notes/12}
 \include{class_notes/13}
 \include{class_notes/14}
+\include{class_notes/15}
 
 \end{document}
