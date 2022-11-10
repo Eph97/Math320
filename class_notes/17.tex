@@ -1,0 +1,49 @@
+\section{2022-11-09}
+
+review
+
+\begin{definition}[Absolutely continuous]
+	$m_1, m_2 : S \to [0, \infty)$ measures,
+	\begin{align*}
+		m_1 << m_2
+	\end{align*} if and only if $m_{2} (A) = 0 $ implies $m_{1} (A) = 0$ for every $A \in S$.
+\end{definition}
+
+
+\begin{theorem}
+	For measure $m_1, m_2 : S \to [0, \infty)$ there are unique measures  $m_a, m_{s} :S \to [0, \infty]$ so
+	\begin{align*}
+		m_1 = m_a + m_s, \quad m_a << m_2, \quad m_s \perp m_2
+	\end{align*},
+\end{theorem}
+
+\begin{proof}
+	Let $E = \bigcup_{n \geq 0} E_{n}$ where $E_{n} \in S$ satisfies 
+	 $m_{2} (E_{n}) = 0$ and
+	 \begin{align*}
+	 	\lim_{n \to \infty} (E_{n}) = 0
+	 \end{align*} and
+	 \begin{align*}
+		 \lim_{n \to \infty} m_{1} (E_{n}) &= \sup_{m_{2} (A)} m_1 (A) \\
+		 m_s (A) &= m_1 (A \cap E) \\
+		 m_a (A) &= m_{1} (A \cap E^c)
+	 \end{align*} 
+	 $m_1 = m_s + m_a$ is immediate, and
+	 $m_2 (E) = 0$ and $m_2 (E^c) = 0$ implies $m_2 \perp m_s$.
+
+	 If $A \subseteq E^c$ and $m_2 (A) = 0$, then 
+	 \begin{align*}
+		 m_1 (A) + m_1 (E_n) &= m_1 (A \cup E_n) \\
+							 &leq \sup_{m_2 (B) = 0} m_1 (B) \\
+							 &= \lim_{n \to \infty} m_1 (E_n)
+	 \end{align*} 
+	 and $m_1 (A) + \sup$
+\end{proof}
+
+\begin{theorem}[Radon-Nikodym]
+	\begin{lemma}: Suppose $m_1, m_2 : S \to [0, \infty)$ and $m_1 << m_2$.
+		
+	\end{lemma}
+\end{theorem}
+
+
