@@ -166,9 +166,86 @@ review
 	$f \in L^{1} (m_2)$ so $m_s \perp m_2$ and $m_1 (A) = m_s (A) + \int \1_A f d m_2$
 \end{corollary}
 
-\begin{remark}[Notation] \\
+\begin{remark*}[Notation] \\
 	$d m_1 = f dm_2$ $\iff $ $\int \1_A d m_1 = \int \1_A d m_2$ for $A \in S$.
-\end{remark}
+\end{remark*}
+
+\begin{theorem}[Radon-Nikodym] we restate the theorem: \\
+	$m_1 << m_2$ if and only if
+	\begin{align*}
+		d m_1 = f d m_2 \quad \text{for some } f \in L^1 (m_2) .
+	\end{align*}
+	Call f the "derivative of $m_1$ with respect to $m_2$."
+\end{theorem}
+
+\subsection{Alternative proof using Hilbert Space and Riesz-Representation}
+
+
+
+We assume basic knowledge of Hilbert spaces (complete inner-product space).
+
+Direct proof of the corollary
+
+\begin{proof}
+	Start with measures $m_1, m_2 :S \to [0,\infty)$.
+	Let  $m_3 = m_1 + m_2$
+
+	Now compute for  $f \in L^2 (m_3)$ 
+	\begin{align*}
+		\left| \int f dm_1 \right| &\leq \int |f| dm_1 \leq \int |f| dm_3 \\
+						&\leq \left( \int |f|^2 dm_3 \right)^{1/2} \left( \int 1 dm_3 \right)^{1/2}\\
+						&= \sqrt{m_3 (X)} \, \|f\|_{L^{2}(m_3)}
+	\end{align*} 
+	So $\Lambda f = \int f dm_3$ is a bounded linear functional.
+
+	Since $L^{2} (m_3)$ is a Hilbert space, Riesz gives a unique $g \in L^{2} (m_3)$ so 
+	\begin{align*}
+		\Lambda f = \int f g dm_3 \quad \text{for } f \in L^{2}(m_3)
+	\end{align*} 
+
+	Rewrite
+	\begin{align*}
+		\int f dm_1 = \int f g d m_3 \quad \text{where $m_3 = m_1 + m_2$}
+	\end{align*} 
+
+	For $f = \1_{A}$, $m_1 (A) = \int \1_{A} g dm_3$ or
+	\begin{align*}
+		0 \leq \frac{\int \1_{A} g dm_3}{m_3 (A)} = \frac{ m_1 (A)}{m_3 (A)} \leq 1
+	\end{align*} 
+	Conclude $m_3 (\{0 \leq g \leq 1\}^c) = 0$. In other words, change $g$ on a set of $m_3$-measure zero so $0 \leq g \leq 1$ everywhere.
+
+	\begin{align*}
+		\text{let  } E &= \{ 0 \leq g < 1 \} \\
+		m_a (A) &= m_1 (A \cap E), \text{ and} \\
+		M_s (A) &= m_1 (A \cap E^c),
+	\end{align*} 
+	Rewrite again
+	\begin{align*}
+		\int (1 - g) f dm_1 = \int fg dm_2.
+	\end{align*} 
+	since $(1 - g) \1_{E^c} \equiv 0$ and $\1_{E^c} g - \1_{E^c}$, obtain $m_2 (E^c) = 0$
+	and so $m_2 \perp m_s$.  \\
+
+
+	Now for  $A \subseteq E$, setting
+	\begin{align*}
+		f = (1 + g + \cdots + g^n) \1_{A } \in L^2 (m_3)
+	\end{align*} gives
+	\begin{align*}
+		\int ( 1 - g^{n+1}) \1_{A} dm_1 = \int (g + g^2 + \cdots + g^{n+1}) \1_{A} dm_2
+	\end{align*} 
+	let $h = \sum_{n \geq 0} g^{n} \1_{E}$.
+
+	Since $A \subseteq E = \{ 0 \leq g \leq 1\}$
+	\begin{align*}
+		&(1 - g^{n+1}) \1 \searrow \1_{A} \\
+		&(g + g^2 + \cdots + g^{n+1} ) \1_{A} \nearrow h \1_{A}
+	\end{align*} 
+	So by monotone convergene
+	\begin{align*}
+		\int \1_{A} dm_1 = \int h \1_{A} dm_2
+	\end{align*} 
+\end{proof}
 
 
 
