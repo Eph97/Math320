@@ -1,0 +1,60 @@
+\section{2022-11-14}
+
+We previously proved 
+
+\begin{theorem}[Radon-Nikodym]
+	If there are $m_1, m_2 : S \to [0, \infty)$ measures, then there are unique $m_s, m_a : S \to [0, \infty)$ and $f \in L^{1} (m_2)$ so
+	\begin{align*}
+		m_1 &= m_a + m_s \quad m_s \perp m_2 \\
+		m_a << m_2 \quad d m_a = f d_2
+	\end{align*} 
+
+\end{theorem}
+
+
+\begin{theorem}[Maximal inequality]
+		if $m : \mathcal{B}(R)$
+\end{theorem}
+
+\begin{theorem}[Lebesgue differentiation]
+	If $f \in L^{1} (\R^d)$, then $L ()$
+\end{theorem}
+
+\subsection{Difference Quotient}
+
+\begin{definition}[Difference quotients]
+	For $m: \mathcal{B}(\R^d) \to [0, \infty]$ measure,
+	let 
+	\begin{align*}
+		D m (x) = \lim_{r \to 0} \frac{m ( \mathcal{B} (x, r))}{L(\mathcal{B}(x, r))}
+	\end{align*} 
+
+	Want: $D m$ is $f$ from Radon-Nikodym decomposition of $m$ with respect to $L$.
+\end{definition}
+
+\begin{theorem}
+	If $m: \mathcal{B}(\R^d) \to [0, \infty)$ measure and $m << L$, then 
+	\begin{align*}
+		D m \in L^{1} (\R^d) \quad \text{and} \quad m(A) \int \1_A dm dL
+	\end{align*} 
+\end{theorem}
+
+\begin{proof}
+	By Radon-Nikodym, there is unique $f \in L^1(\R^d)$ sp $m(A) = \int \1_A f dL$.
+	It is enough to show  $f = D m$ for $L$ a.e $x \in \R^d$. \\
+
+	Since  by Lebesgue differentiation, $L$-a.e. $x \in \R^d$ is lebesgue for $f,$ have
+
+	\begin{align*}
+		f(x) = \lim_{r \to 0} \frac{\int_{B(x, r)} f dL}{L(B(x,r))} = \lim_{r \to 0} \frac{m(B(x,r))}{L(B(x,r))} = D m(x)
+	\end{align*} 
+	for $L$-a.e. $x \in \R^d$.
+\end{proof}
+
+\begin{remark}
+	the above handles absolutey continuous case. now we will  look at the singular case.
+\end{remark}
+
+
+
+
