@@ -56,5 +56,72 @@ We previously proved
 \end{remark}
 
 
+\begin{theorem}
+	If $m : \mathcal{B}(\R^d) \to [0,\infty)$ a measure and $m \perp L$, then
+	\begin{align*}
+		D m(x) = 0 \quad \text{for} \quad L \text{-a.e.} \quad x \in \R^d
+	\end{align*} 
+\end{theorem}
 
+\begin{proof}
+	Define 
+	\begin{align*}
+		\bar{D} m(x) = \limsup_{r \to 0} \frac{m(B(x,r))}{L(B(x,r))}
+	\end{align*} 
+we show $L( \{ \bar{D}m > \lambda \}) = 0$
+
+Since $m \perp L$, there is Borel $E \subseteq \R^d$. So $L(E) = 0$ and $m(E^c) = 0$.
+Since  $m$ is a borel measure and $\R^d$ nice, we can choose $K \subseteq  E$ compact with
+\begin{align*}
+	m(K) \geq m(E) - \varepsilon.
+\end{align*} 
+Let
+\begin{align*}
+	m_1 (A) &= m(A \cap K) \quad \text{and} \\
+	m_2 (A)	&= m( A \cap K^c)
+\end{align*}
+
+Observe: 
+\begin{align*}
+	&m = m_1 + m_2 \quad \text{and} \\
+	&m_2(\R^d)\leq \varepsilon
+\end{align*} 
+
+So $m_1$ dives on compact sets of $L$-measure zero and $m_2$ has small total mass.
+If $X \in K^c$, then 
+\begin{align*}
+	\bar{D}m(x) = \bar D m_2 (x) \leq M m_2 (x)
+\end{align*} 
+It follows that 
+\begin{align*}
+	&\{ \bar{D} m > \lambda \} \subseteq  K U \{ M m_2 > \lambda \}. \quad \text{compute} \\
+	&L (K) \leq L(E) = 0 \quad \text{and} \\
+	&L (\{ M m_2 > \lambda \}) \leq \frac{3^d}{\lambda} m_2 (\R^d) \leq \frac{3^d \varepsilon}{\lambda}
+\end{align*} 
+Sending $\varepsilon \to 0$ gives
+\begin{align*}
+	L ( \{ \bar{D} m > \lambda \} = 0
+\end{align*} 
+conclude
+\[
+	L\{ \bar{D} m > 0 \}) = 0
+\]
+\end{proof}
+
+
+\begin{corollary}
+	If $m : \mathcal{B}(\R^d) \to [0, \infty)$ a measure, then
+	\begin{align*}
+		dm = dm_{s} + Dm dL
+	\end{align*} where $m_s \perp L$. in particular, $m \perp L \iff Dm = 0$ \\
+	$L$-almost everywhere.
+\end{corollary}
+
+\begin{remark}
+	if we consider $m$ instead, then we have the following theorem:
+\end{remark}
+
+\begin{theorem}
+	If $m : \mathcal{B}(\R^d) \to [0, \infty)$ a measure, and $m \perp L$, then $D m(x) = \infty$ for $m$-almost every $x \in \R^d$
+\end{theorem}
 
