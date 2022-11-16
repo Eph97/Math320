@@ -111,7 +111,7 @@ To prove this we need three lemmas:
 	consider $f(x) = x^{2} \sin(\frac{1}{x^2})$ and let $f(0) = 0$.
 	Observe $f$ is everywhere differentiable and
 	\[
-		f'(x) = 2x \sin(\frac{1}{x^{2}} - \frac{2}{x} \cos(\frac{1}{x^2})
+		f'(x) = 2x \sin(\frac{1}{x^{2}}) - \frac{2}{x} \cos(\frac{1}{x^2})
 	\] (the second term dominates near zero).
 
 	For $x \neq 0$ and $f'(0) = 0$
@@ -121,6 +121,21 @@ To prove this we need three lemmas:
 	it's impossible to write $f = f_{+} - f_{-}$ with $f_{\pm}$ continuous and non-decreasing.
 \end{example}
 
+
+\begin{lemma}
+	If $f : [a,b] \to \R$ is absolutely continuous and non-decreasing, then
+	\begin{align*}
+		F(x) - F(0) = \int \1_{[0,x)} f dL \quad \text{where} \quad f \in L^1 ([0,1])
+	\end{align*} 
+\end{lemma}
+
+\begin{proof}
+	Assume $[a,b] = [0,1]$.
+	let
+	 \[
+		G(x) = \frac{F(x) - F(0) + x}{F(1) - F(0) + 1}
+	\] 
+\end{proof}
 
 
 
