@@ -134,6 +134,44 @@ To prove this we need three lemmas:
 	let
 	 \[
 		G(x) = \frac{F(x) - F(0) + x}{F(1) - F(0) + 1}
+	\].
+	Observe $G$ is absolutely continuous and $G$ is an increasing bijection $G [0,1] \to [0,1]$ (check).
+
+	It follows that $G$ is continuous and increasing and $A \subseteq [0,1]$, borel if and only if $G(A)$, is Borel.
+
+	Define Borel measure $m$ on $[0,1]$ by
+	\[
+		m(A) = L(G(A))
+	\].
+	Since $G$ is a bijection, $m$ is a measure. (in particular, $m$ is countably additive).
+	\begin{claim}
+		$m << L$
+	\end{claim}
+	Suppose $L(A) = 0$, then choose $U \contains A$ open with $L(U) < \delta$.
+	$U$ is union of disjoint intervals, since we are working on $\R.$
+	And since  $G$ is absolutely continuous
+	\[
+		L(G(U)) < \varepsilon \delta
+	\] where $\varepsilon \delta \to 0$ as $\delta \to 0$.
+	So 
+	\[
+		m(A) = L(G(A)) \leq L(G(U)) \leq \varepsilon \delta \to 0
+	\] as $\delta \to 0$ and so $m(A) = 0$.
+
+	By Radon-Nikodym,
+	\begin{align*}
+		m(A) &= \int \1_{A} g dL  \quad \text{with} \quad g \in L^1 ([0,1]) \\
+		\int \1_{[0,x]} g dL &= m([0,x]) = L(G([0,x])) = L([G(0), G(x)]) = G(x)
+	\end{align*} 
+	Let
+	\[
+		f = (F(1) - F(0) + 1 ) g - 1.
+	\]then
+	\[
+		f \in L^1([0,1])
+	\] and
+	\[
+		\int \1_{[0,x]} f dL = F(x) - F(0)
 	\] 
 \end{proof}
 
