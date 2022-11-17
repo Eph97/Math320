@@ -186,8 +186,84 @@ To prove this we need three lemmas:
 \begin{proof}
 	Suppose for contradiction that the conclussion fails,
 	then there is $\varepsilon > 0 $ and $A_n \in S$ with
+	\[
+		m_1 (A_{n}) \geq \varepsilon \quad \text{and} \quad m_2 (A_n) \leq 2^{-n}
+	\] 
+	Let 
+	\[
+		B = \bigcap_{n \geq 1} \bigcup_{m \geq n} A_m
+	\] 
+
+	\underline{Compute}:
+	\[
+		m(B) = \lim_{n \to \infty} m_1 ( \bigcup_{m \geq n} A_m ) \geq \varepsilon
+	\] and
+	\begin{align*}
+		m_2 (B) &= \lim_{n \to \infty} m_2 (\bigcup_{m \geq n} A_M ) \\
+				&= \lim_{n \to \infty} 2^{1 - n}
+	\end{align*} so $m_1 <\nless m_2 = 0$.
 \end{proof}
 
+Finally we can proceed to the proof of the original theorem:
+
+\begin{proof} We follow several steps:
+	\begin{enumerate}
+		\item[step 1:]
+			Suppose $F : [a,b] \to \R$ is absolutely continuous, then 
+			\begin{enumerate}
+				\item[By Lemma 1:] $F = f_{+} - F_{-}$ where
+					$F_{\pm} : [a,b] \to \R$ are absolutely continuous and non-decreasing.
+
+				\item[By Lemma 2:] 
+					\[
+					F_{\pm}(x) - F_{\pm} (0) = \int \1_{[0,x]} f_{\pm} dL \quad \text{with} \quad f_{\pm} \in L^1([0,1]) 
+				\] now
+				\[
+					F(x) - F(0) = \int \1_{[0,x]} (F_{+} - f_{-} ) dL \\
+				\]
+				and
+				\[
+					f_{+} - f_{-} \in L^1([0,1]).
+				\] 
+			\end{enumerate}
+
+		\item[step 2:]
+			Suppose 
+			\[
+					F(x) - F(0) = \int \1_{[0,x]} f dL \quad \text{with} \quad f \in L^1([0,1]) 
+			\]
+			let $f_{\pm} = \max\{0, \pm f\}$
+
+
+			Define $m_{\pm}$ by $dm_{\pm} = f_{\pm} dL$. Since $m_{\pm} << L$, givem $\varepsilon > 0,$ there is $\delta$ so 
+			\[
+				L(A) < \delta \implies m_{\pm}(A) < \varepsilon.
+			\]
+			This implies
+			\[
+				F_{\pm}(x) = \int \1_{[0,1]} f_{\pm} dL
+			\] 
+			are absolutely continous.
+
+			If 
+			\begin{align*}
+									&\sum (b_k - a_k) < \delta \\
+					\text{and} \qquad &a_{k} \leq b_k \leq a_{k+1} \leq b_{k+1}
+			\end{align*} 
+
+			then
+			 \[
+				\sum | f_{\pm}(b_k) - F_{\pm}(a_k) | = m_{\pm} ( \cup_{k} (a_k, b_k) < \varepsilon
+			\] 
+			and since $F(x) - F(0) = F^{+} (x) - F^{-} (x)$,
+			$F$ is also absolutely continuous.
+	\end{enumerate}
+
+\end{proof}
+
+Next ime we will cover product measures and Fubini.
+
+We finished lecture by discussing midterm 2.
 
 
 
