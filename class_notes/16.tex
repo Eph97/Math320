@@ -98,16 +98,16 @@ Fix $\sigma$-algebra $S$ on a set $X$.
 			Now, since $m (X) < \infty$, $m_a = m_a'$.
 		\item \textsc{Existence:}
 
-			The idea is to build a set on which $m_s$ concentrates by maximizing $m$ measure amon sets and $\tilde m$ is a null sets
+			The idea is to build a set on which $m_s$ concentrates by maximizing $m$ measure among sets of $\tilde m$ null sets.
 
 			Choose $A_{n} \in S$ s.t. $ \tilde m (A_{n})$
 			\begin{align*}
-				m(A_{n}) \geq -\frac{1}{n} + \sup_{\tilde{m} (A) = 0} m(A)
-			\end{align*} Possible because $m(X) < \infty$
+        m(A_{n}) \geq -\frac{1}{n} + \sup_{\tilde{m} (A) = 0} m(A)\note{possible because $m(X) < \infty$}
+			\end{align*} 
 
 
 			Now let  $B = \bigcup_{n} A_{n}$. Since $\tilde m (B) = 0$, we have
-			\begin{align}
+      \begin{align}\label{eqn:16.1}
 				m(B) = \sup_{\tilde m (A) = 0} m (A)
 			\end{align}
 
@@ -121,7 +121,7 @@ Fix $\sigma$-algebra $S$ on a set $X$.
 
 			Then $m(E \cup B^c) > 0$ and $\tilde m (E \cap B^c) = 0$, then
 			$m(E \cup B) > m (B)$
-			so  $\tilde m (E \cup B) = 0$ contradicting (1).
+      so  $\tilde m (E \cup B) = 0$ contradicting \ref{eqn:16.1}.
 	\end{steps}
 \end{proof}
 
