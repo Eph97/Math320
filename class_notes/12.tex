@@ -71,17 +71,17 @@ For self-similar fractals, find an equation that the fractal solves. Use the pro
 \begin{example}
 	For Sierpinski triangle $S \subseteq \mathbb{R}^2$:
 	\begin{align*}
-		\varphi_{j} (x, y) = \left(\frac{x}{2} + \cos\left(\frac{2 \pi}{3 j}\right), \frac{y}{2} + \cos\left(\frac{2 \pi}{3 j}\right) \right)
+		\phi_{j} (x, y) = \left(\frac{x}{2} + \cos\left(\frac{2 \pi}{3 j}\right), \frac{y}{2} + \cos\left(\frac{2 \pi}{3 j}\right) \right)
 	\end{align*} for $j = 1,2,3, \ldots$ Observe,
-	$S = \bigcup_{j = 1,2,3} \varphi_j (S) $
+	$S = \bigcup_{j = 1,2,3} \phi_j (S) $
 \end{example}
 
 \begin{theorem}
-	If $\varphi_{1}, \ldots, \varphi_{m} : \mathbb{R}^d \to \mathbb{R}^d$ are strict contractions\footnote{where $\varphi_i : \R \to \R$ are iterated function systems}, meaning if there are $0 \leq r_{j} < 1$ such that
+	If $\phi_{1}, \ldots, \phi_{m} : \mathbb{R}^d \to \mathbb{R}^d$ are strict contractions\footnote{where $\phi_i : \R \to \R$ are iterated function systems}, meaning if there are $0 \leq r_{j} < 1$ such that
 	\begin{align*}
 		| Q_j (x) - Q_j (y) | \leq r_{j} |x - y |
 	\end{align*} then there is a unique compact
-	$K = \bigcup_{j=1}^{m} \varphi_{j} (k)$
+	$K = \bigcup_{j=1}^{m} \phi_{j} (k)$
 \end{theorem}
 
 \begin{proof}
@@ -92,10 +92,10 @@ For self-similar fractals, find an equation that the fractal solves. Use the pro
 		d(K_1, K_2) = \max\{ \max_{x_1 \in K_1} \min_{x_2 \in K_2} |x_1 - x_2|, \max_{x_2 \in K_2} \min_{x_1 \in K_1} |x_1 - x_2| \}
 	\end{align*}
 
-	Define $\Phi : M \to M$ by  $\Phi (K) = \bigcup_{j=1}^{m} \Phi_j (k)$
+	Define $\phi : M \to M$ by  $\phi (K) = \bigcup_{j=1}^{m} \phi_j (k)$
 	\begin{claim}
 		\begin{enumerate}
-			\item $\Phi$ strict contraction
+			\item $\phi$ strict contraction
 			\item $(M,d)$ is complete.
 		\end{enumerate}
 	\end{claim}
@@ -104,8 +104,8 @@ For self-similar fractals, find an equation that the fractal solves. Use the pro
 
 	\begin{subproof}[Proof of Claim 1]
 		\begin{align*}
-			d(\Phi(K_1), \Phi (K_2)) &= d( \bigcup_{j=1}^{m} \Phi_j(K_1),\bigcup_{j=1}^{m} \Phi_j (K_2) \\
-									 &\leq \max_{j} d( \Phi_{j}(K_1), \Phi_{j}(K_2)) \\
+			d(\phi(K_1), \phi (K_2)) &= d( \bigcup_{j=1}^{m} \phi_j(K_1),\bigcup_{j=1}^{m} \phi_j (K_2) \\
+									 &\leq \max_{j} d( \phi_{j}(K_1), \phi_{j}(K_2)) \\
 									 &\leq (\max_{j} r_{j}) d(K_{1}, K_2)
 		\end{align*} 
 	\end{subproof}
