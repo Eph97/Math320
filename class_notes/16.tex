@@ -103,7 +103,7 @@ Fix $\sigma$-algebra $S$ on a set $X$.
 			Choose $A_{n} \in S$ s.t. $ \tilde m (A_{n})$
 			\begin{align*}
         m(A_{n}) \geq -\frac{1}{n} + \sup_{\tilde{m} (A) = 0} m(A)\note{possible because $m(X) < \infty$}
-			\end{align*} 
+			\end{align*}
 
 
 			Now let  $B = \bigcup_{n} A_{n}$. Since $\tilde m (B) = 0$, we have
@@ -128,8 +128,8 @@ Fix $\sigma$-algebra $S$ on a set $X$.
 \subsection{Radon-Nikodym}
 
 \begin{theorem}
-	If $m, \tilde{m}$ are measure on $S$, $m(X) < \infty$, and $m \ll \tilde{m}$, then there is $f \ in L^{1} ( \quad{m})$ such that
-	$dm = f d\tilde{m}$
+	If $m, \tilde{m}$ are measures on $S$, $m(X) < \infty$, and $m \ll \tilde{m}$,
+	then there is $f \in L^{1} ( \tilde{m})$ such that $dm = f \, d\tilde{m}$.
 \end{theorem}
 
 \begin{remark}
@@ -138,23 +138,21 @@ Fix $\sigma$-algebra $S$ on a set $X$.
 		\item Use to upgrade decomposition
 			\begin{align*}
 				dm &= dm_{a} + dm_s \\
-				   &= dm_a + dm_s \\
-				   &= f d\tilde{m} + d m_{s}
+					 &= f \, d\tilde{m} + d m_{s}
 			\end{align*} where $f \in L^{1} (\tilde m)$
-		\item Converse is trivial if $dm = f d \tilde{m}$ and
+		\item Converse is trivial if $dm = f \, d \tilde{m}$ and
 			$f \in L^1 (\tilde{m} )$, then $m \ll \tilde{m}$
 	\end{enumerate}
 \end{remark}
 
-There are two proofs:
+\noindent There are two proofs:
 \begin{enumerate}
 	\item A measure theoretic proof
-	\item An (elementary) Functional Analysis Proof (Rudin)
+	\item An (elementary) functional analysis proof (Rudin)
 \end{enumerate}
+We'll start with the first proof (1):
 
-Well start with the first proof (1):
-
-\begin{theorem}[Hahn Decomposition] If $m_1$ and $m_2$ are measures on $S$ and $m_1 (x)$, $m_2 (x) < \infty$, then there is $P \in S$ s.t.
+\begin{theorem}[Hahn Decomposition] If $m_1$ and $m_2$ are measures on $S$ and $m_1(x) < \infty, m_2 (x) < \infty$, then there is $P \in S$ s.t.
 	\begin{enumerate}
 		\item $A \in S$ and $A \subseteq P \implies m_1 (A) - m_2 (A) \geq 0$
 		\item $A \in S$ and $A \subseteq P^c \implies m_1 (A) - m_2 (A) \leq 0$
@@ -164,7 +162,7 @@ Well start with the first proof (1):
 
 \begin{remark}
 	\begin{enumerate}
-		\item If we think of $m = m_1 - m_2$ as a signed measure, then $P$ is "positive" set and $P^c$ is a "negative" set.
+		\item If we think of $m = m_1 - m_2$ as a signed measure, then $P$ is ``positive'' set and $P^c$ is a ``negative'' set.
 		\item If $X = \{1, \ldots, N\}$, and $S = \mathcal{P} (X)$, then
 			\begin{align*}
 				P = \{x : m_{1} (\{x\}) \geq m_2 (\{ x \})\}
@@ -178,33 +176,30 @@ Well start with the first proof (1):
 	 \begin{claim}
 		 If $m_1 (A) - m_{2} (A) > 0$, then there is positive $B \subseteq A$ with
 		 \begin{align*}
-			 m_{1} (B) - m_{2} (B) \geq m_1 (A) - m_2 (A)
-		 \end{align*}.
+			 m_{1} (B) - m_{2} (B) \geq m_1 (A) - m_2 (A).
+		 \end{align*}
 	\end{claim}
-	Construct $B$ by removing negative mass. Recursively define $A = A_{0} \contains A_1 \contains \ldots$
-	Choose $A_{n+1 } \subseteq A_{n}$ such that
+	\noindent Construct $B$ by removing negative mass. Recursively define $A = A_{0} \contains A_1 \contains \ldots$
+	Choose $A_{n+1} \subseteq A_{n}$ such that
+	\begin{multline*}
+		m_{1} (A_{n+1}) - m_{2} (A_{n+1}) \\
+		\geq \max \left\{-\frac{1}{n} + \sup_{B \subset A_n} \left(m_1(B) - m_2(B) \right), m_1(A_n) - m_2(A_n) \right\}
+	\end{multline*}
+	Let $B = \bigcap_{n} A_{n}$.
 	\begin{align*}
-		m_{i} (A_{n +1} - m_{2} (A_{n+1}) =
-	\end{align*} [check]
-
-	Let $B = \bigcup_{n} A_{n}$
-	\begin{align*}
-		m_{1} (B) - m_{2} (B) &= \lim_{n \to \infty} m_{1} (A_{n}) - m_{2} (A_{n}) \\
-							  &\geq m_{1} (A) - m_{2} (A)
+		m_{1} (B) - m_{2} (B) &= \lim_{n \to \infty} (m_{1} (A_{n}) - m_{2} (A_{n})) \\
+								&\geq m_{1} (A) - m_{2} (A)
 	\end{align*}
 	To see that $B$ is positive, suppose for contradiction $E \subseteq B$ and $m_{1} (E) - m_{2} (E) < 0$.
 	For large $n$, have $m_1 (E) - m_{2} (E) < -\frac{1}{n}$.
-
-	We can imporive our choice of $A_{n +1}$ by replacing it with $A_{n +1 } \setminus E$ giving increase greater than $\frac{1}{n}$ which contradicts our construction.
+	We can improve our choice of $A_{n +1}$ by replacing it with $A_{n +1 } \setminus E$ giving increase greater than $\frac{1}{n}$ which contradicts our construction.
 	(The claim is now proved)
 
 	Let $B_{n}$ be a sequence of positive sets with
-	\begin{align*}
-		m_{1} (B_{n}) - m_{2} (B_{n}) \geq \frac{-1}{n} + \sup_{B \text{ pos}} (m_{1} (B) - m_{2} (B))
-	\end{align*}
-	Let $P = \bigcup_{n} B_{n}$. to see that $P$ is positive:
-
-	Let $E \subseteq  P$, then
+	\begin{align}\label{eq:16.2}
+		m_{1} (B_{n}) - m_{2} (B_{n}) \geq -\frac{1}{n} + \sup_{B \text{ positive}} (m_{1} (B) - m_{2} (B))
+	\end{align}
+	Let $P = \bigcup_{n} B_{n}$. To see that $P$ is positive: let $E \subseteq P$, then
 	\begin{align*}
 		E = ( E \cap B_{1} ) \cup ( E \cap B_{2} \cup B_{1}^c) \cup ( E \cap B_{3} \cap B_{2}^{c} \cap B_{1}^c ) \cup \ldots
 	\end{align*}
@@ -218,6 +213,6 @@ Well start with the first proof (1):
 		m_{1} (B_{n} \cup B) - m_{2} (B_{n} \cup B) &= m_{1} (B_{n}) - m_{2} (B_{n} ) + m_{1} (B) - m_{2} (B) \\
 													&\geq m_{1} (B_{n}) - m_{2} (B_{n} ) + \varepsilon
 	\end{align*}
-	contradicting (star) for large $n$.
+	contradicting \ref{eq:16.2} for large $n$.
 \end{proof}
 
