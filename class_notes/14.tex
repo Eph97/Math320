@@ -43,7 +43,7 @@ Observe
 	equivalently, 
 	\begin{align*}
 		\frac{\phi (c) - \phi (a)}{c - a} \leq \frac{\phi (b) - \phi (c)}{b - c} 
-		\quad \text{for} \quad  a < b
+		\quad \text{for} \quad  a < c < b
 	\end{align*} 
 \end{definition}
 	
@@ -55,10 +55,10 @@ Observe
 	$a < x < y_{k+1} < y_{k}$ where $y_{k} \xrightarrow[k \to \infty]{} \infty$ then
 	\begin{align*}
 		\frac{\phi(x) - \phi(a)}{x - a} &\leq \frac{\phi(y_{k+1}) - \phi (x)}{y_{k+1} - x} \\
-										&\leq \frac{\phi(y_{k} - \phi(x)}{y_{k} - x}
+										&\leq \frac{\phi(y_{k}) - \phi(x)}{y_{k} - x}
 	\end{align*} then
 	\begin{align*}
-		\frac{\phi(y_{k} - \phi(x)}{y_{k} - x} \to \alpha \quad \text{as} \quad k \to \infty \quad \text{and} \\
+		\frac{\phi(y_{k}) - \phi(x)}{y_{k} - x} \to \alpha \quad \text{as} \quad k \to \infty \quad \text{and} \\
 		\phi(y) = \phi(x) + \alpha (y - x) + \mathcal{O}( | y -x|) \quad \text{for} \quad y > x
 	\end{align*} 
 \end{proof}
@@ -265,7 +265,7 @@ $X$ locally compact Hausdorff. $S$ a Borel $\sigma$-algebra.
 		\1_{G_{k}} \leq h_{k} \leq \1_{U_{k}}
 	\end{align*} 
 	let $g = \sum_{k=1}^{\infty} 2^{-k}h_{k}$
-	Since $g$ is the uniform liit of a continuous function, $g$ is continuous.
+	Since $g$ is the uniform limit of a continuous function, $g$ is continuous.
 	\begin{align*}
 		\{ x \in X : f(x) \neq g(x) \} \subseteq \bigcup_{k \geq 0} ( U_{k} - G_{k} )
 	\end{align*} and
