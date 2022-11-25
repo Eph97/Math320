@@ -37,7 +37,7 @@
 	 \end{align*}
 	 and
 	 \begin{align*}
-	 	m_1 (A) + \sup_{m_2 (B) = 0} m_1 (B) = \sup_{m_2 (B) = 0} m_1 (B)
+		m_1 (A) + \sup_{m_2 (B) = 0} m_1 (B) = \sup_{m_2 (B) = 0} m_1 (B)
 	 \end{align*}
 
 	 Since $m_1 (X) < \infty$, conclude $m_1 (A) = 0$.
@@ -63,189 +63,175 @@ For $\varepsilon > 0$, there are $A \in S$ and $\delta > 0$ so
 	\begin{align*}
 		S (B) = m_1 (B) - \delta m_2 (B)
 	\end{align*}
-	Let $A_0 = X$ and choose  $A_{n+1} \subseteq A_{n}$. so
+	Let $A_0 = X$ and choose  $A_{n+1} \subseteq A_{n}$ so that
 	\begin{align*}
 		S( A_{n + 1} ) &\geq S (A_{n}) \\
-		\text{and} \quad S(A_{n+1} ) &\geq \frac{-1}{n+1} + \sup_{A \subseteq A_{n}	} S (A)
+		\text{and} \quad S(A_{n+1} ) &\geq \frac{-1}{n+1} + \sup_{A \subseteq A_{n}} S (A)
 	\end{align*}
 
-	Now let $A = \bigcap_{n \geq 0} A_n$
-
-	Compute
+	\noindent Now let $A = \bigcap_{n \geq 0} A_n$. We then compute
 	\begin{align*}
 		S(A) &= S(X) - \sum_{n \geq 0} S( A_n \setminus A_{n+1} ) \\
-			 &= S(X) - \sum_{n \geq 0} [S(A_{n}) - S(A_{n+1} ) ] \\
+         &= S(X) - \sum_{n \geq 0} [\underbrace{S(A_{n}) - S(A_{n+1})}_{\leq 0}  ] \\
 			 &\geq S(X)
 	\end{align*}
 
-	For $B \subseteq A$, compute
+	\noindent For $B \subseteq A$, compute
 	\begin{align*}
-		S(A_{n + 1} &= S(B) + S(A_{n+1} \cap B^c ) \\
+		S(A_{n + 1}) &= S(B) + S(A_{n+1} \cap B^c ) \\
 					&\leq S(B) + \sup_{A \subseteq A_{n}} S(A) \\
 					&\leq S(B) + \frac{1}{n+1} + S(A_{n+1} )
-	\end{align*} Sending $n \to \infty$ gives $S(B) \geq 0$. Unroll definition of $S$.
+	\end{align*}
+	Sending $n \to \infty$ gives $S(B) \geq 0$. Unroll the definition of $S$. $S(A) \geq S(X)$ implies
 	\begin{align*}
-		S(A) &\geq S(X) \implies \\
 		m_1 (A) - \delta m_2 (A) &\geq m_1 (X) - \delta m_2 (X) \\
-								 &\geq \varepsilon m_1 (X) \\
-	\end{align*} implies $m_1 (A) \geq ( \varepsilon + \delta) m_1 (X)$.
+								 &\geq \varepsilon m_1 (X)
+	\end{align*} which implies $m_1 (A) \geq ( \varepsilon + \delta) m_1 (X)$.
 
 	Now for $B \subseteq A$. $S(B) \geq 0$ implies $m_1 (B) \geq \delta m_2 (B)$.
 \end{proof}
 
+\epigraph{``I see my children have gotten into my bag. I only have 1 chalk left.''}{Charlie}
 
 \begin{theorem}[Radon-Nikodym]
 	For $m_1, m_2 : S \to [0, \infty) $ measures with \\
 	$m_1 \ll m_2$, there is  $f \in L^1 (m_2)$ so
-	$m_1 (A) = \int \1_A f dm_2$ for $A \in S$.
+	$m_1 (A) = \int \1_A f \, dm_2$ for $A \in S$.
 \end{theorem}
 
 \begin{proof}
-	Let $G$ denote set of $g \in L^1 (m_2)$ this satisfies
+	Let $G$ denote set of $g \in L^1 (m_2)$ that satisfies
 	\begin{align*}
 		m_1 (A) \geq \int \1_A g \, dm_2 \quad \text{for } A \in S
 	\end{align*}
-	Note $0 \in G$, also
+	Note $0 \in G$. Also note
 	$g_1 , g_2 \in G \implies \max \{g_1, g_2\} \in G$.
 
 	Let $B = \{g_1 \geq g_2\}$
 	\begin{align*}
-		m_1 (A) &= m_1 (Aa \cap B) + m_2 (A \cap B^c) \\
+		m_1 (A) &= m_1 (A \cap B) + m_2 (A \cap B^c) \\
 				&\geq \int \1_{A \cap B} \, g_1 \, d m_2 + \int \1_{A \cap B^c} \, g_2 \, dm_2 \\
 				&= \int \1_{A \cap B} \, g \, d m_2 + \int \1_{A \cap B^c} \, g \, dm_2 \\
-				&= \int \1_A g dm_2
+				&= \int \1_A g \, dm_2
 	\end{align*}
 
-	Choose $g_n \in G$ with
+	Choose $g_n \in G$ with $g_{n+1} \geq g_n$
 	\begin{align*}
-		g_{n+1} &\geq g_n \\
-		\lim_{n \to \infty} \int g_{m} d m_2 &= \sup_{g \in G} \int g dm_2 \\
+		\lim_{n \to \infty} \int g_{m} d m_2 &= \sup_{g \in G} \int g \, dm_2 \\
 											 &\leq m_1 (X) < \infty
 	\end{align*}
 
 	Let $f = \lim_{n\to \infty} g_n$. By monotone convergence,
 	\begin{align*}
-		m_1 (A) \geq \int \1_A g_n dm_2 \to \int \1_{A} f dm_2
+		m_1 (A) \geq \int \1_A g_n \, dm_2 \to \int \1_{A} f \, dm_2
 	\end{align*} In particular, $f \in G$.
 
-	Want $m_1 (A) \leq \int \1_{A} f dm_2$.
-
-	Consider the "residual" measure, $m_3 (A) = m_1 (A) - \int \1_{A} f dm_2$
-
-	Observe: $m_3$ is a measure and $m_3 \ll m_1$.
-	By lemma, choose $A \in S$ and $\delta > 0$ so
+	We want $m_1 (A) \leq \int \1_{A} f \, dm_2$.
+	Consider the "residual" measure,
+	\[
+		m_3 (A) = m_1 (A) - \int \1_{A} f \, dm_2.
+	\]
+	Observe that $m_3$ is a measure and $m_3 \ll m_1$.
+	By the lemma, choose $A \in S$ and $\delta > 0$ so (I DON'T KNOW IF IT SHOULD BE A OR E... REST OF PROOF MAY BE WRONG)
 	\begin{align*}
-							m_3 (E) &\geq \frac{1}{2} m_33 (X) \\
-		\text{and} \quad 	m_3 (B) &\geq \delta m_2 (B) \quad \text{for} B \subseteq A.
-	\end{align*} (Should be E?)
+		m_3 (A) \geq \frac{1}{2} m_3 (X)
+		\qquad \text{and} \qquad m_3 (B) \geq \delta m_2 (B) \quad \text{for } B \subseteq A.
+	\end{align*}
 	Rewrite as
 	\begin{align*}
-		m_3 (B) &\geq \delta m_2 ( B \cap E) \\
-				&= \int \1_{B} \delta \1_E d m_2 \quad \text{for} B \in S.
+		m_3 (B) &\geq \delta m_2 ( B \cap A) \\
+				&= \int \1_{B} \delta \1_A \, dm_2 \quad \text{for } B \in S.
 	\end{align*}
-
-	using def of $m_3$,
+	Using the definition of $m_3$,
 	\begin{align*}
-		m_1 (A) \geq \int \1_A (f + \delta \1_E ) d m_2
+		m_1 (A) \geq \int \1_A (f + \delta \1_B ) \, dm_2
 	\end{align*}
-	for all $A \in S$, by maximality of $f,$
+	for all $A \in S$. By maximality of $f$,
+		\[
+			\int \delta \1_E \, dm_2 = 0.
+		\]
+	From which we obtain
 	\begin{align*}
-		\int \delta \1_E dm_2 = 0, \\
 		m_2 (E) = 0 \implies m_3 (E) = 0 \implies m_3 (X) = 0
 	\end{align*}
 \end{proof}
 
-
-
 \begin{corollary}[To Radon-Nikodym]
-	If $m_1, m_2 : S \to [0, \infty)$	 measures, then there are unique $m_s :S \to [0, \infty)$ measure and
+	If $m_1, m_2 : S \to [0, \infty)$ measures, then there are unique $m_s :S \to [0, \infty)$ measure and
 	$f \in L^{1} (m_2)$ so $m_s \perp m_2$ and $m_1 (A) = m_s (A) + \int \1_A f d m_2$
 \end{corollary}
 
-\begin{remark*}[Notation] \\
-	$d m_1 = f dm_2$ $\iff $ $\int \1_A d m_1 = \int \1_A d m_2$ for $A \in S$.
-\end{remark*}
+\begin{notation}
+	$dm_1 = f \, dm_2$ $\iff $ $\int \1_A \, dm_1 = \int \1_A \, dm_2$ for $A \in S$.
+\end{notation}
 
-\begin{theorem}[Radon-Nikodym] we restate the theorem: \\
+\begin{theorem}[Radon-Nikodym] We restate the theorem: \\
 	$m_1 \ll m_2$ if and only if
 	\begin{align*}
-		d m_1 = f d m_2 \quad \text{for some } f \in L^1 (m_2) .
+		dm_1 = f \, dm_2 \quad \text{for some } f \in L^1 (m_2) .
 	\end{align*}
-	Call f the "derivative of $m_1$ with respect to $m_2$."
+	Call $f$ the ``derivative of $m_1$ with respect to $m_2$.''
 \end{theorem}
 
 % Pardon the many times this has iterated, but this is to fix the overfull hbox problem
 \subsection[Alternative proof using Hilbert Space and Riesz-Representation]{\texorpdfstring{Alternative proof using Hilbert Space \\ and Riesz-Representation}{Alternative proof using Hilbert Space and Riesz-Representation}}
 
 We assume basic knowledge of Hilbert spaces (complete inner-product space).
-
-Direct proof of the corollary
+We start with a direct proof of the corollary.
 
 \begin{proof}
 	Start with measures $m_1, m_2 :S \to [0,\infty)$.
-	Let  $m_3 = m_1 + m_2$
-
-	Now compute for  $f \in L^2 (m_3)$
+	Let  $m_3 = m_1 + m_2$. Now compute for $f \in L^2 (m_3)$,
 	\begin{align*}
-		\left| \int f dm_1 \right| &\leq \int |f| dm_1 \leq \int |f| dm_3 \\
-						&\leq \left( \int |f|^2 dm_3 \right)^{1/2} \left( \int 1 dm_3 \right)^{1/2}\\
+		\left| \int f \, dm_1 \right| &\leq \int |f| \, dm_1 \leq \int |f| \, dm_3 \\
+						&\leq \left( \int |f|^2 \, dm_3 \right)^{1/2} \left( \int 1 \, dm_3 \right)^{1/2}\\
 						&= \sqrt{m_3 (X)} \, \|f\|_{L^{2}(m_3)}
 	\end{align*}
-	So $\Lambda f = \int f dm_3$ is a bounded linear functional.
-
+	So $\Lambda f = \int f \, dm_3$ is a bounded linear functional on $L^2(m_3)$.
 	Since $L^{2} (m_3)$ is a Hilbert space, Riesz gives a unique $g \in L^{2} (m_3)$ so
 	\begin{align*}
-		\Lambda f = \int f g dm_3 \quad \text{for } f \in L^{2}(m_3)
+		\Lambda f = \int f g \, dm_3 \quad \text{for } f \in L^{2}(m_3)
 	\end{align*}
-
 	Rewrite
 	\begin{align*}
-		\int f dm_1 = \int f g d m_3 \quad \text{where $m_3 = m_1 + m_2$}
+		\int f \, dm_1 = \int f g \, dm_3 \quad \text{where $m_3 = m_1 + m_2$}
 	\end{align*}
-
-	For $f = \1_{A}$, $m_1 (A) = \int \1_{A} g dm_3$ or
+	For $f = \1_{A}$,
 	\begin{align*}
-		0 \leq \frac{\int \1_{A} g dm_3}{m_3 (A)} = \frac{ m_1 (A)}{m_3 (A)} \leq 1
+		m_1 (A) = \int \1_{A} g \, dm_3 
+		\quad \text{or} \quad 0 \leq \frac{\int \1_{A} g \, dm_3}{m_3 (A)} = \frac{ m_1 (A)}{m_3 (A)} \leq 1
 	\end{align*}
 	Conclude $m_3 (\{0 \leq g \leq 1\}^c) = 0$. In other words, change $g$ on a set of $m_3$-measure zero so $0 \leq g \leq 1$ everywhere.
-
-	\begin{align*}
-		\text{let  } E &= \{ 0 \leq g < 1 \} \\
-		m_a (A) &= m_1 (A \cap E), \text{ and} \\
-		M_s (A) &= m_1 (A \cap E^c),
-	\end{align*}
+	
+	Let $E = \{ 0 \leq g < 1 \}$, $m_a (A) = m_1 (A \cap E)$, and
+	$M_s (A) = m_1 (A \cap E^c)$.
 	Rewrite again
 	\begin{align*}
 		\int (1 - g) f \, dm_1 = \int fg \,dm_2.
 	\end{align*}
-	since $(1 - g) \1_{E^c} \equiv 0$ and $\1_{E^c} g - \1_{E^c}$, obtain $m_2 (E^c) = 0$
-	and so $m_2 \perp m_s$. 
+	Since $(1 - g) \1_{E^c} \equiv 0$ and $\1_{E^c} g = \1_{E^c}$, we obtain $m_2 (E^c) = 0$
+	and so $m_2 \perp m_s$.
 
-
-	Now for  $A \subseteq E$, setting
+	For $A \subseteq E$, setting
 	\begin{align*}
 		f = (1 + g + \cdots + g^n) \1_{A } \in L^2 (m_3)
 	\end{align*} gives
 	\begin{align*}
-		\int ( 1 - g^{n+1}) \1_{A} dm_1 = \int (g + g^2 + \cdots + g^{n+1}) \1_{A} dm_2
+		\int ( 1 - g^{n+1}) \1_{A} \, dm_1 = \int (g + g^2 + \cdots + g^{n+1}) \1_{A} \, dm_2
 	\end{align*}
-	let $h = \sum_{n \geq 0} g^{n} \1_{E}$.
-
-	Since $A \subseteq E = \{ 0 \leq g \leq 1\}$
+	Let $h = \sum_{n \geq 0} g^{n} \1_{E}$. Since $A \subseteq E = \{ 0 \leq g \leq 1\}$,
 	\begin{align*}
 		&(1 - g^{n+1}) \1 \searrow \1_{A} \\
 		&(g + g^2 + \cdots + g^{n+1} ) \1_{A} \nearrow h \1_{A}
 	\end{align*}
-	So by monotone convergene
+	So by monotone convergence,
 	\begin{align*}
-		\int \1_{A} dm_1 = \int h \1_{A} dm_2
+		\int \1_{A} \, dm_1 = \int h \1_{A} \, dm_2
 	\end{align*}
 \end{proof}
 
-
-
 \begin{remark}
-	Both proofs have the same ingredients: approximate from below and the monotone connvergence.
+	Both proofs have the same ingredients: approximate from below and monotone connvergence.
 
 	Riesz proof makes series for $\frac{d m_1}{d m_2}$
 \end{remark}
