@@ -1,6 +1,6 @@
 # MATH 320
 
-This repository contains a collection of lecture notes for Yale's measure theory and integration class (MATH 320) during the Fall 2022 semester.
+This repository contains a collection of lecture notes for Yale's measure theory and integration class (MATH 320) for the Fall 2022 semester.
 
 These lecture notes will be collected throughout the semester by Ephraim Sutherland and Joshua Park.
 
