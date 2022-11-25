@@ -1,42 +1,51 @@
 \section{2022-11-14}
 
-We previously proved 
+\subsection*{In previous lectures...}
 
 \begin{theorem}[Radon-Nikodym]
 	If there are $m_1, m_2 : S \to [0, \infty)$ measures, then there are unique $m_s, m_a : S \to [0, \infty)$ and $f \in L^{1} (m_2)$ so
 	\begin{align*}
-		m_1 &= m_a + m_s \quad m_s \perp m_2 \\
-		m_a << m_2 \quad d m_a = f d_2
-	\end{align*} 
-
+		m_1 &= m_a + m_s && m_s \perp m_2 \\
+		m_a &\ll m_2 && dm_a = f \, d_2
+	\end{align*}
 \end{theorem}
 
-
 \begin{theorem}[Maximal inequality]
-		if $m : \mathcal{B}(R)$
+	If $m : \mathcal{B}(\R^d) \to [0, \infty)$ is a measure, then the maximal function
+	\[
+		Mm(x) = \sup_{r > 0} \frac{m(\mathcal{B}(x,r))}{L(\mathcal{B}(x,r))}
+	\]
+	satisfies $L(\{ Mm > \lambda \} ) \leq \frac{3}{\lambda}m(\R^d)$.
 \end{theorem}
 
 \begin{theorem}[Lebesgue differentiation]
-	If $f \in L^{1} (\R^d)$, then $L ()$
+	If $f \in L^{1} (\R^d)$, then 
+	\[
+		L(\{ x \textrm{ Lebesgue for } f \}^a) = 0.
+	\] 
+	Here, $x$ Lebesgue for $f$ if and only if
+	\[
+		\lim_{r \to 0} \frac{\int_{\mathcal{B}(x,r)} |f - f(x)| \, dL}{L(\mathcal{B}(x,r))} = 0.
+	\]
 \end{theorem}
 
-\subsection{Difference Quotient}
+\subsection{Difference Quotients}
 
-\begin{definition}[Difference quotients]
+\begin{definition}[Difference Quotients]
 	For $m: \mathcal{B}(\R^d) \to [0, \infty]$ measure,
-	let 
+	let
 	\begin{align*}
 		D m (x) = \lim_{r \to 0} \frac{m ( \mathcal{B} (x, r))}{L(\mathcal{B}(x, r))}
-	\end{align*} 
+	\end{align*}
 
 	Want: $D m$ is $f$ from Radon-Nikodym decomposition of $m$ with respect to $L$.
 \end{definition}
 
 \begin{theorem}
-	If $m: \mathcal{B}(\R^d) \to [0, \infty)$ measure and $m << L$, then 
+	If $m: \mathcal{B}(\R^d) \to [0, \infty)$ measure and $m << L$, then
 	\begin{align*}
 		D m \in L^{1} (\R^d) \quad \text{and} \quad m(A) \int \1_A dm dL
-	\end{align*} 
+	\end{align*}
 \end{theorem}
 
 \begin{proof}
@@ -47,7 +56,7 @@ We previously proved
 
 	\begin{align*}
 		f(x) = \lim_{r \to 0} \frac{\int_{B(x, r)} f dL}{L(B(x,r))} = \lim_{r \to 0} \frac{m(B(x,r))}{L(B(x,r))} = D m(x)
-	\end{align*} 
+	\end{align*}
 	for $L$-a.e. $x \in \R^d$.
 \end{proof}
 
@@ -60,48 +69,48 @@ We previously proved
 	If $m : \mathcal{B}(\R^d) \to [0,\infty)$ a measure and $m \perp L$, then
 	\begin{align*}
 		D m(x) = 0 \quad \text{for} \quad L \text{-a.e.} \quad x \in \R^d
-	\end{align*} 
+	\end{align*}
 \end{theorem}
 
 \begin{proof}
-	Define 
+	Define
 	\begin{align*}
 		\bar{D} m(x) = \limsup_{r \to 0} \frac{m(B(x,r))}{L(B(x,r))}
-	\end{align*} 
+	\end{align*}
 we show $L( \{ \bar{D}m > \lambda \}) = 0$
 
 Since $m \perp L$, there is Borel $E \subseteq \R^d$. So $L(E) = 0$ and $m(E^c) = 0$.
 Since  $m$ is a borel measure and $\R^d$ nice, we can choose $K \subseteq  E$ compact with
 \begin{align*}
 	m(K) \geq m(E) - \varepsilon.
-\end{align*} 
+\end{align*}
 Let
 \begin{align*}
 	m_1 (A) &= m(A \cap K) \quad \text{and} \\
 	m_2 (A)	&= m( A \cap K^c)
 \end{align*}
 
-Observe: 
+Observe:
 \begin{align*}
 	&m = m_1 + m_2 \quad \text{and} \\
 	&m_2(\R^d)\leq \varepsilon
-\end{align*} 
+\end{align*}
 
 So $m_1$ dives on compact sets of $L$-measure zero and $m_2$ has small total mass.
-If $X \in K^c$, then 
+If $X \in K^c$, then
 \begin{align*}
 	\bar{D}m(x) = \bar D m_2 (x) \leq M m_2 (x)
-\end{align*} 
-It follows that 
+\end{align*}
+It follows that
 \begin{align*}
 	&\{ \bar{D} m > \lambda \} \subseteq  K U \{ M m_2 > \lambda \}. \quad \text{compute} \\
 	&L (K) \leq L(E) = 0 \quad \text{and} \\
 	&L (\{ M m_2 > \lambda \}) \leq \frac{3^d}{\lambda} m_2 (\R^d) \leq \frac{3^d \varepsilon}{\lambda}
-\end{align*} 
+\end{align*}
 Sending $\varepsilon \to 0$ gives
 \begin{align*}
 	L ( \{ \bar{D} m > \lambda \} = 0
-\end{align*} 
+\end{align*}
 conclude
 \[
 	L\{ \bar{D} m > 0 \}) = 0
@@ -129,10 +138,10 @@ conclude
 	Define
 	\[
 		\bar{D} m(X) = \limsup_{r \to 0} \frac{m(B(x,r))}{L(B(x,r))}
-	\] we show 
+	\] we show
 	\[
 		L(\{ \bar{D} m > \lambda \} ) = 0
-	\] 
+	\]
 	Since $m \perp L$, there is Borel $E \subseteq \R^d$ so $L(E) = 0$ and $m(E^c) = 0$.
 	And since  $m$ a borel measure and $\R^d$ nice, we can choose $K \subseteq E$ compact with
 	\[
@@ -142,13 +151,13 @@ conclude
 	\begin{align*}
 		m_1 (A) &= m( A \cap K) \quad \text{and} \\
 		m_2 (A) &= m(A \cap k^c)
-	\end{align*} 
+	\end{align*}
 	observe: $m = m_1 + m_2$ and $m_2 (\R^d) \leq \varepsilon$.
 	So $m_1$ dives on compact set of $L$-measure zero and $m_2$ has small total mass.
 	If $x \in K^c$, then
 	\[
 		\bar{D} m(x) = \bar{D}m_2 \leq M m_2 (x)
-	\] 
+	\]
 
 	Now it follows that
 	\[
@@ -165,7 +174,7 @@ conclude
 	\] and we conclude that
 	\[
 	L( \bar{D} m > 0 \}) = 0
-	\] 
+	\]
 \end{proof}
 
 
@@ -176,7 +185,7 @@ conclude
 	\] in particular
 	\[
 		m \perp L \iff D m=0 \quad L\text{-a.e.}
-	\] 
+	\]
 \end{corollary}
 
 If we consider $m$ instead, then
@@ -186,21 +195,21 @@ If we consider $m$ instead, then
 \end{theorem}
 
 \begin{proof}
-Let 
+Let
 \[
 	\underline{D} m(x) = \liminf_{r \to 0} \frac{m(B(x,r))}{m(L(x,r))}
 \]
 we show $m(\{ \underline{D} m < \alpha \}) = 0$.
 
-Since $m \perp L$, there is $E \subseteq \R^d$ borel with $L(E) = 0$ and $m(E^c) = 0$. 
+Since $m \perp L$, there is $E \subseteq \R^d$ borel with $L(E) = 0$ and $m(E^c) = 0$.
 
 Choose $V \contains E$ open with $L(V) \leq \varepsilon$. Let $w = \{ \underline{D} m < \alpha \} \cap E$.
 
 If  $x \in W$, then there are arbitrary small  $r > 0$ so
 \[
 	m(B(x,r)) < \alpha L(B(x,r))
-\]. 
-Let $B$ be a collection of balls $B(x,r)$ so 
+\].
+Let $B$ be a collection of balls $B(x,r)$ so
 \begin{align*}
 	&x \in W \\
 	&B(x,5r) \subseteq V \quad \text{and} \\
@@ -215,21 +224,21 @@ Compute
 		 &< \sum_{B \in \B_{0}} \alpha L(5B) \\
 		 &= \sum_{B \in \B_0} 5^d \alpha L(B) = 5^d \alpha L(\bigcup_{B \in \B_0} B) \\
 		 &\leq 5^d \alpha L(V) \leq 5^d \alpha \varepsilon.
-\end{align*} 
+\end{align*}
 
 Sending $\varepsilon \to 0$ gives $m(\{ \underline{D} m < \alpha \} ) = 0$.
 Conclude that
  \[
 	 m(\{ \underline{D} m < \infty\}) \leq \sum_{n \geq 0} m (\{ \underline{D} m < n \} ) = 0
-\] 
+\]
 \end{proof}
 [finish]
 
 \begin{remark}
-	If $m \perp L$, then 
+	If $m \perp L$, then
 	\[
-		\frac{m(B(x,r))}{L(B(x,r))} 
-	\] 
+		\frac{m(B(x,r))}{L(B(x,r))}
+	\]
 \end{remark}
 [comeback to]
 
@@ -251,7 +260,7 @@ Suppose $A \subseteq \R^d$ is borel and bounded.
 \begin{remark}
 	 \[
 		\1_a \in L^1 (\R^d)
-	\] 
+	\]
 \end{remark}
 
 By lebesgue differentiation
@@ -262,21 +271,21 @@ By lebesgue differentiation
 \underline{Unrolling Definitions}
 
 \[
-	\lim_{r \to 0}  \frac{L(B(,x,r) \cap A)}{L(B(x,r))} = \1_{A} (x) 
+	\lim_{r \to 0}  \frac{L(B(,x,r) \cap A)}{L(B(x,r))} = \1_{A} (x)
 	\quad \text{for } L \text{-a.e. } x \in \R^d
-\] 
+\]
 
 Density is $L$-a.e. either $0$ or $1$. It is impossible to build a Borel set $A$ so
 \[
 	0 < \varepsilon < \frac{L(A \cap B(x,r))}{L(B(x,r))} < 1 - \varepsilon
-\] 
+\]
 for all $B(x,r)$.
 
 \begin{remark}
 	The measure theoretic boundary of a borel set $A \subseteq \R^d$ is
 	\[
 \partial_{L}(A) = \left\{x \in \R^d : \lim_{r \to 0}  \frac{L(A \cap B(x,r))}{L(B(x,r))} \notin \{0,1\} \right\}
-	\] 
+	\]
 	and always satisfies $L(\partial_{L} A) = 0$
 \end{remark}
 
@@ -293,7 +302,7 @@ for all $B(x,r)$.
 	If $x \in \R^d$ is lebesgue for $f \in L^1 (\R^d)$, then
 	\[
 		f(x) = \lim_{k \to \infty}  \frac{\int | f - f(k) |\1_{A_k} dL}{l(A_{k})}
-	\] whenever 
+	\] whenever
 	\[
 		A_k \subseteq B(x,r_{k}), \quad \inf_{k} \frac{L(A_k)}{L(B(x,r_k))} > 0 \quad \text{and }\quad r_k \to 0
 	\]
@@ -305,9 +314,9 @@ for all $B(x,r)$.
 		\varepsilon = \inf_{k} \frac{L(A_k)}{L(B(x,r_k))} > 0
 	\end{align*}. Compute
 	\begin{align*}
-		\frac{\int | f - f(x) | \1_{A_k} dL}{L(A_k)} \leq \frac{\int |f - f(x) | \1_{B(x,r_k) dL}}{\varepsilon L(B(x,r))} 
+		\frac{\int | f - f(x) | \1_{A_k} dL}{L(A_k)} \leq \frac{\int |f - f(x) | \1_{B(x,r_k) dL}}{\varepsilon L(B(x,r))}
 		\longrightarrow 0 \quad \text{as} \quad r_k \to 0
-	\end{align*} 
+	\end{align*}
 	for $x$ lebesgue.
 \end{proof}
 
@@ -324,7 +333,7 @@ for all $B(x,r)$.
 	for $h > 0$,
 	 \[
 		\frac{F(x +h) - F(x)}{h} = \frac{\int f \1_{[x,x+h)} dL}{L([x,x+h))}
-	\] 
+	\]
 	apply lemma to $A_k = [x, x+h) \subseteq (x-h, x+h)$ to conclude $F' = f$ at all lebesgue points of f.
 \end{proof}
 
@@ -341,7 +350,7 @@ for all $B(x,r)$.
 	\] and
 	\[
 		\sum_{k=1}^n (b_n - a_k) < \delta
-	\] 
+	\]
 \end{definition}
 
 \begin{remark}
