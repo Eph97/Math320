@@ -57,11 +57,9 @@ For $\varepsilon > 0$, there are $A \in S$ and $\delta > 0$ so
 
 
 \begin{proof}
-	Assume $m_1 (X) > 0$.
+	Assume $m_1 (X) > 0$. Choose $\delta > 0$ so $m_1 (X) - \delta m_2 (X) \geq \varepsilon m_1 (X)$.
 
-	Choose $\delta > 0$ so $m_1 (X) - \delta m_2 (X) \geq \varepsilon m_1 (X)$
-
-	Define:
+	\noindent Define:
 	\begin{align*}
 		S (B) = m_1 (B) - \delta m_2 (B)
 	\end{align*}
@@ -176,9 +174,8 @@ For $\varepsilon > 0$, there are $A \in S$ and $\delta > 0$ so
 	Call f the "derivative of $m_1$ with respect to $m_2$."
 \end{theorem}
 
-\subsection{Alternative proof using Hilbert Space and Riesz-Representation}
-
-
+% Pardon the many times this has iterated, but this is to fix the overfull hbox problem
+\subsection[Alternative proof using Hilbert Space and Riesz-Representation]{\texorpdfstring{Alternative proof using Hilbert Space \\ and Riesz-Representation}{Alternative proof using Hilbert Space and Riesz-Representation}}
 
 We assume basic knowledge of Hilbert spaces (complete inner-product space).
 
@@ -219,10 +216,10 @@ Direct proof of the corollary
 	\end{align*}
 	Rewrite again
 	\begin{align*}
-		\int (1 - g) f dm_1 = \int fg dm_2.
+		\int (1 - g) f \, dm_1 = \int fg \,dm_2.
 	\end{align*}
 	since $(1 - g) \1_{E^c} \equiv 0$ and $\1_{E^c} g - \1_{E^c}$, obtain $m_2 (E^c) = 0$
-	and so $m_2 \perp m_s$.  \\
+	and so $m_2 \perp m_s$. 
 
 
 	Now for  $A \subseteq E$, setting

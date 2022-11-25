@@ -97,20 +97,21 @@ in which case we let  $\int_{Q} f$ denote the common value.
 
 \subsection{Measures}
 
-We have two notions of volume
+\noindent We have two notions of volume.
 \begin{enumerate}
 	\item The outer Jordan measure of a set $x \subseteq \R^d$ is
 			\[
 				J^* (x)
-				= \inf \left\{ \sum_{k=1}^{n} |Q_k| : n \geq 1, Q_1, \ldots, Q_n \subseteq R^n
-					\text{ closed rectangles and }
+				= \inf \left\{ \sum_{k=1}^{n} |Q_k| : n \geq 1, Q_1, \ldots, Q_n \subseteq R^n \text{ and }
 				x \subseteq \bigcup_{k=1}^{b} Q_k \right\}
 			\]
 	\item Outer Lebesgue measure of a set $X \subseteq \R^n$ is
 		\begin{align*}
-			L^*(x) = \inf \left\{ \sum_{k=1}^{\infty}|Q_k| : Q_1, Q_2, \ldots \subseteq R^n
-				\text{ closed rectangles and } x \subseteq \bigcup_{k=1}^{\infty} Q_k \right\}
+			L^*(x) 
+			= \inf \left\{ \sum_{k=1}^{\infty}|Q_k| : Q_1, Q_2, \ldots \subseteq R^n \text{ and }
+			x \subseteq \bigcup_{k=1}^{\infty} Q_k \right\}
 		\end{align*}
+		where $R^n$ are closed rectangles.
 
 		We have some important properties for these measures, namely
 

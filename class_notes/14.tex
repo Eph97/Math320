@@ -1,14 +1,9 @@
 \section{2022-10-26}
 
-\noindent
-Last time: \\
-Moran's theorem for fractals \\
+Last time we covered Moran's theorem for fractals. 
+Today, we will return to Rudin's narrative following chapter 3: $L^{p}$-spaces.
 
-\noindent
-Today: \\
-Return to rudin Narrative following chapter $3$: $L^{p}$-spaces.
-
-\subsection{$L^{p}$-spaces}
+\subsection{\texorpdfstring{$L^{p}$-spaces}{Lp-spaces}}
 
 Recall definition of $L^{1}$.
 
@@ -28,25 +23,25 @@ Observe
 \end{align*} let
  \begin{align*}
 	 L^{1} (m) &= \mathcal{L}^1 (m) / \mathcal{N} (m) \\
-	 \|\{f\}\|_{L^1 (m) } &= \|f\|_{\mathcal{L}^1 (m) } 
-\end{align*} 
+	 \|\{f\}\|_{L^1 (m) } &= \|f\|_{\mathcal{L}^1 (m) }
+\end{align*}
 
 
 \subsection{ Jensen's Inequality }
-	
+
 \begin{definition}[Convex]
 	$\phi : \R \to \R$ is convex if and only if
 	\begin{align*}
 		\phi (( 1 - t) a + tb) \leq (1-t) \phi (a) + t \phi (b)
 	\end{align*} for $a \leq b$ and $0 \leq t \leq 1$
 
-	equivalently, 
+	equivalently,
 	\begin{align*}
-		\frac{\phi (c) - \phi (a)}{c - a} \leq \frac{\phi (b) - \phi (c)}{b - c} 
+		\frac{\phi (c) - \phi (a)}{c - a} \leq \frac{\phi (b) - \phi (c)}{b - c}
 		\quad \text{for} \quad  a < c < b
-	\end{align*} 
+	\end{align*}
 \end{definition}
-	
+
 \begin{lemma}
 	Convex $\implies$ continuous
 \end{lemma}
@@ -60,11 +55,11 @@ Observe
 	\begin{align*}
 		\frac{\phi(y_{k}) - \phi(x)}{y_{k} - x} \to \alpha \quad \text{as} \quad k \to \infty \quad \text{and} \\
 		\phi(y) = \phi(x) + \alpha (y - x) + \mathcal{O}( | y -x|) \quad \text{for} \quad y > x
-	\end{align*} 
+	\end{align*}
 \end{proof}
 
 \begin{remark}
-	we could extend the notion of convexity to allow $\phi : [-\infty, \infty] \to (-\infty, \infty]$ 
+	we could extend the notion of convexity to allow $\phi : [-\infty, \infty] \to (-\infty, \infty]$
 	\begin{lemma}
 		okay except for jumps [insert pic]
 		\begin{align*}
@@ -73,24 +68,24 @@ Observe
 				\infty & |x| > 1 \\
 				0 &|x| \leq 1
 			\end{cases}
-		\end{align*} 
+		\end{align*}
 	\end{lemma}
-	
+
 \end{remark}
 
 \begin{theorem}[Jensen's Inequality]
-	$m(x) = 1$, $f \in C^{1}(m)$, $a < f < b$ and \\ 
+	$m(x) = 1$, $f \in C^{1}(m)$, $a < f < b$ and \\
 	$\phi : (a,b) \to \R$ convex, then
 	\begin{align*}
 		\phi\left(\int f dm \right) \leq \int \phi(f) dm
-	\end{align*} 
+	\end{align*}
 \end{theorem}
 
 \begin{proof}
 	Let $c = \int f dm$. Choose $\alpha \in \R$ so
 	\begin{align*}
 		\phi (x) \geq \phi (c) + \alpha (x - c) \quad x \in (a,b)
-	\end{align*} 
+	\end{align*}
 	compute
 	\begin{align*}
 		\int \phi (f) dm &\geq \int \phi (c) + \alpha (f -c) dm \\
@@ -107,20 +102,20 @@ Observe
 
 \begin{align*}
 	e^{\int f dm} \leq \int e^{f} dm \\
-	e^{\log f dm} \leq \int f dm \quad f > 0 \\ 
-\end{align*} let $m$ be the $\frac{1}{N} \times$ counting measure on $\{1, \ldots, N \}$ 
+	e^{\log f dm} \leq \int f dm \quad f > 0 \\
+\end{align*} let $m$ be the $\frac{1}{N} \times$ counting measure on $\{1, \ldots, N \}$
 
 \begin{align*}
 	e^{\frac{1}{N} \log f_{1} + \cdots + \log f_{N}} \leq \frac{1}{N} (f_{1} + \cdots + f_{N} ) \\
 	(f_{1}, \ldots, f_{N})^{\frac{1}{N}} \leq \frac{f_{1} + \cdots + f_{N}}{N} \quad \text{for} \quad f_{1}, \ldots, f_{N} > 0
-\end{align*} 
+\end{align*}
 
 \begin{theorem}[Holder Inequality]
 	Suppose $1 < p,q < \infty$ and $\frac{1}{p} + \frac{1}{q} = 1$.
 	By convexity,
 	\begin{align*}
 		e^{\frac{s}{p} + \frac{t}{q}} \leq \frac{e^{s}}{p} + \frac{e^{t}}{q}
-	\end{align*} 
+	\end{align*}
 \end{theorem}
 
 \begin{remark}
@@ -132,10 +127,10 @@ Observe
 \end{remark}
 
 \begin{theorem}[Holder]
-	If $f,g: X \to [0,\infty]$ measurable, then 
+	If $f,g: X \to [0,\infty]$ measurable, then
 	 \begin{align*}
 		\int fg dm \leq \left( \int f^{p} dm\right)^{\frac{1}{p}} \left( \int g^{q} dm\right)^{\frac{1}{q}}
-	\end{align*} 
+	\end{align*}
 \end{theorem}
 
 \begin{proof}
@@ -144,13 +139,13 @@ Observe
 	\begin{align*}
 		\int fg dm &\leq \int \frac{f^{p}}{p} + \frac{g^{q}}{q} dm = \frac{1}{p} + \frac{1}{q} = 1 \\
 				   &= \left( \int f^{p} dm \right)^{\frac{1}{p}} \left( \int g^{q} dm\right)^{\frac{1}{q}}
-	\end{align*} 
+	\end{align*}
 \end{proof}
 
 \begin{corollary}[Weak Minkowski]
 \begin{align*}
 	\left( \int (f + g)^{p} dm \right)^{1/p} \leq \left( \int f^{p} dm \right)^{1/q} + \left( \int g^{p} dm \right)^{1/p}
-\end{align*} 	
+\end{align*}
 \end{corollary}
 
 \begin{proof}
@@ -161,44 +156,44 @@ Observe
 		\int f ( f + g)^{p-1} dm &\leq \left( \int f^{p} dm \right)^{1/p} \left( \int (f+g)^{p} dm \right)^{\frac{p-1}{p}} \\
 		\int g ( f + g)^{p-1} dm &\leq \left( \int g^{p} dm \right)^{1/p} \left( \int (f+g)^{p} dm \right)^{\frac{p-1}{p}} \\
 	\int ( f + g)^{p} dm &\leq \left[ \left( \int f^{p} dm \right)^{1/p} + \left( \int g^{p} dm \right)^{1/p} \right] \left( \int (f+g)^{p} dm \right)^{\frac{p-1}{p}} \\
-	\end{align*} 
+	\end{align*}
 \end{proof}
 
-\subsection{$L^{p}$-Spaces}
+\subsection{\texorpdfstring{$L^{p}$-spaces}{Lp-spaces}}
 
 \noindent For $1 \leq p < \infty$:
 
 \noindent $\mathcal{L}^{p} (m)$ is space of measurable $f : X \to [-\infty, \infty]$ such that
  \begin{align*}
 	\|f\|_{\mathcal{L}^{p} (m)} = \left( \int |f|^{p} dm \right)^{1/p} < \infty
-\end{align*} 
+\end{align*}
 
 
 
 \noindent $\mathcal{L}^{\infty} (m)$ is space of measurable $f : X \to [-\infty, \infty]$ such that
  \begin{align*}
  \|f\|_{\mathcal{L}^{\infty} (m)} = \inf\{\alpha \geq 0 : m ( \{ x \in X : |f(x)| > \alpha \}) =0 \}
-\end{align*} 
+\end{align*}
 
 Observe
 
 \begin{align*}
 	\|\alpha f\|_{\mathcal{L}^{p}(m)} &= \alpha \|f \|_{\mathcal{L}^{p} (m)} \quad \text{and by minkowski} \\
 	\| f + g\|_{\mathcal{L}^{p}(m)} &=  \|f \|_{\mathcal{L}^{p} (m)} + \|g \|_{\mathcal{L}^{p} (m)}  \forall \alpha \geq 0 \quad \text{and} \quad f,g \in \mathcal{L}^{p} (m) \\
-\end{align*} 
- let 
+\end{align*}
+ let
  \begin{align*}
  	L^{p} (m) = \mathcal{L}^{p} (m) / \mathscr{N} (m)
- \end{align*} 
+ \end{align*}
 
 
  \begin{theorem}
  	$L^{p}(m)$ is complete normed vector space.
  \end{theorem}
- 
+
  \begin{proof}
  	Need to show completeness.
-Assume $f_{k} \in L^{p} (m)$ and 
+Assume $f_{k} \in L^{p} (m)$ and
 $\| f_{k + 1} - f_{k} \|_{L^{p} (m)} \leq 2^{-k}$
 
 Assume $1 \leq p < \infty$. Let  $g_{n} = \sum_{k=1}^{n} | f_{k}- f_{k+1} |$, $g = \lim_{n \to \infty} g_{n}$
@@ -206,7 +201,7 @@ Assume $1 \leq p < \infty$. Let  $g_{n} = \sum_{k=1}^{n} | f_{k}- f_{k+1} |$, $g
 By Minkowski:
 \begin{align*}
 	\left( \int g_{n}^{p} dm \right)^{1/p} \leq \sum_{k=1}^{n} \|f_{k} - f_{k+1} \|_{L^{p}(m)} \leq 1
-\end{align*} By monotone convergence theorem. $\int g^p dm \leq 1$ 
+\end{align*} By monotone convergence theorem. $\int g^p dm \leq 1$
 
 In particular,
 \begin{align*}
@@ -218,7 +213,7 @@ compute
 	\int | f - f_{k} |^{p} dm &= \int \liminf_{j \to \infty} |f_{j} - j_{k} |^{p} dm \\
 							  &\leq \liminf_{j \to \infty}\int  |f_{j} - j_{k} |^{p} dm \\
 							  &\leq (2^{1-k})^{p} \xrightarrow[k \to \infty]{} 0
-\end{align*} 
+\end{align*}
 When $p = \infty$, let
 \begin{align*}
 	B = \bigcup_{k \geq 1} \{x \in X : |f_{k} (x) - f_{k +1} (x) | > 2^{-k}\}
@@ -230,29 +225,29 @@ When $p = \infty$, let
 \end{align*} So we conclude that
 \begin{align*}
 	\| f - f_{k} \|_{L^{\infty} (m)} \leq 2^{1 - k}
-\end{align*} 
+\end{align*}
  \end{proof}
- 
-\subsubsection{$L^{p}$ on nice spaces}
+
+\subsubsection{\texorpdfstring{$L^{p}$ on nice spaces}{Lp on nice spaces}}
 
 $X$ locally compact Hausdorff. $S$ a Borel $\sigma$-algebra.
 
- 
+
  \begin{theorem}[Lusin]
 	 If $f: X \to [-\infty, \infty]$  measurable and $m(\{x \in X : f(x) \neq 0 \} ) < \infty$ and  $\varepsilon > 0$
 
 	 Then there exists a $g \in C_{c} (X) $ such that $m( \{ x \in X : f(x) \neq g(x) \} ) < \varepsilon$.
 	 Moreover, if $|f| \leq 1$, then $ \|g\| \leq 1$
  \end{theorem}
- 
+
  \begin{remark}
  	This says that measurable functions are almost continuous.
  \end{remark}
- 
+
 \begin{proof}
 	Reduce to case $X$ compact and $0 \leq f \leq 1$ (exercise).
 
-	Write $f = \sum_{k=1}^{\infty} 2^{-k} \1_{A_{k}}$ where 
+	Write $f = \sum_{k=1}^{\infty} 2^{-k} \1_{A_{k}}$ where
 	\begin{align*}
 		A_{1} &= \{ x \in X : f(x) \geq \frac{1}{2} \} \\
 		A_{k} &= \{ x \in X : f(x) - \sum_{j=1}^{k} 2^{-k} \1_{A_{j}} \geq 2^{-k} \}
@@ -263,7 +258,7 @@ $X$ locally compact Hausdorff. $S$ a Borel $\sigma$-algebra.
 	Now let $h_{k} \in C (x)$ with
 	\begin{align*}
 		\1_{G_{k}} \leq h_{k} \leq \1_{U_{k}}
-	\end{align*} 
+	\end{align*}
 	let $g = \sum_{k=1}^{\infty} 2^{-k}h_{k}$
 	Since $g$ is the uniform limit of a continuous function, $g$ is continuous.
 	\begin{align*}
@@ -271,7 +266,7 @@ $X$ locally compact Hausdorff. $S$ a Borel $\sigma$-algebra.
 	\end{align*} and
 	$\sum m( U_{k} \setminus G_{k} ) \leq \varepsilon$
 \end{proof}
- 
+
 \begin{corollary}
 	$C_c (X)$ is dense in $L^{p} (X)$ for $1 \leq p < \infty$
 \end{corollary}

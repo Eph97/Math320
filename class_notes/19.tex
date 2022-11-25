@@ -3,25 +3,24 @@
 Last lecture we discussed several theorems:
 
 \begin{theorem}[Absolute Continuity of Functions]
-	A $f : [a,b] \to \R$  is \underline{absolutely continuous} if and only if for $\varepsilon > 0$, there is $\delta > 0$ so that
+A $f : [a,b] \to \R$  is \underline{absolutely} \underline{continuous} if and only if for $\varepsilon > 0$, there is $\delta > 0$ so that
 	\begin{align*}
 		\sum_{k=1} | f (b_k) - f(a_k) | < \varepsilon \quad \text{whenever} \\
-		a \leq a_k \leq b_k \leq k_{k+1} \leq b_{k+1} \leq b \\
+		a \leq a_k \leq b_k \leq k_{k+1} \leq b_{k+1} \leq b
 	\end{align*} and
 	\begin{align*}
 		\sum_{k=1}^{n} | b_k - a_k | < \delta
-	\end{align*} 
-	
+	\end{align*}
 \end{theorem}
 
 \begin{lemma}
-	Absolutely continous implies continous.
+	Absolutely continuous implies continuous.
 \end{lemma}
 
 Note the reverse is not true
 
 \begin{example}
-	If $C \subseteq [0,1]$ is he $1/3$ cantor set and 
+	If $C \subseteq [0,1]$ is he $1/3$ cantor set and
 	\begin{align*}
 		F(x) = \int \1_{[0,x] \cap C} dH^{\frac{\log{2}}{\log{3}}}
 	\end{align*} then $F$ is continuous but NOT absolutely continous.
@@ -32,7 +31,7 @@ Note the reverse is not true
 	$F : [a,b] \to \R$ is absolutely continous if and only if
 	\begin{align*}
 		F(x) - F(0) = \int \1_{[0,x]} f dL \quad \text{for some } f \in L^{1} ([0,1])
-	\end{align*} 
+	\end{align*}
 \end{theorem}
 
 To prove this we need three lemmas:
@@ -41,7 +40,7 @@ To prove this we need three lemmas:
 	If $f : [a,b] \to \R$ is absolutely continuous and
 	\begin{align*}
 		\bar{f} (x) = \sup\{ \sum_{k=1}^{n} | f (y_k) - f (y_{k-1}) | : a = y_0 \leq y_1 \leq \ldots \leq y_n = x \}
-	\end{align*} 
+	\end{align*}
 	Then $f_{\pm} - \frac{1}{2} (\bar{f} \pm f)$ are absolutely continuous and non-decreasing.
 \end{lemma}
 
@@ -50,48 +49,48 @@ To prove this we need three lemmas:
 \end{notation}
 
 \begin{proof}
-	Adding a new point, $\tilde{y}$, to $\{y_{k}\}$, then 
+	Adding a new point, $\tilde{y}$, to $\{y_{k}\}$, then
 	\begin{align*}
 		y_0 \leq \ldots \leq y_k \leq \tilde{y} \leq y_{k+1} \leq \ldots \leq y_n
-	\end{align*} 
+	\end{align*}
 	Then adding this point will only increase
 	\begin{align*}
 		\sum_{k=1}^n | f( y_k) - f(y_{k-1}) |
-	\end{align*} 
+	\end{align*}
 
 	If $a \leq x \leq y \leq b$ then
 	\begin{align*}
 		\bar{f} (y) - \bar{f}(x) &= \sup \{\sum_{k=1}^{n} |f (z_k) - f (z_{k - 1}) | : x = z_0 \leq \ldots \leq z_n = y \} \\
 								 &\geq | f(y) - f(x) |
-	\end{align*} 
+	\end{align*}
 	If $a \leq x \leq y \leq b$ then
 	 \begin{align*}
 		 f_{\pm} (y) - f_{\pm} (x) &= \bar{f} (y) - \bar{f} (x) \pm | f(y) - f(x) | \\
 								   &\geq |f(y) - f(x) | - | f(y) - f(x)| \\
 								   &= 0
-	\end{align*} 
-	Fix $\varepsilon > 0$, since $f$ is absolutely continuous, there is a $\delta > 0$ so 
+	\end{align*}
+	Fix $\varepsilon > 0$, since $f$ is absolutely continuous, there is a $\delta > 0$ so
 	\begin{align*}
 		\sum_{k=1}^n | f (b_{k}) - f (a_k) | < \varepsilon/2
 	\end{align*} when
 	\begin{align*}
 		\sum_{k=1}^n (b_k - a_k) < \delta \quad \text{and} \quad a \leq a_k \leq b_k \leq a_{k+1} \leq b_{k+1} \leq b
-	\end{align*} 
+	\end{align*}
 
 
-	Now suppose $a \leq a_k \leq b_k \leq a_{k+1} \leq b_{k+1} \leq b$ 
+	Now suppose $a \leq a_k \leq b_k \leq a_{k+1} \leq b_{k+1} \leq b$
 	and
 	\begin{align*}
 		\sum_{k+1}^n (b_k - a_k) < \delta
-	\end{align*} 
+	\end{align*}
 	for each $k$, choose
 	\begin{align*}
 		a_k = y_{k,1} \leq \ldots \leq y_{k, m} = b_k
 	\end{align*} so that
 	\begin{align*}
 		0 \leq \bar{f}(b_k) - \bar{f} (a_k) \leq \frac{\varepsilon}{2^{n}} + \sum_{j=1}^m |f(y_{k,j}) - f(y_{k, j-1}) |
-	\end{align*} 
-	Since 
+	\end{align*}
+	Since
 	\[
 		\sum_{k,j} y_{k,j} - y_{k,j+2} | < \delta \\
 	\] and
@@ -103,7 +102,7 @@ To prove this we need three lemmas:
 	\begin{align*}
 		\sum_{k=1}^{n} | \bar{f}(b_k) - \bar{f}(a_k) | &\leq \frac{\varepsilon}{2} + \sum_{k,j} |f (y_{k,j}) - f(y_{k,j-1}) | \\
 													   &\leq \frac{\varepsilon}{2} + \frac{\varepsilon}{2}
-	\end{align*} 
+	\end{align*}
 
 \end{proof}
 
@@ -117,7 +116,7 @@ To prove this we need three lemmas:
 	For $x \neq 0$ and $f'(0) = 0$
 	\[
 		\int | f'(x) | \1_{[-1, 1]} dL = \infty
-	\] 
+	\]
 	it's impossible to write $f = f_{+} - f_{-}$ with $f_{\pm}$ continuous and non-decreasing.
 \end{example}
 
@@ -126,7 +125,7 @@ To prove this we need three lemmas:
 	If $f : [a,b] \to \R$ is absolutely continuous and non-decreasing, then
 	\begin{align*}
 		F(x) - F(0) = \int \1_{[0,x)} f dL \quad \text{where} \quad f \in L^1 ([0,1])
-	\end{align*} 
+	\end{align*}
 \end{lemma}
 
 \begin{proof}
@@ -153,7 +152,7 @@ To prove this we need three lemmas:
 	\[
 		L(G(U)) < \varepsilon \delta
 	\] where $\varepsilon \delta \to 0$ as $\delta \to 0$.
-	So 
+	So
 	\[
 		m(A) = L(G(A)) \leq L(G(U)) \leq \varepsilon \delta \to 0
 	\] as $\delta \to 0$ and so $m(A) = 0$.
@@ -162,7 +161,7 @@ To prove this we need three lemmas:
 	\begin{align*}
 		m(A) &= \int \1_{A} g dL  \quad \text{with} \quad g \in L^1 ([0,1]) \\
 		\int \1_{[0,x]} g dL &= m([0,x]) = L(G([0,x])) = L([G(0), G(x)]) = G(x)
-	\end{align*} 
+	\end{align*}
 	Let
 	\[
 		f = (F(1) - F(0) + 1 ) g - 1.
@@ -172,15 +171,15 @@ To prove this we need three lemmas:
 	\] and
 	\[
 		\int \1_{[0,x]} f dL = F(x) - F(0)
-	\] 
+	\]
 \end{proof}
 
 \begin{lemma}
-	If $m_1, m_2 : S \to [0, \infty)$ measures and 
-	 $m_1 << m_2$, then for $\varepsilon > 0$, there is $\delta > 0$ so 
+	If $m_1, m_2 : S \to [0, \infty)$ measures and
+	 $m_1 << m_2$, then for $\varepsilon > 0$, there is $\delta > 0$ so
 	 \[
 	 	m_2(A) < \delta \implies m_1 (A) < \varepsilon
-	 \] 
+	 \]
 \end{lemma}
 
 \begin{proof}
@@ -188,11 +187,11 @@ To prove this we need three lemmas:
 	then there is $\varepsilon > 0 $ and $A_n \in S$ with
 	\[
 		m_1 (A_{n}) \geq \varepsilon \quad \text{and} \quad m_2 (A_n) \leq 2^{-n}
-	\] 
-	Let 
+	\]
+	Let
 	\[
 		B = \bigcap_{n \geq 1} \bigcup_{m \geq n} A_m
-	\] 
+	\]
 
 	\underline{Compute}:
 	\[
@@ -209,14 +208,14 @@ Finally we can proceed to the proof of the original theorem:
 \begin{proof} We follow several steps:
 	\begin{enumerate}
 		\item[step 1:]
-			Suppose $F : [a,b] \to \R$ is absolutely continuous, then 
+			Suppose $F : [a,b] \to \R$ is absolutely continuous, then
 			\begin{enumerate}
 				\item[By Lemma 1:] $F = f_{+} - F_{-}$ where
 					$F_{\pm} : [a,b] \to \R$ are absolutely continuous and non-decreasing.
 
-				\item[By Lemma 2:] 
+				\item[By Lemma 2:]
 					\[
-					F_{\pm}(x) - F_{\pm} (0) = \int \1_{[0,x]} f_{\pm} dL \quad \text{with} \quad f_{\pm} \in L^1([0,1]) 
+					F_{\pm}(x) - F_{\pm} (0) = \int \1_{[0,x]} f_{\pm} dL \quad \text{with} \quad f_{\pm} \in L^1([0,1])
 				\] now
 				\[
 					F(x) - F(0) = \int \1_{[0,x]} (F_{+} - f_{-} ) dL \\
@@ -224,37 +223,37 @@ Finally we can proceed to the proof of the original theorem:
 				and
 				\[
 					f_{+} - f_{-} \in L^1([0,1]).
-				\] 
+				\]
 			\end{enumerate}
 
 		\item[step 2:]
-			Suppose 
+			Suppose
 			\[
-					F(x) - F(0) = \int \1_{[0,x]} f dL \quad \text{with} \quad f \in L^1([0,1]) 
+					F(x) - F(0) = \int \1_{[0,x]} f dL \quad \text{with} \quad f \in L^1([0,1])
 			\]
 			let $f_{\pm} = \max\{0, \pm f\}$
 
 
-			Define $m_{\pm}$ by $dm_{\pm} = f_{\pm} dL$. Since $m_{\pm} << L$, givem $\varepsilon > 0,$ there is $\delta$ so 
+			Define $m_{\pm}$ by $dm_{\pm} = f_{\pm} dL$. Since $m_{\pm} << L$, givem $\varepsilon > 0,$ there is $\delta$ so
 			\[
 				L(A) < \delta \implies m_{\pm}(A) < \varepsilon.
 			\]
 			This implies
 			\[
 				F_{\pm}(x) = \int \1_{[0,1]} f_{\pm} dL
-			\] 
+			\]
 			are absolutely continous.
 
-			If 
+			If
 			\begin{align*}
 									&\sum (b_k - a_k) < \delta \\
 					\text{and} \qquad &a_{k} \leq b_k \leq a_{k+1} \leq b_{k+1}
-			\end{align*} 
+			\end{align*}
 
 			then
 			 \[
 				\sum | f_{\pm}(b_k) - F_{\pm}(a_k) | = m_{\pm} ( \cup_{k} (a_k, b_k) < \varepsilon
-			\] 
+			\]
 			and since $F(x) - F(0) = F^{+} (x) - F^{-} (x)$,
 			$F$ is also absolutely continuous.
 	\end{enumerate}
