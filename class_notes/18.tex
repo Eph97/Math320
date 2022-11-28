@@ -1,4 +1,4 @@
-\section{2022-11-14}
+\section{November 14th, 2022}
 
 \subsection*{In previous lectures...}
 
@@ -19,10 +19,10 @@
 \end{theorem}
 
 \begin{theorem}[Lebesgue differentiation]
-	If $f \in L^{1} (\R^d)$, then 
+	If $f \in L^{1} (\R^d)$, then
 	\[
 		L(\{ x \textrm{ Lebesgue for } f \}^a) = 0.
-	\] 
+	\]
 	Here, $x$ Lebesgue for $f$ if and only if
 	\[
 		\lim_{r \to 0} \frac{\int_{\mathcal{B}(x,r)} |f - f(x)| \, dL}{L(\mathcal{B}(x,r))} = 0.
@@ -37,98 +37,96 @@
 	\begin{align*}
 		D m (x) = \lim_{r \to 0} \frac{m ( \mathcal{B} (x, r))}{L(\mathcal{B}(x, r))}
 	\end{align*}
-
-	Want: $D m$ is $f$ from Radon-Nikodym decomposition of $m$ with respect to $L$.
 \end{definition}
 
+\noindent We want $D m$ is $f$ from Radon-Nikodym decomposition of $m$ with respect to $L$.
+
 \begin{theorem}
-	If $m: \mathcal{B}(\R^d) \to [0, \infty)$ measure and $m << L$, then
+	If $m: \mathcal{B}(\R^d) \to [0, \infty)$ measure and $m \ll L$, then
 	\begin{align*}
-		D m \in L^{1} (\R^d) \quad \text{and} \quad m(A) \int \1_A dm dL
+    D m \in L^{1} (\R^d) \quad \text{and} \quad m(A) = \int \1_A \, Dm \, dL = \int \1_A \frac{dm}{dL} \, dL
 	\end{align*}
 \end{theorem}
 
+\begin{notation}
+	Could use notation $\frac{dm}{dL}$ in place of $Dm$; however, it is susceptible to being seen as a fraction.
+\end{notation}
+
 \begin{proof}
-	By Radon-Nikodym, there is unique $f \in L^1(\R^d)$ sp $m(A) = \int \1_A f dL$.
+	By Radon-Nikodym, there is unique $f \in L^1(\R^d)$ so $m(A) = \int \1_A f \, dL$.
 	It is enough to show  $f = D m$ for $L$ a.e $x \in \R^d$.
 
 	Since  by Lebesgue differentiation, $L$-a.e. $x \in \R^d$ is Lebesgue for $f,$ have
 
 	\begin{align*}
-		f(x) = \lim_{r \to 0} \frac{\int_{B(x, r)} f dL}{L(B(x,r))} = \lim_{r \to 0} \frac{m(B(x,r))}{L(B(x,r))} = D m(x)
+		f(x) = \lim_{r \to 0} \frac{\int_{\mathcal{B}(x, r)} f \, dL}{L(\mathcal{B}(x,r))} = \lim_{r \to 0} \frac{m(\mathcal{B}(x,r))}{L(\mathcal{B}(x,r))} = D m(x)
 	\end{align*}
 	for $L$-a.e. $x \in \R^d$.
 \end{proof}
 
-\begin{remark}
-	the above handles absolutey continuous case. now we will  look at the singular case.
-\end{remark}
-
+The above handles absolutely continuous case. Now we will look at the singular case.
 
 \begin{theorem}
-	If $m : \mathcal{B}(\R^d) \to [0,\infty)$ a measure and $m \perp L$, then
-	\begin{align*}
-		D m(x) = 0 \quad \text{for} \quad L \text{-a.e.} \quad x \in \R^d
-	\end{align*}
+	If $m : \mathcal{B}(\R^d) \to [0,\infty)$ a measure and $m \perp L$,
+	then $D m(x) = 0$ for $L$-almost everywhere $x \in \R^d$.
 \end{theorem}
 
 \begin{proof}
 	Define
 	\begin{align*}
-		\bar{D} m(x) = \limsup_{r \to 0} \frac{m(B(x,r))}{L(B(x,r))}
+		\bar{D} m(x) = \limsup_{r \to 0} \frac{m(\mathcal{B}(x,r))}{L(\mathcal{B}(x,r))}
 	\end{align*}
 we show $L( \{ \bar{D}m > \lambda \}) = 0$
 
 Since $m \perp L$, there is Borel $E \subseteq \R^d$. So $L(E) = 0$ and $m(E^c) = 0$.
-Since  $m$ is a borel measure and $\R^d$ nice, we can choose $K \subseteq  E$ compact with
+Since  $m$ is a Borel measure and $\R^d$ nice, we can choose $K \subseteq  E$ compact with
 \begin{align*}
 	m(K) \geq m(E) - \varepsilon.
 \end{align*}
 Let
 \begin{align*}
-	m_1 (A) &= m(A \cap K) \quad \text{and} \\
+	m_1 (A) &= m(A \cap K), \\
 	m_2 (A)	&= m( A \cap K^c)
 \end{align*}
-
 Observe:
 \begin{align*}
-	&m = m_1 + m_2 \quad \text{and} \\
-	&m_2(\R^d)\leq \varepsilon
+	m = m_1 + m_2 \quad \text{and} \quad
+	m_2(\R^d)\leq \varepsilon
 \end{align*}
-
-So $m_1$ dives on compact sets of $L$-measure zero and $m_2$ has small total mass.
+So $m_1$ lives on compact sets of $L$-measure zero and $m_2$ has small total mass.
 If $X \in K^c$, then
 \begin{align*}
 	\bar{D}m(x) = \bar D m_2 (x) \leq M m_2 (x)
 \end{align*}
-It follows that
+It follows that 
+\[
+	\{ \bar{D} m > \lambda \} \subseteq  K \cup \{ M m_2 > \lambda \}. 
+\] 
+Compute
 \begin{align*}
-	&\{ \bar{D} m > \lambda \} \subseteq  K U \{ M m_2 > \lambda \}. \quad \text{compute} \\
-	&L (K) \leq L(E) = 0 \quad \text{and} \\
-	&L (\{ M m_2 > \lambda \}) \leq \frac{3^d}{\lambda} m_2 (\R^d) \leq \frac{3^d \varepsilon}{\lambda}
+	L (K) \leq L(E) = 0 \quad \text{and} \quad
+	L (\{ M m_2 > \lambda \}) \leq \frac{3^d}{\lambda} m_2 (\R^d) \leq \frac{3^d \varepsilon}{\lambda}.
 \end{align*}
 Sending $\varepsilon \to 0$ gives
 \begin{align*}
-	L ( \{ \bar{D} m > \lambda \} = 0
+	L ( \{ \bar{D} m > \lambda \} = 0.
 \end{align*}
-conclude
+We conclude
 \[
-	L\{ \bar{D} m > 0 \}) = 0
+	L\{ \bar{D} m > 0 \}) = 0.
 \]
 \end{proof}
-
 
 \begin{corollary}
 	If $m : \mathcal{B}(\R^d) \to [0, \infty)$ a measure, then
 	\begin{align*}
-		dm = dm_{s} + Dm dL
-	\end{align*} where $m_s \perp L$. in particular, $m \perp L \iff Dm = 0$ \\
+		dm = dm_{s} + Dm \, dL
+	\end{align*} where $m_s \perp L$. In particular, $m \perp L$ if and only if $Dm = 0$ for
 	$L$-almost everywhere.
 \end{corollary}
 
-\begin{remark}
-	if we consider $m$ instead, then we have the following theorem:
-\end{remark}
+If we consider $m$ instead, then we have the following theorem:
+\textbf{QUESTION TO EPHRAIM: IS THIS THE SAME THEOREM AS THE PREVIOUS ONE?}
 
 \begin{theorem}
 	If $m : \mathcal{B}(\R^d) \to [0, \infty)$ a measure, and $m \perp L$, then $D m(x) = \infty$ for $m$-almost every $x \in \R^d$
@@ -137,41 +135,40 @@ conclude
 \begin{proof}
 	Define
 	\[
-		\bar{D} m(X) = \limsup_{r \to 0} \frac{m(B(x,r))}{L(B(x,r))}
+		\bar{D} m(X) = \limsup_{r \to 0} \frac{m(\mathcal{B}(x,r))}{L(\mathcal{B}(x,r))}
 	\] we show
 	\[
 		L(\{ \bar{D} m > \lambda \} ) = 0
 	\]
 	Since $m \perp L$, there is Borel $E \subseteq \R^d$ so $L(E) = 0$ and $m(E^c) = 0$.
-	And since  $m$ a borel measure and $\R^d$ nice, we can choose $K \subseteq E$ compact with
+	And since  $m$ a Borel measure and $\R^d$ nice, we can choose $K \subseteq E$ compact with
 	\[
 		m(K) \geq m(E) - \varepsilon
 	\]
-	let
+	Let
 	\begin{align*}
 		m_1 (A) &= m( A \cap K) \quad \text{and} \\
 		m_2 (A) &= m(A \cap k^c)
 	\end{align*}
-	observe: $m = m_1 + m_2$ and $m_2 (\R^d) \leq \varepsilon$.
-	So $m_1$ dives on compact set of $L$-measure zero and $m_2$ has small total mass.
+	Observe that $m = m_1 + m_2$ and $m_2 (\R^d) \leq \varepsilon$.
+	So $m_1$ lives on compact set of $L$-measure zero and $m_2$ has small total mass.
 	If $x \in K^c$, then
 	\[
 		\bar{D} m(x) = \bar{D}m_2 \leq M m_2 (x)
 	\]
-
-	Now it follows that
+	Now, it follows that
 	\[
 		\{ \bar{D} > \lambda \} \subseteq K \cup \{ M m_2 > \lambda \}.
-	\] compute
+	\] Compute
 	\[
-		L(K) \leq L(E) = 0
-	\] and
-	\[
+		L(K) \leq L(E) = 0 \quad \text{and} \quad
 		L( \{M m_2 > \lambda \}) \leq \frac{3^d}{\lambda} m_2(\R^d) \leq \frac{3^d \varepsilon}{\lambda}
-	\] sending $\varepsilon \to 0$ gives
+	\] 
+	Sending $\varepsilon \to 0$ gives
 	\[
 		L( \{ \bar{D} m > \lambda \}) = 0
-	\] and we conclude that
+	\] 
+	and we conclude that
 	\[
 	L( \bar{D} m > 0 \}) = 0
 	\]
@@ -179,9 +176,9 @@ conclude
 
 
 \begin{corollary}
-	If $m : \mathcal{B}(R^d) \to [0,\infty)$ a measure, then
+	If $m : B(R^d) \to [0,\infty)$ a measure, then
 	\[
-		dm = dm_s + Dm dL \quad \text{where} \quad m_s \perp L.
+		dm = dm_s + Dm \, dL \quad \text{where} \quad m_s \perp L.
 	\] in particular
 	\[
 		m \perp L \iff D m=0 \quad L\text{-a.e.}
@@ -191,7 +188,7 @@ conclude
 If we consider $m$ instead, then
 
 \begin{theorem}
-	If $m: \mathcal{B}(\R) \to [0,\infty)$ a measure and $m \perp L$, then $D m(x) = \infty$ for  $m$-a.e. $x\in \R^d$
+	If $m: B(\R^d) \to [0,\infty)$ a measure and $m \perp L$, then $D m(x) = \infty$ for  $m$-a.e. $x\in \R^d$
 \end{theorem}
 
 \begin{proof}
@@ -201,61 +198,63 @@ Let
 \]
 we show $m(\{ \underline{D} m < \alpha \}) = 0$.
 
-Since $m \perp L$, there is $E \subseteq \R^d$ borel with $L(E) = 0$ and $m(E^c) = 0$.
+Since $m \perp L$, there is $E \subseteq \R^d$ Borel with $L(E) = 0$ and $m(E^c) = 0$.
+Choose $V \contains E$ open with $L(V) \leq \varepsilon$. Let $W = \{ \underline{D} m < \alpha \} \cap E$.
 
-Choose $V \contains E$ open with $L(V) \leq \varepsilon$. Let $w = \{ \underline{D} m < \alpha \} \cap E$.
-
-If  $x \in W$, then there are arbitrary small  $r > 0$ so
+\noindent If  $x \in W$, then there are arbitrary small  $r > 0$ so
 \[
-	m(B(x,r)) < \alpha L(B(x,r))
-\].
-Let $B$ be a collection of balls $B(x,r)$ so
+	m(B(x,r)) < \alpha L(B(x,r)).
+\]
+Let $\mathcal{B}$ be a collection of balls $B(x,r)$ so
 \begin{align*}
 	&x \in W \\
 	&B(x,5r) \subseteq V \quad \text{and} \\
 	&m(B(x,5r)) < \alpha L(B(x,5r)).
 \end{align*}
-Note $W \subseteq \bigcup_{B \in \mathcal{B}} B$, By Vitali there are disjoint
+Note $W \subseteq \bigcup_{B \in \mathcal{B}} B$. By Vitali there are disjoint
 $\mathcal{B}_0 \subseteq \B$ with $W \subseteq \bigcup_{B \in \B_{0}} 5B$.
 Compute
 \begin{align*}
 	m(W) &\leq m( \bigcup_{B \in \B_{0}} 5B) \\
 		 &\leq \sum_{B \in \B_0} m(5B) \\
 		 &< \sum_{B \in \B_{0}} \alpha L(5B) \\
-		 &= \sum_{B \in \B_0} 5^d \alpha L(B) = 5^d \alpha L(\bigcup_{B \in \B_0} B) \\
-		 &\leq 5^d \alpha L(V) \leq 5^d \alpha \varepsilon.
+		 &= \sum_{B \in \B_0} 5^d \alpha L(B) \\ 
+		 &= 5^d \alpha L(\bigcup_{B \in \B_0} B) \\
+		 &\leq 5^d \alpha L(V) \\ 
+		 &\leq 5^d \alpha \varepsilon.
 \end{align*}
 
 Sending $\varepsilon \to 0$ gives $m(\{ \underline{D} m < \alpha \} ) = 0$.
 Conclude that
- \[
+\[
 	 m(\{ \underline{D} m < \infty\}) \leq \sum_{n \geq 0} m (\{ \underline{D} m < n \} ) = 0
 \]
 \end{proof}
-[finish]
 
 \begin{remark}
 	If $m \perp L$, then
-	\[
-		\frac{m(B(x,r))}{L(B(x,r))}
-	\]
+	\begin{itemize}
+		\item For $L$-almost everywhere
+			\[
+				\frac{m(B(x,r))}{L(B(x,r))} \to 0 
+			\]
+		\item For $m$-almost everywhere
+			\[
+				\frac{m(B(x,r))}{L(B(x,r))} \to \infty 
+			\]
+	\end{itemize}
 \end{remark}
-[comeback to]
 
 \begin{example}
-	$l \subseteq \R^d$, where $l$ is a finite line segment. $m(A) = H^1 (A \cap l)$.
-	then  $m \perp L$
+	$l \subseteq \R^d$, where $l$ is a finite line segment. $m(A) = H^1 (A \cap l)$
+	then $m \perp L$.
 \end{example}
-
-\begin{remark}
-	$L$-a.e. $x$ satisfies $x \in l^c$, and $m$-a.e. $x$ satisfies $x \in l.$
-\end{remark}
-
-Rudin generalizes to not need finite $l$.
+Note: $L$-a.e. $x$ satisfies $x \in l^c$, and $m$-a.e. $x$ satisfies $x \in l.$
+\footnote{Rudin generalizes to not need finite $l$.}
 
 \subsection{Metric Density}
 
-Suppose $A \subseteq \R^d$ is borel and bounded.
+Suppose $A \subseteq \R^d$ is Borel and bounded.
 
 \begin{remark}
 	 \[
@@ -263,18 +262,17 @@ Suppose $A \subseteq \R^d$ is borel and bounded.
 	\]
 \end{remark}
 
-By lebesgue differentiation
+\noindent By Lebesgue differentiation
 \begin{align*}
 	\lim_{r \to 0} \frac{\int_{B(x,r) |\1_A - \1_A(x)| dL}}{L(B(x,r))} = 0
 \end{align*} for $L$-a.e. $x \in \R^d$
 
-\underline{Unrolling Definitions}
+\subsubsection{Unrolling Definitions}
 
 \[
-	\lim_{r \to 0}  \frac{L(B(,x,r) \cap A)}{L(B(x,r))} = \1_{A} (x)
+	\lim_{r \to 0}  \frac{L(B(x,r) \cap A)}{L(B(x,r))} = \1_{A} (x)
 	\quad \text{for } L \text{-a.e. } x \in \R^d
 \]
-
 Density is $L$-a.e. either $0$ or $1$. It is impossible to build a Borel set $A$ so
 \[
 	0 < \varepsilon < \frac{L(A \cap B(x,r))}{L(B(x,r))} < 1 - \varepsilon
@@ -291,7 +289,7 @@ for all $B(x,r)$.
 
 
 \begin{remark}
-	this is false for topologica boundaries in general.
+	This is false for topological boundaries in general.
 \end{remark}
 
 
@@ -299,9 +297,9 @@ for all $B(x,r)$.
 \subsection{Fundamental Theorem of Calculus}
 
 \begin{lemma}
-	If $x \in \R^d$ is lebesgue for $f \in L^1 (\R^d)$, then
+	If $x \in \R^d$ is Lebesgue for $f \in L^1 (\R^d)$, then
 	\[
-		f(x) = \lim_{k \to \infty}  \frac{\int | f - f(k) |\1_{A_k} dL}{l(A_{k})}
+		f(x) = \lim_{k \to \infty}  \frac{\int | f - f(x) |\1_{A_k} \, dL}{l(A_{k})}
 	\] whenever
 	\[
 		A_k \subseteq B(x,r_{k}), \quad \inf_{k} \frac{L(A_k)}{L(B(x,r_k))} > 0 \quad \text{and }\quad r_k \to 0
@@ -311,36 +309,33 @@ for all $B(x,r)$.
 \begin{proof}
 	Let
 	\begin{align*}
-		\varepsilon = \inf_{k} \frac{L(A_k)}{L(B(x,r_k))} > 0
-	\end{align*}. Compute
+		\varepsilon = \inf_{k} \frac{L(A_k)}{L(B(x,r_k))} > 0.
+	\end{align*} Compute
 	\begin{align*}
-		\frac{\int | f - f(x) | \1_{A_k} dL}{L(A_k)} \leq \frac{\int |f - f(x) | \1_{B(x,r_k) dL}}{\varepsilon L(B(x,r))}
+		\frac{\int | f - f(x) | \1_{A_k} \, dL}{L(A_k)} \leq \frac{\int |f - f(x) | \1_{B(x,r_k) \, dL}}{\varepsilon L(B(x,r))}
 		\longrightarrow 0 \quad \text{as} \quad r_k \to 0
 	\end{align*}
-	for $x$ lebesgue.
+	for $x$ Lebesgue.
 \end{proof}
-
 
 \begin{corollary}
 	If $f \in L^1(\R)$ and
 	\[
-		F(x) = \int f \1_{(-\infty, x)} dL = \int_{-\infty}^{x} f dL
+		F(x) = \int f \, \1_{(-\infty, x)} \, dL = \int_{-\infty}^{x} f \, dL
 	\] then
 	$F' = f$ at $L$-a.e. point.
 \end{corollary}
 
 \begin{proof}
-	for $h > 0$,
-	 \[
-		\frac{F(x +h) - F(x)}{h} = \frac{\int f \1_{[x,x+h)} dL}{L([x,x+h))}
+	For $h > 0$,
+	\[
+		\frac{F(x +h) - F(x)}{h} = \frac{\int f \, \1_{[x,x+h)} \, dL}{L([x,x+h))}
 	\]
-	apply lemma to $A_k = [x, x+h) \subseteq (x-h, x+h)$ to conclude $F' = f$ at all lebesgue points of f.
+	Apply lemma to $A_k = [x, x+h) \subseteq (x-h, x+h)$ to conclude $F' = f$ at all Lebesgue points of $f$.
 \end{proof}
 
 
-
-
-\begin{definition}
+\begin{definition}[Absolute Continuity]
 	$f: [a,b] \to \R$ is absolutely continuous if and only if for every $\varepsilon > 0$, there is $\delta > 0$ so
 	\[
 		\sum_{k=1}^n |f(b_{k}) - f(a_k) | < \varepsilon
@@ -361,5 +356,5 @@ for all $B(x,r)$.
 	Devil's staircase is uniformly continuous but not absolutely continuous.
 \end{example}
 
-
+\epigraph{``My wife had a family emergency... I'm single daddying it up this week.''}{Charlie}
 
