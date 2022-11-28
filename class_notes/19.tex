@@ -1,6 +1,6 @@
-\section{2022-11-16}
+\section{November 16th, 2022}
 
-Last lecture we discussed several theorems:
+\subsection{Absolute Continuity of Functions}
 
 \begin{theorem}[Absolute Continuity of Functions]
 A $f : [a,b] \to \R$  is \underline{absolutely} \underline{continuous} if and only if for $\varepsilon > 0$, there is $\delta > 0$ so that
@@ -17,29 +17,32 @@ A $f : [a,b] \to \R$  is \underline{absolutely} \underline{continuous} if and on
 	Absolutely continuous implies continuous.
 \end{lemma}
 
-Note the reverse is not true
+\begin{remark}
+	Note the reverse is not true.
+\end{remark}
 
 \begin{example}
-	If $C \subseteq [0,1]$ is he $1/3$ cantor set and
+	If $C \subseteq [0,1]$ is he $1/3$ Cantor set and
 	\begin{align*}
-		F(x) = \int \1_{[0,x] \cap C} dH^{\frac{\log{2}}{\log{3}}}
-	\end{align*} then $F$ is continuous but NOT absolutely continous.
+		F(x) = \int \1_{[0,x] \cap C} \, dH^{\frac{\log{2}}{\log{3}}}
+	\end{align*} then $F$ is continuous but NOT absolutely continuous.
 \end{example}
 
-
 \begin{theorem}
-	$F : [a,b] \to \R$ is absolutely continous if and only if
+	$F : [a,b] \to \R$ is absolutely continuous if and only if
 	\begin{align*}
-		F(x) - F(0) = \int \1_{[0,x]} f dL \quad \text{for some } f \in L^{1} ([0,1])
+		F(x) - F(0) = \int \1_{[0,x]} f \, dL \quad \text{for some } f \in L^{1} ([0,1])
 	\end{align*}
 \end{theorem}
 
-To prove this we need three lemmas:
+\subsection{Three Lemmas}
+\epigraph{\textit{After making a critical mistake} \\ ``This is just a sign mistake. It all depends on your character encoding scheme''}{Charlie}
+\noindent To prove this we need three lemmas:
 
 \begin{lemma}
 	If $f : [a,b] \to \R$ is absolutely continuous and
 	\begin{align*}
-		\bar{f} (x) = \sup\{ \sum_{k=1}^{n} | f (y_k) - f (y_{k-1}) | : a = y_0 \leq y_1 \leq \ldots \leq y_n = x \}
+		\bar{f} (x) = \sup \left\{ \sum_{k=1}^{n} | f (y_k) - f (y_{k-1}) | : a = y_0 \leq y_1 \leq \ldots \leq y_n = x \right\}
 	\end{align*}
 	Then $f_{\pm} - \frac{1}{2} (\bar{f} \pm f)$ are absolutely continuous and non-decreasing.
 \end{lemma}
@@ -47,6 +50,13 @@ To prove this we need three lemmas:
 \begin{notation}
 	Call $\bar{f}$ the total variation of $f$.
 \end{notation}
+
+\begin{example}
+	If $f$ is $C^1$, then
+	\[
+  	\bar{f}(x) = \int_0^x |f'(t)| \, dt.
+	\]
+\end{example}
 
 \begin{proof}
 	Adding a new point, $\tilde{y}$, to $\{y_{k}\}$, then
@@ -57,15 +67,14 @@ To prove this we need three lemmas:
 	\begin{align*}
 		\sum_{k=1}^n | f( y_k) - f(y_{k-1}) |
 	\end{align*}
-
-	If $a \leq x \leq y \leq b$ then
+	If $a \leq x \leq y \leq b$, then
 	\begin{align*}
-		\bar{f} (y) - \bar{f}(x) &= \sup \{\sum_{k=1}^{n} |f (z_k) - f (z_{k - 1}) | : x = z_0 \leq \ldots \leq z_n = y \} \\
+		\bar{f} (y) - \bar{f}(x) &= \sup \left\{ \sum_{k=1}^{n} |f (z_k) - f (z_{k - 1}) | : x = z_0 \leq \ldots \leq z_n = y \right\} \\
 								 &\geq | f(y) - f(x) |
 	\end{align*}
 	If $a \leq x \leq y \leq b$ then
 	 \begin{align*}
-		 f_{\pm} (y) - f_{\pm} (x) &= \bar{f} (y) - \bar{f} (x) \pm | f(y) - f(x) | \\
+		 f_{\pm} (y) - f_{\pm} (x) &= \bar{f} (y) - \bar{f} (x) \mp | f(y) - f(x) | \\
 								   &\geq |f(y) - f(x) | - | f(y) - f(x)| \\
 								   &= 0
 	\end{align*}
@@ -74,31 +83,28 @@ To prove this we need three lemmas:
 		\sum_{k=1}^n | f (b_{k}) - f (a_k) | < \varepsilon/2
 	\end{align*} when
 	\begin{align*}
-		\sum_{k=1}^n (b_k - a_k) < \delta \quad \text{and} \quad a \leq a_k \leq b_k \leq a_{k+1} \leq b_{k+1} \leq b
+		\sum_{k=1}^n (b_k - a_k) < \delta \quad \text{and} \quad
+		a \leq a_k \leq b_k \leq a_{k+1} \leq b_{k+1} \leq b.
 	\end{align*}
-
-
 	Now suppose $a \leq a_k \leq b_k \leq a_{k+1} \leq b_{k+1} \leq b$
 	and
 	\begin{align*}
 		\sum_{k+1}^n (b_k - a_k) < \delta
 	\end{align*}
-	for each $k$, choose
+	For each $k$, choose
 	\begin{align*}
 		a_k = y_{k,1} \leq \ldots \leq y_{k, m} = b_k
 	\end{align*} so that
 	\begin{align*}
 		0 \leq \bar{f}(b_k) - \bar{f} (a_k) \leq \frac{\varepsilon}{2^{n}} + \sum_{j=1}^m |f(y_{k,j}) - f(y_{k, j-1}) |
 	\end{align*}
-	Since
+	since
 	\[
-		\sum_{k,j} y_{k,j} - y_{k,j+2} | < \delta \\
-	\] and
-	\[
-		(y_{k, j-1}, y_{k,j})
-	\] disjoint.
+		\sum_{k,j} |y_{k,j} - y_{k,j+2} | < \delta \quad \text{and} \quad
+		(y_{k, j-1}, y_{k,j}) \text{ disjoint.}
+	\]
 
-	Now by absolute continuity:
+	\noindent Now by absolute continuity:
 	\begin{align*}
 		\sum_{k=1}^{n} | \bar{f}(b_k) - \bar{f}(a_k) | &\leq \frac{\varepsilon}{2} + \sum_{k,j} |f (y_{k,j}) - f(y_{k,j-1}) | \\
 													   &\leq \frac{\varepsilon}{2} + \frac{\varepsilon}{2}
@@ -106,8 +112,8 @@ To prove this we need three lemmas:
 
 \end{proof}
 
-\begin{example}[Counter example]
-	consider $f(x) = x^{2} \sin(\frac{1}{x^2})$ and let $f(0) = 0$.
+\begin{example}[Counter-example]
+	Consider $f(x) = x^{2} \sin(\frac{1}{x^2})$ and let $f(0) = 0$.
 	Observe $f$ is everywhere differentiable and
 	\[
 		f'(x) = 2x \sin(\frac{1}{x^{2}}) - \frac{2}{x} \cos(\frac{1}{x^2})
@@ -115,7 +121,7 @@ To prove this we need three lemmas:
 
 	For $x \neq 0$ and $f'(0) = 0$
 	\[
-		\int | f'(x) | \1_{[-1, 1]} dL = \infty
+		\int | f'(x) | \1_{[-1, 1]} \, dL = \infty
 	\]
 	it's impossible to write $f = f_{+} - f_{-}$ with $f_{\pm}$ continuous and non-decreasing.
 \end{example}
@@ -124,31 +130,32 @@ To prove this we need three lemmas:
 \begin{lemma}
 	If $f : [a,b] \to \R$ is absolutely continuous and non-decreasing, then
 	\begin{align*}
-		F(x) - F(0) = \int \1_{[0,x)} f dL \quad \text{where} \quad f \in L^1 ([0,1])
+		F(x) - F(0) = \int \1_{[0,x)} f \, dL \quad \text{where} \quad f \in L^1 ([0,1])
 	\end{align*}
 \end{lemma}
 
 \begin{proof}
 	Assume $[a,b] = [0,1]$.
-	let
-	 \[
-		G(x) = \frac{F(x) - F(0) + x}{F(1) - F(0) + 1}
-	\].
-	Observe $G$ is absolutely continuous and $G$ is an increasing bijection $G [0,1] \to [0,1]$ (check).
-
-	It follows that $G$ is continuous and increasing and $A \subseteq [0,1]$, borel if and only if $G(A)$, is Borel.
-
-	Define Borel measure $m$ on $[0,1]$ by
+	Let
 	\[
-		m(A) = L(G(A))
-	\].
+		G(x) = \frac{F(x) - F(0) + x}{F(1) - F(0) + 1}.
+	\]
+	Observe $G$ is absolutely continuous and $G$ is an increasing bijection $G: [0,1] \to [0,1]$ (check).
+
+	It follows that $G^{-1}$ is continuous and increasing and $A \subseteq [0,1]$ is Borel if and only if $G(A)$, is Borel.
+	Define a Borel measure $m$ on $[0,1]$ by
+	\[
+		m(A) = L(G(A)).
+	\]
 	Since $G$ is a bijection, $m$ is a measure. (in particular, $m$ is countably additive).
+
 	\begin{claim}
-		$m << L$
+		$m \ll L$
 	\end{claim}
+
 	Suppose $L(A) = 0$, then choose $U \contains A$ open with $L(U) < \delta$.
 	$U$ is union of disjoint intervals, since we are working on $\R.$
-	And since  $G$ is absolutely continuous
+	Since $G$ is absolutely continuous
 	\[
 		L(G(U)) < \varepsilon \delta
 	\] where $\varepsilon \delta \to 0$ as $\delta \to 0$.
@@ -159,8 +166,8 @@ To prove this we need three lemmas:
 
 	By Radon-Nikodym,
 	\begin{align*}
-		m(A) &= \int \1_{A} g dL  \quad \text{with} \quad g \in L^1 ([0,1]) \\
-		\int \1_{[0,x]} g dL &= m([0,x]) = L(G([0,x])) = L([G(0), G(x)]) = G(x)
+		m(A) &= \int \1_{A} g \, dL  \quad \text{with} \quad g \in L^1 ([0,1]) \\
+		\int \1_{[0,x]} g \, dL &= m([0,x]) = L(G([0,x])) = L([G(0), G(x)]) = G(x)
 	\end{align*}
 	Let
 	\[
@@ -170,20 +177,20 @@ To prove this we need three lemmas:
 		f \in L^1([0,1])
 	\] and
 	\[
-		\int \1_{[0,x]} f dL = F(x) - F(0)
+		\int \1_{[0,x]} f \, dL = F(x) - F(0)
 	\]
 \end{proof}
 
 \begin{lemma}
 	If $m_1, m_2 : S \to [0, \infty)$ measures and
-	 $m_1 << m_2$, then for $\varepsilon > 0$, there is $\delta > 0$ so
+	 $m_1 \ll m_2$, then for $\varepsilon > 0$, there is $\delta > 0$ so
 	 \[
 	 	m_2(A) < \delta \implies m_1 (A) < \varepsilon
 	 \]
 \end{lemma}
 
 \begin{proof}
-	Suppose for contradiction that the conclussion fails,
+	Suppose for contradiction that the conclusion fails,
 	then there is $\varepsilon > 0 $ and $A_n \in S$ with
 	\[
 		m_1 (A_{n}) \geq \varepsilon \quad \text{and} \quad m_2 (A_n) \leq 2^{-n}
@@ -193,73 +200,73 @@ To prove this we need three lemmas:
 		B = \bigcap_{n \geq 1} \bigcup_{m \geq n} A_m
 	\]
 
-	\underline{Compute}:
+	\noindent Compute:
 	\[
-		m(B) = \lim_{n \to \infty} m_1 ( \bigcup_{m \geq n} A_m ) \geq \varepsilon
+		m(B) = \lim_{n \to \infty} m_1 \bigg( \bigcup_{m \geq n} A_m \bigg) \geq \varepsilon
 	\] and
 	\begin{align*}
-		m_2 (B) &= \lim_{n \to \infty} m_2 (\bigcup_{m \geq n} A_M ) \\
+		m_2 (B) &= \lim_{n \to \infty} m_2 \bigg(\bigcup_{m \geq n} A_M \bigg) \\
 				&= \lim_{n \to \infty} 2^{1 - n}
-	\end{align*} so $m_1 <\nless m_2 = 0$.
+	\end{align*} so $m_1 \not \ll m_2 = 0$.
 \end{proof}
 
-Finally we can proceed to the proof of the original theorem:
+\subsection{Proof of Theorem}
+
+\noindent Finally we can proceed to the proof of the original theorem:
 
 \begin{proof} We follow several steps:
-	\begin{enumerate}
-		\item[step 1:]
-			Suppose $F : [a,b] \to \R$ is absolutely continuous, then
-			\begin{enumerate}
-				\item[By Lemma 1:] $F = f_{+} - F_{-}$ where
-					$F_{\pm} : [a,b] \to \R$ are absolutely continuous and non-decreasing.
+	\begin{steps}
+		\item
+			Suppose $F : [a,b] \to \R$ is absolutely continuous.
 
-				\item[By Lemma 2:]
-					\[
-					F_{\pm}(x) - F_{\pm} (0) = \int \1_{[0,x]} f_{\pm} dL \quad \text{with} \quad f_{\pm} \in L^1([0,1])
-				\] now
-				\[
-					F(x) - F(0) = \int \1_{[0,x]} (F_{+} - f_{-} ) dL \\
-				\]
-				and
-				\[
-					f_{+} - f_{-} \in L^1([0,1]).
-				\]
-			\end{enumerate}
+			\noindent By Lemma 1, $F = f_{+} - F_{-}$ where
+			$F_{\pm} : [a,b] \to \R$ are absolutely continuous and non-decreasing.
 
-		\item[step 2:]
+			\noindent By Lemma 2,
+			\[
+				F_{\pm}(x) - F_{\pm} (0) = \int \1_{[0,x]} f_{\pm} \, dL \quad \text{with} \quad f_{\pm} \in L^1([0,1]).
+			\]
+			Now,
+			\[
+				F(x) - F(0) = \int \1_{[0,x]} (F_{+} - f_{-} ) \, dL
+			\]
+			and
+			\[
+				f_{+} - f_{-} \in L^1([0,1]).
+			\]
+
+		\item
 			Suppose
 			\[
-					F(x) - F(0) = \int \1_{[0,x]} f dL \quad \text{with} \quad f \in L^1([0,1])
+					F(x) - F(0) = \int \1_{[0,x]} f \, dL \quad \text{with} \quad f \in L^1([0,1]).
 			\]
-			let $f_{\pm} = \max\{0, \pm f\}$
-
-
-			Define $m_{\pm}$ by $dm_{\pm} = f_{\pm} dL$. Since $m_{\pm} << L$, givem $\varepsilon > 0,$ there is $\delta$ so
+			Let $f_{\pm} = \max\{0, \pm f\}$.
+			Define $m_{\pm}$ by $dm_{\pm} = f_{\pm} \, dL$.
+			Since $m_{\pm} \ll L$, given $\varepsilon > 0,$ there is $\delta$ so
 			\[
 				L(A) < \delta \implies m_{\pm}(A) < \varepsilon.
 			\]
 			This implies
 			\[
-				F_{\pm}(x) = \int \1_{[0,1]} f_{\pm} dL
+				F_{\pm}(x) = \int \1_{[0,1]} f_{\pm} \, dL
 			\]
-			are absolutely continous.
+			are absolutely continuous.
 
 			If
 			\begin{align*}
-									&\sum (b_k - a_k) < \delta \\
-					\text{and} \qquad &a_{k} \leq b_k \leq a_{k+1} \leq b_{k+1}
+				\sum (b_k - a_k) < \delta \quad\text{and} \quad
+				a_{k} \leq b_k \leq a_{k+1} \leq b_{k+1}
 			\end{align*}
-
 			then
 			 \[
-				\sum | f_{\pm}(b_k) - F_{\pm}(a_k) | = m_{\pm} ( \cup_{k} (a_k, b_k) < \varepsilon
+				\sum | f_{\pm}(b_k) - F_{\pm}(a_k) | = m_{\pm} ( \bigcup_{k} (a_k, b_k) < \varepsilon
 			\]
 			and since $F(x) - F(0) = F^{+} (x) - F^{-} (x)$,
 			$F$ is also absolutely continuous.
-	\end{enumerate}
+	\end{steps}
 
 \end{proof}
 
-Next ime we will cover product measures and Fubini.
+Next time we will cover product measures and Fubini's Theorem.
 
-We finished lecture by discussing midterm 2.
+We finished lecture by discussing Midterm 2.
