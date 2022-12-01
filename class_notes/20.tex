@@ -154,5 +154,29 @@ A \underline{Measurable rectangle} is a set $A_1 \times A_2 \subseteq X_1 \times
 
 Three important examples:
 
+\begin{example}[Example 1] Choose your favorite bump function $g: (0,1) \to [0,\infty]$ continuous with 
+	\[
+		\int g dL = 1 \quad \text{and } g = 0 \text{ on } (0, \frac{1}{2}]
+	\]  
+	[insert pic]
+	let $g_n(x) = 2^n g(2^nx)$ \\
+	let $f:(0,1)^2 \to [0,\infty)	$ be
+	\begin{align*}
+		f(x,y) &= \sum_{n \geq 0} (g_n (x) - g_{n+1}(x)) g_n(y)
+		\int \int f(x,y) dy dx &= 1 \\
+		\int \int f(x,y) dx dy &= 0 \\
+	\end{align*} 
+	Note
+	\[
+		\int \int |f| dx dy = \infty
+	\] 
+\end{example}
 
+\begin{corollary}
+	If $f: X_1 \times X_2 \to \R$ measurable, then
+	\[
+		\int \int f(x_1, x_2) dm_1 (x_1) dm_2 (x_2) = \int \int f(x_1, x_2) dm_2(x_2) dm_1(x_1)
+	\] 
+	provided $\int \int |f| d(m_1 \times m_2) < \infty$
+\end{corollary}
 
