@@ -180,3 +180,34 @@ Three important examples:
 	provided $\int \int |f| d(m_1 \times m_2) < \infty$
 \end{corollary}
 
+\begin{example}[Example 2]
+	\begin{align*}
+		&f:[0,1]^2 \to [0,\infty] \\
+		&f(x,y) = 
+		\begin{cases}
+			1 & x=y \\
+			0 & x \neq y
+		\end{cases}
+		&\int \int f(x,y) dL(x) dH^{0} (y) = 0 \\
+		&\int \int f(x,y) dH^{0}(x) dL (y) = 1 \\
+	\end{align*} 
+	$H^0$ not finite on $[0,1]$
+\end{example}
+
+\begin{example}[example 3]
+	Use continuum hypothesis and axiom of choice. Choose ordering $<<$ on $[0,1]$ so, for any $x \in [0,1]$.
+	\begin{align*}
+		&\{ y \in [0,1] : y << x \} \quad \text{is countable} \\
+		&A \subseteq [0,1]^2 \\
+		&A = \{ (x,y) : x << y \} \\
+		&A_{\cdot, y} \quad \text{countable}\\
+		&A_{x, \cdot} \quad \text{co-countable}\\
+	\end{align*} 
+	Both $A_{\cdot, y}$ and $A_{x, \cdot}$ Borel.
+	\begin{align*}
+		&\int \int \1_{A} (x_1, x_2) dL(x_1) dL(x_2) = 0 \\
+		&\int \int \1_{A} (x_1, x_2) dL(x_2) dL(x_1) = 1 \\
+	\end{align*} 
+
+	Fubini does not apply since $A$ is not Borel measurable.
+\end{example}
