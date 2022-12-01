@@ -1,8 +1,8 @@
 \section{2022-11-30}
 
-\subsection{Completness of Measures}
+\subsection{Completeness of Measures}
 
-We arrived at the the lebesgue integral by extending Riemann integral so:
+We arrived at the Lebesgue integral by extending Riemann integral so:
 
 If $f_n$ integrable and $f_n \geq f_{n+1} \geq 0$, and $f = \lim_{n\to \infty} f_n$ integrable then $\int f = \lim_{n \to \infty} f_n$
 
@@ -17,15 +17,15 @@ If $f_n$ integrable and $f_n \geq f_{n+1} \geq 0$, and $f = \lim_{n\to \infty} f
 However, we also get an additional completeness property for free from construction:
 
 
-(**) If $f : \R^d \to [0,\infty]$ lebesgue measurable, $\int f dL = 0$ and $0 \leq g \leq f$, then $g$ lebesgue measurable and $\int g dL = 0$
+(**) If $f : \R^d \to [0,\infty]$ Lebesgue measurable, $\int f dL = 0$ and $0 \leq g \leq f$, then $g$ Lebesgue measurable and $\int g dL = 0$
 
 
  \begin{lemma}
-	If $A \subseteq \R^d$ lebesgue measurable, $m(A) = 0$ and $B \subseteq  A$, then $B$ is lebesgue measurable.
+	If $A \subseteq \R^d$ Lebesgue measurable, $m(A) = 0$ and $B \subseteq  A$, then $B$ is Lebesgue measurable.
 \end{lemma}
 
 \begin{proof}
-	Recall $A \subseteq \R^d$ is lebesgue measurable if and only if
+	Recall $A \subseteq \R^d$ is Lebesgue measurable if and only if
 	\[
 		L^*(E) = L^**E \cap A) + L^* (E \cap A^c) \quad \text{for all } E \subseteq \R^d
 	\]
@@ -44,7 +44,7 @@ However, we also get an additional completeness property for free from construct
 \end{remark}
 
 \begin{example}
-	The $\frac{1}{2}$- cantor set $C$ contains non-borel sets.
+	The $\frac{1}{2}$- cantor set $C$ contains non-Borel sets.
 	Consider your favorite staircase function.
 
 	\[
@@ -53,7 +53,7 @@ However, we also get an additional completeness property for free from construct
 	is continuous and non-decreasing and $f(c) = [0,1]$
 \end{example}
 
-Choose $A \subseteq [0,1]$ that is not Borel. (E.g. the vitali set which is not Lebesgue measurable).
+Choose $A \subseteq [0,1]$ that is not Borel. (E.g. the Vitali set which is not Lebesgue measurable).
 
 $f^{-1} (A)$ is not Borel, since image of Borel set through continuous non-decreasing function is Borel.
 
@@ -64,7 +64,7 @@ $f^{-1} (A)$ is not Borel, since image of Borel set through continuous non-decre
 
 \begin{theorem}
 	Suppose $(X,S, m)$ measure space, let $S^*$ be subset $E \subseteq X$ for which there are $A \subseteq E \subseteq B$.
-	wich $A,B \in S$ and $m(B \setminus A) = 0$ and we define  $m^*(E) = m(A) = m(B)$, then we have $(X,S^*, m^*)$ complete.
+	which $A,B \in S$ and $m(B \setminus A) = 0$ and we define  $m^*(E) = m(A) = m(B)$, then we have $(X,S^*, m^*)$ complete.
 \end{theorem}
 
 \begin{remark}
@@ -112,9 +112,9 @@ Proof that $m^*$
 \end{theorem}
 
 \begin{proof}
-	Same proof as lemma for lebesgue measure from Before.
+	Same proof as lemma for Lebesgue measure from Before.
 
-	Completition is (muildly) incompatible with products.
+	Completion is (mildly) incompatible with products.
 \end{proof}
 
 \begin{example}
@@ -165,7 +165,7 @@ then
 \end{proof}
 
 \begin{corollary}
-	$L^{d_1 + d_2}$ is the completion of $L^{d_1} \times L^{d_2}$ here $L^d$ is lebesgue measure on $\R^d$.
+	$L^{d_1 + d_2}$ is the completion of $L^{d_1} \times L^{d_2}$ here $L^d$ is Lebesgue measure on $\R^d$.
 \end{corollary}
 
 \subsection{Completed Version of Fubini}
