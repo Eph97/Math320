@@ -14,7 +14,7 @@ where
 \] is the usual cartesian product. 
 
 
-A \underline{Measureable rectangle} is a set $A_1 \times A_2 \subseteq X_1 \times X_2$ where $A_1 \in S_1$ and $A_2 \in S_2$.
+A \underline{Measurable rectangle} is a set $A_1 \times A_2 \subseteq X_1 \times X_2$ where $A_1 \in S_1$ and $A_2 \in S_2$.
 
 \begin{definition}
 	\[
@@ -30,4 +30,117 @@ A \underline{Measureable rectangle} is a set $A_1 \times A_2 \subseteq X_1 \time
 	\end{align*} satisfy $A_{x_1 , \cdot} \in S_2$ and $A_{\cdot, x_2} \in S_1$.
 \end{lemma}
 
+\begin{proof}
+	Use induction over construction of $S_1 \times S_2$.
+	Let $\Omega \subseteq S_1 \times S_2$ be subcollection of $A \in S_1 \times S_2$ for which conclusion holds.
+
+	 \begin{enumerate}
+		 \item[Claim 1] If $R$ rectangle, then $R \in \Omega$. Suppose  $R = A_1 \times A_2$, $A_1 \in S_1$ and $A_2 \in S_2$
+
+			 \begin{align*}
+				 (A_1 \times A_2)_{(X_1, \cdot)} =
+				 \begin{cases}
+					 \emptyset & X_1 \notin A_1 \\
+					 A_2 & X_1 \in A_1
+				 \end{cases}
+			 \end{align*} 
+			 $(A_1 \times A_2)_{(\cdot, X_2)}$ Similar.
+		 \item[Claim 2] If $A \in \Omega$, then  $A^c \in \Omega$.
+			 \begin{align*}
+				 (A^c)_{(X_1, \cdot)} &= (A_{(X_1, \cdot)})^c \quad \text{and} \\
+				 (A^c)_{(\cdot, X_2)} &= (A_{(\cdot, X_2)})^c
+			 \end{align*}
+
+		 \item[Claim 3] If $A_k \in \Omega$, then  $\bigcup_{k \in \N} A_k \in \Omega$
+			 \begin{align*}
+				 (\bigcup_{k}A_k)_{(x_1, \cdot)} = \bigcup_{k}(A_k)_{(x_1, \cdot)} \quad \text{and} \\
+				 (\bigcup_{k}A_k)_{(\cdot, x_2)} = \bigcup_{k}(A_k)_{(\cdot, x_2)}
+			 \end{align*}
+			 
+	\end{enumerate}
+\end{proof}
+
+\begin{exercise}
+	Is the converse true?
+\end{exercise}
+
+\begin{definition}
+	Call $A \subseteq S_1 \times S_2$ \underline{elementary} if it is a finite disjoint union of measurable rectangles.
+\end{definition}
+
+
+\begin{lemma}
+	Elementary sets form an Algebra.
+\end{lemma}
+\begin{proof}
+	Exercise!
+\end{proof}
+
+
+\begin{lemma}
+	If $f : X_1 \times X_2 \to [0,\infty]$ is $(S_1 \times S_2)$ measurable, then
+	\begin{align*}
+		f(x_1, \cdot) &: X_2 \to [0,\infty] \quad \text{and} \\
+		f(\cdot, X_2) &: X_1 \to [0,\infty] \quad \text{are $S_2$ and $S_1$ measurable}
+	\end{align*} 
+\end{lemma}
+
+\begin{proof}
+	\[
+		f_{(X_1, \cdot)}^{-1}((a,b)) = [f^{-1}((a,b))]_{(X_1, \cdot)}
+	\] 
+\end{proof}
+
+
+\begin{lemma}
+	If $A \in S_1 \times S_2$ and $f_1 (X_1) = m_2 (A_{X_1, \cdot})$ and $f_2(X_2) = m_1 (A_{\cdot, X_2})$
+	$f_1$ is $S_1$-measurable, $A_2$ is $S_2$-measurable and $\int f_1 dm_1 = \int f_2 dm_2$
+\end{lemma}
+
+\begin{remark}
+	We are proving
+	\begin{align*}
+		\int [ \int \1_A (x_1, x_2) dm_1 (x_1)] dm_2 (x_2) = \int [ \int \1_A (x_1, x_2) dm_2(x_2) ] dm_1 (x_1)
+	\end{align*} 
+\end{remark}
+
+\begin{proof}
+	let $\Omega \subseteq S_1 \times S_2$ be collection of $A$ where conclusion holds.
+	\begin{enumerate}
+		\item[claim 1] If $\R$ rectangle, then $R \in \Omega$.
+			 \begin{align*}
+				 R &= A_1 \times A_2, A_1 \in S_1, A_2 \in S_2 \\
+				 f_1 &= m_2 (A_2) \1_{A_1}, \\
+				 f_2 &= m_1 (A_1) \1_{A_2}, \\
+				 \int f_1 dm_1 &= m_1 (A_1) m_2(A_2) = \int f_2 dm_2
+			\end{align*} 
+		\item[Claim 2] If $A$ elementary, then $A \in \Omega$. Conclusion commutes with finite sums.
+		\item[Claim 3] A monotone, use MCT.
+	\end{enumerate}
+\end{proof}
+
+\begin{definition}
+	If $A \in S_1 \times S_2$, then 
+	\begin{align*}
+		(m_1 \times m_2) (A) &= \int \int \1_{A} (x_1, x_2) dm_1(x_1) dm_2(x_2) \\
+							&= \int \int \1_{A} (x_1, x_2) dm_2(x_2) dm_1(x_1) \\
+	\end{align*}  
+\end{definition}
+
+\begin{theorem}
+	$m_1 \times m_2$ is a measure.
+\end{theorem}
+
+\begin{proof}
+	use Monotone Convergence.
+\end{proof}
+
+\begin{theorem}[Fubini]
+	If $f:X_1 \times X_2 \to [0, \infty]$ is  $S_1 \times S_2$- measurable, then
+	\begin{align*}
+		g_1 (x_1) &= \int f(x_1, x_2) dm_2(x_2) \quad \text{and} \\
+		g_2 (x_1) &= \int f(x_1, x_2) dm_1(x_1)
+	\end{align*} 
+	are $S_1$ and $S_2$ measurable and $\int g_1 dm_1 = \int g_2 dm_2 = \int f d(m_1 \times m_2)$
+\end{theorem}
 
