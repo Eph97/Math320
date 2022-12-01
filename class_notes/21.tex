@@ -165,8 +165,33 @@ then
 \end{proof}
 
 \begin{corollary}
-	$L^{d_1 + d_2}$ is the completion of 
-	
+	$L^{d_1 + d_2}$ is the completion of $L^{d_1} \times L^{d_2}$ here $L^d$ is lebesgue measure on $\R^d$.
 \end{corollary}
 
+\subsection{Completed Version of Fubini}
+
+\begin{lemma} If $f^*$ is  $(X, S^*, m^*)$ measurable. 
+	Then there exists $(X, S, m)$ measurable $f$ with $f: X \to [0,\infty]$, $f \leq f^*$ and $m^* * \{f < f^* \}) = 0$
+\end{lemma}
+
+\begin{proof}
+	Write $f^* = \lim_{n \to \infty} f_n^*$ with $f_{n}^* : X \to [0, \infty]$ is $S^*$-simple and 
+	$f_n^* \leq f_{n+1}^*$.
+	Assume $f_{0}^* = 0$. Write
+	\begin{align*}
+		f^* &= \sum_{n \geq 0} (f_{n+1}^* - f_n^*) \\
+			&= \sum_{k \geq 0} \alpha_{k} \1_{E_k}
+	\end{align*}
+	where $\alpha_k \geq 0$ and $E_k \in S^*$. Choose $A_k, B_k \in S$ with $A_k \subseteq E_k \subseteq B_k$ and
+	$m(B_k \setminus A_k) = 0$.
+
+	Let $f = \sum_{k \geq 0} \alpha_{k} \1_{A_k}$ have $f \leq f^*$ and
+	\begin{align*}
+		\{ f \leq f^* \} \subseteq \bigcup_{k} (B_{k} \setminus A_k)
+	\end{align*} 
+\end{proof}
+
+\begin{theorem}[Completed Fubini]
+	Suppose $(X_1, S_1, m_1)$ and
+\end{theorem}
 
