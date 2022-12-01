@@ -76,6 +76,53 @@ A \underline{Measurable rectangle} is a set $A_1 \times A_2 \subseteq X_1 \times
 	Exercise!
 \end{proof}
 
+\begin{lemma}
+	$S_1 \times S_2$ is minimal collection of subset of $x_1 \times x_2$ that conains elementary set and is monotone
+	\begin{align}
+		&A_k \in S_1 \times S_2, A_k \subseteq A_{k+1} \implies \bigcup_{k}A_{k} \in S_1 \times S_2 \\
+		&B_k \in S_1 \times S_2, B_k \contains B_{k+1} \implies \bigcap_{k}B_{k} \in S_1 \times S_2 \\
+	\end{align}
+\end{lemma}
+
+\begin{remark}
+	We already know a monotone algebra is a $\sigma$-algebra.
+\end{remark}
+
+\begin{proof}
+	Let $S \subseteq \mathcal{P}(X_1 \times X_2)$ be minimal collection that contains elementary sets and is monotone.
+	We know $S \subseteq S_1 \times S_2.$ \\
+	\underline{It's enough to show $S$ is algebra.}
+
+	The argument is subtle:
+
+	For $A \in S$ define
+	\[
+		\Omega (A) = \{ B \in S : A \cap B, A \cup B, A \cap B^c, A^c \cap \in S\}
+	\] 
+	\begin{enumerate}
+		\item[Claim 1] $B \in \Omega (A) \implies A \in \Omega (B)$
+		\item[Claim 2]  If $A$ is elementary implies $\Omega (A) \contains$\{ elementary\}
+		\item[Claim 3] $\Omega (A)$ monotone
+
+			$B_{k} \in \Omega (A) $ monotone implies
+			\[
+				B_{k} \cup A, B_k \cap A, B_{k}^c \cap A, B_k \cap A^c \in S
+			\] and monotone $(\cdot, k)$ implies
+			\[
+				\bar{B} \cup A, \bar{B} \cap A, \bar{B}^c \cap A, \bar{B} \cap A^c \in S
+			\] where $\bar{B}$ either $\cup_{k} B_k$ or $\cap_{k} B_k$
+
+		\item[Claim 4] A elementary implies $\Omega(A) = S$ by claim 2 and 3, $\Omega (A)$ contains elementary and is monotone so $\Omega (A) \contains S$ by minimality
+		\item[Claim 5] $A \in S \implies \Omega (A) = S$.
+
+			Suppose $A \in S$. If $B$ elementary, $A \in \Omega (B)$ by claim 4. So $B \in \Omega (A)$ by claim 1. So $\Omega (A)$ contians all elementary and is monotone (By claim 3).
+
+			So Again, using minimality, $\Omega (A) = S$.
+		\item[Claim 6] S an algebra:
+
+			By Claim 5 and definition of  $\Omega$. In addition we know montone algebra implies sigma algebra.
+ 	\end{enumerate}
+\end{proof}
 
 \begin{lemma}
 	If $f : X_1 \times X_2 \to [0,\infty]$ is $(S_1 \times S_2)$ measurable, then
