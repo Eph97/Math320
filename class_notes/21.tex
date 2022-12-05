@@ -3,11 +3,12 @@
 \subsection{Completeness of Measures}
 
 We arrived at the Lebesgue integral by extending Riemann integral so:
-
-If $f_n$ integrable and $f_n \geq f_{n+1} \geq 0$, and $f = \lim_{n\to \infty} f_n$ integrable then $\int f = \lim_{n \to \infty} f_n$
+\begin{itemize}
+	\item[($\star$)] If $f_n$ integrable and $f_n \geq f_{n+1} \geq 0$, and $f = \lim_{n\to \infty} f_n$ integrable, then $\int f = \lim_{n \to \infty} f_n$
 
 \begin{example}
-	$C = \cap C_n$.
+	Take the $\frac{1}{2^{n+1} - 1}$-Cantor set.
+	$C = \bigcap C_n$.
 	 \[
 		 \int_{[0,1]} \1_{C_n} \to \frac{1}{2} \quad \text{as } n \to \infty.
 	\]
@@ -16,54 +17,57 @@ If $f_n$ integrable and $f_n \geq f_{n+1} \geq 0$, and $f = \lim_{n\to \infty} f
 
 However, we also get an additional completeness property for free from construction:
 
+\item[($\star \star$)] If $f : \R^d \to [0,\infty]$ Lebesgue measurable, $\int f \, dL = 0$ and $0 \leq g \leq f$, then $g$ Lebesgue measurable and $\int g \, dL = 0$.
+\end{itemize}
 
-(**) If $f : \R^d \to [0,\infty]$ Lebesgue measurable, $\int f dL = 0$ and $0 \leq g \leq f$, then $g$ Lebesgue measurable and $\int g dL = 0$
-
-
- \begin{lemma}
-	If $A \subseteq \R^d$ Lebesgue measurable, $m(A) = 0$ and $B \subseteq  A$, then $B$ is Lebesgue measurable.
+\begin{lemma}
+	If $A \subseteq \R^d$ Lebesgue measurable, $m(A) = 0$, and $B \subseteq  A$, then $B$ is Lebesgue measurable.
 \end{lemma}
 
 \begin{proof}
 	Recall $A \subseteq \R^d$ is Lebesgue measurable if and only if
 	\[
-		L^*(E) = L^**E \cap A) + L^* (E \cap A^c) \quad \text{for all } E \subseteq \R^d
+		L^*(E) = L^*(E \cap A) + L^* (E \cap A^c) \quad \text{for all } E \subseteq \R^d
 	\]
-	If $B \subseteq A$ and $L(A) = 0$, then 
+	If $B \subseteq A$ and $L(A) = 0$, then
 	\begin{align*}
 		L^*(E) &\leq L^*(E \cap B) + L^*(E \cap B^c) \\
 			   &\leq L^*(E \cap B) + L^*(E \cap A^c) + L^*(E \cap A \cap B^c) \\
 			   &\leq 2 L^*(A) + L^*(E \cap A^c) \\
+				 &= L^* (E \cap A^c) \\
 			   &\leq L^*(E \cap A^c) + L^*(E \cap A) \\
 			   &= L^*(E)
-	\end{align*} 
+	\end{align*}
 \end{proof}
 
 \begin{remark}
-	If we restrict $L$ to Borel sets $\B(\R^d)$ then we lose property (**)
+	If we restrict $L$ to Borel sets $\B(\R^d)$ then we lose property ($\star \star$).
 \end{remark}
 
 \begin{example}
-	The $\frac{1}{2}$- cantor set $C$ contains non-Borel sets.
+	The $\frac{1}{2}$-Cantor set $C$ contains non-Borel sets.
 	Consider your favorite staircase function.
 
 	\[
-		f(x) = \int \1_{[0,1]}\1_{C} dH^{\frac{\log{2}}{\log{3}}}
-	\] 
-	is continuous and non-decreasing and $f(c) = [0,1]$
+		f(x) = \int \1_{[0,1]}\1_{C} \, dH^{\frac{\log{2}}{\log{3}}}
+	\]
+	is continuous and non-decreasing and $f(c) = [0,1]$.
 \end{example}
 
 Choose $A \subseteq [0,1]$ that is not Borel. (E.g. the Vitali set which is not Lebesgue measurable).
 
 $f^{-1} (A)$ is not Borel, since image of Borel set through continuous non-decreasing function is Borel.
 
-
 \begin{remark}
-	A general measure space $(X, S, m)$ will always satisfy (*) but may not satisfy  (**).
+	A general measure space $(X, S, m)$ will always satisfy ($\star$) but may not satisfy  ($\star \star$).
 \end{remark}
 
+\begin{definition}[Completeness]
+	Call $(X,S,m)$ \underline{complete} if $B \in S$ whenever, $B \subseteq A \in S$ and $m(A) = 0$.
+\end{definition}
+
 \begin{theorem}
-	Suppose $(X,S, m)$ measure space, let $S^*$ be subset $E \subseteq X$ for which there are $A \subseteq E \subseteq B$.
+	Suppose $(X,S, m)$ measure space. If $S^*$ be subset $E \subseteq X$ for which there are $A \subseteq E \subseteq B$.
 	which $A,B \in S$ and $m(B \setminus A) = 0$ and we define  $m^*(E) = m(A) = m(B)$, then we have $(X,S^*, m^*)$ complete.
 \end{theorem}
 
@@ -76,7 +80,7 @@ $f^{-1} (A)$ is not Borel, since image of Borel set through continuous non-decre
 \end{proof}
 
 \begin{theorem}
-	Suppose $(X,s, m)$ measure space, let $S^*$ be subset $E \subseteq X$ for which there are $A \subseteq E \subseteq B$ with 
+	Suppose $(X,s, m)$ measure space, let $S^*$ be subset $E \subseteq X$ for which there are $A \subseteq E \subseteq B$ with
 	$A, B \in S$ and $m(B \setminus A) = 0$ and we define  $m^*(E) = m(A) = m(B)$, then have $(X,S^*, m^*)$ complete.
 \end{theorem}
 
@@ -88,20 +92,20 @@ $f^{-1} (A)$ is not Borel, since image of Borel set through continuous non-decre
 	$S^* \contains S_0$ if $E \in S^*$, then choose $A \subseteq E \subseteq B$ with $A,B \in S$ and  $m(B \setminus A) = 0$.
 
 	Observe  $B^c \subseteq E^c \subseteq A^c$ and $A^c \setminus B^c = B \setminus A_0$. So
-	 $E^c \in S^*$. If $E_k \in S^*$ and $A_k \subseteq E \subseteq B_k$ with $A_k, B_k \in S$ and $m(B_k \setminus A_k) = 0$, 
+	 $E^c \in S^*$. If $E_k \in S^*$ and $A_k \subseteq E \subseteq B_k$ with $A_k, B_k \in S$ and $m(B_k \setminus A_k) = 0$,
 	 then
 	 \[
-		 A = \bigcup_{k} A_k \subseteq 
-		 E = \bigcup_{k} E_k \subseteq 
+		 A = \bigcup_{k} A_k \subseteq
+		 E = \bigcup_{k} E_k \subseteq
 		 B = \bigcup_{k} B_k
-	 \] 
+	 \]
 	 $A,B \in S$, and
 	 \begin{align*}
 		 m(B \setminus A) \leq \sum_{k} m(B_{k} \setminus A) \leq \sum_{k} m(B_{k} \setminus A_k) = 0
 	 \end{align*}
 \end{proof}
 
-Proof that $m^*$ 
+Proof that $m^*$
 
 \begin{corollary}
 	$L$ is completion of its restriction to Borel $\sigma$-algebra.
@@ -118,7 +122,7 @@ Proof that $m^*$
 \end{proof}
 
 \begin{example}
-	Suppose $(X_1, S_1, m_1)$ and  $(X_2, S_2, m_2)$ are complete, 
+	Suppose $(X_1, S_1, m_1)$ and  $(X_2, S_2, m_2)$ are complete,
 	$(X_1 \times X_2, S_1 \times S_2, m_1 \times m_2)$ usually \underline{not} compute.
 \end{example}
 
@@ -140,20 +144,20 @@ then
 \begin{proof}
 	The topology on $X_1 \times X_2$ is generated by $U_1 \times U_2$ for $U_1 \subseteq X_1$ and $U_2 \subseteq X_2$ open.
 
-	$\B(X)$ generated by open $U \subseteq X$, $\B(X_1) \times \B(X_2)$ generated by $A_1 \times A_1$ for 
+	$\B(X)$ generated by open $U \subseteq X$, $\B(X_1) \times \B(X_2)$ generated by $A_1 \times A_1$ for
 	$A_1 \in \B(X_1)$ and $A_2 \B(X_2)$
 
 	Combining these, obtain
 	 \[
 		\B(X_1 \times X_2) \subseteq \B(X_1) \times \B(X_2)
-	\] 
+	\]
 	Consider $\{U_1 \times X_2 : U_1 \subseteq X_1 \text{ open} \}$
-	and observe it generates 
+	and observe it generates
 	\[
 		\{A_1 \times X_2 : A_1 \subseteq X_1 \text{ Borel } \}
-	\] 
+	\]
 
-	\underline{Similar}: $\{ X_1 \times U_2 : U_2 \subseteq X_2 \text{ open }\}$ 
+	\underline{Similar}: $\{ X_1 \times U_2 : U_2 \subseteq X_2 \text{ open }\}$
 	generates $\{ X_1 \times A_2 : A_2 \subseteq X_2 \text{Borel} \}$
 
 	\[
@@ -161,7 +165,7 @@ then
 	\] So
 	\[
 		\B(X_1 \times X_2 ) \contains \B(X_1) \times \B(X_2)
-	\] 
+	\]
 \end{proof}
 
 \begin{corollary}
@@ -170,12 +174,12 @@ then
 
 \subsection{Completed Version of Fubini}
 
-\begin{lemma} If $f^*$ is  $(X, S^*, m^*)$ measurable. 
+\begin{lemma} If $f^*$ is  $(X, S^*, m^*)$ measurable.
 	Then there exists $(X, S, m)$ measurable $f$ with $f: X \to [0,\infty]$, $f \leq f^*$ and $m^* * \{f < f^* \}) = 0$
 \end{lemma}
 
 \begin{proof}
-	Write $f^* = \lim_{n \to \infty} f_n^*$ with $f_{n}^* : X \to [0, \infty]$ is $S^*$-simple and 
+	Write $f^* = \lim_{n \to \infty} f_n^*$ with $f_{n}^* : X \to [0, \infty]$ is $S^*$-simple and
 	$f_n^* \leq f_{n+1}^*$.
 	Assume $f_{0}^* = 0$. Write
 	\begin{align*}
@@ -188,7 +192,7 @@ then
 	Let $f = \sum_{k \geq 0} \alpha_{k} \1_{A_k}$ have $f \leq f^*$ and
 	\begin{align*}
 		\{ f \leq f^* \} \subseteq \bigcup_{k} (B_{k} \setminus A_k)
-	\end{align*} 
+	\end{align*}
 \end{proof}
 
 \begin{theorem}[Completed Fubini]
@@ -226,6 +230,6 @@ then
 
 	 \[
 	 	\int \int f^* (x_1, x_2) dm_2 (x_2) dm_1 (x_1) = 0.
-	 \] 
+	 \]
 \end{proof}
 
