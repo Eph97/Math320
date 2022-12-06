@@ -220,7 +220,7 @@ when $\eta =0$, $f \equiv 1$ and
 
 \begin{definition}[Ergodic measure]
 	Call $m \in \mathcal{M}_T$ \underline{ergodic} if and only if $m(B) \in \{0,1\}$ for all 
-	$B \subseteq K$ Borel with $M(B \symm T^{-1}(B)) = 0$.
+	$B \subseteq K$ Borel with $M(B \triangle T^{-1}(B)) = 0$.
 \end{definition}
 
 \begin{theorem}
@@ -228,4 +228,54 @@ when $\eta =0$, $f \equiv 1$ and
 \end{theorem}
 
 
+\begin{proof}
+	Suppose $m \in \mathcal{M}_T$ \underline{not} ergodic.
+	Choose $B \subseteq K$ borel with $m(B \triangle T^{-1}(B)) = 0$ and 
+	\begin{align*}
+		0 < &m(B) < 1 \\
+		m_1 (A) &= \frac{m(A \cap B)}{ m(B)} \\
+		m_2 (A) &= \frac{m(A \cap B^{c})}{ m(B_{c})} \\
+	\end{align*}
+\end{proof}
 
+\begin{exercise}
+	Since $m (B \triangle T^{-1}(B)) = 0$, both $m_1, m_2 \in \mathcal{M}_T$.
+\end{exercise}
+
+\begin{remark}
+	Not ergodic means can split system $(K, T, m)$ into two independent non-trivial pieces  $(B,T, m|_{B})$ and $(B^c, T, m|_{B^c})$
+\end{remark}
+
+
+suppose $m \in \mathcal{M}_T$ \underline{not} extremal.
+\begin{align*}
+	m &= t m_1 + (1-t) m_2 \\
+	m_1, m_2 &\in \mathcal{M}_T, t \in (0,1), m_1 \neq m \\
+	m_1 &<< m \\
+	dm_1 &= f_1 dm, \; f_1 \in L^1 (m)
+\end{align*}  
+
+\begin{claim}
+	$f_1 = f_1 \circ T$ $m$-a.e.
+	\begin{align*}
+		m_1 (B) &= \int \1_{B} f_1 dm \\
+				&= \int (\1_{B} f) \circ T dm \\
+				&= \int \1_{T^{-1}(B)} (f \circ T) \circ T dm \\
+				= m_1 (T^{-1}(B)) = \int \1_{T^{-1}(B)} f dm
+	\end{align*} 
+\end{claim}
+
+\underline{cheating assumption} If $T$ has continuous inverse, then every Borel set $B \subseteq K$ can be written
+$B = T^{-1}(T(B))$.
+Obtain
+\[
+	\int \1_{B} (f \circ T ) dm = \int \1_{B} f dm
+\] 
+
+\begin{exercise}
+	Avoid cheating
+	\footnote{harder than it sounds so see professor in office hours.}
+\end{exercise}
+
+$m_1 \neq m$ implies $\not (f = 1 m\text{-a.e})$ implies $B = f^{-1}([0,1])$ has
+$0 < m(B) < 1$ and $m (B \triangle T^{-1}(B)) = 0$
