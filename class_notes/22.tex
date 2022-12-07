@@ -42,9 +42,9 @@ First we need some new concepts
 \end{proof}
 
 \begin{exercise}
-	Since $\{f_l \}$ dense, the map $f_{l} \mapsto \bar{m}_l$ extends to positive linear $\Gamma : C(K) \to \R$
+	Since $\{f_l \}$ dense, the map $f_{l} \mapsto \bar{m}_l$ extends to positive linear $\Lambda : C(K) \to \R$
 
-	By Riesz,  $\Gamma f = \int f d \bar{m}$ for unique Borel measure $\bar{m}$. Conclude using density of $\{f_l\}$
+	By Riesz,  $\Lambda f = \int f d \bar{m}$ for unique Borel measure $\bar{m}$. Conclude using density of $\{f_l\}$
 \end{exercise}
 
 \begin{remark}
@@ -89,7 +89,7 @@ Previous theorem gives compactness
 	\[
 		m_k = \frac{\delta_0 + \delta_{1 - \frac{1}{k}} + \cdots + \delta_{k - \frac{1}{k}}}{k}
 	\] 
-	$m_k \rightarrow[]{*} L$
+	$m_k \xrightarrow[]{*} L$
 \end{example}
 
 \begin{definition}
@@ -115,7 +115,7 @@ If $X_{k+1} = T X_{k}$, then $\{X_k\}$ equidistributes to  $L$.
 
 Consider $f \in C(K)$ given by 
 \[
-	f(x) = e^{2 \pi i \eta \cdot x} \quad \text{for some } \eta \in \Z^d
+	f(x) = e^{2 \pi i \xi \cdot x} \quad \text{for some } \xi \in \Z^d
 \] 
 \end{definition}
 
@@ -127,23 +127,23 @@ observe
 \[
 	\int f dL = 
 	\begin{cases}
-		1 & \eta = 0 \\
-		0 & \eta \neq 0
+		1 & \xi = 0 \\
+		0 & \xi \neq 0
 	\end{cases}
 \] 
 
 then observe
 \begin{align*}
 	&X_k = T^{k} x_0 = (x_0 + K\alpha) \mod{\Z^d} \\
-	&f(x_k) = f(x_0) e^{2 \pi i \eta \cdot k \alpha} \\
+	&f(x_k) = f(x_0) e^{2 \pi i \xi \cdot k \alpha} \\
 	&\int f d \frac{\delta_{x_0} + \cdots + \delta_{x_n -1}}{n} \\
-	&\frac{1}{n} \sum_{k=0}^{n-1} f(x_k) = \frac{f(x_0)}{n} \sum_{k=0}^{n-1} e^{2\pi i \eta \cdot k\alpha} \quad \text{ assume } \eta \neq 0 \\
-	&= \frac{f(x_0)}{n} \frac{e^{2\pi i \eta \cdot n\alpha} -1}{e^{2\pi i \eta \cdot \alpha } -1} \quad \text{ by hypothesis}
+	&\frac{1}{n} \sum_{k=0}^{n-1} f(x_k) = \frac{f(x_0)}{n} \sum_{k=0}^{n-1} e^{2\pi i \xi \cdot k\alpha} \quad \text{ assume } \xi \neq 0 \\
+	&= \frac{f(x_0)}{n} \frac{e^{2\pi i \xi \cdot n\alpha} -1}{e^{2\pi i \xi \cdot \alpha } -1} \quad \text{ by hypothesis}
 \end{align*} 
-$\eta \cdot \alpha \notin \Z$ so $e^{2\pi i \eta \cdot \alpha} - 1 \neq 0 \to 0$ as $n \to \infty$.
+$\xi \cdot \alpha \notin \Z$ so $e^{2\pi i \xi \cdot \alpha} - 1 \neq 0 \to 0$ as $n \to \infty$.
 
 
-when $\eta =0$, $f \equiv 1$ and
+when $\xi =0$, $f \equiv 1$ and
 \[
 	\int f d \frac{\delta_{x_0} + \cdots + \delta_{x_n -1}}{n} =1
 \] 
@@ -173,7 +173,7 @@ when $\eta =0$, $f \equiv 1$ and
 	Follows from definition
 	$m_k \in \mathcal{M}_t$ and $m_k \xrightarrow[]{*} m$, then 
 	\begin{align*}
-		]int f dm \leftarrow[k \to \infty] &\int f dm_k \\
+		\int f dm \leftarrow[k \to \infty] &\int f dm_k \\
 		= &\int f \circ T dm_k \\
 		\xrightarrow[k \to \infty] \int f \circ T dm
 	\end{align*} 
@@ -277,5 +277,5 @@ Obtain
 	\footnote{harder than it sounds so see professor in office hours.}
 \end{exercise}
 
-$m_1 \neq m$ implies $\not (f = 1 m\text{-a.e})$ implies $B = f^{-1}([0,1])$ has
+$m_1 \neq m$ implies $not (f = 1 m\text{-a.e})$ implies $B = f^{-1}([0,1])$ has
 $0 < m(B) < 1$ and $m (B \triangle T^{-1}(B)) = 0$
