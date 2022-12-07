@@ -162,7 +162,7 @@ We then have a model for uniform random element of $A^{\N}$:
 	Choose  $r \in A^{\{0,\ldots,n-1\}} $ on which a copy of usenet appears.
 	\begin{align*}
 		\mathbb{P}(C_{\{0,\ldots, n-1\}, \{r\}} &> 0 \\
-												&\approx 256^{-1012}
+												&\approx 256^{-10^{12}}
 	\end{align*}
 	Let
 	\begin{align*}
@@ -185,10 +185,12 @@ We then have a model for uniform random element of $A^{\N}$:
 											&= 1 - \mathbb{P} ( \bigcap_{k=1}^{m} C_{k}^c ) \\
 											&= 1 - \Pi_{k=1}^{m} \mathbb{P}(C_k^c) \\
 											&= 1 - \left(\mathbb{P}(C^c_{\{0, \ldots, n-1\}, \{r\}})\right)^m \\
-											&= 1 - \left(1 - (\mathbb{P}(C_{\{0, \ldots, n-1\}, \{r\}})\right)^m
+											&= 1 - \left(1 - (\mathbb{P}(C_{\{0, \ldots, n-1\}, \{r\}})\right)^m \\
+											&\to 0 \quad \text{as } m\to \infty \\
+											&\geq 1 - (1 - 256^{-10^12})m
 	\end{align*} 
 
-	Need $m \approx 256^{10^12}$ to get $\mathbb{P} = 1/2$, by limit theorems
+	Need $m \approx 256^{10^{12}}$ to get $\mathbb{P} = 1/2$, by limit theorems
 	\[
 		\mathbb{P}(\{\text{usenet appears \})} = 1
 	\] 
