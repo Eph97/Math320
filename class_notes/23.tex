@@ -17,6 +17,14 @@
 an event $E$ is a subset $E \subseteq \Omega$
 
 \begin{example}
+	\begin{align*}
+		E &= \{ \text{there are two heads} \} \\
+		  &= \{HHT, HTH, THH\}
+	\end{align*} 
+	probability of event $E \subseteq \Omega$ is $\mathbb{P}(E) = \sum_{\omega \in E} p(\omega)$
+\end{example}
+
+\begin{example}
 	P(\{ there are two heads \}) = $\frac{3}{8}$
 \end{example}
 
@@ -42,6 +50,33 @@ Two events $E_1, E_2 \subseteq \Omega$ are independent if
 \begin{align*}
 	\mathbb{P} (E_1 \cap E_2 ) = \mathbb{P} (E_1) \mathbb{P} (E_2)
 \end{align*} 
+
+\begin{example}
+	$E_k =$ kth flip is heads, $E_1, E_2$ are independent.
+	\begin{align*}
+		E_1 \cap E_2 &= \{ HHT, HHH\}, \mathbb{P}(E_1 \cap E_2 ) = \frac{1}{4}, \mathbb{P}(E_1) = \mathbb{P}(E_2) = \frac{1}{2}
+	\end{align*} 
+\end{example}
+
+\begin{example}
+	$V_k = \1_{E_k}$, $V_1$ and $V_2$ are independent.
+	If $V_1$ and $V_2$ are independent then 
+	\[
+		\E(V_1 V_2) = \E(V_1) \E(V_2)
+	\] 
+\end{example}
+
+
+Two random variables $V_1, V_2$ are independent if events $\{V_1 = K_1 \}$ and $\{V_2 = K_2 \}$ 
+are independent for all $k_1 , k_2 \in \R$.
+
+\begin{definition}[Countably Infinite Probability]
+	\begin{align*}
+		\Omega &= \{ \omega_k : k \in \N \} \\
+		\mathbb{P} &: \Omega \to [0,\infty) \\
+		\sum_{\omega \in \Omega} p(\omega) &= 1
+	\end{align*}
+\end{definition}
 
 
 \subsection{Uncountably infinite probabilities}
